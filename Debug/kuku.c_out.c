@@ -1,7 +1,7 @@
 /*PROGRAM_START*///#xinclude<stdio.h>
 #define KUKU 9
 int main(void){
-/*	int kuku[KUKU][KUKU];
+	int kuku[KUKU][KUKU];
 	int i,j;
 	for(i = 0; i < KUKU; i++)
 		for(j = 0; j < KUKU; j++)
@@ -15,6 +15,6 @@ int main(void){
 			printf("%3d ", kuku[i][j]);
 		}
 		printf("\n"); 
-	}*/
+	}
 	return 0;
 }

@@ -21,7 +21,7 @@ void CSTLString_replace_string(CSTLString *target, char *search, char *replace){
 	int location = CSTLString_find(target,search,0);
 	while(location != CSTL_NPOS){
 		CSTLString_replace(target, location, strlen(search), replace);
-		location = CSTLString_find(target,search,0);
+		location = CSTLString_find(target,search,location + strlen(replace));
 	}
 }
 /**

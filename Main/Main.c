@@ -193,8 +193,8 @@ int main(int argc, char *argv[]){
 									//出力ファイルに検証式付きのプログラムを出力させる
 									snprintf(output_file_name, FILE_PATH, "%s_output.c", preprocess_file_name);
 									output = fopen(output_file_name, "w");
-									printProgramDataWithValidateStatement(programAST, varidate_variable_list, validate_statement_list, for_information_list);
-									//fprintProgramDataWithValidateStatement(output, programAST, varidate_variable_list, validate_statement_list, for_information_list);
+									//printProgramDataWithValidateStatement(programAST, varidate_variable_list, validate_statement_list, for_information_list);
+									fprintProgramDataWithValidateStatement(output, programAST, varidate_variable_list, validate_statement_list, for_information_list);
 
 									//入力ファイルおよび出力ファイルを閉じる
 									fclose(target_source_file);
