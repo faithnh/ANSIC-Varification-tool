@@ -2719,12 +2719,13 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 		//該当するexpression_statementに対する検証式変更用の検証式を全て出力させる
 		fprintValidateStatement(output, validate_statement_list, root, MODIFY_VS, FALSE);
 
-		//式自体を出力させる。
+		//発生経路を出力するために式を出力させる。
 		CSTLString *c = CSTLString_new();
 		getStringFromAST(c,root);
+		CSTLString_replace_string(c,"\\","\\\\");
 		CSTLString_replace_string(c,"\"","\\\"");
 		CSTLString_replace_string(c,"%","%%");
-		fprintf(output, "printf(\"%s\\n\");\n", CSTLString_c_str(c));
+		fprintf(output, "printf(\"#%s:%d#%s\\n\");\n",getFileName(), root->line, CSTLString_c_str(c));
 
 	}
 	//for文系統が来た場合、whileの形に直しながら、検証式を入れていく
@@ -2825,11 +2826,11 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 			if(CSTLString_compare_with_char(ASTList_data(p)->name, "statement") == 0){
 				//ブロック付きの命令でない場合
 				if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0 &&
-				CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0){
+				CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") != 0){
 					//かっこを追加したうえ、追加させる
-					//fprintf(output, "{ ");
+					fprintf(output, "{ ");
 					fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
-					//fprintf(output, "} ");
+					fprintf(output, "} ");
 				}
 				//ブロック付きの場合
 				else{
