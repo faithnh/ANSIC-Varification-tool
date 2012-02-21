@@ -2723,7 +2723,7 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 		CSTLString *c = CSTLString_new();
 		getStringFromAST(c,root);
 		CSTLString_replace_string(c,"\"","\\\"");
-		CSTLString_replace_string(c,"%%","%%%%");
+		CSTLString_replace_string(c,"%","%%");
 		fprintf(output, "printf(\"%s\\n\");\n", CSTLString_c_str(c));
 
 	}
