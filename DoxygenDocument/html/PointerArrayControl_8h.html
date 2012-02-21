@@ -1,0 +1,1893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/PointerArrayControl.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/PointerArrayControl.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指しているかという式に関する情報のことである。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;cstl/list.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="CSTLString_8h_source.html">../Library/CSTLString.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="AST_8h_source.html">AST.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Synbol_8h_source.html">Synbol.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="FunctionInformation_8h_source.html">FunctionInformation.h</a>&quot;</code><br/>
+</div>
+<p><a href="PointerArrayControl_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarray__offset.html">array_offset</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structarray__offset.html">array_offset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ae18d261788d71423fa2c0980d3de19cd">ARRAY_OFFSET</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ad39591d4757bb4a1cbb2e982e031aa0c">new_ARRAY_OFFSET_char</a> (char *variable_name, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement, <a class="el" href="structabstract__syntax__tree.html">AST</a> *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a3c19acc973d7d77775aab6be9a51c6c0">new_ARRAY_OFFSET</a> (CSTLString *variable_name, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement, <a class="el" href="structabstract__syntax__tree.html">AST</a> *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a1fe4a503769616086f897aa93a66f5a7">OFFSET_LIST_push_back_alloc</a> (OFFSET_LIST *offset_list, char *string)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a93c403617815b6a7d28fc18dd28d0ab8">getPointerArrayOffset</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, int offset_level, ASTPOINTER_LIST *ignore_ast_list, <a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> **<a class="el" href="structarray__offset.html">array_offset</a>, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement, int anpasand_flag, int inc_dec_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a8c3eadc0355b2748c489ded072531764">getARRAY_OFFSET_LIST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ab042eed938daf0311a0345295ad700ef">get_ARRAY_OFFSET_LISTIgnoreASTNAME</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement, CSTLString *ignore_ast_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a95c8e82725af82de833504d5c782a68a">getArrayOffsetInAnpasandInfo</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a09038dff6ab32c8ba846e98ad7757af7">getArrayOffsetInIncDecInfo</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement, int inc_dec_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ada7e37243ccbe1db44bbaed13941dcef">getUpperExpressionRelationNode</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *target, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> **output, <a class="el" href="structabstract__syntax__tree.html">AST</a> **output2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#acc3cd8275754e5412501748b96b6f23e">deletePointerAndArraySynbol</a> (CSTLString *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a865793639f2aa40d0c7e5101f130ac3e">deletePointer</a> (CSTLString *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a5a9cab9c5ed8a9f47b90a3b012b2dd86">searchExpressionOrPointeArrayOrIden</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> **output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a50b8e40d4ca955feb62fd12fc5a1cfc9">searchPointerAccessOrIdentifierOrPrimary</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> **output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a8085beaa8ccab452696d382420351c3c">getPointerAccessOrIdentifierList</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> ***output, int *getSize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ae55c88e5cf59c1f0369d57d92a1da628">checkIdentifierPointerArrayLevel</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *identifier, int offset_level, VARIABLE_TABLE_LIST *variable_table_list, ASTPOINTER_LIST *ignore_ast_list, int *pointer_level, int *array_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a1aa81f5be8863d85891cc45786b885b8">checkCallFunction</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *call_function, int offset_level, FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a959e6be57534291a0e6d0567927d0c8a">checkIgnoreASTList</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data, ASTPOINTER_LIST *ignore_ast_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a52c26c3f03a8f88684cbf4e4f85c09ec">getOFFSET_LISTFromVariableTable</a> (OFFSET_LIST *offset_list, <a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *<a class="el" href="structvariable__table.html">variable_table</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a3512541a1ccd254e112b4658f0226d23">deleteOFFSET_LIST</a> (OFFSET_LIST *offset_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a2ed02feb19741e76c894e54825bf539f">getOffsetLevelFromArrayOffset</a> (<a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="el" href="structarray__offset.html">array_offset</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ac33e43a25ee2e1cde405220d410162b7">maxOffsetLevelAddressFromArrayOffsetList</a> (ARRAY_OFFSET_LIST *array_offset_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a379c30f21274eb53a257e04670bc6de0">searchOffsetLevelAddressFromArrayOffsetList</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list, int pointer_level, int array_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a20d295101c3b4b2e1f53c170d216e991">maxOffsetLevelFromArrayOffsetList</a> (ARRAY_OFFSET_LIST *array_offset_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a9c6c8ad729c816c8eee5503fbe7e8e9b">getExpressionOffsetInfo</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_expression, int *switch_mode, int allow_subeffect)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a7b73777a069952f6ceaec87d52b3762c">getArgumentOffsetInfo</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *argument, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_expression, int *switch_mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a2e65dd778abdab29f2f02906e86f9c0e">getSingleExpressionOffsetInfo</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_expression, int *switch_mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#aae4e21ff334802d880f23daf18645b6c">createArrayExpression</a> (CSTLString *output, <a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="el" href="structarray__offset.html">array_offset</a>, int output_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a238d39bda32ef42e800cdb25552670d5">createValidateVariableArrayExpression</a> (CSTLString *output, <a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="el" href="structarray__offset.html">array_offset</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a1c6f1f005ac67a6af672aa17b679c93c">moveArrayOffsetList</a> (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ad20b875356ad741d12d41b61cb12643f">copyArrayOffsetList</a> (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a29ffdfe8670a237ea0fc26cc1a318804">getDeclaratorArrayOffset</a> (ARRAY_OFFSET_LIST *declarator_array_offset_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *declarator_expression, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_expression, VARIABLE_TABLE_LIST *vtlist)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#ada6380bd941ed964766242cb37d93ee3">searchARRAY_OFFSET_LIST</a> (ARRAY_OFFSET_LIST *array_offset_list, CSTLString *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a70f8bef9dd6a59df7da973fda3a3fd4f">minusArrayOffsetList</a> (ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET_LIST *delete_array_offset_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#a668774efb6267a7042724601ce7f6a94">ARRAY_OFFSET_LIST_push_back_ref_not_dup</a> (ARRAY_OFFSET_LIST *target_array_offset_list, <a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="el" href="structarray__offset.html">array_offset</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PointerArrayControl_8h.html#afa201e9f8b2e2c70c774ac48fcfd4c2d">printASTPOINTER_LIST</a> (ASTPOINTER_LIST *astpointer_list)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指しているかという式に関する情報のことである。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="ae18d261788d71423fa2c0980d3de19cd"></a><!-- doxytag: member="PointerArrayControl.h::ARRAY_OFFSET" ref="ae18d261788d71423fa2c0980d3de19cd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structarray__offset.html">array_offset</a>  <a class="el" href="structarray__offset.html">ARRAY_OFFSET</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列やポインタの各次元のオフセット関係を格納するための構造体である。配列オフセットと呼ばれる。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a668774efb6267a7042724601ce7f6a94"></a><!-- doxytag: member="PointerArrayControl.h::ARRAY_OFFSET_LIST_push_back_ref_not_dup" ref="a668774efb6267a7042724601ce7f6a94" args="(ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET *array_offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ARRAY_OFFSET_LIST_push_back_ref_not_dup </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>target_array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td>
+          <td class="paramname"><em>array_offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセットリストに配列オフセット情報を追加する。ただし、変数名が重複するのであれば、追加しない。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_array_offset_list</td><td>追加先の配列オフセットリスト </td></tr>
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>追加する配列オフセット情報</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1aa81f5be8863d85891cc45786b885b8"></a><!-- doxytag: member="PointerArrayControl.h::checkCallFunction" ref="a1aa81f5be8863d85891cc45786b885b8" args="(AST *call_function, int offset_level, FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkCallFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>call_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>offset_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数呼び出しを示すASTノードが、登録されている関数に関する情報に含まれているかどうかを調べ、もし、その関数のポインタレベルがオフセットレベルと一致 した場合は、エラーを出力し、強制終了させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">call_function</td><td>関数呼び出しを示すASTノード </td></tr>
+    <tr><td class="paramname">offset_level</td><td>オフセットレベル </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae55c88e5cf59c1f0369d57d92a1da628"></a><!-- doxytag: member="PointerArrayControl.h::checkIdentifierPointerArrayLevel" ref="ae55c88e5cf59c1f0369d57d92a1da628" args="(AST *identifier, int offset_level, VARIABLE_TABLE_LIST *variable_table_list, ASTPOINTER_LIST *ignore_ast_list, int *pointer_level, int *array_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkIdentifierPointerArrayLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>identifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>offset_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>array_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>識別子の名前を一致する変数を変数リストから探す。このとき、一致する変数を調べたら、ポインタと配列の次元も調べ、オフセットレベル以上であれば、 見つけたことになり、１を返す。そうでなければ、０を返す。また、ignore_ast_listは無視するIDENTIFIERのASTのアドレスリストを見つけるたびに登録 される。もし、ignore_ast_listに登録されているノードなら、それは無視される。また、見つけるのに成功した場合、その該当する変数の配列レベルやポ インタのレベルも返す。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>識別子の名前 </td></tr>
+    <tr><td class="paramname">offset_level</td><td>オフセットレベル </td></tr>
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルリスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>変数リストから見つけた変数のポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>変数リストから見つけた変数の配列レベル</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>識別子の名前およびオフセットレベルが条件を満たしていれば１を返し、そうでなければ０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a959e6be57534291a0e6d0567927d0c8a"></a><!-- doxytag: member="PointerArrayControl.h::checkIgnoreASTList" ref="a959e6be57534291a0e6d0567927d0c8a" args="(AST *ast_data, ASTPOINTER_LIST *ignore_ast_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkIgnoreASTList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノードast_dataがASTアドレスリストignore_ast_listに存在するかどうかを調べる。存在する場合は１をかえす。 存在しない場合は、ast_dataのアドレスをignore_ast_listに追加した上、0を返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ast_data</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>調べる対象のASTアドレスリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>存在する場合は１を返し、そうでない場合は０を返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad20b875356ad741d12d41b61cb12643f"></a><!-- doxytag: member="PointerArrayControl.h::copyArrayOffsetList" ref="ad20b875356ad741d12d41b61cb12643f" args="(ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void copyArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>fromlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>tolist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>move_start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセットリストfromlist内のmove_start以降のデータをすべて、もう一方の配列オフセットリストtolistにコピーさせる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fromlist</td><td>コピー元の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">tolist</td><td>コピー先の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">move_start</td><td>移動させたいデータの位置(先頭から０番目とする)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aae4e21ff334802d880f23daf18645b6c"></a><!-- doxytag: member="PointerArrayControl.h::createArrayExpression" ref="aae4e21ff334802d880f23daf18645b6c" args="(CSTLString *output, ARRAY_OFFSET *array_offset, int output_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createArrayExpression </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td>
+          <td class="paramname"><em>array_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>output_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセット情報から、任意の次元までの配列式を生成する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>配列式を生成される文字列 </td></tr>
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>対象の配列オフセット </td></tr>
+    <tr><td class="paramname">output_level</td><td>出力したい次元(このとき、配列オフセットを超える値を入れた場合は、配列オフセットが次元までの配列式を出力する)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a238d39bda32ef42e800cdb25552670d5"></a><!-- doxytag: member="PointerArrayControl.h::createValidateVariableArrayExpression" ref="a238d39bda32ef42e800cdb25552670d5" args="(CSTLString *output, ARRAY_OFFSET *array_offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createValidateVariableArrayExpression </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td>
+          <td class="paramname"><em>array_offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセット情報から、検証用変数に使われる配列式を生成し、オフセットレベルを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>生成先の文字列 </td></tr>
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>対象の配列オフセット</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列オフセット情報から生成されたオフセットレベルを返す</dd></dl>
+<p>配列オフセット情報から、検証用変数に使われる配列式を生成し、オフセットレベルを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>生成先の文字列 </td></tr>
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>対象の配列オフセット</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列オフセット情報から生成されたオフセットレベルを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3512541a1ccd254e112b4658f0226d23"></a><!-- doxytag: member="PointerArrayControl.h::deleteOFFSET_LIST" ref="a3512541a1ccd254e112b4658f0226d23" args="(OFFSET_LIST *offset_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteOFFSET_LIST </td>
+          <td>(</td>
+          <td class="paramtype">OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>offset_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>オフセットリストoffset_listの中身を完全に解放させる。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset_list</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>オフセットリストoffset_listの中身を完全に解放させる。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset_list</td><td>解放させるoffset_list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a865793639f2aa40d0c7e5101f130ac3e"></a><!-- doxytag: member="PointerArrayControl.h::deletePointer" ref="a865793639f2aa40d0c7e5101f130ac3e" args="(CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deletePointer </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数名からポインタを示す記号のみ全て削除する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>変更対象の変数名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc3cd8275754e5412501748b96b6f23e"></a><!-- doxytag: member="PointerArrayControl.h::deletePointerAndArraySynbol" ref="acc3cd8275754e5412501748b96b6f23e" args="(CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deletePointerAndArraySynbol </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数名から配列およびポインタを示す記号を全て削除する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>変更対象の変数名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab042eed938daf0311a0345295ad700ef"></a><!-- doxytag: member="PointerArrayControl.h::get_ARRAY_OFFSET_LISTIgnoreASTNAME" ref="ab042eed938daf0311a0345295ad700ef" args="(AST *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, AST *target_statement, CSTLString *ignore_ast_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_ARRAY_OFFSET_LISTIgnoreASTNAME </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>ignore_ast_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ポインタおよび配列変数の各次元のオフセットリストを取得する。また、無視をする対象のノードを設定可能である。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>オフセットリストに該当するASTノード </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>ポインタおよび配列のオフセット情報のリスト </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報リスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">target_statement</td><td>検証式の対象となるステートメント </td></tr>
+    <tr><td class="paramname">ignore_ast_name</td><td>無視をするＡＳＴ名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7b73777a069952f6ceaec87d52b3762c"></a><!-- doxytag: member="PointerArrayControl.h::getArgumentOffsetInfo" ref="a7b73777a069952f6ceaec87d52b3762c" args="(AST *argument, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, AST *target_expression, int *switch_mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getArgumentOffsetInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>argument</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>switch_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した引数から、必要なオフセット情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argument</td><td>指定した引数に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>各ポインタおよび配列ごとのオフセットのリスト </td></tr>
+    <tr><td class="paramname">target_expression</td><td>この左辺式の上位に位置するASTノード </td></tr>
+    <tr><td class="paramname">switch_mode</td><td>直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8c3eadc0355b2748c489ded072531764"></a><!-- doxytag: member="PointerArrayControl.h::getARRAY_OFFSET_LIST" ref="a8c3eadc0355b2748c489ded072531764" args="(AST *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, AST *target_statement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getARRAY_OFFSET_LIST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ポインタおよび配列変数の各次元のオフセットリストを取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>オフセットリストに該当するASTノード </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>ポインタおよび配列のオフセット情報のリスト </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報リスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">target_statement</td><td>検証式の対象となるステートメント </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a95c8e82725af82de833504d5c782a68a"></a><!-- doxytag: member="PointerArrayControl.h::getArrayOffsetInAnpasandInfo" ref="a95c8e82725af82de833504d5c782a68a" args="(AST *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, AST *target_statement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getArrayOffsetInAnpasandInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>address_refであるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray_offset_listへ入れる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>右辺式に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>メモリ確保情報を取得するのに必要なプログラム変数リスト </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>左辺式上にあるポインタ参照に対するオフセットリスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>同じ位置のポインタが来ても無視するためのリスト </td></tr>
+    <tr><td class="paramname">target_statement</td><td>この計算式を属しているASTノードへのアドレス（基本的にexpression_statementであるノードが入る）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09038dff6ab32c8ba846e98ad7757af7"></a><!-- doxytag: member="PointerArrayControl.h::getArrayOffsetInIncDecInfo" ref="a09038dff6ab32c8ba846e98ad7757af7" args="(AST *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, AST *target_statement, int inc_dec_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getArrayOffsetInIncDecInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inc_dec_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>inc_exprやdec_exprなどのインクリメントやデクリメント式であるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray_offset_listへ入れる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>inc_exprやdec_exprなどのインクリメントやデクリメント式に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>メモリ確保情報を取得するのに必要なプログラム変数リスト </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>左辺式上にあるポインタ参照に対するオフセットリスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>同じ位置のポインタが来ても無視するためのリスト </td></tr>
+    <tr><td class="paramname">target_statement</td><td>この計算式を属しているASTノードへのアドレス（基本的にexpression_statementであるノードが入る） </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　１：インクリメントが含まれている　２：デクリメントが含まれている</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a29ffdfe8670a237ea0fc26cc1a318804"></a><!-- doxytag: member="PointerArrayControl.h::getDeclaratorArrayOffset" ref="a29ffdfe8670a237ea0fc26cc1a318804" args="(ARRAY_OFFSET_LIST *declarator_array_offset_list, AST *declarator_expression, AST *target_expression, VARIABLE_TABLE_LIST *vtlist)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getDeclaratorArrayOffset </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>declarator_array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>declarator_expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数テーブルから、変数の定義に対するノードに該当する情報を探し、それに対する配列オフセット情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">declarator_array_offset_list</td><td>取得先の配列オフセット情報 </td></tr>
+    <tr><td class="paramname">declarator_expression</td><td>変数定義までのASTアドレス </td></tr>
+    <tr><td class="paramname">target_expression</td><td>対象のdeclarator_with_initへのASTアドレス </td></tr>
+    <tr><td class="paramname">vtlist</td><td>調べる先の変数テーブル</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9c6c8ad729c816c8eee5503fbe7e8e9b"></a><!-- doxytag: member="PointerArrayControl.h::getExpressionOffsetInfo" ref="a9c6c8ad729c816c8eee5503fbe7e8e9b" args="(AST *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, AST *target_expression, int *switch_mode, int allow_subeffect)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getExpressionOffsetInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>switch_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>allow_subeffect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した式から、必要なオフセット情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expression</td><td>指定した式に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>各ポインタおよび配列ごとのオフセットのリスト </td></tr>
+    <tr><td class="paramname">target_expression</td><td>この左辺式の上位に位置するASTノード </td></tr>
+    <tr><td class="paramname">switch_mode</td><td>直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す </td></tr>
+    <tr><td class="paramname">allow_subeffect</td><td>副作用の式を許すかどうかのフラグ １：許す ０：許さない </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a52c26c3f03a8f88684cbf4e4f85c09ec"></a><!-- doxytag: member="PointerArrayControl.h::getOFFSET_LISTFromVariableTable" ref="a52c26c3f03a8f88684cbf4e4f85c09ec" args="(OFFSET_LIST *offset_list, VARIABLE_TABLE *variable_table)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getOFFSET_LISTFromVariableTable </td>
+          <td>(</td>
+          <td class="paramtype">OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *&#160;</td>
+          <td class="paramname"><em>variable_table</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数テーブルデータvariable_tableからオフセットリストoffset_listを生成する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset_list</td><td>生成先のオフセットリスト </td></tr>
+    <tr><td class="paramname"><a class="el" href="structvariable__table.html">variable_table</a></td><td>変数テーブルデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ed02feb19741e76c894e54825bf539f"></a><!-- doxytag: member="PointerArrayControl.h::getOffsetLevelFromArrayOffset" ref="a2ed02feb19741e76c894e54825bf539f" args="(ARRAY_OFFSET *array_offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getOffsetLevelFromArrayOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> *&#160;</td>
+          <td class="paramname"><em>array_offset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した配列オフセットから、演算後のポインタレベルを求める。演算後のポインタレベルはつぎのとおりである。 演算後のポインタレベル＝この変数の配列とポインタレベルの合計値＋アンパサンドフラグ（挟んでいるなら１、そうでない場合は０）−この配列オフセット内のオフセットリスト </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>指定した配列オフセット</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>求めた演算後のポインタレベルを返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8085beaa8ccab452696d382420351c3c"></a><!-- doxytag: member="PointerArrayControl.h::getPointerAccessOrIdentifierList" ref="a8085beaa8ccab452696d382420351c3c" args="(AST *root, AST ***output, int *getSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getPointerAccessOrIdentifierList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> ***&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>getSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>direct_refとして指定したASTノードrootから、以下のノードを探しだし、それをASTリストoutputとして取得する。</p>
+<p>IDENTIFIER array_access, direct_ref, IDENTIFIER, primary_expression</p>
+<p>なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">output</td><td>上記の見つけたノードへのアドレス </td></tr>
+    <tr><td class="paramname">getSize</td><td>取得した値のサイズを返すための変数。見つからない場合は0にされる。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a93c403617815b6a7d28fc18dd28d0ab8"></a><!-- doxytag: member="PointerArrayControl.h::getPointerArrayOffset" ref="a93c403617815b6a7d28fc18dd28d0ab8" args="(AST *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, int offset_level, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET **array_offset, AST *target_statement, int anpasand_flag, int inc_dec_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getPointerArrayOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>offset_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a> **&#160;</td>
+          <td class="paramname"><em>array_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>anpasand_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inc_dec_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ポインタおよび配列変数の各次元のオフセットとなる式を求める。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>左辺値に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報リスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">offset_level</td><td>オフセットレベルを計算するためのところ。基本的に０を入力する。１以上入力すれば、それが最下位レベルとなる。 </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname"><a class="el" href="structarray__offset.html">array_offset</a></td><td>ポインタおよび配列のオフセット情報 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>検証式の対象となるステートメント </td></tr>
+    <tr><td class="paramname">anpasand_flag</td><td>アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　0：挟んでいない </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2e65dd778abdab29f2f02906e86f9c0e"></a><!-- doxytag: member="PointerArrayControl.h::getSingleExpressionOffsetInfo" ref="a2e65dd778abdab29f2f02906e86f9c0e" args="(AST *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, AST *target_expression, int *switch_mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getSingleExpressionOffsetInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>ignore_ast_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>switch_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した式から、必要なオフセット情報を取得する。これは副作用の式を許す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expression</td><td>指定した式に関するASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>検証対象の式をマークするための変数リスト </td></tr>
+    <tr><td class="paramname">ignore_ast_list</td><td>ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>各ポインタおよび配列ごとのオフセットのリスト </td></tr>
+    <tr><td class="paramname">target_expression</td><td>この左辺式の上位に位置するASTノード </td></tr>
+    <tr><td class="paramname">switch_mode</td><td>直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ada7e37243ccbe1db44bbaed13941dcef"></a><!-- doxytag: member="PointerArrayControl.h::getUpperExpressionRelationNode" ref="ada7e37243ccbe1db44bbaed13941dcef" args="(AST *target, AST *root, AST **output, AST **output2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getUpperExpressionRelationNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>output2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus_exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>検証対象となっている変数 </td></tr>
+    <tr><td class="paramname">root</td><td>検証対象のノード </td></tr>
+    <tr><td class="paramname">output</td><td>出力される間接的に関係しているノードへのアドレス </td></tr>
+    <tr><td class="paramname">output2</td><td>outputがminus_exprの場合、minus_exprより1つ下のノードがここに代入される </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。</dd>
+<dd>
+なし</dd></dl>
+<p>ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus_exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>検証対象となっている変数 </td></tr>
+    <tr><td class="paramname">root</td><td>検証対象のノード </td></tr>
+    <tr><td class="paramname">output</td><td>出力される間接的に関係しているノードへのアドレス </td></tr>
+    <tr><td class="paramname">output2</td><td>outputがminus_exprの場合、minus_exprより1つ下のノードがここに代入される </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac33e43a25ee2e1cde405220d410162b7"></a><!-- doxytag: member="PointerArrayControl.h::maxOffsetLevelAddressFromArrayOffsetList" ref="ac33e43a25ee2e1cde405220d410162b7" args="(ARRAY_OFFSET_LIST *array_offset_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a>* maxOffsetLevelAddressFromArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した配列オフセットリストでの演算後のポインタレベルの最大レベルである配列オフセットのアドレスを求める。配列オフセットが空の場合はNULLを代入する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array_offset_list</td><td>指定した配列オフセットリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>求めた演算後のポインタレベルが最大である配列オフセットのアドレスを返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a20d295101c3b4b2e1f53c170d216e991"></a><!-- doxytag: member="PointerArrayControl.h::maxOffsetLevelFromArrayOffsetList" ref="a20d295101c3b4b2e1f53c170d216e991" args="(ARRAY_OFFSET_LIST *array_offset_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int maxOffsetLevelFromArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した配列オフセットリストでの演算後のポインタレベルの最大レベルを求める。配列オフセットが空の場合は０を代入する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array_offset_list</td><td>指定した配列オフセットリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>求めた演算後のポインタレベルを返す。</dd></dl>
+<p>指定した配列オフセットリストでの演算後のポインタレベルの最大レベルを求める。配列オフセットが空の場合は０を代入する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array_offset_list</td><td>指定した配列オフセットリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>求めた演算後のポインタレベルを返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a70f8bef9dd6a59df7da973fda3a3fd4f"></a><!-- doxytag: member="PointerArrayControl.h::minusArrayOffsetList" ref="a70f8bef9dd6a59df7da973fda3a3fd4f" args="(ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET_LIST *delete_array_offset_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void minusArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>target_array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>delete_array_offset_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象の配列オフセットリストtarget_array_offset_listに対して、対象から取り除きたい 配列オフセットリストdelete_array_offset_listの名前に該当する配列オフセット情報を 削除する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_array_offset_list</td><td>対象の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">delete_array_offset_list</td><td>対象から取り除きたい配列オフセットリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1c6f1f005ac67a6af672aa17b679c93c"></a><!-- doxytag: member="PointerArrayControl.h::moveArrayOffsetList" ref="a1c6f1f005ac67a6af672aa17b679c93c" args="(ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>fromlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>tolist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>move_start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセットリストfromlist内のmove_start以降のデータをすべて、もう一方の配列オフセットリストtolistに移動させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fromlist</td><td>移動もとの配列オフセットリスト </td></tr>
+    <tr><td class="paramname">tolist</td><td>移動先の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">move_start</td><td>移動させたいデータの位置(先頭から０番目とする)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3c19acc973d7d77775aab6be9a51c6c0"></a><!-- doxytag: member="PointerArrayControl.h::new_ARRAY_OFFSET" ref="a3c19acc973d7d77775aab6be9a51c6c0" args="(CSTLString *variable_name, AST *target_statement, AST *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a>* new_ARRAY_OFFSET </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>variable_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>array_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>anpasand_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inc_dec_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>ターゲットのstatement </td></tr>
+    <tr><td class="paramname">variable_address</td><td>この変数名が指しているASTアドレス </td></tr>
+    <tr><td class="paramname">offset_list</td><td>各次元のオフセット </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>この変数のポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>この変数の配列レベル </td></tr>
+    <tr><td class="paramname">anpasand_flag</td><td>この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。</dd></dl>
+<p>。 配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>ターゲットのstatement </td></tr>
+    <tr><td class="paramname">variable_address</td><td>この変数名が指しているASTアドレス </td></tr>
+    <tr><td class="paramname">offset_list</td><td>各次元のオフセット </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>この変数のポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>この変数の配列レベル </td></tr>
+    <tr><td class="paramname">anpasand_flag</td><td>この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad39591d4757bb4a1cbb2e982e031aa0c"></a><!-- doxytag: member="PointerArrayControl.h::new_ARRAY_OFFSET_char" ref="ad39591d4757bb4a1cbb2e982e031aa0c" args="(char *variable_name, AST *target_statement, AST *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a>* new_ARRAY_OFFSET_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>variable_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>array_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>anpasand_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inc_dec_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>ターゲットのstatement </td></tr>
+    <tr><td class="paramname">variable_address</td><td>この変数名が指しているASTアドレス </td></tr>
+    <tr><td class="paramname">offset_list</td><td>各次元のオフセット </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>この変数のポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>この変数の配列レベル </td></tr>
+    <tr><td class="paramname">anpasand_flag</td><td>アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す</dd></dl>
+<p>配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>ターゲットのstatement </td></tr>
+    <tr><td class="paramname">variable_address</td><td>この変数名が指しているASTアドレス </td></tr>
+    <tr><td class="paramname">offset_list</td><td>各次元のオフセット </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>この変数のポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>この変数の配列レベル </td></tr>
+    <tr><td class="paramname">anpasand_flag</td><td>アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない </td></tr>
+    <tr><td class="paramname">inc_dec_flag</td><td>インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1fe4a503769616086f897aa93a66f5a7"></a><!-- doxytag: member="PointerArrayControl.h::OFFSET_LIST_push_back_alloc" ref="a1fe4a503769616086f897aa93a66f5a7" args="(OFFSET_LIST *offset_list, char *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OFFSET_LIST_push_back_alloc </td>
+          <td>(</td>
+          <td class="paramtype">OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>string</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>任意の文字列を、動的変数としてオフセットリストに追加する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset_list</td><td>対象のオフセットリスト </td></tr>
+    <tr><td class="paramname">string</td><td>任意の文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afa201e9f8b2e2c70c774ac48fcfd4c2d"></a><!-- doxytag: member="PointerArrayControl.h::printASTPOINTER_LIST" ref="afa201e9f8b2e2c70c774ac48fcfd4c2d" args="(ASTPOINTER_LIST *astpointer_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printASTPOINTER_LIST </td>
+          <td>(</td>
+          <td class="paramtype">ASTPOINTER_LIST *&#160;</td>
+          <td class="paramname"><em>astpointer_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ASTのポインタリストの内容を出力させる。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">astpointer_list</td><td>ASTのポインタリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ada6380bd941ed964766242cb37d93ee3"></a><!-- doxytag: member="PointerArrayControl.h::searchARRAY_OFFSET_LIST" ref="ada6380bd941ed964766242cb37d93ee3" args="(ARRAY_OFFSET_LIST *array_offset_list, CSTLString *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a>* searchARRAY_OFFSET_LIST </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>配列オフセットリストarray_offset_listから、指定した変数名を探索し、 見つかればその変数名へのアドレスを返す。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array_offset_list</td><td>探索対象の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">name</td><td>探索したい変数名</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つかれば変数名へのアドレスを返す。そうでなければNULLを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5a9cab9c5ed8a9f47b90a3b012b2dd86"></a><!-- doxytag: member="PointerArrayControl.h::searchExpressionOrPointeArrayOrIden" ref="a5a9cab9c5ed8a9f47b90a3b012b2dd86" args="(AST *root, AST **output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int searchExpressionOrPointeArrayOrIden </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>primary_expressionとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。</p>
+<p>minus_expr, plus_expr, array_access, direct_ref, IDENTIFIER, primary_expression</p>
+<p>なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 また、ポインタ計算の関係上、+-演算演算子を示すようなものやCONSTANT(定数）が来た場合のみ、-1を返す。 見つからない場合は0である。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">output</td><td>上記の見つけたノードへのアドレス</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>上記の条件で値を返却する。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a379c30f21274eb53a257e04670bc6de0"></a><!-- doxytag: member="PointerArrayControl.h::searchOffsetLevelAddressFromArrayOffsetList" ref="a379c30f21274eb53a257e04670bc6de0" args="(AST *root, ARRAY_OFFSET_LIST *array_offset_list, int pointer_level, int array_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structarray__offset.html">ARRAY_OFFSET</a>* searchOffsetLevelAddressFromArrayOffsetList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>array_offset_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>array_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象のASTノードから、演算後のポインタレベルが指定されたポインタレベルと配列レベルの合計と一致するような 変数の配列オフセットを指定された配列オフセットリストから探し出し、見つかったらアドレスを取得する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>対象のASTノード </td></tr>
+    <tr><td class="paramname">array_offset_list</td><td>対象の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>指定するポインタレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>指定する配列レベル</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>演算後のポインタレベルと指定されたポインタレベルと配列レベルの合計が一致するような変数を返す。失敗した場合はNULLを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a50b8e40d4ca955feb62fd12fc5a1cfc9"></a><!-- doxytag: member="PointerArrayControl.h::searchPointerAccessOrIdentifierOrPrimary" ref="a50b8e40d4ca955feb62fd12fc5a1cfc9" args="(AST *root, AST **output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int searchPointerAccessOrIdentifierOrPrimary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>direct_refとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。</p>
+<p>IDENTIFIER array_access, direct_ref, IDENTIFIER, primary_expression inc_after_expression, inc_expr, dec_after_expr, inc_expr assignment_expression</p>
+<p>なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">output</td><td>上記の見つけたノードへのアドレス</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>上記の条件で値を返却する。 </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

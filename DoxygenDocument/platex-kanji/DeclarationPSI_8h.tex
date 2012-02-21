@@ -1,0 +1,59 @@
+\section{ProgramSlicing/DeclarationPSI.h}
+\label{DeclarationPSI_8h}\index{ProgramSlicing/DeclarationPSI.h@{ProgramSlicing/DeclarationPSI.h}}
+
+
+このファイルはDeclaration Statement Program Slicing Informationの略である。 宣言式から、プログラムスライシングに関する情報を抽出するための命令が含まれている。  
+
+
+{\ttfamily \#include \char`\"{}ProgramSlicingInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/FunctionInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/Synbol.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{DeclarationPSI_8h_a84e0b014b44675ec9ba51fe3ed31062f}{getDeclarationtPSI} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$declaration, EXPR\_\-SLICING $\ast$parent, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルはDeclaration Statement Program Slicing Informationの略である。 宣言式から、プログラムスライシングに関する情報を抽出するための命令が含まれている。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{DeclarationPSI.h@{DeclarationPSI.h}!getDeclarationtPSI@{getDeclarationtPSI}}
+\index{getDeclarationtPSI@{getDeclarationtPSI}!DeclarationPSI.h@{DeclarationPSI.h}}
+\subsubsection[{getDeclarationtPSI}]{\setlength{\rightskip}{0pt plus 5cm}void getDeclarationtPSI (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{{\bf AST} $\ast$}]{declaration, }
+\item[{EXPR\_\-SLICING $\ast$}]{parent, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{DeclarationPSI_8h_a84e0b014b44675ec9ba51fe3ed31062f}
+宣言式のASTノードdeclarationから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr\_\-slicing\_\-listに追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 追加先のプログラムスライシングリストexpr\_\-slicing\_\-list \\
+\hline
+{\em declaration} & 式全般に関するASTノード \\
+\hline
+{\em parent} & ノードを追加するときの親ノード \\
+\hline
+{\em vtlist} & 変数テーブルリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & 重複防止のために無視するノードリスト \\
+\hline
+{\em target\_\-statement} & expression\_\-statementを指し示すノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

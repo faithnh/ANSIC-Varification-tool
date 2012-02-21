@@ -1,0 +1,538 @@
+\section{ANSICInformation/AST.h}
+\label{_a_s_t_8h}\index{ANSICInformation/AST.h@{ANSICInformation/AST.h}}
+
+
+このファイルは、ANSICのソースコードを省略させるためのマクロ文が含まれている  
+
+
+{\ttfamily \#include $<$cstl/string.h$>$}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../Library/IdList.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf abstract\_\-syntax\_\-tree}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf abstract\_\-syntax\_\-tree} {\bf AST}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+{\bf AST} $\ast$ {\bf new\_\-AST} (char $\ast$new\_\-name, char $\ast$new\_\-content, int new\_\-line)
+\item 
+{\bf AST} $\ast$ {\bf same\_\-new\_\-AST} (char $\ast$new\_\-name, int new\_\-line)
+\item 
+void {\bf traverseAST} ({\bf AST} $\ast$root, int tab\_\-level)
+\item 
+void {\bf traverseASTwithXML} ({\bf AST} $\ast$root, int tab\_\-level)
+\item 
+void {\bf fprintDataFromAST} (FILE $\ast$output, {\bf AST} $\ast$root, int $\ast$line)
+\item 
+void {\bf printDataFromAST} ({\bf AST} $\ast$root, int $\ast$line)
+\item 
+void {\bf getStringFromAST} (CSTLString $\ast$output, {\bf AST} $\ast$root)
+\item 
+void {\bf getStringFromASTEnableExcept} (CSTLString $\ast$output, {\bf AST} $\ast$root, int num, char except\_\-list[$\,$][256])
+\item 
+void {\bf deleteAST} ({\bf AST} $\ast$root)
+\item 
+void {\bf push\_\-back\_\-childrenAST} ({\bf AST} $\ast$parent, {\bf AST} $\ast$child)
+\item 
+void {\bf multi\_\-push\_\-back\_\-childrenAST} ({\bf AST} $\ast$parent, int num,...)
+\item 
+void {\bf printTargetASTNode} ({\bf AST} $\ast$root, char $\ast$target, int traverse\_\-flag, int xml\_\-flag)
+\item 
+int {\bf getArgumentString} (CSTLString $\ast$output, {\bf AST} $\ast$call\_\-function, int arg\_\-num)
+\item 
+int {\bf getArgumentStringEnableExcept} (CSTLString $\ast$output, {\bf AST} $\ast$call\_\-function, int arg\_\-num, int num, char except\_\-list[$\,$][256])
+\item 
+int {\bf getArgumentAST} ({\bf AST} $\ast$$\ast$output, {\bf AST} $\ast$call\_\-function, int arg\_\-num)
+\item 
+{\bf AST} $\ast$ {\bf getASTwithString} ({\bf AST} $\ast$root, char $\ast$name, int depth)
+\item 
+void {\bf getStringReplaceASTtoString} (CSTLString $\ast$output, {\bf AST} $\ast$root, {\bf AST} $\ast$target, char $\ast$replace\_\-string)
+\item 
+void {\bf setASTReturnType} ({\bf AST} $\ast$root)
+\item 
+void {\bf setASTBlocklevelAndId} ({\bf AST} $\ast$root)
+\item 
+int {\bf findASTAddress} ({\bf AST} $\ast$root, {\bf AST} $\ast$target)
+\item 
+void {\bf fprintfStatement} (FILE $\ast$output, {\bf AST} $\ast$root, int $\ast$line, int output\_\-subnode\_\-num, {\bf AST} $\ast$$\ast$out\_\-block\_\-start, {\bf AST} $\ast$$\ast$out\_\-block\_\-end)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、ANSICのソースコードを省略させるためのマクロ文が含まれている このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものです。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノードから文字列を生成させたりといったことができます。
+
+\begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{AST.h@{AST.h}!AST@{AST}}
+\index{AST@{AST}!AST.h@{AST.h}}
+\subsubsection[{AST}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf abstract\_\-syntax\_\-tree}  {\bf AST}}\label{_a_s_t_8h_a33c4b549d3cbe5707e6529c36050be6a}
+C言語プログラムの抽象構文木に関する情報が含まれる 
+
+\subsection{関数}
+\index{AST.h@{AST.h}!deleteAST@{deleteAST}}
+\index{deleteAST@{deleteAST}!AST.h@{AST.h}}
+\subsubsection[{deleteAST}]{\setlength{\rightskip}{0pt plus 5cm}void deleteAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a8c99cebbba801e86fcdf87e0e68b07a8}
+指定したASTノード以下を全て開放させる 
+\begin{DoxyParams}{引数}
+{\em output} & 出力対象の文字列データ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!findASTAddress@{findASTAddress}}
+\index{findASTAddress@{findASTAddress}!AST.h@{AST.h}}
+\subsubsection[{findASTAddress}]{\setlength{\rightskip}{0pt plus 5cm}int findASTAddress (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_ad1a9d15070cb0f682561950d366f9d68}
+探す対象のASTノードrootから、指定したASTノードのアドレスtargetが存在するかどうか調べる。みつければ、１を返し、そうでなければ０を返す。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 探す対象のASTノード \\
+\hline
+{\em target} & 指定したASTノードのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+指定したASTノードtargetを見つけたら１を返し、そうでなければ０を返す。 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!fprintDataFromAST@{fprintDataFromAST}}
+\index{fprintDataFromAST@{fprintDataFromAST}!AST.h@{AST.h}}
+\subsubsection[{fprintDataFromAST}]{\setlength{\rightskip}{0pt plus 5cm}void fprintDataFromAST (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int $\ast$}]{line}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_ae7e8f342424c16f107b1cb24696b1d9e}
+指定されたASTノード以下の内容を、指定されたファイルに対して出力させる 
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em root} & 指定されたノード名 \\
+\hline
+{\em line} & 出力に利用する行数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!fprintfStatement@{fprintfStatement}}
+\index{fprintfStatement@{fprintfStatement}!AST.h@{AST.h}}
+\subsubsection[{fprintfStatement}]{\setlength{\rightskip}{0pt plus 5cm}void fprintfStatement (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int $\ast$}]{line, }
+\item[{int}]{output\_\-subnode\_\-num, }
+\item[{{\bf AST} $\ast$$\ast$}]{out\_\-block\_\-start, }
+\item[{{\bf AST} $\ast$$\ast$}]{out\_\-block\_\-end}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a7b0bdcf6415bdc3285dce22ecdfd32bd}
+指定されたノードに対して、statementの直前まで出力させる。また、出力対象となっているノード番号が来るまでは出力の対象としない。 ブロックとして表記されている場合は始まりのブロックや終わりのブロックへのASTノードのアドレスをout\_\-block\_\-startやout\_\-block\_\-endに 設定する。そうでなければ、NULLで設定される。
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em root} & 指定されたASTノード \\
+\hline
+{\em line} & 出力に利用する行数 \\
+\hline
+{\em output\_\-subnode\_\-num} & 出力対象となるノード番号 １〜ｎ（１に指定すると、すべての子ノードが出力の対象となる） \\
+\hline
+{\em out\_\-block\_\-start} & ブロックとして表記されている場合は、始まりのブロックへのASTノードのアドレスを返却する \\
+\hline
+{\em out\_\-block\_\-end} & ブロックとして表記されている場合は、終わりブのロックへのASTノードのアドレスを返却する。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getArgumentAST@{getArgumentAST}}
+\index{getArgumentAST@{getArgumentAST}!AST.h@{AST.h}}
+\subsubsection[{getArgumentAST}]{\setlength{\rightskip}{0pt plus 5cm}int getArgumentAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$$\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{int}]{arg\_\-num}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a8aa84b5f68b049ebdd94dec829e20a59}
+指定されたcall\_\-functionに相当する関数から、任意の引数目のへのノードを取得する。このとき、指定されたノード名はcall\_\-functionでなければならない 
+\begin{DoxyParams}{引数}
+{\em output} & 取得する対象のノード \\
+\hline
+{\em call\_\-function} & 名前がcall\_\-functionであるASTノード \\
+\hline
+{\em arg\_\-num} & 何番目の引数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getArgumentString@{getArgumentString}}
+\index{getArgumentString@{getArgumentString}!AST.h@{AST.h}}
+\subsubsection[{getArgumentString}]{\setlength{\rightskip}{0pt plus 5cm}int getArgumentString (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{int}]{arg\_\-num}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_ace68f2bec503521e64c39532d613ea62}
+指定されたcall\_\-functionに相当する関数から、任意の引数目の情報を取得する。このとき、指定されたノード名はcall\_\-functionでなければならない 
+\begin{DoxyParams}{引数}
+{\em output} & 出力される引数の内容 \\
+\hline
+{\em call\_\-function} & 名前がcall\_\-functionであるASTノード \\
+\hline
+{\em arg\_\-num} & 何番目の引数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getArgumentStringEnableExcept@{getArgumentStringEnableExcept}}
+\index{getArgumentStringEnableExcept@{getArgumentStringEnableExcept}!AST.h@{AST.h}}
+\subsubsection[{getArgumentStringEnableExcept}]{\setlength{\rightskip}{0pt plus 5cm}int getArgumentStringEnableExcept (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{int}]{arg\_\-num, }
+\item[{int}]{num, }
+\item[{char}]{except\_\-list[$\,$][256]}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a03abb7f464291ab69e8df4c602a8753b}
+getArgumentEnableExceptの拡張版。出力対象にしない文字列を除いた引数の情報をすべて出力させる 
+\begin{DoxyParams}{引数}
+{\em output} & 出力される引数の内容 \\
+\hline
+{\em call\_\-function} & 名前がcall\_\-functionであるASTノード \\
+\hline
+{\em arg\_\-num} & 何番目の引数 \\
+\hline
+{\em num} & 除外したいASTノードリストの数 \\
+\hline
+{\em except\_\-list} & 除外したいASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す
+\end{DoxyReturn}
+getArgumentStringの拡張版。出力対象にしない文字列を除いた引数の情報をすべて出力させる 
+\begin{DoxyParams}{引数}
+{\em output} & 出力される引数の内容 \\
+\hline
+{\em call\_\-function} & 名前がcall\_\-functionであるASTノード \\
+\hline
+{\em arg\_\-num} & 何番目の引数 \\
+\hline
+{\em num} & 除外したいASTノードリストの数 \\
+\hline
+{\em except\_\-list} & 除外したいASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getASTwithString@{getASTwithString}}
+\index{getASTwithString@{getASTwithString}!AST.h@{AST.h}}
+\subsubsection[{getASTwithString}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AST}$\ast$ getASTwithString (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{char $\ast$}]{name, }
+\item[{int}]{depth}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a8726d22620bc29bb1e2ecb7d758a93d7}
+指定したASTノードrootから、指定した名前nameのASTノードを探す。 見つけたASTノードへのアドレスを返す。 
+\begin{DoxyParams}{引数}
+{\em root} & 指定したASTノード \\
+\hline
+{\em name} & 指定した名前 \\
+\hline
+{\em depth} & 探索する子ノードの深さ（無限にする場合は-\/1を指定、子ノードは検索しない場合は0にする) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つけたASTノードへのアドレス 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getStringFromAST@{getStringFromAST}}
+\index{getStringFromAST@{getStringFromAST}!AST.h@{AST.h}}
+\subsubsection[{getStringFromAST}]{\setlength{\rightskip}{0pt plus 5cm}void getStringFromAST (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a5b499afa940ee03cf6cb4f2d7564c00d}
+指定したASTノード以下の内容を出力対象の文字列データに出力させる。 
+\begin{DoxyParams}{引数}
+{\em output} & 出力対象の文字列データ \\
+\hline
+{\em root} & 新しいノード名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getStringFromASTEnableExcept@{getStringFromASTEnableExcept}}
+\index{getStringFromASTEnableExcept@{getStringFromASTEnableExcept}!AST.h@{AST.h}}
+\subsubsection[{getStringFromASTEnableExcept}]{\setlength{\rightskip}{0pt plus 5cm}void getStringFromASTEnableExcept (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int}]{num, }
+\item[{char}]{except\_\-list[$\,$][256]}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a5e14306ec790d4583ffc3c610074de8d}
+getStringFromASTの拡張版。出力対象から除外したASTノード名を指定できる。 
+\begin{DoxyParams}{引数}
+{\em output} & 出力対象の文字列データ \\
+\hline
+{\em root} & 新しいノード名 \\
+\hline
+{\em num} & 除外したいASTノードリストの数 \\
+\hline
+{\em except\_\-list} & 除外したいASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!getStringReplaceASTtoString@{getStringReplaceASTtoString}}
+\index{getStringReplaceASTtoString@{getStringReplaceASTtoString}!AST.h@{AST.h}}
+\subsubsection[{getStringReplaceASTtoString}]{\setlength{\rightskip}{0pt plus 5cm}void getStringReplaceASTtoString (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$}]{target, }
+\item[{char $\ast$}]{replace\_\-string}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a1e2810561a1a010a204fa94f58abf36c}
+指定したASTノードrootに対しての情報を文字列outputを出力させる。そのとき、ASTノードのtargetのアドレス値と一致するノードを見つけた（アドレスとして全く同じASTノード） 場合、そのノードだけreplace\_\-stringに変換して出力させる。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 指定したASTノード \\
+\hline
+{\em output} & 出力する情報 \\
+\hline
+{\em target} & 変換対象のASTノードのアドレス \\
+\hline
+{\em replace\_\-string} & 変換先の文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!multi\_\-push\_\-back\_\-childrenAST@{multi\_\-push\_\-back\_\-childrenAST}}
+\index{multi\_\-push\_\-back\_\-childrenAST@{multi\_\-push\_\-back\_\-childrenAST}!AST.h@{AST.h}}
+\subsubsection[{multi\_\-push\_\-back\_\-childrenAST}]{\setlength{\rightskip}{0pt plus 5cm}void multi\_\-push\_\-back\_\-childrenAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{parent, }
+\item[{int}]{num, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_af7952c19c9294e653d47966f719ec2c0}
+指定された親ASTノードに任意の子ASTノードを追加する 
+\begin{DoxyParams}{引数}
+{\em parent} & 指定された親ASTノード \\
+\hline
+{\em num} & 追加する子ASTノードの数 \\
+\hline
+{\em ...} & 追加する任意の子ASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!new\_\-AST@{new\_\-AST}}
+\index{new\_\-AST@{new\_\-AST}!AST.h@{AST.h}}
+\subsubsection[{new\_\-AST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AST}$\ast$ new\_\-AST (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{new\_\-name, }
+\item[{char $\ast$}]{new\_\-content, }
+\item[{int}]{new\_\-line}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a561ad4662c952c9f7f0e865718ae2ca1}
+新しいASTノードを生成する 
+\begin{DoxyParams}{引数}
+{\em newname} & 新しいノード名 \\
+\hline
+{\em new\_\-content} & 新しい内容 \\
+\hline
+{\em new\_\-line} & 新しい行数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成されたASTノードへのアドレスが返される 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!printDataFromAST@{printDataFromAST}}
+\index{printDataFromAST@{printDataFromAST}!AST.h@{AST.h}}
+\subsubsection[{printDataFromAST}]{\setlength{\rightskip}{0pt plus 5cm}void printDataFromAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int $\ast$}]{line}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a640626d7a64e560abcbb557302b82208}
+指定したASTノード以下の内容を出力させる。ASTノードの行数にしたがって出力される。 
+\begin{DoxyParams}{引数}
+{\em root} & 新しいノード名 \\
+\hline
+{\em line} & 指定する行数(基本的に１を入力する） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!printTargetASTNode@{printTargetASTNode}}
+\index{printTargetASTNode@{printTargetASTNode}!AST.h@{AST.h}}
+\subsubsection[{printTargetASTNode}]{\setlength{\rightskip}{0pt plus 5cm}void printTargetASTNode (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{char $\ast$}]{target, }
+\item[{int}]{traverse\_\-flag, }
+\item[{int}]{xml\_\-flag}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a8108df6d563a7c093e9588516570985c}
+指定された親ASTノードから、指定したノード名より下位についての情報をすべて表示させる また、traverse\_\-flagを１にすることで、指定したノード名についてのすべての情報をツリー構造で表示させることもできる。 さらに、xml\_\-flagを１にすることで、ツリー構造で表示させる内容がXMLとして出力できるようになる(traverse\_\-flagが１になっていることが前提である)。 
+\begin{DoxyParams}{引数}
+{\em parent} & 指定された親ASTノード \\
+\hline
+{\em target} & 指定した文字列 \\
+\hline
+{\em traverse\_\-flag} & 指定したノード名以下をツリー構造で表示させるかどうかのフラグ。１なら表示させ、０なら表示させない \\
+\hline
+{\em xml\_\-flag} & XMLとして出力するかどうかのフラグ。１ならXMLとして出力させる \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!push\_\-back\_\-childrenAST@{push\_\-back\_\-childrenAST}}
+\index{push\_\-back\_\-childrenAST@{push\_\-back\_\-childrenAST}!AST.h@{AST.h}}
+\subsubsection[{push\_\-back\_\-childrenAST}]{\setlength{\rightskip}{0pt plus 5cm}void push\_\-back\_\-childrenAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{parent, }
+\item[{{\bf AST} $\ast$}]{child}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a2ac04711eeafbb8805689cf2c992ea51}
+指定された親ASTノードに指定された子ASTノードを追加する 
+\begin{DoxyParams}{引数}
+{\em parent} & 指定された親ASTノード \\
+\hline
+{\em child} & 指定された子ASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!same\_\-new\_\-AST@{same\_\-new\_\-AST}}
+\index{same\_\-new\_\-AST@{same\_\-new\_\-AST}!AST.h@{AST.h}}
+\subsubsection[{same\_\-new\_\-AST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AST}$\ast$ same\_\-new\_\-AST (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{new\_\-name, }
+\item[{int}]{new\_\-line}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a385fcf61df654b7c648b0ed109b488e1}
+名前と内容が同じであるASTノードを生成する 
+\begin{DoxyParams}{引数}
+{\em newname} & 新しいノード名 \\
+\hline
+{\em new\_\-line} & 新しい行数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成されたASTノードへのアドレスが返される 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!setASTBlocklevelAndId@{setASTBlocklevelAndId}}
+\index{setASTBlocklevelAndId@{setASTBlocklevelAndId}!AST.h@{AST.h}}
+\subsubsection[{setASTBlocklevelAndId}]{\setlength{\rightskip}{0pt plus 5cm}void setASTBlocklevelAndId (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a6a198cd34913f8f3500c12101db0e677}
+対象のASTノードに、ブロックIDおよびブロックレベルを付加する
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 対象のASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!setASTReturnType@{setASTReturnType}}
+\index{setASTReturnType@{setASTReturnType}!AST.h@{AST.h}}
+\subsubsection[{setASTReturnType}]{\setlength{\rightskip}{0pt plus 5cm}void setASTReturnType (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a49fd8ff67359b56838fbbca1519663a5}
+対象のASTノードのroot以下にあるに、関数の返却値のタイプを指定する。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 対象のASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!traverseAST@{traverseAST}}
+\index{traverseAST@{traverseAST}!AST.h@{AST.h}}
+\subsubsection[{traverseAST}]{\setlength{\rightskip}{0pt plus 5cm}void traverseAST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int}]{tab\_\-level}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a9ce8fa4ef1dfca0fbcd8fd838079d587}
+ASTのノードをたどり、rootノード以下のノードの名前・内容・行数を表示させる。 また、下位レベルのノードはタブを挿入し表示する。例えば、1レベル下位のノードはタブが1つ挿入した上で表示される。 
+\begin{DoxyParams}{引数}
+{\em root} & 新しいノード名 \\
+\hline
+{\em tab\_\-level} & タブレベル(この数分タブが挿入される） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{AST.h@{AST.h}!traverseASTwithXML@{traverseASTwithXML}}
+\index{traverseASTwithXML@{traverseASTwithXML}!AST.h@{AST.h}}
+\subsubsection[{traverseASTwithXML}]{\setlength{\rightskip}{0pt plus 5cm}void traverseASTwithXML (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{int}]{tab\_\-level}
+\end{DoxyParamCaption}
+)}\label{_a_s_t_8h_a0d03e6fef0765425ce87cf82c5bb8705}
+ASTのノードをたどり、rootノード以下のノードの名前・内容・行数をXML形式で出力する。（デバッグ用） また、下位レベルのノードはタブを挿入し出力する。例えば、1レベル下位のノードはタブが1つ挿入した上でタグが出力される。 XMLについては次の形式で出力する(aはルートノード、a\_\-subはリーフノードであるとする）  $<$leaf name=\char`\"{}a\_\-sub\char`\"{} content=\char`\"{}+\char`\"{} line=\char`\"{}1\char`\"{}$>$ 
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 新しいノード名 \\
+\hline
+{\em tab\_\-level} & タブレベル(この数分タブが挿入される） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

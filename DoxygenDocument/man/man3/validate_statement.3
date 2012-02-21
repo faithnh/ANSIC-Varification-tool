@@ -1,0 +1,37 @@
+.TH "validate_statement" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+validate_statement \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Varidate_statement.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "int \fBcheck_or_modify\fP"
+.br
+.RI "\fIこの検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) \fP"
+.ti -1c
+.RI "int \fBused\fP"
+.br
+.RI "\fI検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \fP"
+.ti -1c
+.RI "CSTLString * \fBstatement\fP"
+.br
+.RI "\fIこの検証式は使用しているかどうかのフラグ 1:使用 0:未使用 \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBtarget_statement\fP"
+.br
+.RI "\fIこの検証式の内容 \fP"
+.in -1c
+.SH "説明"
+.PP 
+実際に検証式として挿入するための情報である。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

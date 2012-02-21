@@ -1,0 +1,29 @@
+\section{構造体 for\_\-information}
+\label{structfor__information}\index{for\_\-information@{for\_\-information}}
+
+
+{\ttfamily \#include $<$ForInformation.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structfor__information_a744fb3a7b36dfd65aafbc1a8e39c137d}{init\_\-expression}\label{structfor__information_a744fb3a7b36dfd65aafbc1a8e39c137d}
+
+\begin{DoxyCompactList}\small\item\em このfor文自体へのASTノード \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structfor__information_a6fdc047d1c19f69e884c929688bf70e6}{continue\_\-condition}\label{structfor__information_a6fdc047d1c19f69e884c929688bf70e6}
+
+\begin{DoxyCompactList}\small\item\em 初期式へのASTノード \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structfor__information_a694fedfacd9dab80421b098d5040f28d}{inc\_\-dec\_\-expression}\label{structfor__information_a694fedfacd9dab80421b098d5040f28d}
+
+\begin{DoxyCompactList}\small\item\em 継続式へのASTノード \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structfor__information_ae8f8608451c0048194d39fec93fbcf8b}{statement}\label{structfor__information_ae8f8608451c0048194d39fec93fbcf8b}
+
+\begin{DoxyCompactList}\small\item\em 増分式へのASTノード \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+for文の初期式・継続式・増分式およびfor文内全体の式へのノードが格納される。 これは、検証式付加ツールでfor文をwhile文に使用される。 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{ForInformation_8h}{ForInformation.h}\end{DoxyCompactItemize}

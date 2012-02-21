@@ -1,0 +1,62 @@
+\section{Library/Stack\_\-int.h}
+\label{Stack__int_8h}\index{Library/Stack\_\-int.h@{Library/Stack\_\-int.h}}
+
+
+このファイルは整数スタックに関する操作をするためのものです。 このファイルで使用される主な用途として、C言語ソースファイルにおけるブロックレベルを設定するのに使用されます。  
+
+
+{\ttfamily \#include $<$cstl/vector.h$>$}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Stack__int_8h_a29f6ee981573db20fd5df0555d9c74c9}{STACK\_\-INT\_\-at\_\-and\_\-alloc} (STACK\_\-INT $\ast$stack\_\-int, int index)
+\item 
+int \hyperlink{Stack__int_8h_a9cd0170a48012e8e6b92c496fb205523}{STACK\_\-INT\_\-inclement\_\-at} (STACK\_\-INT $\ast$stack\_\-int, int index)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは整数スタックに関する操作をするためのものです。 このファイルで使用される主な用途として、C言語ソースファイルにおけるブロックレベルを設定するのに使用されます。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{Stack\_\-int.h@{Stack\_\-int.h}!STACK\_\-INT\_\-at\_\-and\_\-alloc@{STACK\_\-INT\_\-at\_\-and\_\-alloc}}
+\index{STACK\_\-INT\_\-at\_\-and\_\-alloc@{STACK\_\-INT\_\-at\_\-and\_\-alloc}!Stack_int.h@{Stack\_\-int.h}}
+\subsubsection[{STACK\_\-INT\_\-at\_\-and\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}int STACK\_\-INT\_\-at\_\-and\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{STACK\_\-INT $\ast$}]{stack\_\-int, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{Stack__int_8h_a29f6ee981573db20fd5df0555d9c74c9}
+対象の整数スタックstack\_\-intから、指定したインデックスの内容を出力する。インデックスが範囲外である場合は、そのサイズ分まで確保し、0を返す。
+
+
+\begin{DoxyParams}{引数}
+{\em stack\_\-int} & 対象の整数スタック \\
+\hline
+{\em index} & 対象の座標\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+指定したインデックスでの整数スタックの値を出力する。インデックスが範囲外である場合は0を返す。 
+\end{DoxyReturn}
+\index{Stack\_\-int.h@{Stack\_\-int.h}!STACK\_\-INT\_\-inclement\_\-at@{STACK\_\-INT\_\-inclement\_\-at}}
+\index{STACK\_\-INT\_\-inclement\_\-at@{STACK\_\-INT\_\-inclement\_\-at}!Stack_int.h@{Stack\_\-int.h}}
+\subsubsection[{STACK\_\-INT\_\-inclement\_\-at}]{\setlength{\rightskip}{0pt plus 5cm}int STACK\_\-INT\_\-inclement\_\-at (
+\begin{DoxyParamCaption}
+\item[{STACK\_\-INT $\ast$}]{stack\_\-int, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{Stack__int_8h_a9cd0170a48012e8e6b92c496fb205523}
+対象の整数スタックstack\_\-intから、指定したインデックスの内容をインクリメントする。 
+\begin{DoxyParams}{引数}
+{\em stack\_\-int} & 対象の整数スタック \\
+\hline
+{\em index} & 指定したインデックス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+インクリメントに成功したかどうかを示す。成功した場合は１、そうでない場合は０を返す。 
+\end{DoxyReturn}

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/PreProcess.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/PreProcess.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるための命令が含まれている。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができる。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;cstl/list.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="CSTLString_8h_source.html">../Library/CSTLString.h</a>&quot;</code><br/>
+</div>
+<p><a href="PreProcess_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinclude__data.html">include_data</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structinclude__data.html">include_data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a6d1a2dd96f6fa562d010b81ac0b69b21">INCLUDE_DATA</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structinclude__data.html">INCLUDE_DATA</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a374f2859fbe8b968002a64b7ddedb676">new_INCLUDE_DATA</a> (CSTLString *<a class="el" href="structinclude__data.html">include_data</a>, int line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a3af15f622d39d61db338a5b2e0c659b8">preProcesser</a> (char *source_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a8f4e9a441c1ba8c61a31f1d9fa70f7a2">includeComment</a> (char *source_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a09e6288734c2015b2a7ec902afe34857">adjustProgramStart</a> (char *source_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#a00b38a511fb2d9388ca76b7782890673">readIncludeDataFromFile</a> (char *file_name, INCLUDE_LIST *include_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PreProcess_8h.html#ad7bd5ce64ec94dac854c4633c099b379">addIncludeDataFromFile</a> (char *file_name, INCLUDE_LIST *include_list)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるための命令が含まれている。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができる。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="a6d1a2dd96f6fa562d010b81ac0b69b21"></a><!-- doxytag: member="PreProcess.h::INCLUDE_DATA" ref="a6d1a2dd96f6fa562d010b81ac0b69b21" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structinclude__data.html">include_data</a>  <a class="el" href="structinclude__data.html">INCLUDE_DATA</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>インクルードファイルに関する情報が格納される。これは、検証式付加時にインクルードファイルを付加するのに使用する。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="ad7bd5ce64ec94dac854c4633c099b379"></a><!-- doxytag: member="PreProcess.h::addIncludeDataFromFile" ref="ad7bd5ce64ec94dac854c4633c099b379" args="(char *file_name, INCLUDE_LIST *include_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addIncludeDataFromFile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">INCLUDE_LIST *&#160;</td>
+          <td class="paramname"><em>include_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>インクルードリストを基に、対象のファイルにインクルードを追加する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>開くファイル名 </td></tr>
+    <tr><td class="paramname">include_list</td><td>インクルードリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09e6288734c2015b2a7ec902afe34857"></a><!-- doxytag: member="PreProcess.h::adjustProgramStart" ref="a09e6288734c2015b2a7ec902afe34857" args="(char *source_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int adjustProgramStart </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>source_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>プログラムの始まりを示す位置まですべて削除する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source_file_name</td><td>対象のソースファイル名</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f4e9a441c1ba8c61a31f1d9fa70f7a2"></a><!-- doxytag: member="PreProcess.h::includeComment" ref="a8f4e9a441c1ba8c61a31f1d9fa70f7a2" args="(char *source_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int includeComment </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>source_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>"#include"にコメントをかけておく。コメントアウトをかけた結果はファイル名_out.cとして出力される。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source_file_name</td><td>対象のソースファイル名</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a374f2859fbe8b968002a64b7ddedb676"></a><!-- doxytag: member="PreProcess.h::new_INCLUDE_DATA" ref="a374f2859fbe8b968002a64b7ddedb676" args="(CSTLString *include_data, int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structinclude__data.html">INCLUDE_DATA</a>* new_INCLUDE_DATA </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>include_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しいインクルードファイルを生成する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structinclude__data.html">include_data</a></td><td>includeファイルの名前 </td></tr>
+    <tr><td class="paramname">line</td><td>その行数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3af15f622d39d61db338a5b2e0c659b8"></a><!-- doxytag: member="PreProcess.h::preProcesser" ref="a3af15f622d39d61db338a5b2e0c659b8" args="(char *source_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int preProcesser </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>source_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>実行させたいソースにプリプロセッサをかける。プリプロセッサのかけたファイルはファイル名_out_pre.cとして出力される。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source_file_name</td><td>実行させたいソースファイル名</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a00b38a511fb2d9388ca76b7782890673"></a><!-- doxytag: member="PreProcess.h::readIncludeDataFromFile" ref="a00b38a511fb2d9388ca76b7782890673" args="(char *file_name, INCLUDE_LIST *include_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readIncludeDataFromFile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">INCLUDE_LIST *&#160;</td>
+          <td class="paramname"><em>include_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>"#include"にコメントをかけたもののみを取り出し、取りだしたものをインクルードファイルのリストinclude_listにいれる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>開くファイル名 </td></tr>
+    <tr><td class="paramname">include_list</td><td>インクルードリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

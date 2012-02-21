@@ -1,0 +1,233 @@
+\section{ANSICInformation/MemallocInfo.h}
+\label{MemallocInfo_8h}\index{ANSICInformation/MemallocInfo.h@{ANSICInformation/MemallocInfo.h}}
+
+
+このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。  
+
+
+{\ttfamily \#include \char`\"{}PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Synbol.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmemory__allocation__info}{memory\_\-allocation\_\-info}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structmemory__allocation__info}{memory\_\-allocation\_\-info} \hyperlink{MemallocInfo_8h_ac195f09baa3fd86235c8bf9c0c103888}{MEMALLOC\_\-INFO}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$ \hyperlink{MemallocInfo_8h_afe34555376d69246b3a082014cad78af}{new\_\-MEMALLOC\_\-INFO\_\-char} (char $\ast$sizeof\_\-type, ARRAY\_\-OFFSET\_\-LIST $\ast$realloc\_\-target, char $\ast$size)
+\item 
+\hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$ \hyperlink{MemallocInfo_8h_aed5ea9294b1778c648246294a76b4c6b}{new\_\-MEMALLOC\_\-INFO} (CSTLString $\ast$sizeof\_\-type, ARRAY\_\-OFFSET\_\-LIST $\ast$realloc\_\-target, CSTLString $\ast$size)
+\item 
+\hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$ \hyperlink{MemallocInfo_8h_a1ce27f7b14a1ba76647f0d8dc0cca30e}{memoryAllocationAnarysis} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist)
+\item 
+void \hyperlink{MemallocInfo_8h_a44daa61bf2a56ae7b5a29e7b43dd0e2a}{getMallocInformation} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, CSTLString $\ast$sizeof\_\-type, CSTLString $\ast$constant)
+\item 
+void \hyperlink{MemallocInfo_8h_a6660d813f42687f1cc9f1fecf1f16ef0}{getCallocInformation} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, CSTLString $\ast$sizeof\_\-type, CSTLString $\ast$constant)
+\item 
+void \hyperlink{MemallocInfo_8h_adc8171dd663897d8dbaea3d837453242}{getReallocInformation} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, CSTLString $\ast$sizeof\_\-type, CSTLString $\ast$constant, ARRAY\_\-OFFSET\_\-LIST $\ast$realloc\_\-target)
+\item 
+int \hyperlink{MemallocInfo_8h_a4db917a362836842caf646ada69b38b8}{searchSizeof} (CSTLString $\ast$sizeof\_\-type, \hyperlink{structabstract__syntax__tree}{AST} $\ast$root)
+\item 
+void \hyperlink{MemallocInfo_8h_a0f47635fa5f6ec3f88df9d13f3facc85}{getMallocMaxsize} (CSTLString $\ast$constant, \hyperlink{structabstract__syntax__tree}{AST} $\ast$root)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{MemallocInfo.h@{MemallocInfo.h}!MEMALLOC\_\-INFO@{MEMALLOC\_\-INFO}}
+\index{MEMALLOC\_\-INFO@{MEMALLOC\_\-INFO}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{MEMALLOC\_\-INFO}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf memory\_\-allocation\_\-info}  {\bf MEMALLOC\_\-INFO}}\label{MemallocInfo_8h_ac195f09baa3fd86235c8bf9c0c103888}
+メモリ割り当てに関する情報を格納するための構造体。 
+
+\subsection{関数}
+\index{MemallocInfo.h@{MemallocInfo.h}!getCallocInformation@{getCallocInformation}}
+\index{getCallocInformation@{getCallocInformation}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{getCallocInformation}]{\setlength{\rightskip}{0pt plus 5cm}void getCallocInformation (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{CSTLString $\ast$}]{sizeof\_\-type, }
+\item[{CSTLString $\ast$}]{constant}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_a6660d813f42687f1cc9f1fecf1f16ef0}
+calloc関数に関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & \\
+\hline
+{\em sizeof\_\-type} & sizeofでの型 \\
+\hline
+{\em constant} & sizeof以外での式（すなわち確保している型に対するサイズに相当する）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!getMallocInformation@{getMallocInformation}}
+\index{getMallocInformation@{getMallocInformation}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{getMallocInformation}]{\setlength{\rightskip}{0pt plus 5cm}void getMallocInformation (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{CSTLString $\ast$}]{sizeof\_\-type, }
+\item[{CSTLString $\ast$}]{constant}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_a44daa61bf2a56ae7b5a29e7b43dd0e2a}
+malloc関数に関する情報を取得する 
+\begin{DoxyParams}{引数}
+{\em root} & \\
+\hline
+{\em sizeof\_\-type} & sizeofでの型 \\
+\hline
+{\em constant} & sizeof以外での式（すなわち確保している型に対するサイズに相当する）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+malloc関数に関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & \\
+\hline
+{\em sizeof\_\-type} & sizeofでの型 \\
+\hline
+{\em constant} & sizeof以外での式（すなわち確保している型に対するサイズに相当する）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!getMallocMaxsize@{getMallocMaxsize}}
+\index{getMallocMaxsize@{getMallocMaxsize}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{getMallocMaxsize}]{\setlength{\rightskip}{0pt plus 5cm}void getMallocMaxsize (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{constant, }
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_a0f47635fa5f6ec3f88df9d13f3facc85}
+mallocなどの関数内の式から、確保したサイズを示す式を取得する。これは、sizeof(型)を１に書き直しながら、式を出力させることで行っている。
+
+
+\begin{DoxyParams}{引数}
+{\em constant} & 取得するsizeof以外での式（すなわち確保している型に対するサイズに相当する） \\
+\hline
+{\em root} & mallocなどの関数内の式へのASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!getReallocInformation@{getReallocInformation}}
+\index{getReallocInformation@{getReallocInformation}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{getReallocInformation}]{\setlength{\rightskip}{0pt plus 5cm}void getReallocInformation (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{CSTLString $\ast$}]{sizeof\_\-type, }
+\item[{CSTLString $\ast$}]{constant, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{realloc\_\-target}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_adc8171dd663897d8dbaea3d837453242}
+realloc関数に関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & 対象のASTノード \\
+\hline
+{\em vtlist} & 対象のプログラムの変数リスト \\
+\hline
+{\em sizeof\_\-type} & sizeofでの型 \\
+\hline
+{\em constant} & sizeof以外での式（すなわち確保している型に対するサイズに相当する） \\
+\hline
+{\em realloc\_\-target} & reallocが対象とするオフセット情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!memoryAllocationAnarysis@{memoryAllocationAnarysis}}
+\index{memoryAllocationAnarysis@{memoryAllocationAnarysis}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{memoryAllocationAnarysis}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MEMALLOC\_\-INFO}$\ast$ memoryAllocationAnarysis (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_a1ce27f7b14a1ba76647f0d8dc0cca30e}
+指定されたASTノードからメモリ確保関係の関数に関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & 指定されたASTノード \\
+\hline
+{\em vtlist} & reallocでreallocのターゲット情報のオフセット情報を取得するのに必要なプログラムの変数リスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+メモリ確保関係の構造体へのアドレスを返す。 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!new\_\-MEMALLOC\_\-INFO@{new\_\-MEMALLOC\_\-INFO}}
+\index{new\_\-MEMALLOC\_\-INFO@{new\_\-MEMALLOC\_\-INFO}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{new\_\-MEMALLOC\_\-INFO}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MEMALLOC\_\-INFO}$\ast$ new\_\-MEMALLOC\_\-INFO (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{sizeof\_\-type, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{realloc\_\-target, }
+\item[{CSTLString $\ast$}]{size}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_aed5ea9294b1778c648246294a76b4c6b}
+メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 
+\begin{DoxyParams}{引数}
+{\em sizeof\_\-type} & sizeofの型名 \\
+\hline
+{\em realloc\_\-target} & realloc時のターゲットタイプ \\
+\hline
+{\em size} & malloc時のサイズ\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!new\_\-MEMALLOC\_\-INFO\_\-char@{new\_\-MEMALLOC\_\-INFO\_\-char}}
+\index{new\_\-MEMALLOC\_\-INFO\_\-char@{new\_\-MEMALLOC\_\-INFO\_\-char}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{new\_\-MEMALLOC\_\-INFO\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MEMALLOC\_\-INFO}$\ast$ new\_\-MEMALLOC\_\-INFO\_\-char (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{sizeof\_\-type, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{realloc\_\-target, }
+\item[{char $\ast$}]{size}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_afe34555376d69246b3a082014cad78af}
+メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 
+\begin{DoxyParams}{引数}
+{\em sizeof\_\-type} & sizeofの型名 \\
+\hline
+{\em realloc\_\-target} & realloc時のターゲットタイプ \\
+\hline
+{\em size} & malloc時のサイズ\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 
+\end{DoxyReturn}
+\index{MemallocInfo.h@{MemallocInfo.h}!searchSizeof@{searchSizeof}}
+\index{searchSizeof@{searchSizeof}!MemallocInfo.h@{MemallocInfo.h}}
+\subsubsection[{searchSizeof}]{\setlength{\rightskip}{0pt plus 5cm}int searchSizeof (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{sizeof\_\-type, }
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{MemallocInfo_8h_a4db917a362836842caf646ada69b38b8}
+指定した式のASTに対して、sizeofを探索し、その型名をsizeof\_\-typeで取得する。もし、式に異なる２種類のsizeof定義があれば、探索フラグは失敗する。 また、見つからなければ、sizeof\_\-typeは何も指定していないままの状態である。 
+\begin{DoxyParams}{引数}
+{\em sizeof\_\-type} & 出力するsizeofの型名 \\
+\hline
+{\em root} & 探索対象の式へのASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

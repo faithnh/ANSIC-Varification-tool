@@ -1,0 +1,146 @@
+.TH "ANSICInformation/DivitionInformation.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/DivitionInformation.h \- 
+.PP
+このファイルは、除算・剰余算を検出するために使用するのに必要な情報を取得するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include 'AST.h'\fP
+.br
+\fC#include 'Synbol.h'\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+\fC#include 'PointerArrayControl.h'\fP
+.br
+\fC#include 'FunctionInformation.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBdivition_information\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBdivition_information\fP \fBDIVITION_INFORMATION\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBDIVITION_INFORMATION\fP * \fBnew_DIVITION_INFORMATION\fP (\fBAST\fP *target_expression, int type, CSTLString *statement, ARRAY_OFFSET_LIST *identifiers)"
+.br
+.ti -1c
+.RI "\fBDIVITION_INFORMATION\fP * \fBnew_DIVITION_INFORMATION_char\fP (\fBAST\fP *target_expression, int type, char *statement, ARRAY_OFFSET_LIST *identifiers)"
+.br
+.ti -1c
+.RI "void \fBgetDIVITION_INFORMATION_LIST\fP (\fBAST\fP *expression_ast, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, DIVITION_INFORMATION_LIST *divition_information_list, \fBAST\fP *target_expression, ASTPOINTER_LIST *ignore_ast_list)"
+.br
+.ti -1c
+.RI "void \fBprintDIVITION_INFORMATION_LIST\fP (DIVITION_INFORMATION_LIST *divition_information_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、除算・剰余算を検出するために使用するのに必要な情報を取得するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBdivition_information\fP  \fBDIVITION_INFORMATION\fP"除算および剰余算に関する情報を格納する。 
+.SH "関数"
+.PP 
+.SS "void getDIVITION_INFORMATION_LIST (\fBAST\fP *expression_ast, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, DIVITION_INFORMATION_LIST *divition_information_list, \fBAST\fP *target_expression, ASTPOINTER_LIST *ignore_ast_list)"指定された式から、div_exprおよびmod_exprを見つけ、それ以下の式を除算および剰余残に関する情報に格納する
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpression_ast\fP 指定された式へのASTノードのアドレス 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 変数テーブルリスト 
+.br
+\fIdivition_information_list\fP 除算および剰余算に関する情報を格納するためのリスト 
+.br
+\fItarget_expression\fP 対象の式へのASTノードのアドレス 
+.br
+\fIignore_ast_list\fP 重複防止のために使用するASTノードへのリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBDIVITION_INFORMATION\fP* new_DIVITION_INFORMATION (\fBAST\fP *target_expression, inttype, CSTLString *statement, ARRAY_OFFSET_LIST *identifiers)"DIVITION_INFORMATIONのリスト 除算および剰余算に関する情報を生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_expression\fP 対象の式へのASTノードのアドレス 
+.br
+\fItype\fP 除算か剰余かどうかのタイプ　０：除算式　１：剰余式 
+.br
+\fIstatement\fP 除算および剰余以下の式 
+.br
+\fIidentifiers\fP 式内の識別子一覧
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成された情報へのアドレスが返される 
+.RE
+.PP
+
+.SS "\fBDIVITION_INFORMATION\fP* new_DIVITION_INFORMATION_char (\fBAST\fP *target_expression, inttype, char *statement, ARRAY_OFFSET_LIST *identifiers)"除算および剰余算に関する情報を生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_expression\fP 対象の式へのASTノードのアドレス 
+.br
+\fItype\fP 除算か剰余かどうかのタイプ　０：除算式　１：剰余式 
+.br
+\fIstatement\fP 除算および剰余以下の式 
+.br
+\fIidentifiers\fP 式内の識別子一覧
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成された情報へのアドレスが返される 
+.RE
+.PP
+
+.SS "void printDIVITION_INFORMATION_LIST (DIVITION_INFORMATION_LIST *divition_information_list)"除算および剰余算に関する情報のリストの内容を出力させる
+.PP
+\fB引数:\fP
+.RS 4
+\fIdivition_information_list\fP 除算および剰余算に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

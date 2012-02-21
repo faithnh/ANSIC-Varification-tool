@@ -1,0 +1,158 @@
+.TH "ANSICInformation/ForInformation.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/ForInformation.h \- 
+.PP
+このファイルは、forループに関する情報を集めるための命令が含まれている  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'AST.h'\fP
+.br
+\fC#include <cstl/list.h>\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBfor_information\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBfor_information\fP \fBFOR_INFORMATION\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBFOR_INFORMATION\fP * \fBnew_FOR_INFORMATION\fP (\fBAST\fP *target_expression, \fBAST\fP *init_expression, \fBAST\fP *continue_condition, \fBAST\fP *inc_dec_expression, \fBAST\fP *statement)"
+.br
+.ti -1c
+.RI "void \fBprint_FOR_INFORMATION_LIST\fP (FOR_INFORMATION_LIST *for_information_list)"
+.br
+.ti -1c
+.RI "\fBFOR_INFORMATION\fP * \fBsearchFOR_INFORMATION_FromAST\fP (FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *target_ast)"
+.br
+.ti -1c
+.RI "void \fBgetFOR_INFORMATION_LIST\fP (FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *for_iteration_ast)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、forループに関する情報を集めるための命令が含まれている 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBfor_information\fP  \fBFOR_INFORMATION\fP"for文の初期式・継続式・増分式およびfor文内全体の式へのノードが格納される。 これは、検証式付加ツールでfor文をwhile文に使用される。 
+.SH "関数"
+.PP 
+.SS "void getFOR_INFORMATION_LIST (FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *for_iteration_ast)"for_iterationのASTノードから、for文に関する情報のリストを取得する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIfor_information_list\fP for文に関する情報のリスト 
+.br
+\fIfor_iteration_ast\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBFOR_INFORMATION\fP* new_FOR_INFORMATION (\fBAST\fP *target_expression, \fBAST\fP *init_expression, \fBAST\fP *continue_condition, \fBAST\fP *inc_dec_expression, \fBAST\fP *statement)"これは、FOR_INFORMATIONの実装を確かめる for文に関する情報FOR_INFORMATIONを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_expression\fP このfor文自体の情報 
+.br
+\fIinit_expression\fP 初期式 
+.br
+\fIcontinue_condition\fP 継続式 
+.br
+\fIinc_dec_expression\fP 増分式 AST *statement for文内の全体の式を指す 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたFOR_INFORMATIONへのアドレスを返す。
+.RE
+.PP
+for文に関する情報FOR_INFORMATIONを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_expression\fP このfor文自体の情報 
+.br
+\fIinit_expression\fP 初期式 
+.br
+\fIcontinue_condition\fP 継続式 
+.br
+\fIinc_dec_expression\fP 増分式 
+.br
+\fIstatement\fP for文内の全体の式を指す 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたFOR_INFORMATIONへのアドレスを返す。 
+.RE
+.PP
+
+.SS "void print_FOR_INFORMATION_LIST (FOR_INFORMATION_LIST *for_information_list)"for文に関する情報のリストfor_information_listを出力する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+for文に関する情報のリストfor_information_listを出力する 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBFOR_INFORMATION\fP* searchFOR_INFORMATION_FromAST (FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *target_ast)"for文に関する情報のリストfor_information_listから、指定したASTノードに対応したものを出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfor_information_list\fP 検索対象のfor文に関する情報のリスト 
+.br
+\fItarget_ast\fP 検索するAST
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+マッチしたものが見つかれば、それに対応したものへのアドレスを出力させる。見つからない場合はNULLを返す。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

@@ -1,0 +1,38 @@
+\section{構造体 abstract\_\-syntax\_\-tree}
+\label{structabstract__syntax__tree}\index{abstract\_\-syntax\_\-tree@{abstract\_\-syntax\_\-tree}}
+
+
+{\ttfamily \#include $<$AST.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+CSTLString $\ast$ \hyperlink{structabstract__syntax__tree_a1d3ebb923055b39ec93220a82010c9a5}{content}\label{structabstract__syntax__tree_a1d3ebb923055b39ec93220a82010c9a5}
+
+\begin{DoxyCompactList}\small\item\em ノード名 \item\end{DoxyCompactList}\item 
+int \hyperlink{structabstract__syntax__tree_a16de2988d91f99ee9324a8e27e59314a}{line}\label{structabstract__syntax__tree_a16de2988d91f99ee9324a8e27e59314a}
+
+\begin{DoxyCompactList}\small\item\em ノードの内容 \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structabstract__syntax__tree_a427a4655976ce8284a3197e9d9a9b856}{return\_\-type}\label{structabstract__syntax__tree_a427a4655976ce8284a3197e9d9a9b856}
+
+\begin{DoxyCompactList}\small\item\em 対象のノードの行数 \item\end{DoxyCompactList}\item 
+int \hyperlink{structabstract__syntax__tree_a9da95b72b69ccebafe64a6cdff6735b1}{block\_\-level}\label{structabstract__syntax__tree_a9da95b72b69ccebafe64a6cdff6735b1}
+
+\begin{DoxyCompactList}\small\item\em 返却値のタイプ(void、int、doubleなどが入る) \item\end{DoxyCompactList}\item 
+int \hyperlink{structabstract__syntax__tree_a1130545fa7b86f9006c3b68b0943a33a}{block\_\-id}\label{structabstract__syntax__tree_a1130545fa7b86f9006c3b68b0943a33a}
+
+\begin{DoxyCompactList}\small\item\em ブロックの階層レベル（グローバルの場合は０、何らかの関数内であれば１となる） \item\end{DoxyCompactList}\item 
+IDLIST $\ast$ \hyperlink{structabstract__syntax__tree_a9207cfa97354e44aae39c4686a924357}{idlist}\label{structabstract__syntax__tree_a9207cfa97354e44aae39c4686a924357}
+
+\begin{DoxyCompactList}\small\item\em 各々のブロックを識別するためのもの。０から順に設定される \item\end{DoxyCompactList}\item 
+ASTList $\ast$ \hyperlink{structabstract__syntax__tree_ab5e78b5322a2bab5b0aa21d40522a78b}{children}\label{structabstract__syntax__tree_ab5e78b5322a2bab5b0aa21d40522a78b}
+
+\begin{DoxyCompactList}\small\item\em ブロックの階層および識別子を同時に識別するためのもの。変数定義に関して確認するのに用いる \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+C言語プログラムの抽象構文木に関する情報が含まれる。 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{AST_8h}{AST.h}\end{DoxyCompactItemize}

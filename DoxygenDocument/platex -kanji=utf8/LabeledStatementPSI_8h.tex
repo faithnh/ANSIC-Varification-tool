@@ -1,0 +1,53 @@
+\section{ProgramSlicing/LabeledStatementPSI.h}
+\label{LabeledStatementPSI_8h}\index{ProgramSlicing/LabeledStatementPSI.h@{ProgramSlicing/LabeledStatementPSI.h}}
+
+
+このファイルは Labeled Statement Program Slicing Informationの略である。 gotoラベル文、caseラベル文、defaultラベル文から、プログラムスライシングに関する情報を抽出するための操作が含まれている  
+
+
+{\ttfamily \#include \char`\"{}ProgramSlicingInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/FunctionInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/Synbol.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+EXPR\_\-SLICING $\ast$ \hyperlink{LabeledStatementPSI_8h_ae85b248acedfd5344483f8757a39aa7a}{getLabeledStatementPSI} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$labeled\_\-statement, EXPR\_\-SLICING $\ast$parent, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは Labeled Statement Program Slicing Informationの略である。 gotoラベル文、caseラベル文、defaultラベル文から、プログラムスライシングに関する情報を抽出するための操作が含まれている \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{LabeledStatementPSI.h@{LabeledStatementPSI.h}!getLabeledStatementPSI@{getLabeledStatementPSI}}
+\index{getLabeledStatementPSI@{getLabeledStatementPSI}!LabeledStatementPSI.h@{LabeledStatementPSI.h}}
+\subsubsection[{getLabeledStatementPSI}]{\setlength{\rightskip}{0pt plus 5cm}EXPR\_\-SLICING$\ast$ getLabeledStatementPSI (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{{\bf AST} $\ast$}]{labeled\_\-statement, }
+\item[{EXPR\_\-SLICING $\ast$}]{parent, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list}
+\end{DoxyParamCaption}
+)}\label{LabeledStatementPSI_8h_ae85b248acedfd5344483f8757a39aa7a}
+gotoラベル文、caseラベル文、defaultラベル文のASTノードexpression\_\-statementから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr\_\-slicing\_\-listに追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 追加先のプログラムスライシングリストexpr\_\-slicing\_\-list \\
+\hline
+{\em labeled\_\-statement} & gotoラベル文、caseラベル文、defaultラベル文に関するASTノード \\
+\hline
+{\em parent} & ノードを追加するときの親ノード \\
+\hline
+{\em vtlist} & 変数テーブルリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & 重複防止のために無視するノードリスト \\
+\hline
+\end{DoxyParams}

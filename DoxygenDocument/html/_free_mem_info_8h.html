@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ANSICInformation/FreeMemInfo.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/FreeMemInfo.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは、メモリ解放関係の関数から、メモリ解放関係の情報を取得します。 具体的には、C言語プログラム上にあるfree関数から、どの変数が解放されているかどうかについて取得します。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_pointer_array_control_8h_source.html">PointerArrayControl.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_function_information_8h_source.html">FunctionInformation.h</a>&quot;</code><br/>
+</div>
+<p><a href="_free_mem_info_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfreemem__info.html">freemem_info</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structfreemem__info.html">freemem_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_free_mem_info_8h.html#a9a97a736b52d4cbc7fdf9069a8caccb1">FREEMEMINFO</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfreemem__info.html">FREEMEMINFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_free_mem_info_8h.html#a7c3d2f791f8c0f22639a6c8eb31c71b7">new_FREEMEMINFO</a> (ARRAY_OFFSET_LIST *free_variable)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_free_mem_info_8h.html#a77d47b49aed920cf9c5bd24f364153dd">getFreememInfo</a> (<a class="el" href="structfreemem__info.html">FREEMEMINFO</a> **freememinfo, <a class="el" href="structabstract__syntax__tree.html">AST</a> *call_function, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target_statement)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_free_mem_info_8h.html#ad4fd95936820494011ea2f39b9ea5fde">printFREEMEMINFO</a> (<a class="el" href="structfreemem__info.html">FREEMEMINFO</a> *freememinfo)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは、メモリ解放関係の関数から、メモリ解放関係の情報を取得します。 具体的には、C言語プログラム上にあるfree関数から、どの変数が解放されているかどうかについて取得します。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="a9a97a736b52d4cbc7fdf9069a8caccb1"></a><!-- doxytag: member="FreeMemInfo.h::FREEMEMINFO" ref="a9a97a736b52d4cbc7fdf9069a8caccb1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structfreemem__info.html">freemem_info</a>  <a class="el" href="structfreemem__info.html">FREEMEMINFO</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>メモリ確保関係に関係する変数が含まれる。これは、メモリ解放関数の挙動に合わせて検証式を追加するために用いる。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a77d47b49aed920cf9c5bd24f364153dd"></a><!-- doxytag: member="FreeMemInfo.h::getFreememInfo" ref="a77d47b49aed920cf9c5bd24f364153dd" args="(FREEMEMINFO **freememinfo, AST *call_function, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, AST *target_statement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getFreememInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfreemem__info.html">FREEMEMINFO</a> **&#160;</td>
+          <td class="paramname"><em>freememinfo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>call_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target_statement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象の関数へのASTノードからfree関数を見つけ、それに関する情報を取得する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freemeninfo</td><td>取得先のメモリ解放関係の情報 </td></tr>
+    <tr><td class="paramname">call_function</td><td>対象の関数へのASTノード </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">vtlist</td><td>変数テーブルの情報 </td></tr>
+    <tr><td class="paramname">target_statement</td><td>対象の関数が位置している式へのASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c3d2f791f8c0f22639a6c8eb31c71b7"></a><!-- doxytag: member="FreeMemInfo.h::new_FREEMEMINFO" ref="a7c3d2f791f8c0f22639a6c8eb31c71b7" args="(ARRAY_OFFSET_LIST *free_variable)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfreemem__info.html">FREEMEMINFO</a>* new_FREEMEMINFO </td>
+          <td>(</td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>free_variable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しいメモリ解放関係の情報を生成する</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freememinfo</td><td>新しい解放先の変数に関するオフセットリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成されたメモリ解放関係の情報へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4fd95936820494011ea2f39b9ea5fde"></a><!-- doxytag: member="FreeMemInfo.h::printFREEMEMINFO" ref="ad4fd95936820494011ea2f39b9ea5fde" args="(FREEMEMINFO *freememinfo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printFREEMEMINFO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfreemem__info.html">FREEMEMINFO</a> *&#160;</td>
+          <td class="paramname"><em>freememinfo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したメモリ解放関係の情報を出力する</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freememinfo</td><td>出力するメモリ解放関係の情報</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

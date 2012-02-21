@@ -1,0 +1,44 @@
+\section{構造体 validate\_\-variable}
+\label{structvalidate__variable}\index{validate\_\-variable@{validate\_\-variable}}
+
+
+{\ttfamily \#include $<$Varidate\_\-statement.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structvalidate__variable_a5c45828cb643023cfd27baff775c0acf}{enable\_\-start}\label{structvalidate__variable_a5c45828cb643023cfd27baff775c0acf}
+
+\begin{DoxyCompactList}\small\item\em この検証用の変数が使用しているかどうかのフラグ 1:使用 0:未使用 \item\end{DoxyCompactList}\item 
+int \hyperlink{structvalidate__variable_a95b3e1941730e028e9c2878f93656dc3}{enable\_\-end}\label{structvalidate__variable_a95b3e1941730e028e9c2878f93656dc3}
+
+\begin{DoxyCompactList}\small\item\em この変数の有効範囲（ブロックでの）の開始行数を示す \item\end{DoxyCompactList}\item 
+int \hyperlink{structvalidate__variable_aa13526c1c33b126cf8a5da5c96cdfeef}{declaration\_\-location}\label{structvalidate__variable_aa13526c1c33b126cf8a5da5c96cdfeef}
+
+\begin{DoxyCompactList}\small\item\em この変数の有効範囲（ブロックでの）の終了行数を示す \item\end{DoxyCompactList}\item 
+int \hyperlink{structvalidate__variable_a92692a6ba8c228191546f6d99082f829}{block\_\-level}\label{structvalidate__variable_a92692a6ba8c228191546f6d99082f829}
+
+\begin{DoxyCompactList}\small\item\em この変数を宣言する行数を示す \item\end{DoxyCompactList}\item 
+int \hyperlink{structvalidate__variable_a8f7988fadcaa504338c997c60b1b3674}{block\_\-id}\label{structvalidate__variable_a8f7988fadcaa504338c997c60b1b3674}
+
+\begin{DoxyCompactList}\small\item\em この変数を宣言するブロックレベルを示す（０ならグローバル変数・１なら関数内と示す） \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structvalidate__variable_a25c2a484b27cf32f5be46d6fda3b8853}{type}\label{structvalidate__variable_a25c2a484b27cf32f5be46d6fda3b8853}
+
+\begin{DoxyCompactList}\small\item\em この変数を宣言するブロックIDを示す（同ブロックレベルで別のブロックを識別するための番号） \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structvalidate__variable_a2be1b0e38218f7cc1b23644d1a6237ff}{variable\_\-name}\label{structvalidate__variable_a2be1b0e38218f7cc1b23644d1a6237ff}
+
+\begin{DoxyCompactList}\small\item\em この変数の型 \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structvalidate__variable_aa238dc06f28d558b5bb9ff8732539045}{target\_\-variable\_\-name}\label{structvalidate__variable_aa238dc06f28d558b5bb9ff8732539045}
+
+\begin{DoxyCompactList}\small\item\em この変数名 \item\end{DoxyCompactList}\item 
+int \hyperlink{structvalidate__variable_a17d23aaef8047824133aa011d7701810}{offset\_\-level}\label{structvalidate__variable_a17d23aaef8047824133aa011d7701810}
+
+\begin{DoxyCompactList}\small\item\em この変数の検証対象となる変数名 \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+ポインタや配列変数に対する検証用の変数リストを作成するための構造体である。 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{Varidate__statement_8h}{Varidate\_\-statement.h}\end{DoxyCompactItemize}

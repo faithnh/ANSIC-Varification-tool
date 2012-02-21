@@ -1,0 +1,51 @@
+.TH "expr_slicing" 3 "6 Jan 2011" "Version 1.0" "ANSIC<ؠ���" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+expr_slicing \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "int \fBexpr_slicing_number\fP"
+.br
+.ti -1c
+.RI "\fBAST\fP * \fBexpression\fP"
+.br
+.RI "\fI対象の式に対するAST番号 \fP"
+.ti -1c
+.RI "DD_INFORMATION_LIST * \fBdd_list\fP"
+.br
+.RI "\fI対象の式へのＡＳＴノード \fP"
+.ti -1c
+.RI "ARRAY_OFFSET_LIST * \fBtarget_variable\fP"
+.br
+.RI "\fI依存関係リスト \fP"
+.ti -1c
+.RI "ARRAY_OFFSET_LIST * \fBdependences\fP"
+.br
+.RI "\fI変数のオフセットリスト \fP"
+.ti -1c
+.RI "EXPR_SLICING_LIST * \fBchildren1\fP"
+.br
+.RI "\fI依存関係の配列オフセットリスト \fP"
+.ti -1c
+.RI "EXPR_SLICING_LIST * \fBchildren2\fP"
+.br
+.RI "\fIifやwhile、forに対するスライシングリスト \fP"
+.ti -1c
+.RI "struct \fBexpr_slicing\fP * \fBparent\fP"
+.br
+.RI "\fIelse文に対するスライシングリスト \fP"
+.ti -1c
+.RI "int \fBflag\fP"
+.br
+.RI "\fI親をたどるためのノード \fP"
+.in -1c
+
+.SH "作者"
+.PP 
+ANSIC<ؠ���Υ��������� Doxygen �ˤ���������ޤ�����

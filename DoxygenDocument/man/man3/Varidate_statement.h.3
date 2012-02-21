@@ -1,0 +1,1225 @@
+.TH "ANSICInformation/Varidate_statement.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/Varidate_statement.h \- 
+.PP
+これはC言語プログラム上から、不具合を検証するための検証式や検証用に使用する変数などを追加するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include 'Synbol.h'\fP
+.br
+\fC#include 'PointerArrayControl.h'\fP
+.br
+\fC#include 'MemallocInfo.h'\fP
+.br
+\fC#include 'FreeMemInfo.h'\fP
+.br
+\fC#include 'ForInformation.h'\fP
+.br
+\fC#include 'DivitionInformation.h'\fP
+.br
+\fC#include 'PreProcess.h'\fP
+.br
+\fC#include '../ProgramSlicing/ProgramSlicingInformation.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBvalidate_variable\fP"
+.br
+.ti -1c
+.RI "struct \fBvalidate_statement\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBvalidate_variable\fP \fBVALIDATE_VARIABLE\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBvalidate_statement\fP \fBVALIDATE_STATEMENT\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBVALIDATE_STATEMENT\fP * \fBnew_VALIDATE_STATEMENT_char\fP (int target_id, int check_or_modify, int used, char *statement, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "\fBVALIDATE_STATEMENT\fP * \fBnew_VALIDATE_STATEMENT\fP (int target_id, int check_or_modify, int used, CSTLString *statement, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "\fBVALIDATE_VARIABLE\fP * \fBnew_VALIDATE_VARIABLE\fP (int used, int enable_start, int enable_end, int declaration_location, int block_level, int block_id, CSTLString *type, CSTLString *variable_name, CSTLString *target_variable_name, int offset_level)"
+.br
+.ti -1c
+.RI "\fBVALIDATE_VARIABLE\fP * \fBnew_VALIDATE_VARIABLE_with_char\fP (int used, int enable_start, int enable_end, int declaration_location, int block_level, int block_id, char *type, char *variable_name, char *target_variable_name, int offset_level)"
+.br
+.ti -1c
+.RI "void \fBinitVALIDATE_STATEMENT_flag\fP (VALIDATE_STATEMENT_LIST *validate_statement_list)"
+.br
+.ti -1c
+.RI "void \fBgetValidate_Variable\fP (VARIABLE_TABLE_LIST *variable_table_list, VALIDATE_VARIABLE_LIST *\fBvalidate_variable\fP)"
+.br
+.ti -1c
+.RI "void \fBprintVALIDATE_VARIABLE_LIST\fP (VALIDATE_VARIABLE_LIST *validate_variable_list)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatement\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list, int undefined_control_check, int zero_divition_check, int array_unbound_check, int free_violation_check)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromInitializer\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_expression, int undefined_control_check, int zero_divition_check, int array_unbound_check)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromMallocNumber\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *call_function, ARRAY_OFFSET_LIST *right_array_offset_list, \fBMEMALLOC_INFO\fP *memalloc_info)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromForIteration\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, ASTPOINTER_LIST *ignore_ast_list, int undefined_control_check, int zero_divition_check, int array_unbound_check, int free_violation_check)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromAssignStatement\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_expression, int undefined_control_check, int zero_divition_check, int array_unbound_check, int free_violation_check)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromPointerOperator\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, \fBAST\fP *right_expression, int a_op_flag)"
+.br
+.ti -1c
+.RI "void \fBgetValidateStatementFromCallFunction\fP (\fBAST\fP *root, VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "void \fBgetBasisLocationFromAssignmentExpression\fP (CSTLString *output, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, \fBAST\fP *right_expression_ast, int a_op_flag)"
+.br
+.ti -1c
+.RI "void \fBgetBasisLocationFromExpression\fP (CSTLString *output, \fBARRAY_OFFSET\fP *\fBarray_offset\fP, \fBAST\fP *expression_ast)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatementForMallocAction\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBMEMALLOC_INFO\fP *memalloc_info, ARRAY_OFFSET_LIST *array_offset_list, VALIDATE_VARIABLE_LIST *validate_variable_list)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatemenFromIncDecExpr\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatementForFreeAction\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBFREEMEMINFO\fP *freememinfo, VALIDATE_VARIABLE_LIST *validate_variable_list)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatementFromArrayDefine\fP (VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "void \fBcreateVaridateStatementFromPointerDefine\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "void \fBArrayOffsetToValidateStatement\fP (CSTLString *output, VALIDATE_VARIABLE_LIST *validate_variable_list, \fBVARIABLE_TABLE\fP *\fBvariable_table\fP, OFFSET_LIST *offset_list)"
+.br
+.ti -1c
+.RI "void \fBcreateCheckUnboundAndUndefineOperationCheck\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list, int array_unbound_check, int undefined_control_check)"
+.br
+.ti -1c
+.RI "void \fBcreateViolentFreeOperation\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBFREEMEMINFO\fP *freememinfo)"
+.br
+.ti -1c
+.RI "void \fBcreateZeroDivitionCheck\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, DIVITION_INFORMATION_LIST *divition_information_list)"
+.br
+.ti -1c
+.RI "int \fBgetNewValidateStatementID\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBgetLeftAssignmentInfo\fP (\fBAST\fP *left_expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"
+.br
+.ti -1c
+.RI "void \fBgetRightAssignmentInfo\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, \fBMEMALLOC_INFO\fP **memalloc_info, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBprintProgramDataWithValidateStatement\fP (\fBAST\fP *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list)"
+.br
+.ti -1c
+.RI "void \fBfprintProgramDataWithValidateStatement\fP (FILE *output, \fBAST\fP *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list)"
+.br
+.ti -1c
+.RI "void \fBfprintValidateStatement\fP (FILE *output, VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_ast, int check_or_modify, int allow_output_used_statement)"
+.br
+.ti -1c
+.RI "void \fBfprintValidateStatement_not_assert\fP (FILE *output, VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_ast, int check_or_modify, int allow_output_used_statement)"
+.br
+.ti -1c
+.RI "void \fBsetValidateVariableFromExprSlicing\fP (VALIDATE_VARIABLE_LIST *validate_variable_list, EXPR_SLICING_LIST *expr_slicing_list)"
+.br
+.ti -1c
+.RI "void \fBfprintProgramDataWithPSIVaridateStatement\fP (FILE *output, EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *check_target_ast)"
+.br
+.ti -1c
+.RI "void \fBcreateValidateStatementAdderFileEachCheck\fP (EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, INCLUDE_LIST *include_list)"
+.br
+.ti -1c
+.RI "void \fBVALIDATE_STATEMENT_LIST_sort_ast\fP (VALIDATE_STATEMENT_LIST *validate_statement_list)"
+.br
+.ti -1c
+.RI "void \fBgetASTList_FromVALIDATE_STATEMENT_LIST\fP (VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ast_node_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+これはC言語プログラム上から、不具合を検証するための検証式や検証用に使用する変数などを追加するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBvalidate_statement\fP  \fBVALIDATE_STATEMENT\fP"実際に検証式として挿入するための情報である。 
+.SS "typedef struct \fBvalidate_variable\fP  \fBVALIDATE_VARIABLE\fP"ポインタや配列変数に対する検証用の変数リストを作成するための構造体である。 
+.SH "関数"
+.PP 
+.SS "void ArrayOffsetToValidateStatement (CSTLString *output, VALIDATE_VARIABLE_LIST *validate_variable_list, \fBVARIABLE_TABLE\fP *variable_table, OFFSET_LIST *offset_list)"配列のオフセットリストを基に、検証式を作成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力する検証式 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト 
+.br
+\fI\fBvariable_table\fP\fP 対象の変数データ 
+.br
+\fIoffset_list\fP オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+配列のオフセットリストを基に、検証式を作成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力する検証式 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fI\fBvariable_table\fP\fP 対象の変数データ 
+.br
+\fIoffset_list\fP オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createCheckUnboundAndUndefineOperationCheck (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list, intarray_unbound_check, intundefined_control_check)"配列やポインタなどのオフセット情報のリストarray_offset_listから、配列の範囲外参照のチェックをするための検証式 や、未定義状態で処理をチェックするための検証式を生成し、VALIDATE_STATEMENT_LISTへ追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 追加先の検証式リスト 
+.br
+\fIarray_offset_list\fP 配列やポインタなどのオフセット情報のリスト 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIundefined_control_check\fP 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+配列やポインタなどのオフセット情報のリストarray_offset_listから、配列の範囲外参照のチェックをするための検証式 や、未定義状態で処理をチェックするための検証式を生成し、validate_statement_listへ追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 追加先の検証式リスト 
+.br
+\fIarray_offset_list\fP 配列やポインタなどのオフセット情報のリスト 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIundefined_control_check\fP 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatemenFromIncDecExpr (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list)"指定した配列オフセットarrya_offset_listから、インクリメントおよびデクリメント式を含んでいたら、 それに応じてbasis_locationに反映させるための検証式を生成し、VALIDATE_STATEMENT_LISTに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 追加先の検証式 
+.br
+\fIarray_offset_list\fP 配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+指定した配列オフセットリストarrya_offset_listから、インクリメントおよびデクリメント式を含んでいたら、 それに応じてbasis_locationに反映させるための検証式を生成し、validate_statement_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 追加先の検証式 
+.br
+\fIarray_offset_list\fP 配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatement (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list, intundefined_control_check, intzero_divition_check, intarray_unbound_check, intfree_violation_check)"基本的な検証式の生成を行う。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 検証式生成対象のASTノード 
+.br
+\fIfunction_informaiton_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIVALIDATE_STATEMENT_LIST\fP 検証用変数リスト 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 取得した検証式が格納するところ 
+.br
+\fIfor_information_list\fP for文に関する情報 
+.br
+\fIundefined_control_check\fP 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIfree_violation_check\fP メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+基本的な検証式の生成を行う。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 検証式生成対象のASTノード 
+.br
+\fIfunction_informaiton_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIvalidate_statement_list\fP 検証用変数リスト 
+.br
+\fIvalidate_variable_list\fP 取得した検証式が格納するところ 
+.br
+\fIfor_information_list\fP for文に関する情報 
+.br
+\fIundefined_control_check\fP 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIfree_violation_check\fP メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatementAdderFileEachCheck (EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, INCLUDE_LIST *include_list)"プログラムをチェック式ごとにプログラムスライシングと検証式付加を行ったファイルを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP プログラムスライシング情報 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報 
+.br
+\fIinclude_list\fP インクルードリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatementForFreeAction (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBFREEMEMINFO\fP *freememinfo, VALIDATE_VARIABLE_LIST *validate_variable_list)"メモリ解放関係の情報freememinfoから検証式を生成し、VALIDATE_STATEMENT_LISTに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_statement_list\fP 生成先の検証式リスト 
+.br
+\fIfreememinfo\fP メモリ確保関係の情報 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+メモリ解放関係の情報freememinfoから検証式を生成し、validate_statement_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_statement_list\fP 生成先の検証式リスト 
+.br
+\fIfreememinfo\fP メモリ確保関係の情報 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatementForMallocAction (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBMEMALLOC_INFO\fP *memalloc_info, ARRAY_OFFSET_LIST *array_offset_list, VALIDATE_VARIABLE_LIST *validate_variable_list)"メモリ確保関係の情報memalloc_infoや配列やポインタのオフセット情報array_offset_listから検証式を生成し、VALIDATE_STATEMENT_LISTに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_statement_list\fP 生成先の検証式リスト 
+.br
+\fImemalloc_info\fP メモリ確保関係の情報 
+.br
+\fIarray_offset_list\fP 配列やポインタのオフセット情報 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+メモリ確保関係の情報memalloc_infoや配列やポインタのオフセット情報array_offset_listから検証式を生成し、validate_statement_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_statement_list\fP 生成先の検証式リスト 
+.br
+\fImemalloc_info\fP メモリ確保関係の情報 
+.br
+\fIarray_offset_list\fP 配列やポインタのオフセット情報 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createValidateStatementFromArrayDefine (VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list, FUNCTION_INFORMATION_LIST *function_information_list)"変数定義リストで、配列生成時の検証用変数の更新するための検証式を作成し、validate_statement_listに追加する。 また、検証用変数リストvalidate_variable_listに、配列のオフセットを生成するのに使用する変数vviterator_2〜vviterator_n（nは配列の最大次元数）を生成し、追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 追加先の検証式 
+.br
+\fIvariable_table_list\fP 変数テーブルリスト 
+.br
+\fIfunction_information_list\fP 関数定義に関する情報リスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createVaridateStatementFromPointerDefine (VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list, FUNCTION_INFORMATION_LIST *function_information_list)"変数定義リストでポインタ変数に対する検証用変数を更新するための検証式を作成し、validate_statement_listに追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 追加先の検証式 
+.br
+\fIvariable_table_list\fP 変数テーブルリスト 
+.br
+\fIfunction_information_list\fP 関数定義に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createViolentFreeOperation (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBFREEMEMINFO\fP *freememinfo)"メモリ解放関係の情報freememinfoから、free関数に関する違反行為を行っていないかどうかをチェックするための検証式を生成し、VALIDATE_STATEMENT_LISTへ追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 追加先の検証式リスト 
+.br
+\fIfreememinfo\fP メモリ解放関係の情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+メモリ解放関係の情報freememinfoから、free関数に関する違反行為を行っていないかどうかをチェックするための検証式を生成し、validate_statement_listへ追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 追加先の検証式リスト 
+.br
+\fIfreememinfo\fP メモリ解放関係の情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createZeroDivitionCheck (VALIDATE_STATEMENT_LIST *validate_statement_list, DIVITION_INFORMATION_LIST *divition_information_list)"除算および剰余式の情報から、ゼロ除算および剰余になっていないかどうかの検証式を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 格納先の検証式リスト 
+.br
+\fIdivition_information_list\fP 対象の除算および剰余式の情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+除算および剰余式の情報から、ゼロ除算および剰余になっていないかどうかの検証式を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 格納先の検証式リスト 
+.br
+\fIdivition_information_list\fP 対象の除算および剰余式の情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void fprintProgramDataWithPSIVaridateStatement (FILE *output, EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, \fBAST\fP *check_target_ast)"プログラムスライシング情報をもとに検証式を追加しながら出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力する先のファイル 
+.br
+\fIexpr_slicing_list\fP プログラムスライシング情報 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報 
+.br
+\fIcheck_target_ast\fP チェック検証式の対象へのASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void fprintProgramDataWithValidateStatement (FILE *output, \fBAST\fP *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list)"検証式リストや検証用変数をもとにプログラムデータを生成し、指定したファイルoutputに出力する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIroot\fP プログラムへのASTノード 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト 
+.br
+\fIVALIDATE_STATEMENT_LIST\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+検証式リストや検証用変数をもとにプログラムデータを生成し、指定したファイルoutputに出力する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIroot\fP プログラムへのASTノード 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void fprintValidateStatement (FILE *output, VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_ast, intcheck_or_modify, intallow_output_used_statement)"式に対応する検証式を出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIVALIDATE_STATEMENT_LIST\fP 出力対象の検証式リスト 
+.br
+\fItarget_ast\fP 対象のASTノード 
+.br
+\fIcheck_or_modify\fP 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ 
+.br
+\fIallow_output_used_statement\fP 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+式に対応する検証式を出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIvalidate_statement_list\fP 出力対象の検証式リスト 
+.br
+\fItarget_ast\fP 対象のASTノード 
+.br
+\fIcheck_or_modify\fP 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ 
+.br
+\fIallow_output_used_statement\fP 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void fprintValidateStatement_not_assert (FILE *output, VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_ast, intcheck_or_modify, intallow_output_used_statement)"式に対応する検証式をassert(0); を削除したうえ出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIvalidate_statement_list\fP 出力対象の検証式リスト 
+.br
+\fItarget_ast\fP 対象のASTノード 
+.br
+\fIcheck_or_modify\fP 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ 
+.br
+\fIallow_output_used_statement\fP 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getASTList_FromVALIDATE_STATEMENT_LIST (VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ast_node_list)"検証式リストのチェック式から、ASTノードを取り出し、ASTリストとしてまとめる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 取り出し先の検証式リスト 
+.br
+\fIast_node_list\fP まとめる先のASTノードリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getBasisLocationFromAssignmentExpression (CSTLString *output, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, \fBAST\fP *right_expression_ast, inta_op_flag)"ポインタ演算式に対して、ポインタ演算における基本的な位置の式を文字列として求め、outputに入れる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のCSTL文字列 
+.br
+\fIleft_array_offset_list\fP 左辺値の配列オフセットリスト 
+.br
+\fIright_array_offset_list\fP 右辺式の配列オフセットリスト 
+.br
+\fIright_expression_ast\fP 右辺式へのASTアドレス 
+.br
+\fIa_op_flag\fP 代入演算子が何かを示すフラグ 0:=,1:+=,2:-=,3:*=,4:/=,5:=,6:<<=,7:>>=,8:&=,9:|=,10:^=
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getBasisLocationFromExpression (CSTLString *output, \fBARRAY_OFFSET\fP *array_offset, \fBAST\fP *expression_ast)"指定した式expression_astから、ポインタ演算における基本的な位置の式を文字列として求め、outputに入れる。このとき、array_offsetを見つけたらそれに該当する式を０に変換する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のCSTL文字列 
+.br
+\fI\fBarray_offset\fP\fP 指定した識別子の配列オフセット 
+.br
+\fIexpression_ast\fP 指定した式へのASTアドレス 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getLeftAssignmentInfo (\fBAST\fP *left_expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"代入式の左辺値について、検証式に必要な情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIleft_expression\fP 左辺値に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIarray_offset_list\fP 各ポインタおよび配列ごとのオフセットのリスト 
+.br
+\fItarget_expression\fP この左辺式の上位に位置するASTノード 
+.br
+\fIswitch_mode\fP 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getNewValidateStatementID (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *target_statement)"検証式リストVALIDATE_STATEMENT_LISTから、target_statementと同じASTのアドレスを持ったものを探し出し、それを基に重複しないようにするための新しい検証式の識別番号を取得する。 新しい検証式を作るにはこの関数から新しい識別番号を取得すること。
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 対象の検証式リスト 
+.br
+\fItarget_statement\fP 対象の検証式から確認するためのASTのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しい識別番号を出力する。すでに同じASTのアドレスを持っている検証式がなければ０を返す。
+.RE
+.PP
+検証式リストvalidate_statement_listから、target_statementと同じASTのアドレスを持ったものを探し出し、それを基に重複しないようにするための新しい検証式の識別番号を取得する。 新しい検証式を作るにはこの関数から新しい識別番号を取得すること。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 対象の検証式リスト 
+.br
+\fItarget_statement\fP 対象の検証式から確認するためのASTのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しい識別番号を出力する。すでに同じASTのアドレスを持っている検証式がなければ０を返す。 
+.RE
+.PP
+
+.SS "void getRightAssignmentInfo (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, \fBMEMALLOC_INFO\fP **memalloc_info, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"代入式の右辺式について、検証式に必要な情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 右辺式に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP メモリ確保情報を取得するのに必要なプログラム変数リスト 
+.br
+\fImemalloc_info\fP malloc関係の情報が出力される 
+.br
+\fIarray_offset_list\fP 左辺式上にあるポインタ参照に対するオフセットリスト 
+.br
+\fIignore_ast_list\fP 同じ位置のポインタが来ても無視するためのリスト 
+.br
+\fItarget_statement\fP この計算式を属しているASTノードへのアドレス（基本的にexpression_statementであるノードが入る）
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidate_Variable (VARIABLE_TABLE_LIST *variable_table_list, VALIDATE_VARIABLE_LIST *validate_variable)"プログラムの変数リストをもとにプログラムの検証用の変数を設定する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP プログラムの変数リスト 
+.br
+\fI\fBvalidate_variable\fP\fP 検証用の変数リスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromAssignStatement (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_expression, intundefined_control_check, intzero_divition_check, intarray_unbound_check, intfree_violation_check)"指定したASTノードrootから、assign_expressionを探しだし、そこからVARIDATE_STATEMENTに関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 対象の変数リスト 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 取得した検証式が格納するところ 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_expression\fP assign_expressionが属しているexpression_statement 
+.br
+\fIundefined_control_check\fP 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIfree_violation_check\fP メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromCallFunction (\fBAST\fP *root, VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list)"式から、関数呼出を探しだし、関数呼出に対する検証式を追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 探索対象のASTノード 
+.br
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIleft_array_offset_list\fP 左辺値の配列オフセットリスト 
+.br
+\fIright_array_offset_list\fP 右辺式の配列オフセットリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromForIteration (VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, ASTPOINTER_LIST *ignore_ast_list, intundefined_control_check, intzero_divition_check, intarray_unbound_check, intfree_violation_check)"for文の末尾の情報から、検証式を取得し、検証式リストに入れる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 取得した検証式が格納するところ 
+.br
+\fIfor_information_list\fP for文に関する情報のリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 対象の変数リスト 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIundefined_control_check\fP 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIfree_violation_check\fP メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromInitializer (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_expression, intundefined_control_check, intzero_divition_check, intarray_unbound_check)"指定したASTノードrootから、init_declaratorを探しだし、そこからVARIDATE_STATEMENTに関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 対象の変数リスト 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト 
+.br
+\fIVALIDATE_STATEMENT_LIST\fP 取得した検証式が格納するところ 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_expression\fP assign_expressionが属しているexpression_statement 
+.br
+\fIundefined_control_check\fP 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+指定したASTノードrootから、init_declaratorを探しだし、そこからVARIDATE_STATEMENTに関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 対象の変数リスト 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 取得した検証式が格納するところ 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_expression\fP assign_expressionが属しているexpression_statement 
+.br
+\fIundefined_control_check\fP 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない 
+.br
+\fIzero_divition_check\fP 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない 
+.br
+\fIarray_unbound_check\fP 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromMallocNumber (VALIDATE_STATEMENT_LIST *validate_statement_list, \fBAST\fP *call_function, ARRAY_OFFSET_LIST *right_array_offset_list, \fBMEMALLOC_INFO\fP *memalloc_info)"malloc用識別番号を付加するための関数に変換するための検証式を追加させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 追加先の検証式リスト 
+.br
+\fIcall_function\fP 関数呼び出しに対するノード 
+.br
+\fIright_array_offset_list\fP 左辺値に関する配列オフセットリスト 
+.br
+\fImemalloc_info\fP メモリ確保情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+malloc用識別番号を付加するための関数に変換するための検証式を追加させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 追加先の検証式リスト 
+.br
+\fIcall_function\fP 関数呼び出しに対するノード 
+.br
+\fIright_array_offset_list\fP 左辺値に関する配列オフセットリスト 
+.br
+\fImemalloc_info\fP メモリ確保情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getValidateStatementFromPointerOperator (VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, \fBAST\fP *right_expression, inta_op_flag)"ポインタ演算式後の内容を検証用変数に反映するための検証式を追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIVALIDATE_STATEMENT_LIST\fP 検証式リスト 
+.br
+\fIleft_array_offset_list\fP 左辺値の配列オフセットリスト 
+.br
+\fIright_array_offset_list\fP 右辺式の配列オフセットリスト 
+.br
+\fIright_expression\fP 右辺式へのＡＳＴアドレス 
+.br
+\fIa_op_flag\fP 代入演算子が何かを示すフラグ 0:=,1:+=,2:-=,3:*=,4:/=,5:=,6:<<=,7:>>=,8:&=,9:|=,10:^= 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+ポインタ演算式後の内容を検証用変数に反映するための検証式を追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIleft_array_offset_list\fP 左辺値の配列オフセットリスト 
+.br
+\fIright_array_offset_list\fP 右辺式の配列オフセットリスト 
+.br
+\fIright_expression\fP 右辺式へのＡＳＴアドレス 
+.br
+\fIa_op_flag\fP 代入演算子が何かを示すフラグ 0:=,1:+=,2:-=,3:*=,4:/=,5:=,6:<<=,7:>>=,8:&=,9:|=,10:^= 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void initVALIDATE_STATEMENT_flag (VALIDATE_STATEMENT_LIST *validate_statement_list)"検証式リストの使用フラグを未使用状態に初期化する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP *初期化対象の検証式リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBVALIDATE_STATEMENT\fP* new_VALIDATE_STATEMENT (inttarget_id, intcheck_or_modify, intused, CSTLString *statement, \fBAST\fP *target_statement)"実際に検証式として挿入するための情報を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_id\fP この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) 
+.br
+\fIcheck_or_modify\fP 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ 
+.br
+\fIused\fP この検証式は使用しているかどうかのフラグ 1:使用 0:未使用 
+.br
+\fIstatement\fP この検証式の内容 
+.br
+\fItarget_statement\fP この検証式のターゲットとなるASTノードへのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+実際に検証式として挿入するための情報へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBVALIDATE_STATEMENT\fP* new_VALIDATE_STATEMENT_char (inttarget_id, intcheck_or_modify, intused, char *statement, \fBAST\fP *target_statement)"実際に検証式として挿入するための情報を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_id\fP この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) 
+.br
+\fIcheck_or_modify\fP 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ 
+.br
+\fIused\fP この検証式は使用しているかどうかのフラグ 1:使用 0:未使用 
+.br
+\fIstatement\fP この検証式の内容 
+.br
+\fItarget_statement\fP この検証式のターゲットとなるASTノードへのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+実際に検証式として挿入するための情報へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBVALIDATE_VARIABLE\fP* new_VALIDATE_VARIABLE (intused, intenable_start, intenable_end, intdeclaration_location, intblock_level, intblock_id, CSTLString *type, CSTLString *variable_name, CSTLString *target_variable_name, intoffset_level)"新しい検証用変数テーブルのデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIused\fP この検証用変数テーブルを使用したかどうか 
+.br
+\fIenable_start\fP この変数の有効範囲の始まりの行数 
+.br
+\fIenable_end\fP この変数の有効範囲の終わりの行数 
+.br
+\fIdeclaration_location\fP この変数を宣言した場所の行数 
+.br
+\fIblock_level\fP この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） 
+.br
+\fIblock_id\fP ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） 
+.br
+\fItype\fP 型名 
+.br
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_variable_name\fP 検証対象の変数名 
+.br
+\fIoffset_level\fP この変数の配列やポインタの次元レベル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された検証用変数のデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBVALIDATE_VARIABLE\fP* new_VALIDATE_VARIABLE_with_char (intused, intenable_start, intenable_end, intdeclaration_location, intblock_level, intblock_id, char *type, char *variable_name, char *target_variable_name, intoffset_level)"新しい検証用変数テーブルのデータを生成させる(char対応版)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIused\fP この検証用変数テーブルを使用したかどうか 
+.br
+\fIenable_start\fP この変数の有効範囲の始まりの行数 
+.br
+\fIenable_end\fP この変数の有効範囲の終わりの行数 
+.br
+\fIdeclaration_location\fP この変数を宣言した場所の行数 
+.br
+\fIblock_level\fP この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） 
+.br
+\fIblock_id\fP ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） 
+.br
+\fItype\fP 型名 
+.br
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_variable_name\fP 検証対象の変数名 
+.br
+\fIoffset_level\fP この変数の配列やポインタの次元レベル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された検証用変数のデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "void printProgramDataWithValidateStatement (\fBAST\fP *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list)"検証式リストとともにプログラムデータを出力する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP プログラムへのASTノード 
+.br
+\fIVALIDATE_VARIABLE_LIST\fP 検証用変数リスト 
+.br
+\fIVALIDATE_STATEMENT_LIST\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+検証式リストとともにプログラムデータを出力する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP プログラムへのASTノード 
+.br
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIvalidate_statement_list\fP 検証式リスト 
+.br
+\fIfor_information_list\fP for文に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void printVALIDATE_VARIABLE_LIST (VALIDATE_VARIABLE_LIST *validate_variable_list)"検証用変数テーブルのリストの内容を出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_variable_list\fP 出力対象の検証用変数テーブルのリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void setValidateVariableFromExprSlicing (VALIDATE_VARIABLE_LIST *validate_variable_list, EXPR_SLICING_LIST *expr_slicing_list)"プログラムスライシング情報の変数定義をもとに、検証用変数リストの出力を設定する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_variable_list\fP 検証用変数リスト 
+.br
+\fIexpr_slicing_list\fP プログラムスライシング情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void VALIDATE_STATEMENT_LIST_sort_ast (VALIDATE_STATEMENT_LIST *validate_statement_list)"検証式リストをASTノードごとにソートする。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvalidate_statement_list\fP ソート対象の検証式リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

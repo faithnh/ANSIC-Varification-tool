@@ -1,0 +1,263 @@
+.TH "ANSICInformation/FunctionInformation.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/FunctionInformation.h \- 
+.PP
+このファイルは関数に関する情報を取得するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+\fC#include 'AST.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBparam_information\fP"
+.br
+.ti -1c
+.RI "struct \fBfunction_information\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBparam_information\fP \fBPARAM_INFORMATION\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBfunction_information\fP \fBFUNCTION_INFORMATION\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBFUNCTION_INFORMATION\fP * \fBnew_FUNCTION_INFORMATION\fP (\fBAST\fP *function_node, CSTLString *return_type, CSTLString *function_name, PARAM_INFORMATION_LIST *param_information_list)"
+.br
+.ti -1c
+.RI "\fBPARAM_INFORMATION\fP * \fBnew_PARAM_INFORMATION\fP (CSTLString *param_type, CSTLString *param_name, int array_level, int pointer_level, int in_out_flag)"
+.br
+.ti -1c
+.RI "void \fBgetFunctionInformation\fP (FUNCTION_INFORMATION_LIST *function_information_list, \fBAST\fP *root)"
+.br
+.ti -1c
+.RI "void \fBgetFunctionInformationFromFile\fP (FUNCTION_INFORMATION_LIST *function_information_list, char *file_name)"
+.br
+.ti -1c
+.RI "void \fBdeleteParameterDefine\fP (CSTLString *target_string)"
+.br
+.ti -1c
+.RI "void \fBprintFUNCTION_INFORMATION_LIST\fP (FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "\fBFUNCTION_INFORMATION\fP * \fBsearchFUNCTION_INFORMATION\fP (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "int \fBgetPointerLevelFromFUNCTION_INFORMATION_LIST\fP (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "void \fBgetParamInformationFromFunctionDifinition\fP (\fBAST\fP *param_info_node, PARAM_INFORMATION_LIST *param_information_list)"
+.br
+.ti -1c
+.RI "int \fBgetIN_OUT_FLAG\fP (CSTLString *param_type, int pointer_level, int array_level)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは関数に関する情報を取得するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBfunction_information\fP  \fBFUNCTION_INFORMATION\fP"関数に関する情報。関数からの検証式の生成などに用いる。 
+.SS "typedef struct \fBparam_information\fP  \fBPARAM_INFORMATION\fP"引数に関する情報 
+.SH "関数"
+.PP 
+.SS "void deleteParameterDefine (CSTLString *target_string)"指定した関数の定義自体から、パラメータ定義などを削除する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_string\fP 対象の関数の定義自体の文字列
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getFunctionInformation (FUNCTION_INFORMATION_LIST *function_information_list, \fBAST\fP *root)"指定したプログラムのASTノードから関数定義を探し、それに基づいて関数に関する情報を生成し、それらのリストfunction_information_list に登録する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_information_list\fP 登録先の関数に関する情報のリスト 
+.br
+\fIroot\fP 指定したプログラムのASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getFunctionInformationFromFile (FUNCTION_INFORMATION_LIST *function_information_list, char *file_name)"指定したファイル名file_nameで定義された関数に関する情報を関数に関する情報のリストfunction_information_listに設定する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_information_list\fP 登録先の関数に関する情報のリスト 
+.br
+\fIfile_name\fP 指定したファイル名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getIN_OUT_FLAG (CSTLString *param_type, intpointer_level, intarray_level)"パラメータのポインタレベル・配列レベルおよび型名から、このパラメータは入力型か出力型か判定する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIparam_type\fP パラメータの型名 
+.br
+\fIpointer_level\fP ポインタのレベル 
+.br
+\fIarray_level\fP 配列のレベル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+入力型ならば１、出力型ならば０を返す。 
+.RE
+.PP
+
+.SS "void getParamInformationFromFunctionDifinition (\fBAST\fP *param_info_node, PARAM_INFORMATION_LIST *param_information_list)"パラメータリストを示すノードparam_info_nodeから、パラメータの情報を取得し、param_information_listに登録する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIparam_info_node\fP パラメータリストを示すノード 
+.br
+\fIparam_information_list\fP 登録先のパラメータ情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getPointerLevelFromFUNCTION_INFORMATION_LIST (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)"指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_function_name\fP 指定した関数名 
+.br
+\fIfunction_information_list\fP 検索対象の関数に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つかった場合はその関数のポインタレベルを返す、そうでない場合は-1を返す。
+.RE
+.PP
+指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_function_name\fP 指定した関数名 
+.br
+\fIfunction_information_list\fP 検索対象の関数に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つかった場合はその関数のポインタレベルを返す。そうでない場合は-1を返す。 
+.RE
+.PP
+
+.SS "\fBFUNCTION_INFORMATION\fP* new_FUNCTION_INFORMATION (\fBAST\fP *function_node, CSTLString *return_type, CSTLString *function_name, PARAM_INFORMATION_LIST *param_information_list)"関数に関する情報を生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_node\fP 対象の関数へのノード 
+.br
+\fIreturn_type\fP 返却値のタイプ 
+.br
+\fIfunction_name\fP 関数名 
+.br
+\fIparam_information_list\fP パラメータに関する情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成された関数に関する情報へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBPARAM_INFORMATION\fP* new_PARAM_INFORMATION (CSTLString *param_type, CSTLString *param_name, intarray_level, intpointer_level, intin_out_flag)"パラメータに関する情報を生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIparam_type\fP パラメータの型 
+.br
+\fIparam_name\fP パラメータの名前 
+.br
+\fIarray_level\fP 配列のレベル 
+.br
+\fIpointer_level\fP ポインタのレベル 
+.br
+\fIin_out_flag\fP 入力型か出力型かの判定　１：入力　０：出力　２：入出力
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたパラメータに関する情報へのアドレスを返す。 
+.RE
+.PP
+
+.SS "void printFUNCTION_INFORMATION_LIST (FUNCTION_INFORMATION_LIST *function_information_list)"関数に関する情報リストの内容を出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_information_list\fP 出力対象の関数に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBFUNCTION_INFORMATION\fP* searchFUNCTION_INFORMATION (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)"関数に関する情報リストから、指定した関数名を探し、それに関する構造体へのアドレスを返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_function_name\fP 指定した関数名 
+.br
+\fIfunction_information_list\fP 検索対象の関数に関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つかった場合はその関数に関する構造体へのアドレスを返す。みつからなければ、NULLを返す。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

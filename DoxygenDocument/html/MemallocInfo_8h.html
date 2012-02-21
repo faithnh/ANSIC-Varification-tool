@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/MemallocInfo.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/MemallocInfo.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="PointerArrayControl_8h_source.html">PointerArrayControl.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="AST_8h_source.html">AST.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Synbol_8h_source.html">Synbol.h</a>&quot;</code><br/>
+</div>
+<p><a href="MemallocInfo_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemory__allocation__info.html">memory_allocation_info</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structmemory__allocation__info.html">memory_allocation_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#ac195f09baa3fd86235c8bf9c0c103888">MEMALLOC_INFO</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#afe34555376d69246b3a082014cad78af">new_MEMALLOC_INFO_char</a> (char *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, char *size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#aed5ea9294b1778c648246294a76b4c6b">new_MEMALLOC_INFO</a> (CSTLString *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, CSTLString *size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#a1ce27f7b14a1ba76647f0d8dc0cca30e">memoryAllocationAnarysis</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, VARIABLE_TABLE_LIST *vtlist)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#a44daa61bf2a56ae7b5a29e7b43dd0e2a">getMallocInformation</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, CSTLString *sizeof_type, CSTLString *constant)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#a6660d813f42687f1cc9f1fecf1f16ef0">getCallocInformation</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, CSTLString *sizeof_type, CSTLString *constant)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#adc8171dd663897d8dbaea3d837453242">getReallocInformation</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, VARIABLE_TABLE_LIST *vtlist, CSTLString *sizeof_type, CSTLString *constant, ARRAY_OFFSET_LIST *realloc_target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#a4db917a362836842caf646ada69b38b8">searchSizeof</a> (CSTLString *sizeof_type, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemallocInfo_8h.html#a0f47635fa5f6ec3f88df9d13f3facc85">getMallocMaxsize</a> (CSTLString *constant, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="ac195f09baa3fd86235c8bf9c0c103888"></a><!-- doxytag: member="MemallocInfo.h::MEMALLOC_INFO" ref="ac195f09baa3fd86235c8bf9c0c103888" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structmemory__allocation__info.html">memory_allocation_info</a>  <a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>メモリ割り当てに関する情報を格納するための構造体。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a6660d813f42687f1cc9f1fecf1f16ef0"></a><!-- doxytag: member="MemallocInfo.h::getCallocInformation" ref="a6660d813f42687f1cc9f1fecf1f16ef0" args="(AST *root, CSTLString *sizeof_type, CSTLString *constant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getCallocInformation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>constant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>calloc関数に関する情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td></td></tr>
+    <tr><td class="paramname">sizeof_type</td><td>sizeofでの型 </td></tr>
+    <tr><td class="paramname">constant</td><td>sizeof以外での式（すなわち確保している型に対するサイズに相当する）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a44daa61bf2a56ae7b5a29e7b43dd0e2a"></a><!-- doxytag: member="MemallocInfo.h::getMallocInformation" ref="a44daa61bf2a56ae7b5a29e7b43dd0e2a" args="(AST *root, CSTLString *sizeof_type, CSTLString *constant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getMallocInformation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>constant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>malloc関数に関する情報を取得する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td></td></tr>
+    <tr><td class="paramname">sizeof_type</td><td>sizeofでの型 </td></tr>
+    <tr><td class="paramname">constant</td><td>sizeof以外での式（すなわち確保している型に対するサイズに相当する）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>malloc関数に関する情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td></td></tr>
+    <tr><td class="paramname">sizeof_type</td><td>sizeofでの型 </td></tr>
+    <tr><td class="paramname">constant</td><td>sizeof以外での式（すなわち確保している型に対するサイズに相当する）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f47635fa5f6ec3f88df9d13f3facc85"></a><!-- doxytag: member="MemallocInfo.h::getMallocMaxsize" ref="a0f47635fa5f6ec3f88df9d13f3facc85" args="(CSTLString *constant, AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getMallocMaxsize </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>constant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>mallocなどの関数内の式から、確保したサイズを示す式を取得する。これは、sizeof(型)を１に書き直しながら、式を出力させることで行っている。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constant</td><td>取得するsizeof以外での式（すなわち確保している型に対するサイズに相当する） </td></tr>
+    <tr><td class="paramname">root</td><td>mallocなどの関数内の式へのASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adc8171dd663897d8dbaea3d837453242"></a><!-- doxytag: member="MemallocInfo.h::getReallocInformation" ref="adc8171dd663897d8dbaea3d837453242" args="(AST *root, VARIABLE_TABLE_LIST *vtlist, CSTLString *sizeof_type, CSTLString *constant, ARRAY_OFFSET_LIST *realloc_target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getReallocInformation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>constant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>realloc_target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>realloc関数に関する情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>対象のASTノード </td></tr>
+    <tr><td class="paramname">vtlist</td><td>対象のプログラムの変数リスト </td></tr>
+    <tr><td class="paramname">sizeof_type</td><td>sizeofでの型 </td></tr>
+    <tr><td class="paramname">constant</td><td>sizeof以外での式（すなわち確保している型に対するサイズに相当する） </td></tr>
+    <tr><td class="paramname">realloc_target</td><td>reallocが対象とするオフセット情報</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1ce27f7b14a1ba76647f0d8dc0cca30e"></a><!-- doxytag: member="MemallocInfo.h::memoryAllocationAnarysis" ref="a1ce27f7b14a1ba76647f0d8dc0cca30e" args="(AST *root, VARIABLE_TABLE_LIST *vtlist)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a>* memoryAllocationAnarysis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノードからメモリ確保関係の関数に関する情報を取得する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定されたASTノード </td></tr>
+    <tr><td class="paramname">vtlist</td><td>reallocでreallocのターゲット情報のオフセット情報を取得するのに必要なプログラムの変数リスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>メモリ確保関係の構造体へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed5ea9294b1778c648246294a76b4c6b"></a><!-- doxytag: member="MemallocInfo.h::new_MEMALLOC_INFO" ref="aed5ea9294b1778c648246294a76b4c6b" args="(CSTLString *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, CSTLString *size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a>* new_MEMALLOC_INFO </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>realloc_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeof_type</td><td>sizeofの型名 </td></tr>
+    <tr><td class="paramname">realloc_target</td><td>realloc時のターゲットタイプ </td></tr>
+    <tr><td class="paramname">size</td><td>malloc時のサイズ</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afe34555376d69246b3a082014cad78af"></a><!-- doxytag: member="MemallocInfo.h::new_MEMALLOC_INFO_char" ref="afe34555376d69246b3a082014cad78af" args="(char *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, char *size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmemory__allocation__info.html">MEMALLOC_INFO</a>* new_MEMALLOC_INFO_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ARRAY_OFFSET_LIST *&#160;</td>
+          <td class="paramname"><em>realloc_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeof_type</td><td>sizeofの型名 </td></tr>
+    <tr><td class="paramname">realloc_target</td><td>realloc時のターゲットタイプ </td></tr>
+    <tr><td class="paramname">size</td><td>malloc時のサイズ</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4db917a362836842caf646ada69b38b8"></a><!-- doxytag: member="MemallocInfo.h::searchSizeof" ref="a4db917a362836842caf646ada69b38b8" args="(CSTLString *sizeof_type, AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int searchSizeof </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>sizeof_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した式のASTに対して、sizeofを探索し、その型名をsizeof_typeで取得する。もし、式に異なる２種類のsizeof定義があれば、探索フラグは失敗する。 また、見つからなければ、sizeof_typeは何も指定していないままの状態である。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeof_type</td><td>出力するsizeofの型名 </td></tr>
+    <tr><td class="paramname">root</td><td>探索対象の式へのASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

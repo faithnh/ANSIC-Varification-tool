@@ -1,0 +1,91 @@
+.TH "Library/IdList.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Library/IdList.h \- 
+.PP
+このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Stack_int.h'\fP
+.br
+\fC#include <cstl/list.h>\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "int \fBIDLIST_compare_with\fP (IDLIST *target1, IDLIST *target2)"
+.br
+.ti -1c
+.RI "void \fBSET_STACK_INTToIDLIST\fP (IDLIST *dest, STACK_INT *source, int num)"
+.br
+.ti -1c
+.RI "void \fBprintIDLIST\fP (IDLIST *idlist, int new_line_flag)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "int IDLIST_compare_with (IDLIST *target1, IDLIST *target2)"二つのIDLIST target1,target2を比較し、次の状態であれば、１を返す。そうでなければ０を返す。 target2の一番最初のリストの値が0である。 target2のリスト内の値が全て、target1のリスト内の値と一致する場合
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget1\fP 比較対象のIDLIST１ 
+.br
+\fItarget2\fP 比較対象のIDLIST２
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+比較して上記道理になると１を返し、そうでなければ、０を返す。 
+.RE
+.PP
+
+.SS "void printIDLIST (IDLIST *idlist, intnew_line_flag)"IDLISTの内容を出力する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIidlist\fP 出力対象のIDLIST 
+.br
+\fInew_line_flag\fP 改行するかどうかのフラグ　1：改行する　０：改行しない 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void SET_STACK_INTToIDLIST (IDLIST *dest, STACK_INT *source, intnum)"整数スタックの内容sourceを入れたい対象のIDLISTdestへ入れる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIdest\fP 対象のIDLIST 
+.br
+\fIsource\fP 入れる整数スタック内容 
+.br
+\fInum\fP 整数スタックに入れる数
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

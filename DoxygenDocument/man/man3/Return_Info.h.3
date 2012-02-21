@@ -1,0 +1,68 @@
+.TH "ANSICInformation/Return_Info.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/Return_Info.h \- 
+.PP
+これはリターン命令に関する情報を取得するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'PointerArrayControl.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBreturn_info\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBreturn_info\fP \fBRETURN_INFO\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBRETURN_INFO\fP * \fBnew_RETURN_INFO\fP (\fBAST\fP *target_expression, ARRAY_OFFSET_LIST *return_array_offset_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+これはリターン命令に関する情報を取得するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBreturn_info\fP  \fBRETURN_INFO\fP"リターン命令に関する情報が含まれている。 
+.SH "関数"
+.PP 
+.SS "\fBRETURN_INFO\fP* new_RETURN_INFO (\fBAST\fP *target_expression, ARRAY_OFFSET_LIST *return_array_offset_list)"リターン命令に関する情報を生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_expression\fP リターン命令自体へのノードへのアドレス 
+.br
+\fIreturn_array_offset_list\fP リターン命令で表記された式の配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたリターン命令に関する情報へのアドレスを返す。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

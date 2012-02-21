@@ -1,0 +1,69 @@
+.TH "Library/Stack_int.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Library/Stack_int.h \- 
+.PP
+このファイルは整数スタックに関する操作をするための命令が含まれている。 このファイルで使用される主な用途として、C言語ソースファイルにおけるブロックレベルを設定するのに使用される。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/vector.h>\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "int \fBSTACK_INT_at_and_alloc\fP (STACK_INT *stack_int, int index)"
+.br
+.ti -1c
+.RI "int \fBSTACK_INT_inclement_at\fP (STACK_INT *stack_int, int index)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは整数スタックに関する操作をするための命令が含まれている。 このファイルで使用される主な用途として、C言語ソースファイルにおけるブロックレベルを設定するのに使用される。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "int STACK_INT_at_and_alloc (STACK_INT *stack_int, intindex)"対象の整数スタックstack_intから、指定したインデックスの内容を出力する。インデックスが範囲外である場合は、そのサイズ分まで確保し、0を返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fIstack_int\fP 対象の整数スタック 
+.br
+\fIindex\fP 対象の座標
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+指定したインデックスでの整数スタックの値を出力する。インデックスが範囲外である場合は0を返す。 
+.RE
+.PP
+
+.SS "int STACK_INT_inclement_at (STACK_INT *stack_int, intindex)"対象の整数スタックstack_intから、指定したインデックスの内容をインクリメントする。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIstack_int\fP 対象の整数スタック 
+.br
+\fIindex\fP 指定したインデックス 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+インクリメントに成功したかどうかを示す。成功した場合は１、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

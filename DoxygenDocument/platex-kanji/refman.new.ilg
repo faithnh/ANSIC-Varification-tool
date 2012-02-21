@@ -1,0 +1,6 @@
+This is jmakeindex, portable version 2.4 [20-Mar-88].
+Scanning input file refman.new.idx....done (523 entries accepted, 0 rejected).
+Sorting entries.......done (5074 comparisons).
+Generating output file refman.new.ind....done (865 lines written, 0 warnings).
+Output written in refman.new.ind.
+Transcript written in refman.new.ilg.

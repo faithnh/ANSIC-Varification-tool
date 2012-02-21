@@ -1,0 +1,169 @@
+.TH "ProgramSlicing/ExpressionStatementPSI.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgramSlicing/ExpressionStatementPSI.h \- 
+.PP
+このファイルはExpression Statement Program Slicing Informationの略である。 式全般から、プログラムスライシングに関する情報を抽出するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ProgramSlicingInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/FunctionInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/Synbol.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBgetExpressionStatementPSI\fP (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *expression_statement, EXPR_SLICING *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBgetInputFunctionPSI\fP (\fBAST\fP *root, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBgetASI_ARRAY_OFFSET_LIST\fP (\fBAST\fP *root, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, int allow_side_effect)"
+.br
+.ti -1c
+.RI "void \fBsetARGUMENT_NUMBER\fP (ARRAY_OFFSET_LIST *argument_list, int arg_num, \fBAST\fP *call_function)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルはExpression Statement Program Slicing Informationの略である。 式全般から、プログラムスライシングに関する情報を抽出するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "void getASI_ARRAY_OFFSET_LIST (\fBAST\fP *root, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, intallow_side_effect)"expression_statementおよび、expressionに相当するノードから、対象の変数および依存関係の配列オフセットリストを取得する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP オフセットリストに該当するASTノード 
+.br
+\fItarget_variable\fP 左辺式のポインタおよび配列のオフセット情報のリスト 
+.br
+\fIdependences\fP 右辺式のポインタおよび配列のオフセット情報のリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント 
+.br
+\fIallow_side_effect\fP 副作用式を許すかどうかのフラグ　１：許す ０：許さない 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getExpressionStatementPSI (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *expression_statement, EXPR_SLICING *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"式全般のASTノードexpression_statementから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr_slicing_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 追加先のプログラムスライシングリストexpr_slicing_list 
+.br
+\fIexpression_statement\fP 式全般に関するASTノード 
+.br
+\fIparent\fP ノードを追加するときの親ノード 
+.br
+\fIvtlist\fP 変数テーブルリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIignore_ast_list\fP 重複防止のために無視するノードリスト 
+.br
+\fItarget_statement\fP expression_statementを指し示すノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getInputFunctionPSI (\fBAST\fP *root, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"call_functionのASTノードから入力関係の関数を探し出し、これらの引数の変数をすべて、対象変数として登録する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード 
+.br
+\fItarget_variable\fP 対象の変数の配列オフセット情報リスト 
+.br
+\fIdependences\fP 依存関係の配列オフセット情報リスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証式の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP 配列オフセットリストの重複登録を防止するための、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+call_functionのASTノードから入出力関係の関数を探し出し、これらの引数の変数をすべて、対象変数として登録する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード 
+.br
+\fItarget_variable\fP 対象の変数の配列オフセット情報リスト 
+.br
+\fIdependences\fP 依存関係の配列オフセット情報リスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証式の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP 配列オフセットリストの重複登録を防止するための、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void setARGUMENT_NUMBER (ARRAY_OFFSET_LIST *argument_list, intarg_num, \fBAST\fP *call_function)"参照先のASTノードが指定した関数呼び出しcall_functionである配列オフセットリストargument_listに対して、 指定した引数の番号argument_numberを以下の形で付加する。
+.PP
+名前　→　名前::引数番号
+.PP
+\fB引数:\fP
+.RS 4
+\fIargument_list\fP 付加対象の配列オフセットリスト 
+.br
+\fIarg_num\fP 引数 
+.br
+\fIcall_function\fP 関数呼び出しに対するASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

@@ -1,0 +1,90 @@
+\section{Library/IdList.h}
+\label{IdList_8h}\index{Library/IdList.h@{Library/IdList.h}}
+
+
+このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。  
+
+
+{\ttfamily \#include \char`\"{}Stack\_\-int.h\char`\"{}}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{IdList_8h_aa2ec0566f9a7e9a080464288e078f59e}{IDLIST\_\-compare\_\-with} (IDLIST $\ast$target1, IDLIST $\ast$target2)
+\item 
+void \hyperlink{IdList_8h_aa88b7cae850c7986fc7bd218eaefb897}{SET\_\-STACK\_\-INTToIDLIST} (IDLIST $\ast$dest, STACK\_\-INT $\ast$source, int num)
+\item 
+void \hyperlink{IdList_8h_afcfa8142a4b8526f3ccbf3879c0ba80e}{printIDLIST} (IDLIST $\ast$idlist, int new\_\-line\_\-flag)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{IdList.h@{IdList.h}!IDLIST\_\-compare\_\-with@{IDLIST\_\-compare\_\-with}}
+\index{IDLIST\_\-compare\_\-with@{IDLIST\_\-compare\_\-with}!IdList.h@{IdList.h}}
+\subsubsection[{IDLIST\_\-compare\_\-with}]{\setlength{\rightskip}{0pt plus 5cm}int IDLIST\_\-compare\_\-with (
+\begin{DoxyParamCaption}
+\item[{IDLIST $\ast$}]{target1, }
+\item[{IDLIST $\ast$}]{target2}
+\end{DoxyParamCaption}
+)}\label{IdList_8h_aa2ec0566f9a7e9a080464288e078f59e}
+二つのIDLIST target1,target2を比較し、次の状態であれば、１を返す。そうでなければ０を返す。 target2の一番最初のリストの値が0である。 target2のリスト内の値が全て、target1のリスト内の値と一致する場合
+
+
+\begin{DoxyParams}{引数}
+{\em target1} & 比較対象のIDLIST１ \\
+\hline
+{\em target2} & 比較対象のIDLIST２\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+比較して上記道理になると１を返し、そうでなければ、０を返す。 
+\end{DoxyReturn}
+\index{IdList.h@{IdList.h}!printIDLIST@{printIDLIST}}
+\index{printIDLIST@{printIDLIST}!IdList.h@{IdList.h}}
+\subsubsection[{printIDLIST}]{\setlength{\rightskip}{0pt plus 5cm}void printIDLIST (
+\begin{DoxyParamCaption}
+\item[{IDLIST $\ast$}]{idlist, }
+\item[{int}]{new\_\-line\_\-flag}
+\end{DoxyParamCaption}
+)}\label{IdList_8h_afcfa8142a4b8526f3ccbf3879c0ba80e}
+IDLISTの内容を出力する。
+
+
+\begin{DoxyParams}{引数}
+{\em idlist} & 出力対象のIDLIST \\
+\hline
+{\em new\_\-line\_\-flag} & 改行するかどうかのフラグ　1：改行する　０：改行しない \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{IdList.h@{IdList.h}!SET\_\-STACK\_\-INTToIDLIST@{SET\_\-STACK\_\-INTToIDLIST}}
+\index{SET\_\-STACK\_\-INTToIDLIST@{SET\_\-STACK\_\-INTToIDLIST}!IdList.h@{IdList.h}}
+\subsubsection[{SET\_\-STACK\_\-INTToIDLIST}]{\setlength{\rightskip}{0pt plus 5cm}void SET\_\-STACK\_\-INTToIDLIST (
+\begin{DoxyParamCaption}
+\item[{IDLIST $\ast$}]{dest, }
+\item[{STACK\_\-INT $\ast$}]{source, }
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\label{IdList_8h_aa88b7cae850c7986fc7bd218eaefb897}
+整数スタックの内容sourceを入れたい対象のIDLISTdestへ入れる。
+
+
+\begin{DoxyParams}{引数}
+{\em dest} & 対象のIDLIST \\
+\hline
+{\em source} & 入れる整数スタック内容 \\
+\hline
+{\em num} & 整数スタックに入れる数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

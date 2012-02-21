@@ -1,0 +1,281 @@
+\section{ANSICInformation/FunctionInformation.h}
+\label{FunctionInformation_8h}\index{ANSICInformation/FunctionInformation.h@{ANSICInformation/FunctionInformation.h}}
+
+
+このファイルは関数に関する情報を取得するための命令が含まれている。  
+
+
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf param\_\-information}
+\item 
+struct {\bf function\_\-information}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf param\_\-information} {\bf PARAM\_\-INFORMATION}
+\item 
+typedef struct {\bf function\_\-information} {\bf FUNCTION\_\-INFORMATION}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+{\bf FUNCTION\_\-INFORMATION} $\ast$ {\bf new\_\-FUNCTION\_\-INFORMATION} ({\bf AST} $\ast$function\_\-node, CSTLString $\ast$return\_\-type, CSTLString $\ast$function\_\-name, PARAM\_\-INFORMATION\_\-LIST $\ast$param\_\-information\_\-list)
+\item 
+{\bf PARAM\_\-INFORMATION} $\ast$ {\bf new\_\-PARAM\_\-INFORMATION} (CSTLString $\ast$param\_\-type, CSTLString $\ast$param\_\-name, int array\_\-level, int pointer\_\-level, int in\_\-out\_\-flag)
+\item 
+void {\bf getFunctionInformation} (FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, {\bf AST} $\ast$root)
+\item 
+void {\bf getFunctionInformationFromFile} (FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, char $\ast$file\_\-name)
+\item 
+void {\bf deleteParameterDefine} (CSTLString $\ast$target\_\-string)
+\item 
+void {\bf printFUNCTION\_\-INFORMATION\_\-LIST} (FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+{\bf FUNCTION\_\-INFORMATION} $\ast$ {\bf searchFUNCTION\_\-INFORMATION} (CSTLString $\ast$target\_\-function\_\-name, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+int {\bf getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST} (CSTLString $\ast$target\_\-function\_\-name, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void {\bf getParamInformationFromFunctionDifinition} ({\bf AST} $\ast$param\_\-info\_\-node, PARAM\_\-INFORMATION\_\-LIST $\ast$param\_\-information\_\-list)
+\item 
+int {\bf getIN\_\-OUT\_\-FLAG} (CSTLString $\ast$param\_\-type, int pointer\_\-level, int array\_\-level)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは関数に関する情報を取得するための命令が含まれている。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{FunctionInformation.h@{FunctionInformation.h}!FUNCTION\_\-INFORMATION@{FUNCTION\_\-INFORMATION}}
+\index{FUNCTION\_\-INFORMATION@{FUNCTION\_\-INFORMATION}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{FUNCTION\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf function\_\-information}  {\bf FUNCTION\_\-INFORMATION}}\label{FunctionInformation_8h_aab4e23ad10f5b3c5e209289dbb41df40}
+関数に関する情報。関数からの検証式の生成などに用いる。 \index{FunctionInformation.h@{FunctionInformation.h}!PARAM\_\-INFORMATION@{PARAM\_\-INFORMATION}}
+\index{PARAM\_\-INFORMATION@{PARAM\_\-INFORMATION}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{PARAM\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf param\_\-information}  {\bf PARAM\_\-INFORMATION}}\label{FunctionInformation_8h_ae4491ef8fff9eec21ce52d12bc035b04}
+引数に関する情報 
+
+\subsection{関数}
+\index{FunctionInformation.h@{FunctionInformation.h}!deleteParameterDefine@{deleteParameterDefine}}
+\index{deleteParameterDefine@{deleteParameterDefine}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{deleteParameterDefine}]{\setlength{\rightskip}{0pt plus 5cm}void deleteParameterDefine (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-string}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_af5bf958c5e789e03ca88250f06328ae5}
+指定した関数の定義自体から、パラメータ定義などを削除する。
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-string} & 対象の関数の定義自体の文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!getFunctionInformation@{getFunctionInformation}}
+\index{getFunctionInformation@{getFunctionInformation}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{getFunctionInformation}]{\setlength{\rightskip}{0pt plus 5cm}void getFunctionInformation (
+\begin{DoxyParamCaption}
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{{\bf AST} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_af12c024074ed26d67e981249f4d73216}
+指定したプログラムのASTノードから関数定義を探し、それに基づいて関数に関する情報を生成し、それらのリストfunction\_\-information\_\-list に登録する。
+
+
+\begin{DoxyParams}{引数}
+{\em function\_\-information\_\-list} & 登録先の関数に関する情報のリスト \\
+\hline
+{\em root} & 指定したプログラムのASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!getFunctionInformationFromFile@{getFunctionInformationFromFile}}
+\index{getFunctionInformationFromFile@{getFunctionInformationFromFile}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{getFunctionInformationFromFile}]{\setlength{\rightskip}{0pt plus 5cm}void getFunctionInformationFromFile (
+\begin{DoxyParamCaption}
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{char $\ast$}]{file\_\-name}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_acecbefba50732f6a9926d72e926df76d}
+指定したファイル名file\_\-nameで定義された関数に関する情報を関数に関する情報のリストfunction\_\-information\_\-listに設定する。 
+\begin{DoxyParams}{引数}
+{\em function\_\-information\_\-list} & 登録先の関数に関する情報のリスト \\
+\hline
+{\em file\_\-name} & 指定したファイル名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!getIN\_\-OUT\_\-FLAG@{getIN\_\-OUT\_\-FLAG}}
+\index{getIN\_\-OUT\_\-FLAG@{getIN\_\-OUT\_\-FLAG}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{getIN\_\-OUT\_\-FLAG}]{\setlength{\rightskip}{0pt plus 5cm}int getIN\_\-OUT\_\-FLAG (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{param\_\-type, }
+\item[{int}]{pointer\_\-level, }
+\item[{int}]{array\_\-level}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_a2f237d512dcb1a72e29ff42aa972a557}
+パラメータのポインタレベル・配列レベルおよび型名から、このパラメータは入力型か出力型か判定する。
+
+
+\begin{DoxyParams}{引数}
+{\em param\_\-type} & パラメータの型名 \\
+\hline
+{\em pointer\_\-level} & ポインタのレベル \\
+\hline
+{\em array\_\-level} & 配列のレベル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+入力型ならば１、出力型ならば０を返す。 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!getParamInformationFromFunctionDifinition@{getParamInformationFromFunctionDifinition}}
+\index{getParamInformationFromFunctionDifinition@{getParamInformationFromFunctionDifinition}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{getParamInformationFromFunctionDifinition}]{\setlength{\rightskip}{0pt plus 5cm}void getParamInformationFromFunctionDifinition (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{param\_\-info\_\-node, }
+\item[{PARAM\_\-INFORMATION\_\-LIST $\ast$}]{param\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_a90fb29ce9d6e3487e9e5bdc69c4afd7b}
+パラメータリストを示すノードparam\_\-info\_\-nodeから、パラメータの情報を取得し、param\_\-information\_\-listに登録する。
+
+
+\begin{DoxyParams}{引数}
+{\em param\_\-info\_\-node} & パラメータリストを示すノード \\
+\hline
+{\em param\_\-information\_\-list} & 登録先のパラメータ情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST@{getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST}}
+\index{getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST@{getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}int getPointerLevelFromFUNCTION\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-function\_\-name, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_af1b60d4c0b4f57c666a46e01db6f01d6}
+指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 
+\begin{DoxyParams}{引数}
+{\em target\_\-function\_\-name} & 指定した関数名 \\
+\hline
+{\em function\_\-information\_\-list} & 検索対象の関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つかった場合はその関数のポインタレベルを返す、そうでない場合は-\/1を返す。
+\end{DoxyReturn}
+指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 
+\begin{DoxyParams}{引数}
+{\em target\_\-function\_\-name} & 指定した関数名 \\
+\hline
+{\em function\_\-information\_\-list} & 検索対象の関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つかった場合はその関数のポインタレベルを返す。そうでない場合は-\/1を返す。 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!new\_\-FUNCTION\_\-INFORMATION@{new\_\-FUNCTION\_\-INFORMATION}}
+\index{new\_\-FUNCTION\_\-INFORMATION@{new\_\-FUNCTION\_\-INFORMATION}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{new\_\-FUNCTION\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FUNCTION\_\-INFORMATION}$\ast$ new\_\-FUNCTION\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{function\_\-node, }
+\item[{CSTLString $\ast$}]{return\_\-type, }
+\item[{CSTLString $\ast$}]{function\_\-name, }
+\item[{PARAM\_\-INFORMATION\_\-LIST $\ast$}]{param\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_a08e9e7f3d64ef0deeb2d9b6b7590a373}
+関数に関する情報を生成する。
+
+
+\begin{DoxyParams}{引数}
+{\em function\_\-node} & 対象の関数へのノード \\
+\hline
+{\em return\_\-type} & 返却値のタイプ \\
+\hline
+{\em function\_\-name} & 関数名 \\
+\hline
+{\em param\_\-information\_\-list} & パラメータに関する情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成された関数に関する情報へのアドレスを返す。 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!new\_\-PARAM\_\-INFORMATION@{new\_\-PARAM\_\-INFORMATION}}
+\index{new\_\-PARAM\_\-INFORMATION@{new\_\-PARAM\_\-INFORMATION}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{new\_\-PARAM\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PARAM\_\-INFORMATION}$\ast$ new\_\-PARAM\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{param\_\-type, }
+\item[{CSTLString $\ast$}]{param\_\-name, }
+\item[{int}]{array\_\-level, }
+\item[{int}]{pointer\_\-level, }
+\item[{int}]{in\_\-out\_\-flag}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_ae6e5d43a10dd5ee5a7f31306c42aadcb}
+パラメータに関する情報を生成する。
+
+
+\begin{DoxyParams}{引数}
+{\em param\_\-type} & パラメータの型 \\
+\hline
+{\em param\_\-name} & パラメータの名前 \\
+\hline
+{\em array\_\-level} & 配列のレベル \\
+\hline
+{\em pointer\_\-level} & ポインタのレベル \\
+\hline
+{\em in\_\-out\_\-flag} & 入力型か出力型かの判定　１：入力　０：出力　２：入出力\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたパラメータに関する情報へのアドレスを返す。 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!printFUNCTION\_\-INFORMATION\_\-LIST@{printFUNCTION\_\-INFORMATION\_\-LIST}}
+\index{printFUNCTION\_\-INFORMATION\_\-LIST@{printFUNCTION\_\-INFORMATION\_\-LIST}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{printFUNCTION\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printFUNCTION\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_a7970484f0104369f1c54d52852990c73}
+関数に関する情報リストの内容を出力させる。 
+\begin{DoxyParams}{引数}
+{\em function\_\-information\_\-list} & 出力対象の関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{FunctionInformation.h@{FunctionInformation.h}!searchFUNCTION\_\-INFORMATION@{searchFUNCTION\_\-INFORMATION}}
+\index{searchFUNCTION\_\-INFORMATION@{searchFUNCTION\_\-INFORMATION}!FunctionInformation.h@{FunctionInformation.h}}
+\subsubsection[{searchFUNCTION\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FUNCTION\_\-INFORMATION}$\ast$ searchFUNCTION\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-function\_\-name, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{FunctionInformation_8h_adb4d66844004d42703e1a3bb1653361b}
+関数に関する情報リストから、指定した関数名を探し、それに関する構造体へのアドレスを返す。
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-function\_\-name} & 指定した関数名 \\
+\hline
+{\em function\_\-information\_\-list} & 検索対象の関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つかった場合はその関数に関する構造体へのアドレスを返す。みつからなければ、NULLを返す。 
+\end{DoxyReturn}

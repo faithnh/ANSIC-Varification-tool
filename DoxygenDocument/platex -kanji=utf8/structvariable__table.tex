@@ -1,0 +1,41 @@
+\section{構造体 variable\_\-table}
+\label{structvariable__table}\index{variable\_\-table@{variable\_\-table}}
+
+
+{\ttfamily \#include $<$Synbol.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structvariable__table_a69b24ee97fe37831cbfe54edf6c5a9c0}{enable\_\-end}\label{structvariable__table_a69b24ee97fe37831cbfe54edf6c5a9c0}
+
+\begin{DoxyCompactList}\small\item\em この変数が有効である開始の行数 \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structvariable__table_ad4eca9a1daf1ccf260a672768a054d73}{declaration\_\-location\_\-address}\label{structvariable__table_ad4eca9a1daf1ccf260a672768a054d73}
+
+\begin{DoxyCompactList}\small\item\em この変数が有効である終了の行数 \item\end{DoxyCompactList}\item 
+int \hyperlink{structvariable__table_a7dfd4036a14e108dda08ce0bd83e7fe1}{block\_\-level}\label{structvariable__table_a7dfd4036a14e108dda08ce0bd83e7fe1}
+
+\begin{DoxyCompactList}\small\item\em この変数の宣言をしているASTノードへのアドレス \item\end{DoxyCompactList}\item 
+int \hyperlink{structvariable__table_a689fe54448fbbc46aaebb56203005cc4}{block\_\-id}\label{structvariable__table_a689fe54448fbbc46aaebb56203005cc4}
+
+\begin{DoxyCompactList}\small\item\em この変数が宣言しているブロックレベル(グローバル変数なら０、関数内のローカル変数なら１となる） \item\end{DoxyCompactList}\item 
+IDLIST $\ast$ \hyperlink{structvariable__table_ab7fbad4dd717512360b7f947a277b10b}{idlist}\label{structvariable__table_ab7fbad4dd717512360b7f947a277b10b}
+
+\begin{DoxyCompactList}\small\item\em この変数が宣言している各々のブロックの識別子 \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structvariable__table_a3fbbc0d31aed9894be0bddaf8cb4af49}{type}\label{structvariable__table_a3fbbc0d31aed9894be0bddaf8cb4af49}
+
+\begin{DoxyCompactList}\small\item\em この変数が宣言しているブロックレベルおよび識別子の両方に関する情報で、変数スコープを識別するのに使用される。 \item\end{DoxyCompactList}\item 
+CSTLString $\ast$ \hyperlink{structvariable__table_a5f81ceac01a5b8c2632ddd2e1588436b}{variable\_\-name}\label{structvariable__table_a5f81ceac01a5b8c2632ddd2e1588436b}
+
+\begin{DoxyCompactList}\small\item\em この変数の型 \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structvariable__table_ad1094019a19afcd1acf8b9242e501bf5}{initiarizer}\label{structvariable__table_ad1094019a19afcd1acf8b9242e501bf5}
+
+\begin{DoxyCompactList}\small\item\em この変数の名前 \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+プログラム中の変数に関する情報であり、検証式生成時に変数を識別するのに用いられる。 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{Synbol_8h}{Synbol.h}\end{DoxyCompactItemize}

@@ -1,0 +1,386 @@
+\contentsline {chapter}{\numberline {1}データ構造索引}{1}
+\contentsline {section}{\numberline {1.1}データ構造}{1}
+\contentsline {chapter}{\numberline {2}ファイル索引}{3}
+\contentsline {section}{\numberline {2.1}ファイル一覧}{3}
+\contentsline {chapter}{\numberline {3}データ構造}{7}
+\contentsline {section}{\numberline {3.1}構造体 abstract\_\discretionary {-}{}{}syntax\_\discretionary {-}{}{}tree}{7}
+\contentsline {subsection}{\numberline {3.1.1}説明}{8}
+\contentsline {section}{\numberline {3.2}構造体 array\_\discretionary {-}{}{}offset}{8}
+\contentsline {subsection}{\numberline {3.2.1}説明}{8}
+\contentsline {section}{\numberline {3.3}構造体 divition\_\discretionary {-}{}{}information}{9}
+\contentsline {subsection}{\numberline {3.3.1}説明}{9}
+\contentsline {section}{\numberline {3.4}構造体 for\_\discretionary {-}{}{}information}{9}
+\contentsline {subsection}{\numberline {3.4.1}説明}{10}
+\contentsline {section}{\numberline {3.5}構造体 freemem\_\discretionary {-}{}{}info}{10}
+\contentsline {subsection}{\numberline {3.5.1}説明}{10}
+\contentsline {section}{\numberline {3.6}構造体 function\_\discretionary {-}{}{}information}{10}
+\contentsline {subsection}{\numberline {3.6.1}説明}{10}
+\contentsline {section}{\numberline {3.7}構造体 include\_\discretionary {-}{}{}data}{11}
+\contentsline {subsection}{\numberline {3.7.1}説明}{11}
+\contentsline {section}{\numberline {3.8}構造体 memory\_\discretionary {-}{}{}allocation\_\discretionary {-}{}{}info}{11}
+\contentsline {subsection}{\numberline {3.8.1}説明}{11}
+\contentsline {section}{\numberline {3.9}構造体 param\_\discretionary {-}{}{}information}{11}
+\contentsline {subsection}{\numberline {3.9.1}説明}{12}
+\contentsline {section}{\numberline {3.10}構造体 return\_\discretionary {-}{}{}info}{12}
+\contentsline {subsection}{\numberline {3.10.1}説明}{12}
+\contentsline {section}{\numberline {3.11}構造体 struct\_\discretionary {-}{}{}table}{12}
+\contentsline {subsection}{\numberline {3.11.1}説明}{13}
+\contentsline {section}{\numberline {3.12}構造体 typedef\_\discretionary {-}{}{}table}{13}
+\contentsline {subsection}{\numberline {3.12.1}説明}{13}
+\contentsline {section}{\numberline {3.13}構造体 validate\_\discretionary {-}{}{}statement}{13}
+\contentsline {subsection}{\numberline {3.13.1}説明}{14}
+\contentsline {section}{\numberline {3.14}構造体 validate\_\discretionary {-}{}{}variable}{14}
+\contentsline {subsection}{\numberline {3.14.1}説明}{15}
+\contentsline {section}{\numberline {3.15}構造体 variable\_\discretionary {-}{}{}table}{15}
+\contentsline {subsection}{\numberline {3.15.1}説明}{16}
+\contentsline {chapter}{\numberline {4}ファイル}{17}
+\contentsline {section}{\numberline {4.1}ANSICInformation/ANSIC\_\discretionary {-}{}{}CODE.h}{17}
+\contentsline {subsection}{\numberline {4.1.1}説明}{17}
+\contentsline {subsection}{\numberline {4.1.2}関数}{17}
+\contentsline {subsubsection}{\numberline {4.1.2.1}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}1}{17}
+\contentsline {subsubsection}{\numberline {4.1.2.2}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}2}{18}
+\contentsline {subsubsection}{\numberline {4.1.2.3}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}3}{18}
+\contentsline {subsubsection}{\numberline {4.1.2.4}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}4}{18}
+\contentsline {subsubsection}{\numberline {4.1.2.5}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}5}{18}
+\contentsline {subsubsection}{\numberline {4.1.2.6}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}6}{19}
+\contentsline {subsubsection}{\numberline {4.1.2.7}ASTLIST\_\discretionary {-}{}{}ITERATOR\_\discretionary {-}{}{}7}{19}
+\contentsline {section}{\numberline {4.2}ANSICInformation/AST.h}{19}
+\contentsline {subsection}{\numberline {4.2.1}説明}{20}
+\contentsline {subsection}{\numberline {4.2.2}型定義}{21}
+\contentsline {subsubsection}{\numberline {4.2.2.1}AST}{21}
+\contentsline {subsection}{\numberline {4.2.3}関数}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.1}deleteAST}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.2}findASTAddress}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.3}fprintDataFromAST}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.4}fprintfStatement}{22}
+\contentsline {subsubsection}{\numberline {4.2.3.5}getArgumentAST}{22}
+\contentsline {subsubsection}{\numberline {4.2.3.6}getArgumentString}{22}
+\contentsline {subsubsection}{\numberline {4.2.3.7}getArgumentStringEnableExcept}{23}
+\contentsline {subsubsection}{\numberline {4.2.3.8}getASTwithString}{23}
+\contentsline {subsubsection}{\numberline {4.2.3.9}getStringFromAST}{24}
+\contentsline {subsubsection}{\numberline {4.2.3.10}getStringFromASTEnableExcept}{24}
+\contentsline {subsubsection}{\numberline {4.2.3.11}getStringReplaceASTtoString}{24}
+\contentsline {subsubsection}{\numberline {4.2.3.12}multi\_\discretionary {-}{}{}push\_\discretionary {-}{}{}back\_\discretionary {-}{}{}childrenAST}{25}
+\contentsline {subsubsection}{\numberline {4.2.3.13}new\_\discretionary {-}{}{}AST}{25}
+\contentsline {subsubsection}{\numberline {4.2.3.14}printDataFromAST}{25}
+\contentsline {subsubsection}{\numberline {4.2.3.15}printTargetASTNode}{25}
+\contentsline {subsubsection}{\numberline {4.2.3.16}push\_\discretionary {-}{}{}back\_\discretionary {-}{}{}childrenAST}{26}
+\contentsline {subsubsection}{\numberline {4.2.3.17}same\_\discretionary {-}{}{}new\_\discretionary {-}{}{}AST}{27}
+\contentsline {subsubsection}{\numberline {4.2.3.18}setASTBlocklevelAndId}{27}
+\contentsline {subsubsection}{\numberline {4.2.3.19}setASTReturnType}{27}
+\contentsline {subsubsection}{\numberline {4.2.3.20}traverseAST}{27}
+\contentsline {subsubsection}{\numberline {4.2.3.21}traverseASTwithXML}{28}
+\contentsline {section}{\numberline {4.3}ANSICInformation/DivitionDeclarator.h}{28}
+\contentsline {subsection}{\numberline {4.3.1}説明}{28}
+\contentsline {subsection}{\numberline {4.3.2}関数}{29}
+\contentsline {subsubsection}{\numberline {4.3.2.1}OutputSourceAfterDivitionDeclarator}{29}
+\contentsline {section}{\numberline {4.4}ANSICInformation/DivitionInformation.h}{29}
+\contentsline {subsection}{\numberline {4.4.1}説明}{30}
+\contentsline {subsection}{\numberline {4.4.2}型定義}{30}
+\contentsline {subsubsection}{\numberline {4.4.2.1}DIVITION\_\discretionary {-}{}{}INFORMATION}{30}
+\contentsline {subsection}{\numberline {4.4.3}関数}{30}
+\contentsline {subsubsection}{\numberline {4.4.3.1}getDIVITION\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{30}
+\contentsline {subsubsection}{\numberline {4.4.3.2}new\_\discretionary {-}{}{}DIVITION\_\discretionary {-}{}{}INFORMATION}{31}
+\contentsline {subsubsection}{\numberline {4.4.3.3}new\_\discretionary {-}{}{}DIVITION\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}char}{31}
+\contentsline {subsubsection}{\numberline {4.4.3.4}printDIVITION\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{31}
+\contentsline {section}{\numberline {4.5}ANSICInformation/ForInformation.h}{32}
+\contentsline {subsection}{\numberline {4.5.1}説明}{32}
+\contentsline {subsection}{\numberline {4.5.2}型定義}{33}
+\contentsline {subsubsection}{\numberline {4.5.2.1}FOR\_\discretionary {-}{}{}INFORMATION}{33}
+\contentsline {subsection}{\numberline {4.5.3}関数}{33}
+\contentsline {subsubsection}{\numberline {4.5.3.1}getFOR\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{33}
+\contentsline {subsubsection}{\numberline {4.5.3.2}new\_\discretionary {-}{}{}FOR\_\discretionary {-}{}{}INFORMATION}{33}
+\contentsline {subsubsection}{\numberline {4.5.3.3}print\_\discretionary {-}{}{}FOR\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{34}
+\contentsline {subsubsection}{\numberline {4.5.3.4}searchFOR\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}FromAST}{34}
+\contentsline {section}{\numberline {4.6}ANSICInformation/FreeMemInfo.h}{35}
+\contentsline {subsection}{\numberline {4.6.1}説明}{35}
+\contentsline {subsection}{\numberline {4.6.2}型定義}{36}
+\contentsline {subsubsection}{\numberline {4.6.2.1}FREEMEMINFO}{36}
+\contentsline {subsection}{\numberline {4.6.3}関数}{36}
+\contentsline {subsubsection}{\numberline {4.6.3.1}getFreememInfo}{36}
+\contentsline {subsubsection}{\numberline {4.6.3.2}new\_\discretionary {-}{}{}FREEMEMINFO}{36}
+\contentsline {subsubsection}{\numberline {4.6.3.3}printFREEMEMINFO}{36}
+\contentsline {section}{\numberline {4.7}ANSICInformation/FunctionInformation.h}{37}
+\contentsline {subsection}{\numberline {4.7.1}説明}{38}
+\contentsline {subsection}{\numberline {4.7.2}型定義}{38}
+\contentsline {subsubsection}{\numberline {4.7.2.1}FUNCTION\_\discretionary {-}{}{}INFORMATION}{38}
+\contentsline {subsubsection}{\numberline {4.7.2.2}PARAM\_\discretionary {-}{}{}INFORMATION}{38}
+\contentsline {subsection}{\numberline {4.7.3}関数}{38}
+\contentsline {subsubsection}{\numberline {4.7.3.1}deleteParameterDefine}{38}
+\contentsline {subsubsection}{\numberline {4.7.3.2}getFunctionInformation}{38}
+\contentsline {subsubsection}{\numberline {4.7.3.3}getFunctionInformationFromFile}{39}
+\contentsline {subsubsection}{\numberline {4.7.3.4}getIN\_\discretionary {-}{}{}OUT\_\discretionary {-}{}{}FLAG}{39}
+\contentsline {subsubsection}{\numberline {4.7.3.5}getParamInformationFromFunctionDifinition}{40}
+\contentsline {subsubsection}{\numberline {4.7.3.6}getPointerLevelFromFUNCTION\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{40}
+\contentsline {subsubsection}{\numberline {4.7.3.7}new\_\discretionary {-}{}{}FUNCTION\_\discretionary {-}{}{}INFORMATION}{41}
+\contentsline {subsubsection}{\numberline {4.7.3.8}new\_\discretionary {-}{}{}PARAM\_\discretionary {-}{}{}INFORMATION}{41}
+\contentsline {subsubsection}{\numberline {4.7.3.9}printFUNCTION\_\discretionary {-}{}{}INFORMATION\_\discretionary {-}{}{}LIST}{42}
+\contentsline {subsubsection}{\numberline {4.7.3.10}searchFUNCTION\_\discretionary {-}{}{}INFORMATION}{42}
+\contentsline {section}{\numberline {4.8}ANSICInformation/MallocNumber.h}{42}
+\contentsline {subsection}{\numberline {4.8.1}説明}{43}
+\contentsline {subsection}{\numberline {4.8.2}関数}{43}
+\contentsline {subsubsection}{\numberline {4.8.2.1}generateMallocNumber}{43}
+\contentsline {subsubsection}{\numberline {4.8.2.2}insertMallocNumberHeadder}{43}
+\contentsline {section}{\numberline {4.9}ANSICInformation/MemallocInfo.h}{44}
+\contentsline {subsection}{\numberline {4.9.1}説明}{45}
+\contentsline {subsection}{\numberline {4.9.2}型定義}{45}
+\contentsline {subsubsection}{\numberline {4.9.2.1}MEMALLOC\_\discretionary {-}{}{}INFO}{45}
+\contentsline {subsection}{\numberline {4.9.3}関数}{45}
+\contentsline {subsubsection}{\numberline {4.9.3.1}getCallocInformation}{45}
+\contentsline {subsubsection}{\numberline {4.9.3.2}getMallocInformation}{45}
+\contentsline {subsubsection}{\numberline {4.9.3.3}getMallocMaxsize}{46}
+\contentsline {subsubsection}{\numberline {4.9.3.4}getReallocInformation}{46}
+\contentsline {subsubsection}{\numberline {4.9.3.5}memoryAllocationAnarysis}{47}
+\contentsline {subsubsection}{\numberline {4.9.3.6}new\_\discretionary {-}{}{}MEMALLOC\_\discretionary {-}{}{}INFO}{47}
+\contentsline {subsubsection}{\numberline {4.9.3.7}new\_\discretionary {-}{}{}MEMALLOC\_\discretionary {-}{}{}INFO\_\discretionary {-}{}{}char}{47}
+\contentsline {subsubsection}{\numberline {4.9.3.8}searchSizeof}{48}
+\contentsline {section}{\numberline {4.10}ANSICInformation/PointerArrayControl.h}{48}
+\contentsline {subsection}{\numberline {4.10.1}説明}{50}
+\contentsline {subsection}{\numberline {4.10.2}型定義}{50}
+\contentsline {subsubsection}{\numberline {4.10.2.1}ARRAY\_\discretionary {-}{}{}OFFSET}{50}
+\contentsline {subsection}{\numberline {4.10.3}関数}{51}
+\contentsline {subsubsection}{\numberline {4.10.3.1}ARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}LIST\_\discretionary {-}{}{}push\_\discretionary {-}{}{}back\_\discretionary {-}{}{}ref\_\discretionary {-}{}{}not\_\discretionary {-}{}{}dup}{51}
+\contentsline {subsubsection}{\numberline {4.10.3.2}checkCallFunction}{51}
+\contentsline {subsubsection}{\numberline {4.10.3.3}checkIdentifierPointerArrayLevel}{51}
+\contentsline {subsubsection}{\numberline {4.10.3.4}checkIgnoreASTList}{52}
+\contentsline {subsubsection}{\numberline {4.10.3.5}copyArrayOffsetList}{52}
+\contentsline {subsubsection}{\numberline {4.10.3.6}createArrayExpression}{53}
+\contentsline {subsubsection}{\numberline {4.10.3.7}createValidateVariableArrayExpression}{53}
+\contentsline {subsubsection}{\numberline {4.10.3.8}deleteOFFSET\_\discretionary {-}{}{}LIST}{54}
+\contentsline {subsubsection}{\numberline {4.10.3.9}deletePointer}{54}
+\contentsline {subsubsection}{\numberline {4.10.3.10}deletePointerAndArraySynbol}{54}
+\contentsline {subsubsection}{\numberline {4.10.3.11}get\_\discretionary {-}{}{}ARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}LISTIgnoreASTNAME}{55}
+\contentsline {subsubsection}{\numberline {4.10.3.12}getArgumentOffsetInfo}{55}
+\contentsline {subsubsection}{\numberline {4.10.3.13}getARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}LIST}{56}
+\contentsline {subsubsection}{\numberline {4.10.3.14}getArrayOffsetInAnpasandInfo}{56}
+\contentsline {subsubsection}{\numberline {4.10.3.15}getArrayOffsetInIncDecInfo}{57}
+\contentsline {subsubsection}{\numberline {4.10.3.16}getDeclaratorArrayOffset}{57}
+\contentsline {subsubsection}{\numberline {4.10.3.17}getExpressionOffsetInfo}{58}
+\contentsline {subsubsection}{\numberline {4.10.3.18}getOFFSET\_\discretionary {-}{}{}LISTFromVariableTable}{58}
+\contentsline {subsubsection}{\numberline {4.10.3.19}getOffsetLevelFromArrayOffset}{59}
+\contentsline {subsubsection}{\numberline {4.10.3.20}getPointerAccessOrIdentifierList}{59}
+\contentsline {subsubsection}{\numberline {4.10.3.21}getPointerArrayOffset}{60}
+\contentsline {subsubsection}{\numberline {4.10.3.22}getSingleExpressionOffsetInfo}{60}
+\contentsline {subsubsection}{\numberline {4.10.3.23}getUpperExpressionRelationNode}{61}
+\contentsline {subsubsection}{\numberline {4.10.3.24}maxOffsetLevelAddressFromArrayOffsetList}{62}
+\contentsline {subsubsection}{\numberline {4.10.3.25}maxOffsetLevelFromArrayOffsetList}{62}
+\contentsline {subsubsection}{\numberline {4.10.3.26}minusArrayOffsetList}{63}
+\contentsline {subsubsection}{\numberline {4.10.3.27}moveArrayOffsetList}{63}
+\contentsline {subsubsection}{\numberline {4.10.3.28}new\_\discretionary {-}{}{}ARRAY\_\discretionary {-}{}{}OFFSET}{63}
+\contentsline {subsubsection}{\numberline {4.10.3.29}new\_\discretionary {-}{}{}ARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}char}{64}
+\contentsline {subsubsection}{\numberline {4.10.3.30}OFFSET\_\discretionary {-}{}{}LIST\_\discretionary {-}{}{}push\_\discretionary {-}{}{}back\_\discretionary {-}{}{}alloc}{65}
+\contentsline {subsubsection}{\numberline {4.10.3.31}printASTPOINTER\_\discretionary {-}{}{}LIST}{66}
+\contentsline {subsubsection}{\numberline {4.10.3.32}searchARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}LIST}{66}
+\contentsline {subsubsection}{\numberline {4.10.3.33}searchExpressionOrPointeArrayOrIden}{66}
+\contentsline {subsubsection}{\numberline {4.10.3.34}searchOffsetLevelAddressFromArrayOffsetList}{67}
+\contentsline {subsubsection}{\numberline {4.10.3.35}searchPointerAccessOrIdentifierOrPrimary}{67}
+\contentsline {section}{\numberline {4.11}ANSICInformation/PreProcess.h}{68}
+\contentsline {subsection}{\numberline {4.11.1}説明}{68}
+\contentsline {subsection}{\numberline {4.11.2}型定義}{68}
+\contentsline {subsubsection}{\numberline {4.11.2.1}INCLUDE\_\discretionary {-}{}{}DATA}{68}
+\contentsline {subsection}{\numberline {4.11.3}関数}{69}
+\contentsline {subsubsection}{\numberline {4.11.3.1}addIncludeDataFromFile}{69}
+\contentsline {subsubsection}{\numberline {4.11.3.2}adjustProgramStart}{69}
+\contentsline {subsubsection}{\numberline {4.11.3.3}includeComment}{69}
+\contentsline {subsubsection}{\numberline {4.11.3.4}new\_\discretionary {-}{}{}INCLUDE\_\discretionary {-}{}{}DATA}{69}
+\contentsline {subsubsection}{\numberline {4.11.3.5}preProcesser}{70}
+\contentsline {subsubsection}{\numberline {4.11.3.6}readIncludeDataFromFile}{70}
+\contentsline {section}{\numberline {4.12}ANSICInformation/Return\_\discretionary {-}{}{}Info.h}{70}
+\contentsline {subsection}{\numberline {4.12.1}説明}{71}
+\contentsline {subsection}{\numberline {4.12.2}型定義}{71}
+\contentsline {subsubsection}{\numberline {4.12.2.1}RETURN\_\discretionary {-}{}{}INFO}{71}
+\contentsline {subsection}{\numberline {4.12.3}関数}{71}
+\contentsline {subsubsection}{\numberline {4.12.3.1}new\_\discretionary {-}{}{}RETURN\_\discretionary {-}{}{}INFO}{71}
+\contentsline {section}{\numberline {4.13}ANSICInformation/SubEffectCheck.h}{71}
+\contentsline {subsection}{\numberline {4.13.1}説明}{72}
+\contentsline {subsection}{\numberline {4.13.2}関数}{72}
+\contentsline {subsubsection}{\numberline {4.13.2.1}checkContainSubEffectStatement}{72}
+\contentsline {subsubsection}{\numberline {4.13.2.2}getAssignment\_\discretionary {-}{}{}TYPE}{72}
+\contentsline {section}{\numberline {4.14}ANSICInformation/Synbol.h}{73}
+\contentsline {subsection}{\numberline {4.14.1}説明}{74}
+\contentsline {subsection}{\numberline {4.14.2}型定義}{74}
+\contentsline {subsubsection}{\numberline {4.14.2.1}STRUCT\_\discretionary {-}{}{}TABLE}{74}
+\contentsline {subsubsection}{\numberline {4.14.2.2}TYPEDEF\_\discretionary {-}{}{}TABLE}{75}
+\contentsline {subsubsection}{\numberline {4.14.2.3}VARIABLE\_\discretionary {-}{}{}TABLE}{75}
+\contentsline {subsection}{\numberline {4.14.3}関数}{75}
+\contentsline {subsubsection}{\numberline {4.14.3.1}deletePointer}{75}
+\contentsline {subsubsection}{\numberline {4.14.3.2}deletePointerAndArraySynbol}{75}
+\contentsline {subsubsection}{\numberline {4.14.3.3}find\_\discretionary {-}{}{}STRUCT\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}DATA}{75}
+\contentsline {subsubsection}{\numberline {4.14.3.4}getDeclaratorFromAST}{76}
+\contentsline {subsubsection}{\numberline {4.14.3.5}getMemberList}{76}
+\contentsline {subsubsection}{\numberline {4.14.3.6}getParameterData}{77}
+\contentsline {subsubsection}{\numberline {4.14.3.7}getParameterVARIABLE\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{77}
+\contentsline {subsubsection}{\numberline {4.14.3.8}getPointerLevelAndArrayLevel}{78}
+\contentsline {subsubsection}{\numberline {4.14.3.9}getPointerLevelAndArrayLevelFromVARIABLE\_\discretionary {-}{}{}TABLE}{78}
+\contentsline {subsubsection}{\numberline {4.14.3.10}getSTRUCT\_\discretionary {-}{}{}DATA}{78}
+\contentsline {subsubsection}{\numberline {4.14.3.11}getSTRUCT\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}DATA}{79}
+\contentsline {subsubsection}{\numberline {4.14.3.12}getTYPEDEF\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}DATA}{79}
+\contentsline {subsubsection}{\numberline {4.14.3.13}getTYPEDEFfromAST}{79}
+\contentsline {subsubsection}{\numberline {4.14.3.14}getVARIABLE\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{80}
+\contentsline {subsubsection}{\numberline {4.14.3.15}new\_\discretionary {-}{}{}STRUCT\_\discretionary {-}{}{}TABLE}{80}
+\contentsline {subsubsection}{\numberline {4.14.3.16}new\_\discretionary {-}{}{}STRUCT\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}with\_\discretionary {-}{}{}char}{81}
+\contentsline {subsubsection}{\numberline {4.14.3.17}new\_\discretionary {-}{}{}TYPEDEF\_\discretionary {-}{}{}TABLE}{81}
+\contentsline {subsubsection}{\numberline {4.14.3.18}new\_\discretionary {-}{}{}TYPEDEF\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}with\_\discretionary {-}{}{}char}{82}
+\contentsline {subsubsection}{\numberline {4.14.3.19}new\_\discretionary {-}{}{}VARIABLE\_\discretionary {-}{}{}TABLE}{82}
+\contentsline {subsubsection}{\numberline {4.14.3.20}new\_\discretionary {-}{}{}VARIABLE\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}with\_\discretionary {-}{}{}char}{83}
+\contentsline {subsubsection}{\numberline {4.14.3.21}printSTRUCT\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{83}
+\contentsline {subsubsection}{\numberline {4.14.3.22}printTYPEDEF\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{83}
+\contentsline {subsubsection}{\numberline {4.14.3.23}printVARIABLE\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{84}
+\contentsline {subsubsection}{\numberline {4.14.3.24}searchVARIABLE\_\discretionary {-}{}{}TABLE\_\discretionary {-}{}{}LIST}{84}
+\contentsline {section}{\numberline {4.15}ANSICInformation/Varidate\_\discretionary {-}{}{}statement.h}{85}
+\contentsline {subsection}{\numberline {4.15.1}説明}{88}
+\contentsline {subsection}{\numberline {4.15.2}型定義}{88}
+\contentsline {subsubsection}{\numberline {4.15.2.1}VALIDATE\_\discretionary {-}{}{}STATEMENT}{88}
+\contentsline {subsubsection}{\numberline {4.15.2.2}VALIDATE\_\discretionary {-}{}{}VARIABLE}{88}
+\contentsline {subsection}{\numberline {4.15.3}関数}{88}
+\contentsline {subsubsection}{\numberline {4.15.3.1}ArrayOffsetToValidateStatement}{88}
+\contentsline {subsubsection}{\numberline {4.15.3.2}createCheckUnboundAndUndefineOperationCheck}{89}
+\contentsline {subsubsection}{\numberline {4.15.3.3}createValidateStatemenFromIncDecExpr}{90}
+\contentsline {subsubsection}{\numberline {4.15.3.4}createValidateStatement}{91}
+\contentsline {subsubsection}{\numberline {4.15.3.5}createValidateStatementAdderFileEachCheck}{93}
+\contentsline {subsubsection}{\numberline {4.15.3.6}createValidateStatementForFreeAction}{93}
+\contentsline {subsubsection}{\numberline {4.15.3.7}createValidateStatementForMallocAction}{94}
+\contentsline {subsubsection}{\numberline {4.15.3.8}createValidateStatementFromArrayDefine}{95}
+\contentsline {subsubsection}{\numberline {4.15.3.9}createVaridateStatementFromPointerDefine}{95}
+\contentsline {subsubsection}{\numberline {4.15.3.10}createViolentFreeOperation}{96}
+\contentsline {subsubsection}{\numberline {4.15.3.11}createZeroDivitionCheck}{97}
+\contentsline {subsubsection}{\numberline {4.15.3.12}fprintProgramDataWithPSIVaridateStatement}{97}
+\contentsline {subsubsection}{\numberline {4.15.3.13}fprintProgramDataWithValidateStatement}{98}
+\contentsline {subsubsection}{\numberline {4.15.3.14}fprintValidateStatement}{99}
+\contentsline {subsubsection}{\numberline {4.15.3.15}fprintValidateStatement\_\discretionary {-}{}{}not\_\discretionary {-}{}{}assert}{100}
+\contentsline {subsubsection}{\numberline {4.15.3.16}getASTList\_\discretionary {-}{}{}FromVALIDATE\_\discretionary {-}{}{}STATEMENT\_\discretionary {-}{}{}LIST}{100}
+\contentsline {subsubsection}{\numberline {4.15.3.17}getBasisLocationFromAssignmentExpression}{101}
+\contentsline {subsubsection}{\numberline {4.15.3.18}getBasisLocationFromExpression}{101}
+\contentsline {subsubsection}{\numberline {4.15.3.19}getLeftAssignmentInfo}{102}
+\contentsline {subsubsection}{\numberline {4.15.3.20}getNewValidateStatementID}{102}
+\contentsline {subsubsection}{\numberline {4.15.3.21}getRightAssignmentInfo}{103}
+\contentsline {subsubsection}{\numberline {4.15.3.22}getValidate\_\discretionary {-}{}{}Variable}{104}
+\contentsline {subsubsection}{\numberline {4.15.3.23}getValidateStatementFromAssignStatement}{104}
+\contentsline {subsubsection}{\numberline {4.15.3.24}getValidateStatementFromCallFunction}{105}
+\contentsline {subsubsection}{\numberline {4.15.3.25}getValidateStatementFromForIteration}{105}
+\contentsline {subsubsection}{\numberline {4.15.3.26}getValidateStatementFromInitializer}{106}
+\contentsline {subsubsection}{\numberline {4.15.3.27}getValidateStatementFromMallocNumber}{108}
+\contentsline {subsubsection}{\numberline {4.15.3.28}getValidateStatementFromPointerOperator}{109}
+\contentsline {subsubsection}{\numberline {4.15.3.29}initVALIDATE\_\discretionary {-}{}{}STATEMENT\_\discretionary {-}{}{}flag}{110}
+\contentsline {subsubsection}{\numberline {4.15.3.30}new\_\discretionary {-}{}{}VALIDATE\_\discretionary {-}{}{}STATEMENT}{110}
+\contentsline {subsubsection}{\numberline {4.15.3.31}new\_\discretionary {-}{}{}VALIDATE\_\discretionary {-}{}{}STATEMENT\_\discretionary {-}{}{}char}{110}
+\contentsline {subsubsection}{\numberline {4.15.3.32}new\_\discretionary {-}{}{}VALIDATE\_\discretionary {-}{}{}VARIABLE}{111}
+\contentsline {subsubsection}{\numberline {4.15.3.33}new\_\discretionary {-}{}{}VALIDATE\_\discretionary {-}{}{}VARIABLE\_\discretionary {-}{}{}with\_\discretionary {-}{}{}char}{112}
+\contentsline {subsubsection}{\numberline {4.15.3.34}printProgramDataWithValidateStatement}{112}
+\contentsline {subsubsection}{\numberline {4.15.3.35}printVALIDATE\_\discretionary {-}{}{}VARIABLE\_\discretionary {-}{}{}LIST}{113}
+\contentsline {subsubsection}{\numberline {4.15.3.36}setValidateVariableFromExprSlicing}{113}
+\contentsline {subsubsection}{\numberline {4.15.3.37}VALIDATE\_\discretionary {-}{}{}STATEMENT\_\discretionary {-}{}{}LIST\_\discretionary {-}{}{}sort\_\discretionary {-}{}{}ast}{114}
+\contentsline {section}{\numberline {4.16}Library/CharStringExtend.h}{114}
+\contentsline {subsection}{\numberline {4.16.1}説明}{114}
+\contentsline {subsection}{\numberline {4.16.2}関数}{115}
+\contentsline {subsubsection}{\numberline {4.16.2.1}isExpression}{115}
+\contentsline {subsubsection}{\numberline {4.16.2.2}str\_\discretionary {-}{}{}extract}{115}
+\contentsline {section}{\numberline {4.17}Library/CSTLString.h}{115}
+\contentsline {subsection}{\numberline {4.17.1}説明}{116}
+\contentsline {subsection}{\numberline {4.17.2}関数}{116}
+\contentsline {subsubsection}{\numberline {4.17.2.1}CSTLString\_\discretionary {-}{}{}compare\_\discretionary {-}{}{}with\_\discretionary {-}{}{}char}{116}
+\contentsline {subsubsection}{\numberline {4.17.2.2}CSTLString\_\discretionary {-}{}{}delete\_\discretionary {-}{}{}tail\_\discretionary {-}{}{}str}{116}
+\contentsline {subsubsection}{\numberline {4.17.2.3}CSTLString\_\discretionary {-}{}{}ltrim}{117}
+\contentsline {subsubsection}{\numberline {4.17.2.4}CSTLString\_\discretionary {-}{}{}printf}{117}
+\contentsline {subsubsection}{\numberline {4.17.2.5}CSTLString\_\discretionary {-}{}{}replace\_\discretionary {-}{}{}string}{117}
+\contentsline {section}{\numberline {4.18}Library/FlagDatabase.h}{118}
+\contentsline {subsection}{\numberline {4.18.1}説明}{118}
+\contentsline {subsection}{\numberline {4.18.2}関数}{118}
+\contentsline {subsubsection}{\numberline {4.18.2.1}getFlagDatabase}{118}
+\contentsline {subsubsection}{\numberline {4.18.2.2}isArrayUnboundCheckMode}{119}
+\contentsline {subsubsection}{\numberline {4.18.2.3}isFreeViolationCheckMode}{119}
+\contentsline {subsubsection}{\numberline {4.18.2.4}isHelpMode}{119}
+\contentsline {subsubsection}{\numberline {4.18.2.5}isProgramSlicingMode}{120}
+\contentsline {subsubsection}{\numberline {4.18.2.6}isUndefineControlCheckMode}{120}
+\contentsline {subsubsection}{\numberline {4.18.2.7}isXmlMode}{120}
+\contentsline {subsubsection}{\numberline {4.18.2.8}isZeroDivitionCheckMode}{121}
+\contentsline {section}{\numberline {4.19}Library/IdList.h}{121}
+\contentsline {subsection}{\numberline {4.19.1}説明}{121}
+\contentsline {subsection}{\numberline {4.19.2}関数}{121}
+\contentsline {subsubsection}{\numberline {4.19.2.1}IDLIST\_\discretionary {-}{}{}compare\_\discretionary {-}{}{}with}{121}
+\contentsline {subsubsection}{\numberline {4.19.2.2}printIDLIST}{122}
+\contentsline {subsubsection}{\numberline {4.19.2.3}SET\_\discretionary {-}{}{}STACK\_\discretionary {-}{}{}INTToIDLIST}{122}
+\contentsline {section}{\numberline {4.20}Library/Stack\_\discretionary {-}{}{}int.h}{122}
+\contentsline {subsection}{\numberline {4.20.1}説明}{123}
+\contentsline {subsection}{\numberline {4.20.2}関数}{123}
+\contentsline {subsubsection}{\numberline {4.20.2.1}STACK\_\discretionary {-}{}{}INT\_\discretionary {-}{}{}at\_\discretionary {-}{}{}and\_\discretionary {-}{}{}alloc}{123}
+\contentsline {subsubsection}{\numberline {4.20.2.2}STACK\_\discretionary {-}{}{}INT\_\discretionary {-}{}{}inclement\_\discretionary {-}{}{}at}{123}
+\contentsline {section}{\numberline {4.21}Library/StoreInformation.h}{124}
+\contentsline {subsection}{\numberline {4.21.1}説明}{124}
+\contentsline {subsection}{\numberline {4.21.2}関数}{124}
+\contentsline {subsubsection}{\numberline {4.21.2.1}getFileName}{124}
+\contentsline {subsubsection}{\numberline {4.21.2.2}setFileName}{124}
+\contentsline {section}{\numberline {4.22}Main/Help.h}{124}
+\contentsline {subsection}{\numberline {4.22.1}説明}{125}
+\contentsline {subsection}{\numberline {4.22.2}関数}{125}
+\contentsline {subsubsection}{\numberline {4.22.2.1}viewHelp}{125}
+\contentsline {section}{\numberline {4.23}ProgramSlicing/DeclarationPSI.h}{125}
+\contentsline {subsection}{\numberline {4.23.1}説明}{125}
+\contentsline {subsection}{\numberline {4.23.2}関数}{126}
+\contentsline {subsubsection}{\numberline {4.23.2.1}getDeclarationtPSI}{126}
+\contentsline {section}{\numberline {4.24}ProgramSlicing/ExpressionStatementPSI.h}{126}
+\contentsline {subsection}{\numberline {4.24.1}説明}{127}
+\contentsline {subsection}{\numberline {4.24.2}関数}{127}
+\contentsline {subsubsection}{\numberline {4.24.2.1}getASI\_\discretionary {-}{}{}ARRAY\_\discretionary {-}{}{}OFFSET\_\discretionary {-}{}{}LIST}{127}
+\contentsline {subsubsection}{\numberline {4.24.2.2}getExpressionStatementPSI}{128}
+\contentsline {subsubsection}{\numberline {4.24.2.3}getInputFunctionPSI}{128}
+\contentsline {subsubsection}{\numberline {4.24.2.4}setARGUMENT\_\discretionary {-}{}{}NUMBER}{129}
+\contentsline {section}{\numberline {4.25}ProgramSlicing/ForStatementPSI.h}{130}
+\contentsline {subsection}{\numberline {4.25.1}説明}{130}
+\contentsline {subsection}{\numberline {4.25.2}関数}{130}
+\contentsline {subsubsection}{\numberline {4.25.2.1}getForStatementPSI}{130}
+\contentsline {section}{\numberline {4.26}ProgramSlicing/FunctionPSI.h}{131}
+\contentsline {subsection}{\numberline {4.26.1}説明}{131}
+\contentsline {subsection}{\numberline {4.26.2}関数}{131}
+\contentsline {subsubsection}{\numberline {4.26.2.1}getFunctionPSI}{131}
+\contentsline {subsubsection}{\numberline {4.26.2.2}getParameterPSI}{132}
+\contentsline {section}{\numberline {4.27}ProgramSlicing/IfStatementPSI.h}{132}
+\contentsline {subsection}{\numberline {4.27.1}説明}{133}
+\contentsline {subsection}{\numberline {4.27.2}関数}{133}
+\contentsline {subsubsection}{\numberline {4.27.2.1}getIfStatementPSI}{133}
+\contentsline {section}{\numberline {4.28}ProgramSlicing/JumpStatementPSI.h}{134}
+\contentsline {subsection}{\numberline {4.28.1}説明}{134}
+\contentsline {subsection}{\numberline {4.28.2}関数}{134}
+\contentsline {subsubsection}{\numberline {4.28.2.1}getJumpStatementPSI}{134}
+\contentsline {section}{\numberline {4.29}ProgramSlicing/LabeledStatementPSI.h}{135}
+\contentsline {subsection}{\numberline {4.29.1}説明}{135}
+\contentsline {subsection}{\numberline {4.29.2}関数}{136}
+\contentsline {subsubsection}{\numberline {4.29.2.1}getLabeledStatementPSI}{136}
+\contentsline {section}{\numberline {4.30}ProgramSlicing/ProgramSlicing.h}{136}
+\contentsline {subsection}{\numberline {4.30.1}説明}{137}
+\contentsline {subsection}{\numberline {4.30.2}関数}{137}
+\contentsline {subsubsection}{\numberline {4.30.2.1}createDD\_\discretionary {-}{}{}list}{137}
+\contentsline {subsubsection}{\numberline {4.30.2.2}createDD\_\discretionary {-}{}{}list\_\discretionary {-}{}{}in\_\discretionary {-}{}{}argument}{137}
+\contentsline {subsubsection}{\numberline {4.30.2.3}createDD\_\discretionary {-}{}{}list\_\discretionary {-}{}{}in\_\discretionary {-}{}{}Function}{138}
+\contentsline {subsubsection}{\numberline {4.30.2.4}createDD\_\discretionary {-}{}{}list\_\discretionary {-}{}{}in\_\discretionary {-}{}{}global}{138}
+\contentsline {subsubsection}{\numberline {4.30.2.5}createDD\_\discretionary {-}{}{}listAll}{139}
+\contentsline {subsubsection}{\numberline {4.30.2.6}createStatementNodeList}{139}
+\contentsline {subsubsection}{\numberline {4.30.2.7}startStaticSlicing}{140}
+\contentsline {subsubsection}{\numberline {4.30.2.8}staticSlicing}{140}
+\contentsline {section}{\numberline {4.31}ProgramSlicing/ProgramSlicingInformation.h}{141}
+\contentsline {subsection}{\numberline {4.31.1}説明}{141}
+\contentsline {subsection}{\numberline {4.31.2}関数}{142}
+\contentsline {subsubsection}{\numberline {4.31.2.1}getFunctionGrobalVariable}{142}
+\contentsline {subsubsection}{\numberline {4.31.2.2}getVariableDeclarationFromEXPR\_\discretionary {-}{}{}SLICING\_\discretionary {-}{}{}LIST}{142}
+\contentsline {subsubsection}{\numberline {4.31.2.3}initExprSlicingListFlag}{142}
+\contentsline {subsubsection}{\numberline {4.31.2.4}new\_\discretionary {-}{}{}DD\_\discretionary {-}{}{}INFORMATION}{143}
+\contentsline {subsubsection}{\numberline {4.31.2.5}new\_\discretionary {-}{}{}EXPR\_\discretionary {-}{}{}SLICING}{143}
+\contentsline {subsubsection}{\numberline {4.31.2.6}print\_\discretionary {-}{}{}EXPR\_\discretionary {-}{}{}SLICING\_\discretionary {-}{}{}LIST}{144}
+\contentsline {subsubsection}{\numberline {4.31.2.7}print\_\discretionary {-}{}{}tree\_\discretionary {-}{}{}EXPR\_\discretionary {-}{}{}SLICING\_\discretionary {-}{}{}LIST}{144}
+\contentsline {subsubsection}{\numberline {4.31.2.8}registerIncDecVariable}{145}
+\contentsline {subsubsection}{\numberline {4.31.2.9}searchDD}{145}
+\contentsline {subsubsection}{\numberline {4.31.2.10}searchDeclarationDD}{146}
+\contentsline {subsubsection}{\numberline {4.31.2.11}searchFunctionPSI}{146}
+\contentsline {subsubsection}{\numberline {4.31.2.12}setGlobalVariable}{147}
+\contentsline {section}{\numberline {4.32}ProgramSlicing/ReturnStatementPSI.h}{147}
+\contentsline {subsection}{\numberline {4.32.1}説明}{148}
+\contentsline {subsection}{\numberline {4.32.2}関数}{148}
+\contentsline {subsubsection}{\numberline {4.32.2.1}getReturnStatementPSI}{148}
+\contentsline {section}{\numberline {4.33}ProgramSlicing/SwitchStatementPSI.h}{149}
+\contentsline {subsection}{\numberline {4.33.1}説明}{149}
+\contentsline {subsection}{\numberline {4.33.2}関数}{149}
+\contentsline {subsubsection}{\numberline {4.33.2.1}getSwicthStatementPSI}{149}
+\contentsline {section}{\numberline {4.34}ProgramSlicing/WhileStatementPSI.h}{150}
+\contentsline {subsection}{\numberline {4.34.1}説明}{150}
+\contentsline {subsection}{\numberline {4.34.2}関数}{151}
+\contentsline {subsubsection}{\numberline {4.34.2.1}getWhileStatementPSI}{151}

@@ -1,0 +1,58 @@
+\section{ANSICInformation/SubEffectCheck.h}
+\label{_sub_effect_check_8h}\index{ANSICInformation/SubEffectCheck.h@{ANSICInformation/SubEffectCheck.h}}
+
+
+このファイルには副作用式のチェックする関数や代入式のタイプを求める関数が含まれています  
+
+
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf checkContainSubEffectStatement} ({\bf AST} $\ast$node)
+\item 
+int {\bf getAssignment\_\-TYPE} ({\bf AST} $\ast$assignment\_\-expression\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルには副作用式のチェックする関数や代入式のタイプを求める関数が含まれています \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{SubEffectCheck.h@{SubEffectCheck.h}!checkContainSubEffectStatement@{checkContainSubEffectStatement}}
+\index{checkContainSubEffectStatement@{checkContainSubEffectStatement}!SubEffectCheck.h@{SubEffectCheck.h}}
+\subsubsection[{checkContainSubEffectStatement}]{\setlength{\rightskip}{0pt plus 5cm}int checkContainSubEffectStatement (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\label{_sub_effect_check_8h_a49599f0abf0efc0a02842d7be20d6cbf}
+指定されたASTノードnodeから、副作用式(インクリメント式・デクリメント式・代入式)が含まれているかどうかチェックする。
+
+
+\begin{DoxyParams}{引数}
+{\em node} & 対象のASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+含まれていた式がインクリメント式の場合１、デクリメント式の場合２、代入式の場合３とする。含まれていない場合は０を返す。 
+\end{DoxyReturn}
+\index{SubEffectCheck.h@{SubEffectCheck.h}!getAssignment\_\-TYPE@{getAssignment\_\-TYPE}}
+\index{getAssignment\_\-TYPE@{getAssignment\_\-TYPE}!SubEffectCheck.h@{SubEffectCheck.h}}
+\subsubsection[{getAssignment\_\-TYPE}]{\setlength{\rightskip}{0pt plus 5cm}int getAssignment\_\-TYPE (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{assignment\_\-expression\_\-list}
+\end{DoxyParamCaption}
+)}\label{_sub_effect_check_8h_aad065e364faa4702f5b2a184eec4b9bc}
+代入式のタイプを出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em assignment\_\-expression\_\-list} & 代入式に関するASTノードのリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+代入式のタイプに応じた値を返却する 0:=,1:+=,2:-\/=,3:$\ast$=,4:/=,5:=,6:$<$$<$=,7:$>$$>$=,8:\&=,9:$|$=,10:$^\wedge$= 
+\end{DoxyReturn}

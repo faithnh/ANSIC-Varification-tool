@@ -1,0 +1,486 @@
+.TH "ANSICInformation/AST.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/AST.h \- 
+.PP
+このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノードから文字列を生成させたりといったことができる。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/string.h>\fP
+.br
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include <stdio.h>\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+\fC#include '../Library/IdList.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBabstract_syntax_tree\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBabstract_syntax_tree\fP \fBAST\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBAST\fP * \fBnew_AST\fP (char *new_name, char *new_content, int new_line)"
+.br
+.ti -1c
+.RI "\fBAST\fP * \fBsame_new_AST\fP (char *new_name, int new_line)"
+.br
+.ti -1c
+.RI "void \fBtraverseAST\fP (\fBAST\fP *root, int tab_level)"
+.br
+.ti -1c
+.RI "void \fBtraverseASTwithXML\fP (\fBAST\fP *root, int tab_level)"
+.br
+.ti -1c
+.RI "void \fBfprintDataFromAST\fP (FILE *output, \fBAST\fP *root, int *line)"
+.br
+.ti -1c
+.RI "void \fBprintDataFromAST\fP (\fBAST\fP *root, int *line)"
+.br
+.ti -1c
+.RI "void \fBgetStringFromAST\fP (CSTLString *output, \fBAST\fP *root)"
+.br
+.ti -1c
+.RI "void \fBgetStringFromASTEnableExcept\fP (CSTLString *output, \fBAST\fP *root, int num, char except_list[][256])"
+.br
+.ti -1c
+.RI "void \fBdeleteAST\fP (\fBAST\fP *root)"
+.br
+.ti -1c
+.RI "void \fBpush_back_childrenAST\fP (\fBAST\fP *parent, \fBAST\fP *child)"
+.br
+.ti -1c
+.RI "void \fBmulti_push_back_childrenAST\fP (\fBAST\fP *parent, int num,...)"
+.br
+.ti -1c
+.RI "void \fBprintTargetASTNode\fP (\fBAST\fP *root, char *target, int traverse_flag, int xml_flag)"
+.br
+.ti -1c
+.RI "int \fBgetArgumentString\fP (CSTLString *output, \fBAST\fP *call_function, int arg_num)"
+.br
+.ti -1c
+.RI "int \fBgetArgumentStringEnableExcept\fP (CSTLString *output, \fBAST\fP *call_function, int arg_num, int num, char except_list[][256])"
+.br
+.ti -1c
+.RI "int \fBgetArgumentAST\fP (\fBAST\fP **output, \fBAST\fP *call_function, int arg_num)"
+.br
+.ti -1c
+.RI "\fBAST\fP * \fBgetASTwithString\fP (\fBAST\fP *root, char *name, int depth)"
+.br
+.ti -1c
+.RI "void \fBgetStringReplaceASTtoString\fP (CSTLString *output, \fBAST\fP *root, \fBAST\fP *target, char *replace_string)"
+.br
+.ti -1c
+.RI "void \fBsetASTReturnType\fP (\fBAST\fP *root)"
+.br
+.ti -1c
+.RI "void \fBsetASTBlocklevelAndId\fP (\fBAST\fP *root)"
+.br
+.ti -1c
+.RI "int \fBfindASTAddress\fP (\fBAST\fP *root, \fBAST\fP *target)"
+.br
+.ti -1c
+.RI "void \fBfprintfStatement\fP (FILE *output, \fBAST\fP *root, int *line, int output_subnode_num, \fBAST\fP **out_block_start, \fBAST\fP **out_block_end)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノードから文字列を生成させたりといったことができる。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBabstract_syntax_tree\fP  \fBAST\fP"C言語プログラムの抽象構文木に関する情報が含まれる。 
+.SH "関数"
+.PP 
+.SS "void deleteAST (\fBAST\fP *root)"指定したASTノード以下を全て開放させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int findASTAddress (\fBAST\fP *root, \fBAST\fP *target)"探す対象のASTノードrootから、指定したASTノードのアドレスtargetが存在するかどうか調べる。みつければ、１を返し、そうでなければ０を返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 探す対象のASTノード 
+.br
+\fItarget\fP 指定したASTノードのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+指定したASTノードtargetを見つけたら１を返し、そうでなければ０を返す。 
+.RE
+.PP
+
+.SS "void fprintDataFromAST (FILE *output, \fBAST\fP *root, int *line)"指定されたASTノード以下の内容を、指定されたファイルに対して出力させる 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIroot\fP 指定されたノード名 
+.br
+\fIline\fP 出力に利用する行数
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void fprintfStatement (FILE *output, \fBAST\fP *root, int *line, intoutput_subnode_num, \fBAST\fP **out_block_start, \fBAST\fP **out_block_end)"指定されたノードに対して、statementの直前まで出力させる。また、出力対象となっているノード番号が来るまでは出力の対象としない。 ブロックとして表記されている場合は始まりのブロックや終わりのブロックへのASTノードのアドレスをout_block_startやout_block_endに 設定する。そうでなければ、NULLで設定される。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIroot\fP 指定されたASTノード 
+.br
+\fIline\fP 出力に利用する行数 
+.br
+\fIoutput_subnode_num\fP 出力対象となるノード番号 １〜ｎ（１に指定すると、すべての子ノードが出力の対象となる） 
+.br
+\fIout_block_start\fP ブロックとして表記されている場合は、始まりのブロックへのASTノードのアドレスを返却する 
+.br
+\fIout_block_end\fP ブロックとして表記されている場合は、終わりブのロックへのASTノードのアドレスを返却する。 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getArgumentAST (\fBAST\fP **output, \fBAST\fP *call_function, intarg_num)"指定されたcall_functionに相当する関数から、任意の引数目へのノードを取得する。 このとき、指定されたノード名はcall_functionでなければならない。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 取得する対象のノード 
+.br
+\fIcall_function\fP 名前がcall_functionであるASTノード 
+.br
+\fIarg_num\fP 何番目の引数
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 
+.RE
+.PP
+
+.SS "int getArgumentString (CSTLString *output, \fBAST\fP *call_function, intarg_num)"指定されたcall_functionに相当する関数から、任意の引数目の情報を取得する。 このとき、指定されたノード名はcall_functionでなければならない。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力される引数の内容 
+.br
+\fIcall_function\fP 名前がcall_functionであるASTノード 
+.br
+\fIarg_num\fP 何番目の引数 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 
+.RE
+.PP
+
+.SS "int getArgumentStringEnableExcept (CSTLString *output, \fBAST\fP *call_function, intarg_num, intnum, charexcept_list[][256])"getArgumentEnableExceptの拡張版。出力対象にしない文字列を除いた引数の情報をすべて出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力される引数の内容 
+.br
+\fIcall_function\fP 名前がcall_functionであるASTノード 
+.br
+\fIarg_num\fP 何番目の引数 
+.br
+\fInum\fP 除外したいASTノードリストの数 
+.br
+\fIexcept_list\fP 除外したいASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 
+.RE
+.PP
+
+.SS "\fBAST\fP* getASTwithString (\fBAST\fP *root, char *name, intdepth)"指定したASTノードrootから、指定した名前nameのASTノードを探す。 見つけたASTノードへのアドレスを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.br
+\fIname\fP 指定した名前 
+.br
+\fIdepth\fP 探索する子ノードの深さ（無限にする場合は-1を指定、子ノードは検索しない場合は0にする) 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つけたASTノードへのアドレスを返す。 
+.RE
+.PP
+
+.SS "void getStringFromAST (CSTLString *output, \fBAST\fP *root)"指定したASTノード以下の内容を出力対象の文字列データに出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力対象の文字列データ 
+.br
+\fIroot\fP 新しいノード名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getStringFromASTEnableExcept (CSTLString *output, \fBAST\fP *root, intnum, charexcept_list[][256])"getStringFromASTの拡張版。出力対象から除外したASTノード名を指定できる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力対象の文字列データ 
+.br
+\fIroot\fP 新しいノード名 
+.br
+\fInum\fP 除外したいASTノードリストの数 
+.br
+\fIexcept_list\fP 除外したいASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getStringReplaceASTtoString (CSTLString *output, \fBAST\fP *root, \fBAST\fP *target, char *replace_string)"指定したASTノードrootに対しての情報を文字列outputを出力させる。 そのとき、ASTノードのtargetのアドレス値と一致するノードを見つけた（アドレスとして全く同じASTノードを見つけた） 場合、そのノードだけreplace_stringに変換して出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.br
+\fIoutput\fP 出力する情報 
+.br
+\fItarget\fP 変換対象のASTノードのアドレス 
+.br
+\fIreplace_string\fP 変換先の文字列
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void multi_push_back_childrenAST (\fBAST\fP *parent, intnum, ...)"指定された親ASTノードに任意の子ASTノードを追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIparent\fP 指定された親ASTノード 
+.br
+\fInum\fP 追加する子ASTノードの数 
+.br
+\fI...\fP 追加する任意の子ASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBAST\fP* new_AST (char *new_name, char *new_content, intnew_line)"新しいASTノードを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fInew_name\fP 新しいノード名 
+.br
+\fInew_content\fP 新しい内容 
+.br
+\fInew_line\fP 新しい行数 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成されたASTノードへのアドレスが返される。 
+.RE
+.PP
+
+.SS "void printDataFromAST (\fBAST\fP *root, int *line)"指定したASTノード以下の内容を出力させる。ASTノードの行数にしたがって出力される。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 新しいノード名 
+.br
+\fIline\fP 指定する行数(基本的に１を入力する） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void printTargetASTNode (\fBAST\fP *root, char *target, inttraverse_flag, intxml_flag)"指定された親ASTノードから、指定したノード名より下位についての情報をすべて表示させる。。 また、traverse_flagを１にすることで、指定したノード名についてのすべての情報をツリー構造で表示させることもできる。 さらに、xml_flagを１にすることで、ツリー構造で表示させる内容がXMLとして出力できるようになる(traverse_flagが１になっていることが前提である)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定された親ASTノード 
+.br
+\fItarget\fP 指定した文字列 
+.br
+\fItraverse_flag\fP 指定したノード名以下をツリー構造で表示させるかどうかのフラグ。１なら表示させ、０なら表示させない 
+.br
+\fIxml_flag\fP XMLとして出力するかどうかのフラグ。１ならXMLとして出力させる 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+指定された親ASTノードから、指定したノード名より下位についての情報をすべて表示させる。 また、traverse_flagを１にすることで、指定したノード名についてのすべての情報をツリー構造で表示させることもできる。 さらに、xml_flagを１にすることで、ツリー構造で表示させる内容がXMLとして出力できるようになる(traverse_flagが１になっていることが前提である)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定された親ASTノード 
+.br
+\fItarget\fP 指定した文字列 
+.br
+\fItraverse_flag\fP 指定したノード名以下をツリー構造で表示させるかどうかのフラグ。１なら表示させ、０なら表示させない 
+.br
+\fIxml_flag\fP XMLとして出力するかどうかのフラグ。１ならXMLとして出力させる 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void push_back_childrenAST (\fBAST\fP *parent, \fBAST\fP *child)"指定された親ASTノードに指定された子ASTノードを追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIparent\fP 指定された親ASTノード 
+.br
+\fIchild\fP 指定された子ASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBAST\fP* same_new_AST (char *new_name, intnew_line)"名前と内容が同じであるASTノードを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fInew_name\fP 新しいノード名 
+.br
+\fInew_line\fP 新しい行数 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成されたASTノードへのアドレスが返される。 
+.RE
+.PP
+
+.SS "void setASTBlocklevelAndId (\fBAST\fP *root)"対象のASTノードに、ブロックIDおよびブロックレベルを付加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void setASTReturnType (\fBAST\fP *root)"対象のASTノードのroot以下にあるに、関数の返却値のタイプを指定する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void traverseAST (\fBAST\fP *root, inttab_level)"ASTのノードをたどり、rootノード以下のノードの名前・内容・行数を表示させる。 また、下位レベルのノードはタブを挿入し表示する。例えば、1レベル下位のノードはタブが1つ挿入した上で表示される。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 新しいノード名 
+.br
+\fItab_level\fP タブレベル(この数分タブが挿入される） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void traverseASTwithXML (\fBAST\fP *root, inttab_level)"ASTのノードをたどり、rootノード以下のノードの名前・内容・行数をXML形式で出力する。（デバッグ用） また、下位レベルのノードはタブを挿入し出力する。例えば、1レベル下位のノードはタブが1つ挿入した上でタグが出力される。 XMLについては次の形式で出力する(aはルートノード、a_subはリーフノードであるとする）  <leaf name='a_sub' content='+' line='1'> 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 新しいノード名 
+.br
+\fItab_level\fP タブレベル(この数分タブが挿入される） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

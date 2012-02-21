@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ANSICInformation/PointerArrayControl.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/PointerArrayControl.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_pointer_array_control_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef POINTER_ARRAY_CONTROL_HEADDER</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define POINTER_ARRAY_CONTROL_HEADDER</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;cstl/list.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="_c_s_t_l_string_8h.html" title="このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行います。">../Library/CSTLString.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="_a_s_t_8h.html" title="このファイルは、ANSICのソースコードを省略させるためのマクロ文が含まれている">AST.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include&quot;<a class="code" href="_synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必...">Synbol.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#include&quot;<a class="code" href="_function_information_8h.html" title="このファイルは関数に関する情報を取得するためのファイルである。">FunctionInformation.h</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 CSTL_LIST_INTERFACE(OFFSET_LIST, <span class="keywordtype">char</span> *);
+<a name="l00019"></a>00019 
+<a name="l00023"></a><a class="code" href="structarray__offset.html">00023</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structarray__offset.html">array_offset</a> {
+<a name="l00024"></a>00024     CSTLString *variable_name;              
+<a name="l00025"></a><a class="code" href="structarray__offset.html#a9d81c60562be00c7bc43d19a2087e52b">00025</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structarray__offset.html#a9d81c60562be00c7bc43d19a2087e52b" title="変数名">target_statement</a>;                  
+<a name="l00026"></a><a class="code" href="structarray__offset.html#a7b18e8662912954b071a52ad52e10a0a">00026</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structarray__offset.html#a7b18e8662912954b071a52ad52e10a0a" title="ターゲットのstatement(ここではexpression_statementなどが入る)">variable_address</a>;              
+<a name="l00027"></a><a class="code" href="structarray__offset.html#ac9d348d0c88222d709045c028a2734d7">00027</a>     <span class="keywordtype">int</span> <a class="code" href="structarray__offset.html#ac9d348d0c88222d709045c028a2734d7" title="この変数名が指しているASTアドレス">pointer_level</a>;          
+<a name="l00028"></a><a class="code" href="structarray__offset.html#aed05e5ea26e5b566810e672acde1f21a">00028</a>     <span class="keywordtype">int</span> <a class="code" href="structarray__offset.html#aed05e5ea26e5b566810e672acde1f21a" title="この変数のポインタレベル">array_level</a>;            
+<a name="l00029"></a><a class="code" href="structarray__offset.html#a93da8d8102e68825ef83fbaeb1cb4565">00029</a>     <span class="keywordtype">int</span> <a class="code" href="structarray__offset.html#a93da8d8102e68825ef83fbaeb1cb4565" title="この変数の配列レベル">anpasand_flag</a>;          
+<a name="l00030"></a><a class="code" href="structarray__offset.html#a25390f51676ca715311c698b86a2b0e3">00030</a>     <span class="keywordtype">int</span> <a class="code" href="structarray__offset.html#a25390f51676ca715311c698b86a2b0e3" title="この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない">inc_dec_flag</a>;           
+<a name="l00031"></a><a class="code" href="structarray__offset.html#a1a375ac3ed0a9c46c07aa3cd1d7bbc65">00031</a>     OFFSET_LIST *<a class="code" href="structarray__offset.html#a1a375ac3ed0a9c46c07aa3cd1d7bbc65" title="この変数はインクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている">offset_list</a>;   
+<a name="l00032"></a>00032 } <a class="code" href="_pointer_array_control_8h.html#ae18d261788d71423fa2c0980d3de19cd">ARRAY_OFFSET</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 CSTL_LIST_INTERFACE(ARRAY_OFFSET_LIST, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a>);
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 CSTL_LIST_INTERFACE(ASTPOINTER_LIST, <a class="code" href="structabstract__syntax__tree.html">AST</a> *);
+<a name="l00037"></a>00037 
+<a name="l00051"></a>00051 <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *new_ARRAY_OFFSET_char(<span class="keywordtype">char</span> *variable_name, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, <a class="code" href="structabstract__syntax__tree.html">AST</a> *variable_address,
+<a name="l00052"></a>00052                                     OFFSET_LIST *offset_list, <span class="keywordtype">int</span> pointer_level, <span class="keywordtype">int</span> array_level, <span class="keywordtype">int</span> anpasand_flag, <span class="keywordtype">int</span> inc_dec_flag);
+<a name="l00053"></a>00053 
+<a name="l00067"></a>00067 <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *new_ARRAY_OFFSET( CSTLString *variable_name, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, <a class="code" href="structabstract__syntax__tree.html">AST</a> *variable_address,
+<a name="l00068"></a>00068                                OFFSET_LIST *offset_list, <span class="keywordtype">int</span> pointer_level, <span class="keywordtype">int</span> array_level, <span class="keywordtype">int</span> anpasand_flag, <span class="keywordtype">int</span> inc_dec_flag);
+<a name="l00069"></a>00069 
+<a name="l00077"></a>00077 <span class="keywordtype">void</span> OFFSET_LIST_push_back_alloc(OFFSET_LIST *offset_list, <span class="keywordtype">char</span> *<span class="keywordtype">string</span>);
+<a name="l00078"></a>00078 
+<a name="l00092"></a>00092 <span class="keywordtype">int</span> getPointerArrayOffset(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, <span class="keywordtype">int</span> offset_level,
+<a name="l00093"></a>00093     ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> **<a class="code" href="structarray__offset.html">array_offset</a>, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, <span class="keywordtype">int</span> anpasand_flag, <span class="keywordtype">int</span> inc_dec_flag);
+<a name="l00094"></a>00094 
+<a name="l00105"></a>00105 <span class="keywordtype">void</span> getARRAY_OFFSET_LIST(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00106"></a>00106                           ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00118"></a>00118 <span class="keywordtype">void</span> get_ARRAY_OFFSET_LISTIgnoreASTNAME(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00119"></a>00119           ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, CSTLString *ignore_ast_name);
+<a name="l00131"></a>00131 <span class="keywordtype">void</span> getArrayOffsetInAnpasandInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root,FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00132"></a>00132                             ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00133"></a>00133 
+<a name="l00146"></a>00146 <span class="keywordtype">void</span> getArrayOffsetInIncDecInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00147"></a>00147                                 ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, <span class="keywordtype">int</span> inc_dec_flag);
+<a name="l00148"></a>00148 
+<a name="l00163"></a>00163 <span class="keywordtype">int</span> getUpperExpressionRelationNode(<a class="code" href="structabstract__syntax__tree.html">AST</a> *target, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output2);
+<a name="l00164"></a>00164 
+<a name="l00170"></a>00170 <span class="keywordtype">void</span> <a class="code" href="_pointer_array_control_8h.html#acc3cd8275754e5412501748b96b6f23e">deletePointerAndArraySynbol</a>(CSTLString *target);
+<a name="l00171"></a>00171 
+<a name="l00177"></a>00177 <span class="keywordtype">void</span> <a class="code" href="_pointer_array_control_8h.html#a865793639f2aa40d0c7e5101f130ac3e">deletePointer</a>(CSTLString *target);
+<a name="l00178"></a>00178 
+<a name="l00194"></a>00194 <span class="keywordtype">int</span> searchExpressionOrPointeArrayOrIden(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output);
+<a name="l00195"></a>00195 
+<a name="l00211"></a>00211 <span class="keywordtype">void</span> <a class="code" href="_pointer_array_control_8h.html#a705b28d813d14777dc8849a252114b02">searchPointerAccessOrIdentifier</a>(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output, <span class="keywordtype">int</span> *getSize);
+<a name="l00212"></a>00212 
+<a name="l00227"></a>00227 <span class="keywordtype">void</span> getPointerAccessOrIdentifierList(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> ***output, <span class="keywordtype">int</span> *getSize);
+<a name="l00228"></a>00228 
+<a name="l00244"></a>00244 <span class="keywordtype">int</span> checkIdentifierPointerArrayLevel(<a class="code" href="structabstract__syntax__tree.html">AST</a> *identifier,<span class="keywordtype">int</span> offset_level, VARIABLE_TABLE_LIST *variable_table_list,
+<a name="l00245"></a>00245  ASTPOINTER_LIST *ignore_ast_list, <span class="keywordtype">int</span> *pointer_level, <span class="keywordtype">int</span> *array_level);
+<a name="l00246"></a>00246 
+<a name="l00256"></a>00256 <span class="keywordtype">void</span> checkCallFunction(<a class="code" href="structabstract__syntax__tree.html">AST</a> *call_function, <span class="keywordtype">int</span> offset_level, FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00257"></a>00257 
+<a name="l00266"></a>00266 <span class="keywordtype">int</span> checkIgnoreASTList(<a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data, ASTPOINTER_LIST *ignore_ast_list);
+<a name="l00267"></a>00267 
+<a name="l00280"></a>00280 <span class="keywordtype">int</span> getUpperExpressionRelationNode(<a class="code" href="structabstract__syntax__tree.html">AST</a> *target, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output, <a class="code" href="structabstract__syntax__tree.html">AST</a> **output2);
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283 <span class="comment">/*</span>
+<a name="l00284"></a>00284 <span class="comment">指定した各次元の配列やポインタのオフセットリストarray_offsetの内容を出力する</span>
+<a name="l00285"></a>00285 <span class="comment"></span>
+<a name="l00286"></a>00286 <span class="comment">@param array_offset 出力対象の各次元の配列やポインタのオフセットリスト</span>
+<a name="l00287"></a>00287 <span class="comment"></span>
+<a name="l00288"></a>00288 <span class="comment">@return なし</span>
+<a name="l00289"></a>00289 <span class="comment">*/</span>
+<a name="l00290"></a>00290 <span class="keywordtype">void</span> printARRAY_OFFSET(<a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>);
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 <span class="comment">/*</span>
+<a name="l00293"></a>00293 <span class="comment">指定した各次元の配列やポインタのオフセットリストarray_offsetの内容を出力する</span>
+<a name="l00294"></a>00294 <span class="comment"></span>
+<a name="l00295"></a>00295 <span class="comment">@param array_offset_list 出力対象の各次元の配列やポインタのオフセット情報のリスト</span>
+<a name="l00296"></a>00296 <span class="comment"></span>
+<a name="l00297"></a>00297 <span class="comment">@return なし</span>
+<a name="l00298"></a>00298 <span class="comment">*/</span>
+<a name="l00299"></a>00299 <span class="keywordtype">void</span> printARRAY_OFFSET_LIST(ARRAY_OFFSET_LIST *array_offset_list);
+<a name="l00300"></a>00300 
+<a name="l00309"></a>00309 <span class="keywordtype">void</span> getOFFSET_LISTFromVariableTable(OFFSET_LIST *offset_list, <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *<a class="code" href="structvariable__table.html">variable_table</a>);
+<a name="l00310"></a>00310 
+<a name="l00318"></a>00318 <span class="keywordtype">void</span> deleteOFFSET_LIST(OFFSET_LIST *offset_list);
+<a name="l00319"></a>00319 
+<a name="l00327"></a>00327 <span class="keywordtype">int</span> getOffsetLevelFromArrayOffset(<a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>);
+<a name="l00328"></a>00328 
+<a name="l00335"></a>00335 <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *maxOffsetLevelAddressFromArrayOffsetList(ARRAY_OFFSET_LIST *array_offset_list);
+<a name="l00336"></a>00336 
+<a name="l00349"></a>00349 <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *searchOffsetLevelAddressFromArrayOffsetList(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *array_offset_list,
+<a name="l00350"></a>00350         <span class="keywordtype">int</span> pointer_level, <span class="keywordtype">int</span> array_level);
+<a name="l00357"></a>00357 <span class="keywordtype">int</span> maxOffsetLevelFromArrayOffsetList(ARRAY_OFFSET_LIST *array_offset_list);
+<a name="l00358"></a>00358 
+<a name="l00371"></a>00371 <span class="keywordtype">void</span> getExpressionOffsetInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list,
+<a name="l00372"></a>00372  ARRAY_OFFSET_LIST * array_offset_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> *switch_mode, <span class="keywordtype">int</span> allow_subeffect);
+<a name="l00373"></a>00373 
+<a name="l00385"></a>00385 <span class="keywordtype">void</span> getArgumentOffsetInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *argument, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00386"></a>00386         VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST * array_offset_list,
+<a name="l00387"></a>00387         <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> *switch_mode);
+<a name="l00388"></a>00388 
+<a name="l00400"></a>00400 <span class="keywordtype">void</span> getSingleExpressionOffsetInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *expression, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00401"></a>00401         VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list,
+<a name="l00402"></a>00402  ARRAY_OFFSET_LIST * array_offset_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> *switch_mode);
+<a name="l00413"></a>00413 <span class="keywordtype">void</span> createArrayExpression(CSTLString *output, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>, <span class="keywordtype">int</span> output_level);
+<a name="l00414"></a>00414 
+<a name="l00422"></a>00422 <span class="keywordtype">int</span> createValidateVariableArrayExpression(CSTLString *output, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>);
+<a name="l00423"></a>00423 
+<a name="l00432"></a>00432 <span class="keywordtype">void</span> moveArrayOffsetList(ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, <span class="keywordtype">int</span> move_start);
+<a name="l00433"></a>00433 
+<a name="l00442"></a>00442 <span class="keywordtype">void</span> copyArrayOffsetList(ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, <span class="keywordtype">int</span> move_start);
+<a name="l00443"></a>00443 
+<a name="l00453"></a>00453 <span class="keywordtype">void</span> getDeclaratorArrayOffset(ARRAY_OFFSET_LIST *declarator_array_offset_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *declarator_expression, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, VARIABLE_TABLE_LIST *vtlist);
+<a name="l00454"></a>00454 
+<a name="l00464"></a>00464 <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *searchARRAY_OFFSET_LIST(ARRAY_OFFSET_LIST *array_offset_list, CSTLString *name);
+<a name="l00465"></a>00465 
+<a name="l00476"></a>00476 <span class="keywordtype">void</span> minusArrayOffsetList(ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET_LIST *delete_array_offset_list);
+<a name="l00477"></a>00477 
+<a name="l00486"></a>00486 <span class="keywordtype">void</span> ARRAY_OFFSET_LIST_push_back_ref_not_dup(ARRAY_OFFSET_LIST *target_array_offset_list, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>);
+<a name="l00487"></a>00487 
+<a name="l00495"></a>00495 <span class="keywordtype">void</span> printASTPOINTER_LIST(ASTPOINTER_LIST *astpointer_list);
+<a name="l00496"></a>00496 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:37:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

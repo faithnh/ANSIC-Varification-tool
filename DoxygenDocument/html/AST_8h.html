@@ -1,0 +1,1013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/AST.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/AST.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノードから文字列を生成させたりといったことができる。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;cstl/string.h&gt;</code><br/>
+<code>#include &lt;cstl/list.h&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="CSTLString_8h_source.html">../Library/CSTLString.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="IdList_8h_source.html">../Library/IdList.h</a>&quot;</code><br/>
+</div>
+<p><a href="AST_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabstract__syntax__tree.html">abstract_syntax_tree</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structabstract__syntax__tree.html">abstract_syntax_tree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a33c4b549d3cbe5707e6529c36050be6a">AST</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a561ad4662c952c9f7f0e865718ae2ca1">new_AST</a> (char *new_name, char *new_content, int new_line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a385fcf61df654b7c648b0ed109b488e1">same_new_AST</a> (char *new_name, int new_line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a9ce8fa4ef1dfca0fbcd8fd838079d587">traverseAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int tab_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a0d03e6fef0765425ce87cf82c5bb8705">traverseASTwithXML</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int tab_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#ae7e8f342424c16f107b1cb24696b1d9e">fprintDataFromAST</a> (FILE *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int *line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a640626d7a64e560abcbb557302b82208">printDataFromAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int *line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a5b499afa940ee03cf6cb4f2d7564c00d">getStringFromAST</a> (CSTLString *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a5e14306ec790d4583ffc3c610074de8d">getStringFromASTEnableExcept</a> (CSTLString *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int num, char except_list[][256])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a8c99cebbba801e86fcdf87e0e68b07a8">deleteAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a2ac04711eeafbb8805689cf2c992ea51">push_back_childrenAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *parent, <a class="el" href="structabstract__syntax__tree.html">AST</a> *child)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#af7952c19c9294e653d47966f719ec2c0">multi_push_back_childrenAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *parent, int num,...)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a8108df6d563a7c093e9588516570985c">printTargetASTNode</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, char *target, int traverse_flag, int xml_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#ace68f2bec503521e64c39532d613ea62">getArgumentString</a> (CSTLString *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *call_function, int arg_num)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a03abb7f464291ab69e8df4c602a8753b">getArgumentStringEnableExcept</a> (CSTLString *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *call_function, int arg_num, int num, char except_list[][256])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a8aa84b5f68b049ebdd94dec829e20a59">getArgumentAST</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> **output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *call_function, int arg_num)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a8726d22620bc29bb1e2ecb7d758a93d7">getASTwithString</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, char *name, int depth)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a1e2810561a1a010a204fa94f58abf36c">getStringReplaceASTtoString</a> (CSTLString *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target, char *replace_string)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a49fd8ff67359b56838fbbca1519663a5">setASTReturnType</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a6a198cd34913f8f3500c12101db0e677">setASTBlocklevelAndId</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#ad1a9d15070cb0f682561950d366f9d68">findASTAddress</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, <a class="el" href="structabstract__syntax__tree.html">AST</a> *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AST_8h.html#a7b0bdcf6415bdc3285dce22ecdfd32bd">fprintfStatement</a> (FILE *output, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root, int *line, int output_subnode_num, <a class="el" href="structabstract__syntax__tree.html">AST</a> **out_block_start, <a class="el" href="structabstract__syntax__tree.html">AST</a> **out_block_end)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノードから文字列を生成させたりといったことができる。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="a33c4b549d3cbe5707e6529c36050be6a"></a><!-- doxytag: member="AST.h::AST" ref="a33c4b549d3cbe5707e6529c36050be6a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structabstract__syntax__tree.html">abstract_syntax_tree</a>  <a class="el" href="structabstract__syntax__tree.html">AST</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>C言語プログラムの抽象構文木に関する情報が含まれる。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a8c99cebbba801e86fcdf87e0e68b07a8"></a><!-- doxytag: member="AST.h::deleteAST" ref="a8c99cebbba801e86fcdf87e0e68b07a8" args="(AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノード以下を全て開放させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad1a9d15070cb0f682561950d366f9d68"></a><!-- doxytag: member="AST.h::findASTAddress" ref="ad1a9d15070cb0f682561950d366f9d68" args="(AST *root, AST *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findASTAddress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>探す対象のASTノードrootから、指定したASTノードのアドレスtargetが存在するかどうか調べる。みつければ、１を返し、そうでなければ０を返す。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>探す対象のASTノード </td></tr>
+    <tr><td class="paramname">target</td><td>指定したASTノードのアドレス</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>指定したASTノードtargetを見つけたら１を返し、そうでなければ０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7e8f342424c16f107b1cb24696b1d9e"></a><!-- doxytag: member="AST.h::fprintDataFromAST" ref="ae7e8f342424c16f107b1cb24696b1d9e" args="(FILE *output, AST *root, int *line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fprintDataFromAST </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノード以下の内容を、指定されたファイルに対して出力させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力先のファイル構造体 </td></tr>
+    <tr><td class="paramname">root</td><td>指定されたノード名 </td></tr>
+    <tr><td class="paramname">line</td><td>出力に利用する行数</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7b0bdcf6415bdc3285dce22ecdfd32bd"></a><!-- doxytag: member="AST.h::fprintfStatement" ref="a7b0bdcf6415bdc3285dce22ecdfd32bd" args="(FILE *output, AST *root, int *line, int output_subnode_num, AST **out_block_start, AST **out_block_end)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fprintfStatement </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>output_subnode_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>out_block_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>out_block_end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたノードに対して、statementの直前まで出力させる。また、出力対象となっているノード番号が来るまでは出力の対象としない。 ブロックとして表記されている場合は始まりのブロックや終わりのブロックへのASTノードのアドレスをout_block_startやout_block_endに 設定する。そうでなければ、NULLで設定される。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力先のファイル構造体 </td></tr>
+    <tr><td class="paramname">root</td><td>指定されたASTノード </td></tr>
+    <tr><td class="paramname">line</td><td>出力に利用する行数 </td></tr>
+    <tr><td class="paramname">output_subnode_num</td><td>出力対象となるノード番号 １〜ｎ（１に指定すると、すべての子ノードが出力の対象となる） </td></tr>
+    <tr><td class="paramname">out_block_start</td><td>ブロックとして表記されている場合は、始まりのブロックへのASTノードのアドレスを返却する </td></tr>
+    <tr><td class="paramname">out_block_end</td><td>ブロックとして表記されている場合は、終わりブのロックへのASTノードのアドレスを返却する。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8aa84b5f68b049ebdd94dec829e20a59"></a><!-- doxytag: member="AST.h::getArgumentAST" ref="a8aa84b5f68b049ebdd94dec829e20a59" args="(AST **output, AST *call_function, int arg_num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getArgumentAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> **&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>call_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arg_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたcall_functionに相当する関数から、任意の引数目へのノードを取得する。 このとき、指定されたノード名はcall_functionでなければならない。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>取得する対象のノード </td></tr>
+    <tr><td class="paramname">call_function</td><td>名前がcall_functionであるASTノード </td></tr>
+    <tr><td class="paramname">arg_num</td><td>何番目の引数</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ace68f2bec503521e64c39532d613ea62"></a><!-- doxytag: member="AST.h::getArgumentString" ref="ace68f2bec503521e64c39532d613ea62" args="(CSTLString *output, AST *call_function, int arg_num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getArgumentString </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>call_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arg_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたcall_functionに相当する関数から、任意の引数目の情報を取得する。 このとき、指定されたノード名はcall_functionでなければならない。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力される引数の内容 </td></tr>
+    <tr><td class="paramname">call_function</td><td>名前がcall_functionであるASTノード </td></tr>
+    <tr><td class="paramname">arg_num</td><td>何番目の引数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a03abb7f464291ab69e8df4c602a8753b"></a><!-- doxytag: member="AST.h::getArgumentStringEnableExcept" ref="a03abb7f464291ab69e8df4c602a8753b" args="(CSTLString *output, AST *call_function, int arg_num, int num, char except_list[][256])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getArgumentStringEnableExcept </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>call_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arg_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>except_list</em>[][256]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>getArgumentEnableExceptの拡張版。出力対象にしない文字列を除いた引数の情報をすべて出力させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力される引数の内容 </td></tr>
+    <tr><td class="paramname">call_function</td><td>名前がcall_functionであるASTノード </td></tr>
+    <tr><td class="paramname">arg_num</td><td>何番目の引数 </td></tr>
+    <tr><td class="paramname">num</td><td>除外したいASTノードリストの数 </td></tr>
+    <tr><td class="paramname">except_list</td><td>除外したいASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを示す。成功したならば１、失敗した場合は０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8726d22620bc29bb1e2ecb7d758a93d7"></a><!-- doxytag: member="AST.h::getASTwithString" ref="a8726d22620bc29bb1e2ecb7d758a93d7" args="(AST *root, char *name, int depth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structabstract__syntax__tree.html">AST</a>* getASTwithString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノードrootから、指定した名前nameのASTノードを探す。 見つけたASTノードへのアドレスを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">name</td><td>指定した名前 </td></tr>
+    <tr><td class="paramname">depth</td><td>探索する子ノードの深さ（無限にする場合は-1を指定、子ノードは検索しない場合は0にする) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つけたASTノードへのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5b499afa940ee03cf6cb4f2d7564c00d"></a><!-- doxytag: member="AST.h::getStringFromAST" ref="a5b499afa940ee03cf6cb4f2d7564c00d" args="(CSTLString *output, AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getStringFromAST </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノード以下の内容を出力対象の文字列データに出力させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力対象の文字列データ </td></tr>
+    <tr><td class="paramname">root</td><td>新しいノード名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5e14306ec790d4583ffc3c610074de8d"></a><!-- doxytag: member="AST.h::getStringFromASTEnableExcept" ref="a5e14306ec790d4583ffc3c610074de8d" args="(CSTLString *output, AST *root, int num, char except_list[][256])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getStringFromASTEnableExcept </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>except_list</em>[][256]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>getStringFromASTの拡張版。出力対象から除外したASTノード名を指定できる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>出力対象の文字列データ </td></tr>
+    <tr><td class="paramname">root</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">num</td><td>除外したいASTノードリストの数 </td></tr>
+    <tr><td class="paramname">except_list</td><td>除外したいASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e2810561a1a010a204fa94f58abf36c"></a><!-- doxytag: member="AST.h::getStringReplaceASTtoString" ref="a1e2810561a1a010a204fa94f58abf36c" args="(CSTLString *output, AST *root, AST *target, char *replace_string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getStringReplaceASTtoString </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>replace_string</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノードrootに対しての情報を文字列outputを出力させる。 そのとき、ASTノードのtargetのアドレス値と一致するノードを見つけた（アドレスとして全く同じASTノードを見つけた） 場合、そのノードだけreplace_stringに変換して出力させる。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したASTノード </td></tr>
+    <tr><td class="paramname">output</td><td>出力する情報 </td></tr>
+    <tr><td class="paramname">target</td><td>変換対象のASTノードのアドレス </td></tr>
+    <tr><td class="paramname">replace_string</td><td>変換先の文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af7952c19c9294e653d47966f719ec2c0"></a><!-- doxytag: member="AST.h::multi_push_back_childrenAST" ref="af7952c19c9294e653d47966f719ec2c0" args="(AST *parent, int num,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multi_push_back_childrenAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定された親ASTノードに任意の子ASTノードを追加する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>指定された親ASTノード </td></tr>
+    <tr><td class="paramname">num</td><td>追加する子ASTノードの数 </td></tr>
+    <tr><td class="paramname">...</td><td>追加する任意の子ASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a561ad4662c952c9f7f0e865718ae2ca1"></a><!-- doxytag: member="AST.h::new_AST" ref="a561ad4662c952c9f7f0e865718ae2ca1" args="(char *new_name, char *new_content, int new_line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structabstract__syntax__tree.html">AST</a>* new_AST </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>new_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>new_content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しいASTノードを生成する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_name</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">new_content</td><td>新しい内容 </td></tr>
+    <tr><td class="paramname">new_line</td><td>新しい行数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成されたASTノードへのアドレスが返される。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a640626d7a64e560abcbb557302b82208"></a><!-- doxytag: member="AST.h::printDataFromAST" ref="a640626d7a64e560abcbb557302b82208" args="(AST *root, int *line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printDataFromAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノード以下の内容を出力させる。ASTノードの行数にしたがって出力される。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">line</td><td>指定する行数(基本的に１を入力する） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8108df6d563a7c093e9588516570985c"></a><!-- doxytag: member="AST.h::printTargetASTNode" ref="a8108df6d563a7c093e9588516570985c" args="(AST *root, char *target, int traverse_flag, int xml_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printTargetASTNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>traverse_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xml_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定された親ASTノードから、指定したノード名より下位についての情報をすべて表示させる。。 また、traverse_flagを１にすることで、指定したノード名についてのすべての情報をツリー構造で表示させることもできる。 さらに、xml_flagを１にすることで、ツリー構造で表示させる内容がXMLとして出力できるようになる(traverse_flagが１になっていることが前提である)。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定された親ASTノード </td></tr>
+    <tr><td class="paramname">target</td><td>指定した文字列 </td></tr>
+    <tr><td class="paramname">traverse_flag</td><td>指定したノード名以下をツリー構造で表示させるかどうかのフラグ。１なら表示させ、０なら表示させない </td></tr>
+    <tr><td class="paramname">xml_flag</td><td>XMLとして出力するかどうかのフラグ。１ならXMLとして出力させる </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>指定された親ASTノードから、指定したノード名より下位についての情報をすべて表示させる。 また、traverse_flagを１にすることで、指定したノード名についてのすべての情報をツリー構造で表示させることもできる。 さらに、xml_flagを１にすることで、ツリー構造で表示させる内容がXMLとして出力できるようになる(traverse_flagが１になっていることが前提である)。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定された親ASTノード </td></tr>
+    <tr><td class="paramname">target</td><td>指定した文字列 </td></tr>
+    <tr><td class="paramname">traverse_flag</td><td>指定したノード名以下をツリー構造で表示させるかどうかのフラグ。１なら表示させ、０なら表示させない </td></tr>
+    <tr><td class="paramname">xml_flag</td><td>XMLとして出力するかどうかのフラグ。１ならXMLとして出力させる </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ac04711eeafbb8805689cf2c992ea51"></a><!-- doxytag: member="AST.h::push_back_childrenAST" ref="a2ac04711eeafbb8805689cf2c992ea51" args="(AST *parent, AST *child)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_back_childrenAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定された親ASTノードに指定された子ASTノードを追加する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>指定された親ASTノード </td></tr>
+    <tr><td class="paramname">child</td><td>指定された子ASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a385fcf61df654b7c648b0ed109b488e1"></a><!-- doxytag: member="AST.h::same_new_AST" ref="a385fcf61df654b7c648b0ed109b488e1" args="(char *new_name, int new_line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structabstract__syntax__tree.html">AST</a>* same_new_AST </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>new_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>名前と内容が同じであるASTノードを生成する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_name</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">new_line</td><td>新しい行数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成されたASTノードへのアドレスが返される。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6a198cd34913f8f3500c12101db0e677"></a><!-- doxytag: member="AST.h::setASTBlocklevelAndId" ref="a6a198cd34913f8f3500c12101db0e677" args="(AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setASTBlocklevelAndId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象のASTノードに、ブロックIDおよびブロックレベルを付加する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>対象のASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a49fd8ff67359b56838fbbca1519663a5"></a><!-- doxytag: member="AST.h::setASTReturnType" ref="a49fd8ff67359b56838fbbca1519663a5" args="(AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setASTReturnType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象のASTノードのroot以下にあるに、関数の返却値のタイプを指定する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>対象のASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ce8fa4ef1dfca0fbcd8fd838079d587"></a><!-- doxytag: member="AST.h::traverseAST" ref="a9ce8fa4ef1dfca0fbcd8fd838079d587" args="(AST *root, int tab_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void traverseAST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tab_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ASTのノードをたどり、rootノード以下のノードの名前・内容・行数を表示させる。 また、下位レベルのノードはタブを挿入し表示する。例えば、1レベル下位のノードはタブが1つ挿入した上で表示される。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">tab_level</td><td>タブレベル(この数分タブが挿入される） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0d03e6fef0765425ce87cf82c5bb8705"></a><!-- doxytag: member="AST.h::traverseASTwithXML" ref="a0d03e6fef0765425ce87cf82c5bb8705" args="(AST *root, int tab_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void traverseASTwithXML </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tab_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ASTのノードをたどり、rootノード以下のノードの名前・内容・行数をXML形式で出力する。（デバッグ用） また、下位レベルのノードはタブを挿入し出力する。例えば、1レベル下位のノードはタブが1つ挿入した上でタグが出力される。 XMLについては次の形式で出力する(aはルートノード、a_subはリーフノードであるとする）  &lt;leaf name="a_sub" content="+" line="1"&gt; </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>新しいノード名 </td></tr>
+    <tr><td class="paramname">tab_level</td><td>タブレベル(この数分タブが挿入される） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

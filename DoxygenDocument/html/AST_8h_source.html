@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/AST.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/AST.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="AST_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef AST_HEADDER</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define AST_HEADDER</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;cstl/string.h&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;cstl/list.h&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="CSTLString_8h.html" title="このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行うための命令が含まれている。">../Library/CSTLString.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="IdList_8h.html" title="このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。">../Library/IdList.h</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">struct </span><a class="code" href="structabstract__syntax__tree.html">abstract_syntax_tree</a>;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 CSTL_LIST_INTERFACE(ASTList, <span class="keyword">struct</span> <a class="code" href="structabstract__syntax__tree.html">abstract_syntax_tree</a>)
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00025"></a><a class="code" href="structabstract__syntax__tree.html">00025</a> typedef struct <a class="code" href="structabstract__syntax__tree.html">abstract_syntax_tree</a>{
+<a name="l00026"></a>00026     CSTLString *name;           
+<a name="l00027"></a><a class="code" href="structabstract__syntax__tree.html#a1d3ebb923055b39ec93220a82010c9a5">00027</a>     CSTLString *<a class="code" href="structabstract__syntax__tree.html#a1d3ebb923055b39ec93220a82010c9a5" title="ノード名">content</a>;        
+<a name="l00028"></a><a class="code" href="structabstract__syntax__tree.html#a16de2988d91f99ee9324a8e27e59314a">00028</a>     <span class="keywordtype">int</span> <a class="code" href="structabstract__syntax__tree.html#a16de2988d91f99ee9324a8e27e59314a" title="ノードの内容">line</a>;                   
+<a name="l00029"></a><a class="code" href="structabstract__syntax__tree.html#a427a4655976ce8284a3197e9d9a9b856">00029</a>     CSTLString *<a class="code" href="structabstract__syntax__tree.html#a427a4655976ce8284a3197e9d9a9b856" title="対象のノードの行数">return_type</a>;    
+<a name="l00030"></a><a class="code" href="structabstract__syntax__tree.html#a9da95b72b69ccebafe64a6cdff6735b1">00030</a>     <span class="keywordtype">int</span> <a class="code" href="structabstract__syntax__tree.html#a9da95b72b69ccebafe64a6cdff6735b1" title="返却値のタイプ(void、int、doubleなどが入る)">block_level</a>;            
+<a name="l00031"></a><a class="code" href="structabstract__syntax__tree.html#a1130545fa7b86f9006c3b68b0943a33a">00031</a>     <span class="keywordtype">int</span> <a class="code" href="structabstract__syntax__tree.html#a1130545fa7b86f9006c3b68b0943a33a" title="ブロックの階層レベル（グローバルの場合は０、何らかの関数内であれば１となる）">block_id</a>;               
+<a name="l00032"></a><a class="code" href="structabstract__syntax__tree.html#a9207cfa97354e44aae39c4686a924357">00032</a>     IDLIST *<a class="code" href="structabstract__syntax__tree.html#a9207cfa97354e44aae39c4686a924357" title="各々のブロックを識別するためのもの。０から順に設定される">idlist</a>;             
+<a name="l00033"></a><a class="code" href="structabstract__syntax__tree.html#ab5e78b5322a2bab5b0aa21d40522a78b">00033</a>     ASTList *<a class="code" href="structabstract__syntax__tree.html#ab5e78b5322a2bab5b0aa21d40522a78b" title="ブロックの階層および識別子を同時に識別するためのもの。変数定義に関して確認するのに用いる">children</a>;          
+<a name="l00034"></a>00034 } <a class="code" href="AST_8h.html#a33c4b549d3cbe5707e6529c36050be6a">AST</a>;
+<a name="l00035"></a>00035 
+<a name="l00043"></a>00043 <a class="code" href="structabstract__syntax__tree.html">AST</a>* new_AST(<span class="keywordtype">char</span> *new_name, <span class="keywordtype">char</span> *new_content,<span class="keywordtype">int</span> new_line);
+<a name="l00044"></a>00044 
+<a name="l00051"></a>00051 <a class="code" href="structabstract__syntax__tree.html">AST</a>* same_new_AST(<span class="keywordtype">char</span> *new_name, <span class="keywordtype">int</span> new_line);
+<a name="l00052"></a>00052 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> traverseAST(<a class="code" href="structabstract__syntax__tree.html">AST</a>* root,<span class="keywordtype">int</span> tab_level);
+<a name="l00062"></a>00062 
+<a name="l00075"></a>00075 <span class="keywordtype">void</span> traverseASTwithXML(<a class="code" href="structabstract__syntax__tree.html">AST</a>* root,<span class="keywordtype">int</span> tab_level);
+<a name="l00076"></a>00076 
+<a name="l00085"></a>00085 <span class="keywordtype">void</span> fprintDataFromAST(FILE *output, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <span class="keywordtype">int</span> *<a class="code" href="structabstract__syntax__tree.html#a16de2988d91f99ee9324a8e27e59314a" title="ノードの内容">line</a>);
+<a name="l00092"></a>00092 <span class="keywordtype">void</span> printDataFromAST(<a class="code" href="structabstract__syntax__tree.html">AST</a>* root, <span class="keywordtype">int</span> *<a class="code" href="structabstract__syntax__tree.html#a16de2988d91f99ee9324a8e27e59314a" title="ノードの内容">line</a>);
+<a name="l00093"></a>00093 
+<a name="l00100"></a>00100 <span class="keywordtype">void</span> getStringFromAST(CSTLString* output, <a class="code" href="structabstract__syntax__tree.html">AST</a>* root);
+<a name="l00101"></a>00101 
+<a name="l00111"></a>00111 <span class="keywordtype">void</span> getStringFromASTEnableExcept(CSTLString* output, <a class="code" href="structabstract__syntax__tree.html">AST</a>* root,<span class="keywordtype">int</span> num, <span class="keywordtype">char</span> except_list[][256]);
+<a name="l00112"></a>00112 
+<a name="l00118"></a>00118 <span class="keywordtype">void</span> deleteAST(<a class="code" href="structabstract__syntax__tree.html">AST</a>* root);
+<a name="l00119"></a>00119 
+<a name="l00126"></a>00126 <span class="keywordtype">void</span> push_back_childrenAST(<a class="code" href="structabstract__syntax__tree.html">AST</a> *parent, <a class="code" href="structabstract__syntax__tree.html">AST</a> *child);
+<a name="l00127"></a>00127 
+<a name="l00135"></a>00135 <span class="keywordtype">void</span> multi_push_back_childrenAST(<a class="code" href="structabstract__syntax__tree.html">AST</a> *parent,<span class="keywordtype">int</span> num, ...);
+<a name="l00136"></a>00136 
+<a name="l00147"></a>00147 <span class="keywordtype">void</span> printTargetASTNode(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <span class="keywordtype">char</span> *target, <span class="keywordtype">int</span> traverse_flag , <span class="keywordtype">int</span> xml_flag);
+<a name="l00148"></a>00148 
+<a name="l00157"></a>00157 <span class="keywordtype">int</span> getArgumentString(CSTLString *output, <a class="code" href="structabstract__syntax__tree.html">AST</a>* call_function, <span class="keywordtype">int</span> arg_num);
+<a name="l00158"></a>00158 
+<a name="l00169"></a>00169 <span class="keywordtype">int</span> getArgumentStringEnableExcept(CSTLString *output, <a class="code" href="structabstract__syntax__tree.html">AST</a>* call_function, <span class="keywordtype">int</span> arg_num, <span class="keywordtype">int</span> num, <span class="keywordtype">char</span> except_list[][256]);
+<a name="l00170"></a>00170 
+<a name="l00180"></a>00180 <span class="keywordtype">int</span> getArgumentAST(<a class="code" href="structabstract__syntax__tree.html">AST</a> **output, <a class="code" href="structabstract__syntax__tree.html">AST</a>* call_function, <span class="keywordtype">int</span> arg_num);
+<a name="l00181"></a>00181 
+<a name="l00190"></a>00190 <a class="code" href="structabstract__syntax__tree.html">AST</a> *getASTwithString(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> depth);
+<a name="l00191"></a>00191 
+<a name="l00204"></a>00204 <span class="keywordtype">void</span> getStringReplaceASTtoString(CSTLString *output, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target, <span class="keywordtype">char</span> *replace_string);
+<a name="l00205"></a>00205 
+<a name="l00213"></a>00213 <span class="keywordtype">void</span> setASTReturnType(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root);
+<a name="l00214"></a>00214 
+<a name="l00223"></a>00223 <span class="keywordtype">void</span> setASTBlocklevelAndId(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root);
+<a name="l00224"></a>00224 
+<a name="l00233"></a>00233 <span class="keywordtype">int</span> findASTAddress(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target);
+<a name="l00234"></a>00234 
+<a name="l00249"></a>00249 <span class="keywordtype">void</span> fprintfStatement(FILE *output, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, <span class="keywordtype">int</span> *<a class="code" href="structabstract__syntax__tree.html#a16de2988d91f99ee9324a8e27e59314a" title="ノードの内容">line</a>, <span class="keywordtype">int</span> output_subnode_num, <a class="code" href="structabstract__syntax__tree.html">AST</a> **out_block_start, <a class="code" href="structabstract__syntax__tree.html">AST</a> **out_block_end);
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251 <span class="preprocessor">#endif //AST_HEADDER</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:38:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

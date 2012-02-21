@@ -1,0 +1,989 @@
+\section{ANSICInformation/PointerArrayControl.h}
+\label{PointerArrayControl_8h}\index{ANSICInformation/PointerArrayControl.h@{ANSICInformation/PointerArrayControl.h}}
+
+
+このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元のオフセットとして格納します。 各次元のオフセットとは動的配列や静的配列などにおいて、配列のどの部分を指しているかという式のことです。  
+
+
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Synbol.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}FunctionInformation.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structarray__offset}{array\_\-offset}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structarray__offset}{array\_\-offset} \hyperlink{PointerArrayControl_8h_ae18d261788d71423fa2c0980d3de19cd}{ARRAY\_\-OFFSET}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$ \hyperlink{PointerArrayControl_8h_ad39591d4757bb4a1cbb2e982e031aa0c}{new\_\-ARRAY\_\-OFFSET\_\-char} (char $\ast$variable\_\-name, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement, \hyperlink{structabstract__syntax__tree}{AST} $\ast$variable\_\-address, OFFSET\_\-LIST $\ast$offset\_\-list, int pointer\_\-level, int array\_\-level, int anpasand\_\-flag, int inc\_\-dec\_\-flag)
+\item 
+\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$ \hyperlink{PointerArrayControl_8h_a3c19acc973d7d77775aab6be9a51c6c0}{new\_\-ARRAY\_\-OFFSET} (CSTLString $\ast$variable\_\-name, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement, \hyperlink{structabstract__syntax__tree}{AST} $\ast$variable\_\-address, OFFSET\_\-LIST $\ast$offset\_\-list, int pointer\_\-level, int array\_\-level, int anpasand\_\-flag, int inc\_\-dec\_\-flag)
+\item 
+void \hyperlink{PointerArrayControl_8h_a1fe4a503769616086f897aa93a66f5a7}{OFFSET\_\-LIST\_\-push\_\-back\_\-alloc} (OFFSET\_\-LIST $\ast$offset\_\-list, char $\ast$string)
+\item 
+int \hyperlink{PointerArrayControl_8h_a93c403617815b6a7d28fc18dd28d0ab8}{getPointerArrayOffset} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, int offset\_\-level, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$$\ast$\hyperlink{structarray__offset}{array\_\-offset}, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement, int anpasand\_\-flag, int inc\_\-dec\_\-flag)
+\item 
+void \hyperlink{PointerArrayControl_8h_a8c3eadc0355b2748c489ded072531764}{getARRAY\_\-OFFSET\_\-LIST} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+void \hyperlink{PointerArrayControl_8h_ab042eed938daf0311a0345295ad700ef}{get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement, CSTLString $\ast$ignore\_\-ast\_\-name)
+\item 
+void \hyperlink{PointerArrayControl_8h_a95c8e82725af82de833504d5c782a68a}{getArrayOffsetInAnpasandInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+void \hyperlink{PointerArrayControl_8h_a09038dff6ab32c8ba846e98ad7757af7}{getArrayOffsetInIncDecInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement, int inc\_\-dec\_\-flag)
+\item 
+int \hyperlink{PointerArrayControl_8h_ada7e37243ccbe1db44bbaed13941dcef}{getUpperExpressionRelationNode} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$target, \hyperlink{structabstract__syntax__tree}{AST} $\ast$root, \hyperlink{structabstract__syntax__tree}{AST} $\ast$$\ast$output, \hyperlink{structabstract__syntax__tree}{AST} $\ast$$\ast$output2)
+\item 
+void \hyperlink{PointerArrayControl_8h_acc3cd8275754e5412501748b96b6f23e}{deletePointerAndArraySynbol} (CSTLString $\ast$target)
+\item 
+void \hyperlink{PointerArrayControl_8h_a865793639f2aa40d0c7e5101f130ac3e}{deletePointer} (CSTLString $\ast$target)
+\item 
+int \hyperlink{PointerArrayControl_8h_a5a9cab9c5ed8a9f47b90a3b012b2dd86}{searchExpressionOrPointeArrayOrIden} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, \hyperlink{structabstract__syntax__tree}{AST} $\ast$$\ast$output)
+\item 
+int \hyperlink{PointerArrayControl_8h_a50b8e40d4ca955feb62fd12fc5a1cfc9}{searchPointerAccessOrIdentifierOrPrimary} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, \hyperlink{structabstract__syntax__tree}{AST} $\ast$$\ast$output)
+\item 
+void \hyperlink{PointerArrayControl_8h_a8085beaa8ccab452696d382420351c3c}{getPointerAccessOrIdentifierList} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, \hyperlink{structabstract__syntax__tree}{AST} $\ast$$\ast$$\ast$output, int $\ast$getSize)
+\item 
+int \hyperlink{PointerArrayControl_8h_ae55c88e5cf59c1f0369d57d92a1da628}{checkIdentifierPointerArrayLevel} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$identifier, int offset\_\-level, VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, int $\ast$pointer\_\-level, int $\ast$array\_\-level)
+\item 
+void \hyperlink{PointerArrayControl_8h_a1aa81f5be8863d85891cc45786b885b8}{checkCallFunction} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$call\_\-function, int offset\_\-level, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+int \hyperlink{PointerArrayControl_8h_a959e6be57534291a0e6d0567927d0c8a}{checkIgnoreASTList} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list)
+\item 
+void \hyperlink{PointerArrayControl_8h_a52c26c3f03a8f88684cbf4e4f85c09ec}{getOFFSET\_\-LISTFromVariableTable} (OFFSET\_\-LIST $\ast$offset\_\-list, \hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$\hyperlink{structvariable__table}{variable\_\-table})
+\item 
+void \hyperlink{PointerArrayControl_8h_a3512541a1ccd254e112b4658f0226d23}{deleteOFFSET\_\-LIST} (OFFSET\_\-LIST $\ast$offset\_\-list)
+\item 
+int \hyperlink{PointerArrayControl_8h_a2ed02feb19741e76c894e54825bf539f}{getOffsetLevelFromArrayOffset} (\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$\hyperlink{structarray__offset}{array\_\-offset})
+\item 
+\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$ \hyperlink{PointerArrayControl_8h_ac33e43a25ee2e1cde405220d410162b7}{maxOffsetLevelAddressFromArrayOffsetList} (ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list)
+\item 
+\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$ \hyperlink{PointerArrayControl_8h_a379c30f21274eb53a257e04670bc6de0}{searchOffsetLevelAddressFromArrayOffsetList} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, int pointer\_\-level, int array\_\-level)
+\item 
+int \hyperlink{PointerArrayControl_8h_a20d295101c3b4b2e1f53c170d216e991}{maxOffsetLevelFromArrayOffsetList} (ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list)
+\item 
+void \hyperlink{PointerArrayControl_8h_a9c6c8ad729c816c8eee5503fbe7e8e9b}{getExpressionOffsetInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$expression, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int $\ast$switch\_\-mode, int allow\_\-subeffect)
+\item 
+void \hyperlink{PointerArrayControl_8h_a7b73777a069952f6ceaec87d52b3762c}{getArgumentOffsetInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$argument, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int $\ast$switch\_\-mode)
+\item 
+void \hyperlink{PointerArrayControl_8h_a2e65dd778abdab29f2f02906e86f9c0e}{getSingleExpressionOffsetInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$expression, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int $\ast$switch\_\-mode)
+\item 
+void \hyperlink{PointerArrayControl_8h_aae4e21ff334802d880f23daf18645b6c}{createArrayExpression} (CSTLString $\ast$output, \hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$\hyperlink{structarray__offset}{array\_\-offset}, int output\_\-level)
+\item 
+int \hyperlink{PointerArrayControl_8h_a238d39bda32ef42e800cdb25552670d5}{createValidateVariableArrayExpression} (CSTLString $\ast$output, \hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$\hyperlink{structarray__offset}{array\_\-offset})
+\item 
+void \hyperlink{PointerArrayControl_8h_a1c6f1f005ac67a6af672aa17b679c93c}{moveArrayOffsetList} (ARRAY\_\-OFFSET\_\-LIST $\ast$fromlist, ARRAY\_\-OFFSET\_\-LIST $\ast$tolist, int move\_\-start)
+\item 
+void \hyperlink{PointerArrayControl_8h_ad20b875356ad741d12d41b61cb12643f}{copyArrayOffsetList} (ARRAY\_\-OFFSET\_\-LIST $\ast$fromlist, ARRAY\_\-OFFSET\_\-LIST $\ast$tolist, int move\_\-start)
+\item 
+void \hyperlink{PointerArrayControl_8h_a29ffdfe8670a237ea0fc26cc1a318804}{getDeclaratorArrayOffset} (ARRAY\_\-OFFSET\_\-LIST $\ast$declarator\_\-array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$declarator\_\-expression, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist)
+\item 
+\hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$ \hyperlink{PointerArrayControl_8h_ada6380bd941ed964766242cb37d93ee3}{searchARRAY\_\-OFFSET\_\-LIST} (ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, CSTLString $\ast$name)
+\item 
+void \hyperlink{PointerArrayControl_8h_a70f8bef9dd6a59df7da973fda3a3fd4f}{minusArrayOffsetList} (ARRAY\_\-OFFSET\_\-LIST $\ast$target\_\-array\_\-offset\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$delete\_\-array\_\-offset\_\-list)
+\item 
+void \hyperlink{PointerArrayControl_8h_a668774efb6267a7042724601ce7f6a94}{ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup} (ARRAY\_\-OFFSET\_\-LIST $\ast$target\_\-array\_\-offset\_\-list, \hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$\hyperlink{structarray__offset}{array\_\-offset})
+\item 
+void \hyperlink{PointerArrayControl_8h_afa201e9f8b2e2c70c774ac48fcfd4c2d}{printASTPOINTER\_\-LIST} (ASTPOINTER\_\-LIST $\ast$astpointer\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元のオフセットとして格納します。 各次元のオフセットとは動的配列や静的配列などにおいて、配列のどの部分を指しているかという式のことです。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!ARRAY\_\-OFFSET@{ARRAY\_\-OFFSET}}
+\index{ARRAY\_\-OFFSET@{ARRAY\_\-OFFSET}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{ARRAY\_\-OFFSET}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf array\_\-offset}  {\bf ARRAY\_\-OFFSET}}\label{PointerArrayControl_8h_ae18d261788d71423fa2c0980d3de19cd}
+配列やポインタの各次元のオフセット関係を格納するための構造体である。配列オフセットと呼ばれる 
+
+\subsection{関数}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup@{ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup}}
+\index{ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup@{ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup}]{\setlength{\rightskip}{0pt plus 5cm}void ARRAY\_\-OFFSET\_\-LIST\_\-push\_\-back\_\-ref\_\-not\_\-dup (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{target\_\-array\_\-offset\_\-list, }
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$}]{array\_\-offset}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a668774efb6267a7042724601ce7f6a94}
+配列オフセットリストに配列オフセット情報を追加する。ただし、変数名が重複するのであれば、追加しない。
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-array\_\-offset\_\-list} & 追加先の配列オフセットリスト \\
+\hline
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & 追加する配列オフセット情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!checkCallFunction@{checkCallFunction}}
+\index{checkCallFunction@{checkCallFunction}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{checkCallFunction}]{\setlength{\rightskip}{0pt plus 5cm}void checkCallFunction (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{int}]{offset\_\-level, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a1aa81f5be8863d85891cc45786b885b8}
+関数呼び出しを示すASTノードが、登録されている関数に関する情報に含まれているかどうかを調べ、もし、その関数のポインタレベルがオフセットレベルと一致 した場合は、エラーを出力し、強制終了させる。 
+\begin{DoxyParams}{引数}
+{\em call\_\-function} & 関数呼び出しを示すASTノード \\
+\hline
+{\em offset\_\-level} & オフセットレベル \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!checkIdentifierPointerArrayLevel@{checkIdentifierPointerArrayLevel}}
+\index{checkIdentifierPointerArrayLevel@{checkIdentifierPointerArrayLevel}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{checkIdentifierPointerArrayLevel}]{\setlength{\rightskip}{0pt plus 5cm}int checkIdentifierPointerArrayLevel (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{identifier, }
+\item[{int}]{offset\_\-level, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{int $\ast$}]{pointer\_\-level, }
+\item[{int $\ast$}]{array\_\-level}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ae55c88e5cf59c1f0369d57d92a1da628}
+識別子の名前を一致する変数を変数リストから探す。このとき、一致する変数を調べたら、ポインタと配列の次元も調べ、オフセットレベル以上であれば、 見つけたことになり、１を返す。そうでなければ、０を返す。また、ignore\_\-ast\_\-listは無視するIDENTIFIERのASTのアドレスリストを見つけるたびに登録 される。もし、ignore\_\-ast\_\-listに登録されているノードなら、それは無視される。また、見つけるのに成功した場合、その該当する変数の配列レベルやポ インタのレベルも返す。
+
+
+\begin{DoxyParams}{引数}
+{\em identifier} & 識別子の名前 \\
+\hline
+{\em offset\_\-level} & オフセットレベル \\
+\hline
+{\em variable\_\-table\_\-list} & 変数テーブルリスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em pointer\_\-level} & 変数リストから見つけた変数のポインタレベル \\
+\hline
+{\em array\_\-level} & 変数リストから見つけた変数の配列レベル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+識別子の名前およびオフセットレベルが条件を満たしていれば１を返し、そうでなければ０を返す。 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!checkIgnoreASTList@{checkIgnoreASTList}}
+\index{checkIgnoreASTList@{checkIgnoreASTList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{checkIgnoreASTList}]{\setlength{\rightskip}{0pt plus 5cm}int checkIgnoreASTList (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{ast\_\-data, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a959e6be57534291a0e6d0567927d0c8a}
+指定したASTノードast\_\-dataがASTアドレスリストignore\_\-ast\_\-listに存在するかどうかを調べる。存在する場合は１をかえす。 存在しない場合は、ast\_\-dataのアドレスをignore\_\-ast\_\-listに追加した上、0を返す。 
+\begin{DoxyParams}{引数}
+{\em ast\_\-data} & 指定したASTノード \\
+\hline
+{\em ignore\_\-ast\_\-list} & 調べる対象のASTアドレスリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+存在する場合は１を返し、そうでない場合は０を返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!copyArrayOffsetList@{copyArrayOffsetList}}
+\index{copyArrayOffsetList@{copyArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{copyArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}void copyArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{fromlist, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{tolist, }
+\item[{int}]{move\_\-start}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ad20b875356ad741d12d41b61cb12643f}
+配列オフセットリストfromlist内のmove\_\-start以降のデータをすべて、もう一方の配列オフセットリストtolistにコピーさせる 
+\begin{DoxyParams}{引数}
+{\em fromlist} & コピー元の配列オフセットリスト \\
+\hline
+{\em tolist} & コピー先の配列オフセットリスト \\
+\hline
+{\em move\_\-start} & 移動させたいデータの位置(先頭から０番目とする)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!createArrayExpression@{createArrayExpression}}
+\index{createArrayExpression@{createArrayExpression}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{createArrayExpression}]{\setlength{\rightskip}{0pt plus 5cm}void createArrayExpression (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$}]{array\_\-offset, }
+\item[{int}]{output\_\-level}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_aae4e21ff334802d880f23daf18645b6c}
+配列オフセット情報から、任意の次元までの配列式を生成する
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 配列式を生成される文字列 \\
+\hline
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & 対象の配列オフセット \\
+\hline
+{\em output\_\-level} & 出力したい次元(このとき、配列オフセットを超える値を入れた場合は、配列オフセットが次元までの配列式を出力する)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!createValidateVariableArrayExpression@{createValidateVariableArrayExpression}}
+\index{createValidateVariableArrayExpression@{createValidateVariableArrayExpression}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{createValidateVariableArrayExpression}]{\setlength{\rightskip}{0pt plus 5cm}int createValidateVariableArrayExpression (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$}]{array\_\-offset}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a238d39bda32ef42e800cdb25552670d5}
+配列オフセット情報から、検証用変数に使われる配列式を生成し、オフセットレベルを返す 
+\begin{DoxyParams}{引数}
+{\em output} & 生成先の文字列 \\
+\hline
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & 対象の配列オフセット\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+配列オフセット情報から生成されたオフセットレベルを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!deleteOFFSET\_\-LIST@{deleteOFFSET\_\-LIST}}
+\index{deleteOFFSET\_\-LIST@{deleteOFFSET\_\-LIST}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{deleteOFFSET\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void deleteOFFSET\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a3512541a1ccd254e112b4658f0226d23}
+オフセットリストoffset\_\-listの中身を完全に解放させる
+
+
+\begin{DoxyParams}{引数}
+{\em offset\_\-list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+オフセットリストoffset\_\-listの中身を完全に解放させる
+
+
+\begin{DoxyParams}{引数}
+{\em offset\_\-list} & 解放させるoffset\_\-list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!deletePointer@{deletePointer}}
+\index{deletePointer@{deletePointer}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{deletePointer}]{\setlength{\rightskip}{0pt plus 5cm}void deletePointer (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a865793639f2aa40d0c7e5101f130ac3e}
+変数名からポインタを示す記号のみ全て削除する 
+\begin{DoxyParams}{引数}
+{\em target} & 変更対象の変数名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!deletePointerAndArraySynbol@{deletePointerAndArraySynbol}}
+\index{deletePointerAndArraySynbol@{deletePointerAndArraySynbol}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{deletePointerAndArraySynbol}]{\setlength{\rightskip}{0pt plus 5cm}void deletePointerAndArraySynbol (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_acc3cd8275754e5412501748b96b6f23e}
+変数名から配列およびポインタを示す記号を全て削除する 
+\begin{DoxyParams}{引数}
+{\em target} & 変更対象の変数名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME@{get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME}}
+\index{get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME@{get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME}]{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ARRAY\_\-OFFSET\_\-LISTIgnoreASTNAME (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement, }
+\item[{CSTLString $\ast$}]{ignore\_\-ast\_\-name}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ab042eed938daf0311a0345295ad700ef}
+ポインタおよび配列変数の各次元のオフセットリストを取得する。また、無視をする対象のノードを設定可能である。 
+\begin{DoxyParams}{引数}
+{\em root} & オフセットリストに該当するASTノード \\
+\hline
+{\em array\_\-offset\_\-list} & ポインタおよび配列のオフセット情報のリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em target\_\-statement} & 検証式の対象となるステートメント \\
+\hline
+{\em ignore\_\-ast\_\-name} & 無視をするＡＳＴ名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getArgumentOffsetInfo@{getArgumentOffsetInfo}}
+\index{getArgumentOffsetInfo@{getArgumentOffsetInfo}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getArgumentOffsetInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getArgumentOffsetInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{argument, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int $\ast$}]{switch\_\-mode}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a7b73777a069952f6ceaec87d52b3762c}
+指定した引数から、必要なオフセット情報を取得する 
+\begin{DoxyParams}{引数}
+{\em argument} & 指定した引数に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em array\_\-offset\_\-list} & 各ポインタおよび配列ごとのオフセットのリスト \\
+\hline
+{\em target\_\-expression} & この左辺式の上位に位置するASTノード \\
+\hline
+{\em switch\_\-mode} & 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct\_\-refやarray\_\-accessのみ探す \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getARRAY\_\-OFFSET\_\-LIST@{getARRAY\_\-OFFSET\_\-LIST}}
+\index{getARRAY\_\-OFFSET\_\-LIST@{getARRAY\_\-OFFSET\_\-LIST}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getARRAY\_\-OFFSET\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getARRAY\_\-OFFSET\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a8c3eadc0355b2748c489ded072531764}
+ポインタおよび配列変数の各次元のオフセットリストを取得する 
+\begin{DoxyParams}{引数}
+{\em root} & オフセットリストに該当するASTノード \\
+\hline
+{\em array\_\-offset\_\-list} & ポインタおよび配列のオフセット情報のリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em target\_\-statement} & 検証式の対象となるステートメント \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getArrayOffsetInAnpasandInfo@{getArrayOffsetInAnpasandInfo}}
+\index{getArrayOffsetInAnpasandInfo@{getArrayOffsetInAnpasandInfo}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getArrayOffsetInAnpasandInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getArrayOffsetInAnpasandInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a95c8e82725af82de833504d5c782a68a}
+address\_\-refであるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray\_\-offset\_\-listへ入れる。 
+\begin{DoxyParams}{引数}
+{\em root} & 右辺式に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & メモリ確保情報を取得するのに必要なプログラム変数リスト \\
+\hline
+{\em array\_\-offset\_\-list} & 左辺式上にあるポインタ参照に対するオフセットリスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & 同じ位置のポインタが来ても無視するためのリスト \\
+\hline
+{\em target\_\-statement} & この計算式を属しているASTノードへのアドレス（基本的にexpression\_\-statementであるノードが入る）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getArrayOffsetInIncDecInfo@{getArrayOffsetInIncDecInfo}}
+\index{getArrayOffsetInIncDecInfo@{getArrayOffsetInIncDecInfo}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getArrayOffsetInIncDecInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getArrayOffsetInIncDecInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement, }
+\item[{int}]{inc\_\-dec\_\-flag}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a09038dff6ab32c8ba846e98ad7757af7}
+inc\_\-exprやdec\_\-exprなどのインクリメントやデクリメント式であるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray\_\-offset\_\-listへ入れる。 
+\begin{DoxyParams}{引数}
+{\em root} & inc\_\-exprやdec\_\-exprなどのインクリメントやデクリメント式に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & メモリ確保情報を取得するのに必要なプログラム変数リスト \\
+\hline
+{\em array\_\-offset\_\-list} & 左辺式上にあるポインタ参照に対するオフセットリスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & 同じ位置のポインタが来ても無視するためのリスト \\
+\hline
+{\em target\_\-statement} & この計算式を属しているASTノードへのアドレス（基本的にexpression\_\-statementであるノードが入る） \\
+\hline
+{\em inc\_\-dec\_\-flag} & インクリメントおよびデクリメントが含まれているかどうかのフラグ　１：インクリメントが含まれている　２：デクリメントが含まれている\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getDeclaratorArrayOffset@{getDeclaratorArrayOffset}}
+\index{getDeclaratorArrayOffset@{getDeclaratorArrayOffset}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getDeclaratorArrayOffset}]{\setlength{\rightskip}{0pt plus 5cm}void getDeclaratorArrayOffset (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{declarator\_\-array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{declarator\_\-expression, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a29ffdfe8670a237ea0fc26cc1a318804}
+変数テーブルから、変数の定義に対するノードに該当する情報を探し、それに対する配列オフセット情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em declarator\_\-array\_\-offset\_\-list} & 取得先の配列オフセット情報 \\
+\hline
+{\em declarator\_\-expression} & 変数定義までのASTアドレス \\
+\hline
+{\em target\_\-expression} & 対象のdeclarator\_\-with\_\-initへのASTアドレス \\
+\hline
+{\em vtlist} & 調べる先の変数テーブル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getExpressionOffsetInfo@{getExpressionOffsetInfo}}
+\index{getExpressionOffsetInfo@{getExpressionOffsetInfo}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getExpressionOffsetInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getExpressionOffsetInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{expression, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int $\ast$}]{switch\_\-mode, }
+\item[{int}]{allow\_\-subeffect}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a9c6c8ad729c816c8eee5503fbe7e8e9b}
+指定した式から、必要なオフセット情報を取得する 
+\begin{DoxyParams}{引数}
+{\em expression} & 指定した式に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em array\_\-offset\_\-list} & 各ポインタおよび配列ごとのオフセットのリスト \\
+\hline
+{\em target\_\-expression} & この左辺式の上位に位置するASTノード \\
+\hline
+{\em switch\_\-mode} & 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct\_\-refやarray\_\-accessのみ探す \\
+\hline
+{\em allow\_\-subeffect} & 副作用の式を許すかどうかのフラグ １：許す ０：許さない \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getOFFSET\_\-LISTFromVariableTable@{getOFFSET\_\-LISTFromVariableTable}}
+\index{getOFFSET\_\-LISTFromVariableTable@{getOFFSET\_\-LISTFromVariableTable}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getOFFSET\_\-LISTFromVariableTable}]{\setlength{\rightskip}{0pt plus 5cm}void getOFFSET\_\-LISTFromVariableTable (
+\begin{DoxyParamCaption}
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list, }
+\item[{{\bf VARIABLE\_\-TABLE} $\ast$}]{variable\_\-table}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a52c26c3f03a8f88684cbf4e4f85c09ec}
+変数テーブルデータvariable\_\-tableからオフセットリストoffset\_\-listを生成する
+
+
+\begin{DoxyParams}{引数}
+{\em offset\_\-list} & 生成先のオフセットリスト \\
+\hline
+{\em \hyperlink{structvariable__table}{variable\_\-table}} & 変数テーブルデータ\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getOffsetLevelFromArrayOffset@{getOffsetLevelFromArrayOffset}}
+\index{getOffsetLevelFromArrayOffset@{getOffsetLevelFromArrayOffset}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getOffsetLevelFromArrayOffset}]{\setlength{\rightskip}{0pt plus 5cm}int getOffsetLevelFromArrayOffset (
+\begin{DoxyParamCaption}
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$}]{array\_\-offset}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a2ed02feb19741e76c894e54825bf539f}
+指定した配列オフセットから、演算後のポインタレベルを求める 演算後のポインタレベル＝この変数の配列とポインタレベルの合計値＋アンパサンドフラグ（挟んでいるなら１、そうでない場合は０）−この配列オフセット内のオフセットリスト 
+\begin{DoxyParams}{引数}
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & 指定した配列オフセット\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+求めた演算後のポインタレベルを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getPointerAccessOrIdentifierList@{getPointerAccessOrIdentifierList}}
+\index{getPointerAccessOrIdentifierList@{getPointerAccessOrIdentifierList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getPointerAccessOrIdentifierList}]{\setlength{\rightskip}{0pt plus 5cm}void getPointerAccessOrIdentifierList (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$$\ast$$\ast$}]{output, }
+\item[{int $\ast$}]{getSize}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a8085beaa8ccab452696d382420351c3c}
+direct\_\-refとして指定したASTノードrootから、以下のノードを探しだし、それをASTリストoutputとして取得する
+
+IDENTIFIER array\_\-access, direct\_\-ref, IDENTIFIER, primary\_\-expression
+
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 指定したASTノード \\
+\hline
+{\em output} & 上記の見つけたノードへのアドレス \\
+\hline
+{\em getSize} & 取得した値のサイズを返すための変数。見つからない場合は0にされる。\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getPointerArrayOffset@{getPointerArrayOffset}}
+\index{getPointerArrayOffset@{getPointerArrayOffset}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getPointerArrayOffset}]{\setlength{\rightskip}{0pt plus 5cm}int getPointerArrayOffset (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{int}]{offset\_\-level, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$$\ast$}]{array\_\-offset, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement, }
+\item[{int}]{anpasand\_\-flag, }
+\item[{int}]{inc\_\-dec\_\-flag}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a93c403617815b6a7d28fc18dd28d0ab8}
+ポインタおよび配列変数の各次元のオフセットとなる式を求める 
+\begin{DoxyParams}{引数}
+{\em root} & 左辺値に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em offset\_\-level} & オフセットレベルを計算するためのところ。基本的に０を入力する。１以上入力すれば、それが最下位レベルとなる。 \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & ポインタおよび配列のオフセット情報 \\
+\hline
+{\em target\_\-statement} & 検証式の対象となるステートメント \\
+\hline
+{\em anpasand\_\-flag} & アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　0：挟んでいない \\
+\hline
+{\em inc\_\-dec\_\-flag} & インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getSingleExpressionOffsetInfo@{getSingleExpressionOffsetInfo}}
+\index{getSingleExpressionOffsetInfo@{getSingleExpressionOffsetInfo}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getSingleExpressionOffsetInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getSingleExpressionOffsetInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{expression, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int $\ast$}]{switch\_\-mode}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a2e65dd778abdab29f2f02906e86f9c0e}
+指定した式から、必要なオフセット情報を取得する。これは副作用の式を許す 
+\begin{DoxyParams}{引数}
+{\em expression} & 指定した式に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em array\_\-offset\_\-list} & 各ポインタおよび配列ごとのオフセットのリスト \\
+\hline
+{\em target\_\-expression} & この左辺式の上位に位置するASTノード \\
+\hline
+{\em switch\_\-mode} & 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct\_\-refやarray\_\-accessのみ探す \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!getUpperExpressionRelationNode@{getUpperExpressionRelationNode}}
+\index{getUpperExpressionRelationNode@{getUpperExpressionRelationNode}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{getUpperExpressionRelationNode}]{\setlength{\rightskip}{0pt plus 5cm}int getUpperExpressionRelationNode (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{target, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$$\ast$}]{output, }
+\item[{{\bf AST} $\ast$$\ast$}]{output2}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ada7e37243ccbe1db44bbaed13941dcef}
+ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus\_\-exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。
+
+
+\begin{DoxyParams}{引数}
+{\em target} & 検証対象となっている変数 \\
+\hline
+{\em root} & 検証対象のノード \\
+\hline
+{\em output} & 出力される間接的に関係しているノードへのアドレス \\
+\hline
+{\em output2} & outputがminus\_\-exprの場合、minus\_\-exprより1つ下のノードがここに代入される \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。
+
+なし
+\end{DoxyReturn}
+ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus\_\-exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。
+
+
+\begin{DoxyParams}{引数}
+{\em target} & 検証対象となっている変数 \\
+\hline
+{\em root} & 検証対象のノード \\
+\hline
+{\em output} & 出力される間接的に関係しているノードへのアドレス \\
+\hline
+{\em output2} & outputがminus\_\-exprの場合、minus\_\-exprより1つ下のノードがここに代入される \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!maxOffsetLevelAddressFromArrayOffsetList@{maxOffsetLevelAddressFromArrayOffsetList}}
+\index{maxOffsetLevelAddressFromArrayOffsetList@{maxOffsetLevelAddressFromArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{maxOffsetLevelAddressFromArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ARRAY\_\-OFFSET}$\ast$ maxOffsetLevelAddressFromArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ac33e43a25ee2e1cde405220d410162b7}
+指定した配列オフセットリストでの演算後のポインタレベルの最大レベルである配列オフセットのアドレスを求める。配列オフセットが空の場合はNULLを代入する。 
+\begin{DoxyParams}{引数}
+{\em array\_\-offset\_\-list} & 指定した配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+求めた演算後のポインタレベルが最大である配列オフセットのアドレスを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!maxOffsetLevelFromArrayOffsetList@{maxOffsetLevelFromArrayOffsetList}}
+\index{maxOffsetLevelFromArrayOffsetList@{maxOffsetLevelFromArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{maxOffsetLevelFromArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}int maxOffsetLevelFromArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a20d295101c3b4b2e1f53c170d216e991}
+指定した配列オフセットリストでの演算後のポインタレベルの最大レベルを求める。配列オフセットが空の場合は０を代入する。 
+\begin{DoxyParams}{引数}
+{\em array\_\-offset\_\-list} & 指定した配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+求めた演算後のポインタレベルを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!minusArrayOffsetList@{minusArrayOffsetList}}
+\index{minusArrayOffsetList@{minusArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{minusArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}void minusArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{target\_\-array\_\-offset\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{delete\_\-array\_\-offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a70f8bef9dd6a59df7da973fda3a3fd4f}
+対象の配列オフセットリストtarget\_\-array\_\-offset\_\-listに対して、対象から取り除きたい 配列オフセットリストdelete\_\-array\_\-offset\_\-listの名前に該当する配列オフセット情報を 削除する。
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-array\_\-offset\_\-list} & 対象の配列オフセットリスト \\
+\hline
+{\em delete\_\-array\_\-offset\_\-list} & 対象から取り除きたい配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!moveArrayOffsetList@{moveArrayOffsetList}}
+\index{moveArrayOffsetList@{moveArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{moveArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}void moveArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{fromlist, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{tolist, }
+\item[{int}]{move\_\-start}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a1c6f1f005ac67a6af672aa17b679c93c}
+配列オフセットリストfromlist内のmove\_\-start以降のデータをすべて、もう一方の配列オフセットリストtolistに移動させる 
+\begin{DoxyParams}{引数}
+{\em fromlist} & 移動もとの配列オフセットリスト \\
+\hline
+{\em tolist} & 移動先の配列オフセットリスト \\
+\hline
+{\em move\_\-start} & 移動させたいデータの位置(先頭から０番目とする)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!new\_\-ARRAY\_\-OFFSET@{new\_\-ARRAY\_\-OFFSET}}
+\index{new\_\-ARRAY\_\-OFFSET@{new\_\-ARRAY\_\-OFFSET}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{new\_\-ARRAY\_\-OFFSET}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ARRAY\_\-OFFSET}$\ast$ new\_\-ARRAY\_\-OFFSET (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{variable\_\-name, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement, }
+\item[{{\bf AST} $\ast$}]{variable\_\-address, }
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list, }
+\item[{int}]{pointer\_\-level, }
+\item[{int}]{array\_\-level, }
+\item[{int}]{anpasand\_\-flag, }
+\item[{int}]{inc\_\-dec\_\-flag}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a3c19acc973d7d77775aab6be9a51c6c0}
+配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em target\_\-statement} & ターゲットのstatement \\
+\hline
+{\em variable\_\-address} & この変数名が指しているASTアドレス \\
+\hline
+{\em offset\_\-list} & 各次元のオフセット \\
+\hline
+{\em pointer\_\-level} & この変数のポインタレベル \\
+\hline
+{\em array\_\-level} & この変数の配列レベル \\
+\hline
+{\em anpasand\_\-flag} & この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない \\
+\hline
+{\em inc\_\-dec\_\-flag} & インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!new\_\-ARRAY\_\-OFFSET\_\-char@{new\_\-ARRAY\_\-OFFSET\_\-char}}
+\index{new\_\-ARRAY\_\-OFFSET\_\-char@{new\_\-ARRAY\_\-OFFSET\_\-char}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{new\_\-ARRAY\_\-OFFSET\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ARRAY\_\-OFFSET}$\ast$ new\_\-ARRAY\_\-OFFSET\_\-char (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{variable\_\-name, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement, }
+\item[{{\bf AST} $\ast$}]{variable\_\-address, }
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list, }
+\item[{int}]{pointer\_\-level, }
+\item[{int}]{array\_\-level, }
+\item[{int}]{anpasand\_\-flag, }
+\item[{int}]{inc\_\-dec\_\-flag}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ad39591d4757bb4a1cbb2e982e031aa0c}
+配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em target\_\-statement} & ターゲットのstatement \\
+\hline
+{\em variable\_\-address} & この変数名が指しているASTアドレス \\
+\hline
+{\em offset\_\-list} & 各次元のオフセット \\
+\hline
+{\em pointer\_\-level} & この変数のポインタレベル \\
+\hline
+{\em array\_\-level} & この変数の配列レベル \\
+\hline
+{\em anpasand\_\-flag} & アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない \\
+\hline
+{\em inc\_\-dec\_\-flag} & インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!OFFSET\_\-LIST\_\-push\_\-back\_\-alloc@{OFFSET\_\-LIST\_\-push\_\-back\_\-alloc}}
+\index{OFFSET\_\-LIST\_\-push\_\-back\_\-alloc@{OFFSET\_\-LIST\_\-push\_\-back\_\-alloc}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{OFFSET\_\-LIST\_\-push\_\-back\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}void OFFSET\_\-LIST\_\-push\_\-back\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a1fe4a503769616086f897aa93a66f5a7}
+任意の文字列を、動的変数としてオフセットリストに追加する。 
+\begin{DoxyParams}{引数}
+{\em offset\_\-list} & 対象のオフセットリスト \\
+\hline
+{\em string} & 任意の文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!printASTPOINTER\_\-LIST@{printASTPOINTER\_\-LIST}}
+\index{printASTPOINTER\_\-LIST@{printASTPOINTER\_\-LIST}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{printASTPOINTER\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printASTPOINTER\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{ASTPOINTER\_\-LIST $\ast$}]{astpointer\_\-list}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_afa201e9f8b2e2c70c774ac48fcfd4c2d}
+ASTのポインタリストの内容を出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em astpointer\_\-list} & ASTのポインタリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!searchARRAY\_\-OFFSET\_\-LIST@{searchARRAY\_\-OFFSET\_\-LIST}}
+\index{searchARRAY\_\-OFFSET\_\-LIST@{searchARRAY\_\-OFFSET\_\-LIST}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{searchARRAY\_\-OFFSET\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ARRAY\_\-OFFSET}$\ast$ searchARRAY\_\-OFFSET\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{CSTLString $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_ada6380bd941ed964766242cb37d93ee3}
+配列オフセットリストarray\_\-offset\_\-listから、指定した変数名を探索し、 見つかればその変数名へのアドレスを返す。
+
+
+\begin{DoxyParams}{引数}
+{\em array\_\-offset\_\-list} & 探索対象の配列オフセットリスト \\
+\hline
+{\em name} & 探索したい変数名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つかれば変数名へのアドレスを返す。そうでなければNULLを返す。 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!searchExpressionOrPointeArrayOrIden@{searchExpressionOrPointeArrayOrIden}}
+\index{searchExpressionOrPointeArrayOrIden@{searchExpressionOrPointeArrayOrIden}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{searchExpressionOrPointeArrayOrIden}]{\setlength{\rightskip}{0pt plus 5cm}int searchExpressionOrPointeArrayOrIden (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$$\ast$}]{output}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a5a9cab9c5ed8a9f47b90a3b012b2dd86}
+primary\_\-expressionとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。
+
+minus\_\-expr, plus\_\-expr, array\_\-access, direct\_\-ref, IDENTIFIER, primary\_\-expression
+
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 また、ポインタ計算の関係上、+-\/演算演算子を示すようなものやCONSTANT(定数）が来た場合のみ、-\/1を返す。 見つからない場合は0である。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 指定したASTノード \\
+\hline
+{\em output} & 上記の見つけたノードへのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+上記の条件で値を返却する。 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!searchOffsetLevelAddressFromArrayOffsetList@{searchOffsetLevelAddressFromArrayOffsetList}}
+\index{searchOffsetLevelAddressFromArrayOffsetList@{searchOffsetLevelAddressFromArrayOffsetList}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{searchOffsetLevelAddressFromArrayOffsetList}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ARRAY\_\-OFFSET}$\ast$ searchOffsetLevelAddressFromArrayOffsetList (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{int}]{pointer\_\-level, }
+\item[{int}]{array\_\-level}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a379c30f21274eb53a257e04670bc6de0}
+対象のASTノードから、演算後のポインタレベルが指定されたポインタレベルと配列レベルの合計と一致するような 変数の配列オフセットを指定された配列オフセットリストから探し出し、見つかったらアドレスを取得する
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 対象のASTノード \\
+\hline
+{\em array\_\-offset\_\-list} & 対象の配列オフセットリスト \\
+\hline
+{\em pointer\_\-level} & 指定するポインタレベル \\
+\hline
+{\em array\_\-level} & 指定する配列レベル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+演算後のポインタレベルと指定されたポインタレベルと配列レベルの合計が一致するような変数を返す。失敗した場合はNULLを返す。 
+\end{DoxyReturn}
+\index{PointerArrayControl.h@{PointerArrayControl.h}!searchPointerAccessOrIdentifierOrPrimary@{searchPointerAccessOrIdentifierOrPrimary}}
+\index{searchPointerAccessOrIdentifierOrPrimary@{searchPointerAccessOrIdentifierOrPrimary}!PointerArrayControl.h@{PointerArrayControl.h}}
+\subsubsection[{searchPointerAccessOrIdentifierOrPrimary}]{\setlength{\rightskip}{0pt plus 5cm}int searchPointerAccessOrIdentifierOrPrimary (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{{\bf AST} $\ast$$\ast$}]{output}
+\end{DoxyParamCaption}
+)}\label{PointerArrayControl_8h_a50b8e40d4ca955feb62fd12fc5a1cfc9}
+direct\_\-refとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。
+
+IDENTIFIER array\_\-access, direct\_\-ref, IDENTIFIER, primary\_\-expression inc\_\-after\_\-expression, inc\_\-expr, dec\_\-after\_\-expr, inc\_\-expr assignment\_\-expression
+
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 指定したASTノード \\
+\hline
+{\em output} & 上記の見つけたノードへのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+上記の条件で値を返却する。 
+\end{DoxyReturn}

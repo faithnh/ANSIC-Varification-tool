@@ -1,0 +1,248 @@
+\hypertarget{ProgramSlicing_8h}{
+\section{ProgramSlicing/ProgramSlicing.h}
+\label{ProgramSlicing_8h}\index{ProgramSlicing/ProgramSlicing.h@{ProgramSlicing/ProgramSlicing.h}}
+}
+
+
+このファイルはプログラムスライシングを行うためのものである。 指定した識別子名および行数を入れることで、それに基づいてプログラムスライシングを行う  
+
+
+{\ttfamily \#include \char`\"{}../ANSICInformation/AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/FunctionInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/Synbol.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}ProgramSlicingInformation.h\char`\"{}}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{ProgramSlicing_8h_a6a2ca14664f7ed318ed7f4a56ea79560}{createStatementNodeList} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, EXPR\_\-SLICING $\ast$parent, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void \hyperlink{ProgramSlicing_8h_a7482809fe7168aab7be5176c11ccdaf8}{createDD\_\-list\_\-in\_\-global} (EXPR\_\-SLICING $\ast$expr\_\-slicing, EXPR\_\-SLICING\_\-LIST $\ast$program\_\-expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicing_8h_ad1682bc84f12e54629e4d7ceb4b34e30}{createDD\_\-list} (EXPR\_\-SLICING $\ast$expr\_\-slicing)
+\item 
+void \hyperlink{ProgramSlicing_8h_a8e5922cd376066300931a42aa9a263fa}{createDD\_\-listAll} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, EXPR\_\-SLICING\_\-LIST $\ast$program\_\-expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicing_8h_aefec4daeb571c2b448091c4f8bc81201}{createDD\_\-list\_\-in\_\-Function} (EXPR\_\-SLICING $\ast$expr\_\-slicing, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void \hyperlink{ProgramSlicing_8h_a2ff3f358e5ececbd7410b57db736f8bf}{createDD\_\-list\_\-in\_\-argument} (EXPR\_\-SLICING $\ast$expr\_\-slicing, CSTLString $\ast$argument\_\-name, EXPR\_\-SLICING $\ast$function\_\-definition\_\-expr\_\-slicing)
+\item 
+void \hyperlink{ProgramSlicing_8h_a138a79f2268c9b23ea7c2777bf9dd9a6}{staticSlicing} (EXPR\_\-SLICING $\ast$expr\_\-slicing)
+\item 
+int \hyperlink{ProgramSlicing_8h_adb143d3b1bb729d23cf620666c81b063}{startStaticSlicing} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$inst\_\-ast, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルはプログラムスライシングを行うためのものである。 指定した識別子名および行数を入れることで、それに基づいてプログラムスライシングを行う \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\hypertarget{ProgramSlicing_8h_ad1682bc84f12e54629e4d7ceb4b34e30}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createDD\_\-list@{createDD\_\-list}}
+\index{createDD\_\-list@{createDD\_\-list}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createDD\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}void createDD\_\-list (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_ad1682bc84f12e54629e4d7ceb4b34e30}
+指定した対象の命令に対して、データ依存関係の命令を探し、その命令を結びつける。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 指定した対象の命令\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+指定した対象の命令に対して、データ依存関係の命令を探し、その命令を結びつける。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 指定した対象の命令 \\
+\hline
+\end{DoxyParams}
+\hypertarget{ProgramSlicing_8h_a2ff3f358e5ececbd7410b57db736f8bf}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createDD\_\-list\_\-in\_\-argument@{createDD\_\-list\_\-in\_\-argument}}
+\index{createDD\_\-list\_\-in\_\-argument@{createDD\_\-list\_\-in\_\-argument}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createDD\_\-list\_\-in\_\-argument}]{\setlength{\rightskip}{0pt plus 5cm}void createDD\_\-list\_\-in\_\-argument (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing, }
+\item[{CSTLString $\ast$}]{argument\_\-name, }
+\item[{EXPR\_\-SLICING $\ast$}]{function\_\-definition\_\-expr\_\-slicing}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_a2ff3f358e5ececbd7410b57db736f8bf}
+関数へのスライシング情報に対して、仮引数名が依存関係として用いている命令を探し、それを指定したプログラムスライシング のデータ依存関係として追加する
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 関数呼び出しのプログラムスライシング \\
+\hline
+{\em argument\_\-name} & 仮引数名 \\
+\hline
+{\em function\_\-definition\_\-expr\_\-slicing} & 関数宣言へのプログラムスライシング\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{ProgramSlicing_8h_aefec4daeb571c2b448091c4f8bc81201}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createDD\_\-list\_\-in\_\-Function@{createDD\_\-list\_\-in\_\-Function}}
+\index{createDD\_\-list\_\-in\_\-Function@{createDD\_\-list\_\-in\_\-Function}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createDD\_\-list\_\-in\_\-Function}]{\setlength{\rightskip}{0pt plus 5cm}void createDD\_\-list\_\-in\_\-Function (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_aefec4daeb571c2b448091c4f8bc81201}
+関数呼び出しから、呼び出している関数へのデータ依存関係を生成する
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 関数呼び出しが含まれている処理名 \\
+\hline
+{\em expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{ProgramSlicing_8h_a7482809fe7168aab7be5176c11ccdaf8}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createDD\_\-list\_\-in\_\-global@{createDD\_\-list\_\-in\_\-global}}
+\index{createDD\_\-list\_\-in\_\-global@{createDD\_\-list\_\-in\_\-global}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createDD\_\-list\_\-in\_\-global}]{\setlength{\rightskip}{0pt plus 5cm}void createDD\_\-list\_\-in\_\-global (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{program\_\-expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_a7482809fe7168aab7be5176c11ccdaf8}
+指定した対象の命令とグローバル変数に関してデータ依存関係があるかどうか調べる。 存在すれば、グローバル変数宣言に対して、データ依存関係として結びつける
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 指定した対象の命令 \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体のスライシングリスト\\
+\hline
+\end{DoxyParams}
+指定した対象の命令とグローバル変数宣言に関してデータ依存関係があるかどうか調べる。 存在すれば、グローバル変数宣言に対して、データ依存関係として結びつける
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing} & 指定した対象の命令 \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体のスライシングリスト \\
+\hline
+\end{DoxyParams}
+\hypertarget{ProgramSlicing_8h_a8e5922cd376066300931a42aa9a263fa}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createDD\_\-listAll@{createDD\_\-listAll}}
+\index{createDD\_\-listAll@{createDD\_\-listAll}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createDD\_\-listAll}]{\setlength{\rightskip}{0pt plus 5cm}void createDD\_\-listAll (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{program\_\-expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_a8e5922cd376066300931a42aa9a263fa}
+プログラムスライシングリスト中のすべての命令に対し、データ依存関係の命令を探し、その命令を結びつける。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 指定した対象のプログラムスライシングリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体へのスライシングリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{ProgramSlicing_8h_a6a2ca14664f7ed318ed7f4a56ea79560}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!createStatementNodeList@{createStatementNodeList}}
+\index{createStatementNodeList@{createStatementNodeList}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{createStatementNodeList}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ createStatementNodeList (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{EXPR\_\-SLICING $\ast$}]{parent, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_a6a2ca14664f7ed318ed7f4a56ea79560}
+指定したプログラムＡＳＴノードから次のようなノードを取得し、 そこからスライシングを行うための構造体リストexpr\_\-slicing\_\-listを生成する function\_\-definition\_\-type\_\-a、function\_\-definition\_\-type\_\-b、 expression\_\-statement、declaration\_\-with\_\-init、if\_\-statement、ifelse\_\-statement、switch\_\-statement、while\_\-statement、 dowhile\_\-statement、for\_\-statement\_\-type\_\-a、for\_\-statement\_\-type\_\-b、for\_\-statement\_\-type\_\-c、for\_\-statement\_\-type\_\-d、 goto\_\-statement、continue\_\-statement、break\_\-statement、return\_\-statement、return\_\-expr\_\-statement goto\_\-labeled\_\-statement、case\_\-labeled\_\-statement、default\_\-labeled\_\-statement
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 指定したプログラムＡＳＴノード \\
+\hline
+{\em expr\_\-slicing\_\-list} & スライシングを行うための構造体 \\
+\hline
+{\em parent} & 親のスライシングデータ \\
+\hline
+{\em vtlist} & 変数テーブルリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{ProgramSlicing_8h_adb143d3b1bb729d23cf620666c81b063}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!startStaticSlicing@{startStaticSlicing}}
+\index{startStaticSlicing@{startStaticSlicing}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{startStaticSlicing}]{\setlength{\rightskip}{0pt plus 5cm}int startStaticSlicing (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{inst\_\-ast, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_adb143d3b1bb729d23cf620666c81b063}
+指定した命令へのASTノードに基づいてexpr\_\-slicing\_\-listに対してスタティックスライシング処理を行う
+
+
+\begin{DoxyParams}{引数}
+{\em inst\_\-ast} & 指定した命令へのASTノード \\
+\hline
+{\em expr\_\-slicing\_\-list} & スタティックスライシング処理を行うための構造体リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを返却する　１：成功　０：失敗 
+\end{DoxyReturn}
+\hypertarget{ProgramSlicing_8h_a138a79f2268c9b23ea7c2777bf9dd9a6}{
+\index{ProgramSlicing.h@{ProgramSlicing.h}!staticSlicing@{staticSlicing}}
+\index{staticSlicing@{staticSlicing}!ProgramSlicing.h@{ProgramSlicing.h}}
+\subsubsection[{staticSlicing}]{\setlength{\rightskip}{0pt plus 5cm}void staticSlicing (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing}
+\end{DoxyParamCaption}
+)}}
+\label{ProgramSlicing_8h_a138a79f2268c9b23ea7c2777bf9dd9a6}
+指定した識別子の命令に対してスタティックスライシング処理を行う
+
+
+\begin{DoxyParams}{引数}
+{\em identifiers} & 指定した識別子の配列オフセットリスト \\
+\hline
+{\em line} & 指定した行数 \\
+\hline
+{\em expr\_\-slicing\_\-list} & スタティックスライシング処理を行うための構造体リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

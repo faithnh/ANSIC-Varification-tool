@@ -1,0 +1,63 @@
+.TH "ProgramSlicing/SwitchStatementPSI.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgramSlicing/SwitchStatementPSI.h \- 
+.PP
+このファイルはSwitch Statement Program Slicing Informationの略である。 switch文から、プログラムスライシングに関する情報を抽出するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ProgramSlicingInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/FunctionInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/Synbol.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "EXPR_SLICING * \fBgetSwicthStatementPSI\fP (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *switch_statement, EXPR_SLICING *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list, ASTPOINTER_LIST *ignore_ast_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルはSwitch Statement Program Slicing Informationの略である。 switch文から、プログラムスライシングに関する情報を抽出するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "EXPR_SLICING* getSwicthStatementPSI (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *switch_statement, EXPR_SLICING *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list, ASTPOINTER_LIST *ignore_ast_list)"switch文のASTノードswitch_statementから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr_slicing_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 追加先のプログラムスライシングリストexpr_slicing_list 
+.br
+\fIswitch_statement\fP switch文に関するASTノード 
+.br
+\fIparent\fP ノードを追加するときの親ノード 
+.br
+\fIvtlist\fP 変数テーブルリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIignore_ast_list\fP 重複防止のために無視するノードリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

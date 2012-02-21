@@ -1,0 +1,52 @@
+\section{Library/StoreInformation.h}
+\label{StoreInformation_8h}\index{Library/StoreInformation.h@{Library/StoreInformation.h}}
+
+
+これはファイル名などといったプログラム内で共通する部分を確保するためのものです。主にファイル名などを確保します。  
+
+
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{StoreInformation_8h_a731f3eb1e9b5ae69727a29a75478b423}{setFileName} (char $\ast$str)
+\item 
+char $\ast$ \hyperlink{StoreInformation_8h_a5bd53dd113398b8df28c065f0ef2255e}{getFileName} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これはファイル名などといったプログラム内で共通する部分を確保するためのものです。主にファイル名などを確保します。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{StoreInformation.h@{StoreInformation.h}!getFileName@{getFileName}}
+\index{getFileName@{getFileName}!StoreInformation.h@{StoreInformation.h}}
+\subsubsection[{getFileName}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ getFileName (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{StoreInformation_8h_a5bd53dd113398b8df28c065f0ef2255e}
+設定したファイル名を呼び出す。
+
+\begin{DoxyReturn}{戻り値}
+呼び出されたファイル名を返す 
+\end{DoxyReturn}
+\index{StoreInformation.h@{StoreInformation.h}!setFileName@{setFileName}}
+\index{setFileName@{setFileName}!StoreInformation.h@{StoreInformation.h}}
+\subsubsection[{setFileName}]{\setlength{\rightskip}{0pt plus 5cm}void setFileName (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{StoreInformation_8h_a731f3eb1e9b5ae69727a29a75478b423}
+ファイル名を設定する。4096バイト分までの文字が確保でき、それ以上は切り捨てられる。
+
+
+\begin{DoxyParams}{引数}
+{\em str} & ファイル名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

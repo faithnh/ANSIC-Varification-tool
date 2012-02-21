@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: Library/CSTLString.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>Library/CSTLString.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行います。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;cstl/string.h&gt;</code><br/>
+</div>
+<p><a href="_c_s_t_l_string_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_s_t_l_string_8h.html#a18e26d83587b82c192fdee06afe130ec">CSTLString_replace_string</a> (CSTLString *target, char *search, char *replace)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_s_t_l_string_8h.html#afc5ade5716a279fc0576b75f933b19a9">CSTLString_compare_with_char</a> (CSTLString *target1, char *target2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_s_t_l_string_8h.html#a1625e5156ceff6f2f505600d574757ae">CSTLString_delete_tail_str</a> (CSTLString *target1, char *del_str)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_s_t_l_string_8h.html#af2fe29138e25738a297f48a95dc741c6">CSTLString_printf</a> (CSTLString *target, int add_flag, char *source,...)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_s_t_l_string_8h.html#ad2c259b0d8fa85264f32cad8eaf05c00">CSTLString_ltrim</a> (CSTLString *target)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行います。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>関数</h2>
+<a class="anchor" id="afc5ade5716a279fc0576b75f933b19a9"></a><!-- doxytag: member="CSTLString.h::CSTLString_compare_with_char" ref="afc5ade5716a279fc0576b75f933b19a9" args="(CSTLString *target1, char *target2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSTLString_compare_with_char </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>target2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したCSTL文字列target1と比較対象の普通の文字列target2と比較する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target1</td><td>指定したCSTL文字列 </td></tr>
+    <tr><td class="paramname">target2</td><td>比較対象の普通の文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>比較した結果を返す、一致した場合は０、そうでない場合は０以外の値を返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1625e5156ceff6f2f505600d574757ae"></a><!-- doxytag: member="CSTLString.h::CSTLString_delete_tail_str" ref="a1625e5156ceff6f2f505600d574757ae" args="(CSTLString *target1, char *del_str)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSTLString_delete_tail_str </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>del_str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したCSTL文字列target1から、指定した文字列del_strの最初に出現する箇所以降を全て削除する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target1</td><td>指定したCSTL文字列 </td></tr>
+    <tr><td class="paramname">del_str</td><td>削除する場所を指定するための文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうか否かを返す。成功した場合は１、そうでない場合は0を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad2c259b0d8fa85264f32cad8eaf05c00"></a><!-- doxytag: member="CSTLString.h::CSTLString_ltrim" ref="ad2c259b0d8fa85264f32cad8eaf05c00" args="(CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSTLString_ltrim </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した文字列の前の半角スペース・改行文字・タブを削除する</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>指定した文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af2fe29138e25738a297f48a95dc741c6"></a><!-- doxytag: member="CSTLString.h::CSTLString_printf" ref="af2fe29138e25738a297f48a95dc741c6" args="(CSTLString *target, int add_flag, char *source,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSTLString_printf </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>add_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した文字列sourceを簡易版の書式フォーマット形式で指定したCSTL文字列targetに入力する。 簡易版なので、d、f、s、d、%にしか対応していない。<br/>
+は可能。 また、add_flagを指定することで、追加・代入の選択もできる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>入力先の指定したCSTL文字列（あらかじめ初期化する必要あり） </td></tr>
+    <tr><td class="paramname">add_flag</td><td>追加挿入するかどうかのフラグ　１：追加　０：代入 </td></tr>
+    <tr><td class="paramname">source</td><td>指定した文字列（書式フォーマット形式） </td></tr>
+    <tr><td class="paramname">...</td><td>書式に対応した任意の引数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a18e26d83587b82c192fdee06afe130ec"></a><!-- doxytag: member="CSTLString.h::CSTLString_replace_string" ref="a18e26d83587b82c192fdee06afe130ec" args="(CSTLString *target, char *search, char *replace)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSTLString_replace_string </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>replace</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したCSTL文字列targetに対して、置換対象の文字列searchから置換したい文字列replaceに置換を行う </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>指定したCSTL文字列 </td></tr>
+    <tr><td class="paramname">search</td><td>置換対象の文字列 </td></tr>
+    <tr><td class="paramname">teplace</td><td>置換したい文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

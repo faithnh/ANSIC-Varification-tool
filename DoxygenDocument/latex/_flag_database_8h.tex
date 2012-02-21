@@ -1,0 +1,160 @@
+\section{Library/FlagDatabase.h}
+\label{_flag_database_8h}\index{Library/FlagDatabase.h@{Library/FlagDatabase.h}}
+
+
+このファイルは、本体に関するフラグ設定を格納するためのものです。 たとえば、xmlとして出力するとかなどといった設定はこちらに入ります。  
+
+
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf getFlagDatabase} (int argc, char $\ast$argv[$\,$])
+\item 
+int {\bf isXmlMode} (int flag\_\-database)
+\item 
+int {\bf isHelpMode} (int flag\_\-database)
+\item 
+int {\bf isArrayUnboundCheckMode} (int flag\_\-database)
+\item 
+int {\bf isUndefineControlCheckMode} (int flag\_\-database)
+\item 
+int {\bf isZeroDivitionCheckMode} (int flag\_\-database)
+\item 
+int {\bf isFreeViolationCheckMode} (int flag\_\-database)
+\item 
+int {\bf isProgramSlicingMode} (int flag\_\-database)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、本体に関するフラグ設定を格納するためのものです。 たとえば、xmlとして出力するとかなどといった設定はこちらに入ります。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{FlagDatabase.h@{FlagDatabase.h}!getFlagDatabase@{getFlagDatabase}}
+\index{getFlagDatabase@{getFlagDatabase}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{getFlagDatabase}]{\setlength{\rightskip}{0pt plus 5cm}int getFlagDatabase (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv[$\,$]}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_a6251c68e59b9279fe6e9a633c7623a7b}
+プログラムの引数からフラグデータベースを取得する。 ここで不正にフラグが設定されていた場合（存在しないフラグがある・フラグが二重に定義されている場合）、 エラーを返し、強制終了される。
+
+
+\begin{DoxyParams}{引数}
+{\em argc} & 引数フラグの数 \\
+\hline
+{\em argv} & 引数フラグの文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+引数から取得したフラグを取得する 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isArrayUnboundCheckMode@{isArrayUnboundCheckMode}}
+\index{isArrayUnboundCheckMode@{isArrayUnboundCheckMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isArrayUnboundCheckMode}]{\setlength{\rightskip}{0pt plus 5cm}int isArrayUnboundCheckMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_a31ec7c6c4dadc21a358dbfb1588dc658}
+フラグデータベースから、ARRAY\_\-UNBOUND\_\-CHECK\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ARRAY\_\-UNBOUND\_\-CHECK\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isFreeViolationCheckMode@{isFreeViolationCheckMode}}
+\index{isFreeViolationCheckMode@{isFreeViolationCheckMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isFreeViolationCheckMode}]{\setlength{\rightskip}{0pt plus 5cm}int isFreeViolationCheckMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_ab2ada4a96f6c814a5a7355ecc246fc92}
+フラグデータベースから、FREE\_\-VIOLATION\_\-CHECK\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+FREE\_\-VIOLATION\_\-CHECK\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isHelpMode@{isHelpMode}}
+\index{isHelpMode@{isHelpMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isHelpMode}]{\setlength{\rightskip}{0pt plus 5cm}int isHelpMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_acb5e649e1fa4a1dd3f601c061546cfa1}
+フラグデータベースから、HELP\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+HELP\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isProgramSlicingMode@{isProgramSlicingMode}}
+\index{isProgramSlicingMode@{isProgramSlicingMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isProgramSlicingMode}]{\setlength{\rightskip}{0pt plus 5cm}int isProgramSlicingMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_ad92d7f4f3f5917cf37de9cf9e0bd501f}
+フラグデータベースから、PROGRAM\_\-SLICING\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+PROGRAM\_\-SLICING\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isUndefineControlCheckMode@{isUndefineControlCheckMode}}
+\index{isUndefineControlCheckMode@{isUndefineControlCheckMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isUndefineControlCheckMode}]{\setlength{\rightskip}{0pt plus 5cm}int isUndefineControlCheckMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_a6e4f1f83cd39bb7596fe8113ac359e53}
+フラグデータベースから、UNDEFINE\_\-CONTROL\_\-CHECK\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+UNDEFINE\_\-CONTROL\_\-CHECK\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isXmlMode@{isXmlMode}}
+\index{isXmlMode@{isXmlMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isXmlMode}]{\setlength{\rightskip}{0pt plus 5cm}int isXmlMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_a857ab1a8518b12d818a4a721d86cd7d2}
+フラグデータベースから、XML\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+XML\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}
+\index{FlagDatabase.h@{FlagDatabase.h}!isZeroDivitionCheckMode@{isZeroDivitionCheckMode}}
+\index{isZeroDivitionCheckMode@{isZeroDivitionCheckMode}!FlagDatabase.h@{FlagDatabase.h}}
+\subsubsection[{isZeroDivitionCheckMode}]{\setlength{\rightskip}{0pt plus 5cm}int isZeroDivitionCheckMode (
+\begin{DoxyParamCaption}
+\item[{int}]{flag\_\-database}
+\end{DoxyParamCaption}
+)}\label{_flag_database_8h_a3bf7c9c1781a4272d23e3febafba7c75}
+フラグデータベースから、ZERO\_\-DIVITION\_\-CHECK\_\-MODEが含まれているかどうか確認する 
+\begin{DoxyParams}{引数}
+{\em flag\_\-database} & フラグデータベース\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ZERO\_\-DIVITION\_\-CHECK\_\-MODEが含まれていたら１を返し、そうでなければ０を返す 
+\end{DoxyReturn}

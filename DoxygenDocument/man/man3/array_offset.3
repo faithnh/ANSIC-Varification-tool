@@ -1,0 +1,49 @@
+.TH "array_offset" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+array_offset \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <PointerArrayControl.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "\fBAST\fP * \fBtarget_statement\fP"
+.br
+.RI "\fI変数名 \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBvariable_address\fP"
+.br
+.RI "\fIターゲットのstatement(ここではexpression_statementなどが入る) \fP"
+.ti -1c
+.RI "int \fBpointer_level\fP"
+.br
+.RI "\fIこの変数名が指しているASTアドレス \fP"
+.ti -1c
+.RI "int \fBarray_level\fP"
+.br
+.RI "\fIこの変数のポインタレベル \fP"
+.ti -1c
+.RI "int \fBanpasand_flag\fP"
+.br
+.RI "\fIこの変数の配列レベル \fP"
+.ti -1c
+.RI "int \fBinc_dec_flag\fP"
+.br
+.RI "\fIこの変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない \fP"
+.ti -1c
+.RI "OFFSET_LIST * \fBoffset_list\fP"
+.br
+.RI "\fIこの変数はインクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている \fP"
+.in -1c
+.SH "説明"
+.PP 
+配列やポインタの各次元のオフセット関係を格納するための構造体である。配列オフセットと呼ばれる。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

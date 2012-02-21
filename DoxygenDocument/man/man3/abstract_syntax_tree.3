@@ -1,0 +1,49 @@
+.TH "abstract_syntax_tree" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+abstract_syntax_tree \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AST.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "CSTLString * \fBcontent\fP"
+.br
+.RI "\fIノード名 \fP"
+.ti -1c
+.RI "int \fBline\fP"
+.br
+.RI "\fIノードの内容 \fP"
+.ti -1c
+.RI "CSTLString * \fBreturn_type\fP"
+.br
+.RI "\fI対象のノードの行数 \fP"
+.ti -1c
+.RI "int \fBblock_level\fP"
+.br
+.RI "\fI返却値のタイプ(void、int、doubleなどが入る) \fP"
+.ti -1c
+.RI "int \fBblock_id\fP"
+.br
+.RI "\fIブロックの階層レベル（グローバルの場合は０、何らかの関数内であれば１となる） \fP"
+.ti -1c
+.RI "IDLIST * \fBidlist\fP"
+.br
+.RI "\fI各々のブロックを識別するためのもの。０から順に設定される \fP"
+.ti -1c
+.RI "ASTList * \fBchildren\fP"
+.br
+.RI "\fIブロックの階層および識別子を同時に識別するためのもの。変数定義に関して確認するのに用いる \fP"
+.in -1c
+.SH "説明"
+.PP 
+C言語プログラムの抽象構文木に関する情報が含まれる。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

@@ -1,0 +1,33 @@
+.TH "function_information" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+function_information \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <FunctionInformation.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "CSTLString * \fBreturn_type\fP"
+.br
+.RI "\fI関数定義のASTノードへのアドレス \fP"
+.ti -1c
+.RI "CSTLString * \fBfunction_name\fP"
+.br
+.RI "\fI返却値の型（const intなどと表記される) \fP"
+.ti -1c
+.RI "PARAM_INFORMATION_LIST * \fBparam_information_list\fP"
+.br
+.RI "\fI関数名(*funcなどと表記される） \fP"
+.in -1c
+.SH "説明"
+.PP 
+関数に関する情報。関数からの検証式の生成などに用いる。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

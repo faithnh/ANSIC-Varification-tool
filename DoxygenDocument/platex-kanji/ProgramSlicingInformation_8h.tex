@@ -1,0 +1,356 @@
+\section{ProgramSlicing/ProgramSlicingInformation.h}
+\label{ProgramSlicingInformation_8h}\index{ProgramSlicing/ProgramSlicingInformation.h@{ProgramSlicing/ProgramSlicingInformation.h}}
+
+
+このファイルはプログラムスライシングに関する情報を取り扱う命令が含まれている。  
+
+
+{\ttfamily \#include \char`\"{}../ANSICInformation/AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+EXPR\_\-SLICING $\ast$ \hyperlink{ProgramSlicingInformation_8h_a5fcaa39f34bebb96e55bfccba380c8f5}{new\_\-EXPR\_\-SLICING} (int expr\_\-slicing\_\-number, \hyperlink{structabstract__syntax__tree}{AST} $\ast$expression, ARRAY\_\-OFFSET\_\-LIST $\ast$target\_\-variable, ARRAY\_\-OFFSET\_\-LIST $\ast$dependences, EXPR\_\-SLICING\_\-LIST $\ast$children1, EXPR\_\-SLICING\_\-LIST $\ast$children2, EXPR\_\-SLICING $\ast$parent)
+\item 
+DD\_\-INFORMATION $\ast$ \hyperlink{ProgramSlicingInformation_8h_a75837a5e5482fd76c8f4a2671a10d3d4}{new\_\-DD\_\-INFORMATION} (CSTLString $\ast$dd\_\-variable\_\-name, EXPR\_\-SLICING $\ast$dd\_\-target)
+\item 
+int \hyperlink{ProgramSlicingInformation_8h_af533fcded426eaf0b3b9b169fafb9e34}{searchDD} (CSTLString $\ast$variable\_\-name, DD\_\-INFORMATION\_\-LIST $\ast$dd\_\-information\_\-list, DD\_\-INFORMATION $\ast$$\ast$find\_\-dd\_\-informaiton)
+\item 
+int \hyperlink{ProgramSlicingInformation_8h_a42b98f7dd2e05ea0af7ed5dd81415cb6}{searchDeclarationDD} (CSTLString $\ast$variable\_\-name, EXPR\_\-SLICING $\ast$expr\_\-slicing)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_ae9d6d94c4a2b9bf4cc6e35620cc52ea8}{initExprSlicingListFlag} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list)
+\item 
+EXPR\_\-SLICING $\ast$ \hyperlink{ProgramSlicingInformation_8h_a73184dab14bd4aeaf82989656be695dc}{searchFunctionPSI} (CSTLString $\ast$function\_\-name, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_a178cb629f672a2f68302e62c732a063d}{getFunctionGrobalVariable} (ARRAY\_\-OFFSET\_\-LIST $\ast$output\_\-global\_\-variable\_\-list, EXPR\_\-SLICING\_\-LIST $\ast$function\_\-expr\_\-slicing\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$global\_\-variable\_\-list)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_a20f45d90df7114a8ba80c98a350ee639}{getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST} (ARRAY\_\-OFFSET\_\-LIST $\ast$global\_\-variable\_\-list, EXPR\_\-SLICING\_\-LIST $\ast$program\_\-expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_aee829d9ec3393e8267b2f5af0d356bae}{setGlobalVariable} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, EXPR\_\-SLICING\_\-LIST $\ast$program\_\-expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_ac3e15e4f89b0695c945956b8625d677e}{print\_\-EXPR\_\-SLICING\_\-LIST} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_a954d09ab578b9da710a9d2b5b2e8ddb2}{print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, int program\_\-slicing\_\-mode)
+\item 
+void \hyperlink{ProgramSlicingInformation_8h_ad16457c68fd63e728b3f7e9e3ef3edda}{registerIncDecVariable} (ARRAY\_\-OFFSET\_\-LIST $\ast$dependences, ARRAY\_\-OFFSET\_\-LIST $\ast$target\_\-variable)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルはプログラムスライシングに関する情報を取り扱う命令が含まれている。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!getFunctionGrobalVariable@{getFunctionGrobalVariable}}
+\index{getFunctionGrobalVariable@{getFunctionGrobalVariable}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{getFunctionGrobalVariable}]{\setlength{\rightskip}{0pt plus 5cm}void getFunctionGrobalVariable (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{output\_\-global\_\-variable\_\-list, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{function\_\-expr\_\-slicing\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{global\_\-variable\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a178cb629f672a2f68302e62c732a063d}
+関数内で扱うグローバル変数を抽出し、配列オフセットリストとして抽出する。
+
+
+\begin{DoxyParams}{引数}
+{\em output\_\-global\_\-variable\_\-list} & 抽出先の配列オフセットリスト \\
+\hline
+{\em function\_\-expr\_\-slicing\_\-list} & 関数呼び出しに対するプログラムスライシングリスト \\
+\hline
+{\em global\_\-variable\_\-list} & グローバル変数一覧を示す配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST@{getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST}}
+\index{getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST@{getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getVariableDeclarationFromEXPR\_\-SLICING\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{global\_\-variable\_\-list, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{program\_\-expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a20f45d90df7114a8ba80c98a350ee639}
+対象のプログラムスライシングリストから、変数宣言部分を抽出し、配列オフセット情報として抽出する。
+
+
+\begin{DoxyParams}{引数}
+{\em global\_\-variable\_\-list} & グローバル変数一覧を示す配列オフセットリスト \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!initExprSlicingListFlag@{initExprSlicingListFlag}}
+\index{initExprSlicingListFlag@{initExprSlicingListFlag}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{initExprSlicingListFlag}]{\setlength{\rightskip}{0pt plus 5cm}void initExprSlicingListFlag (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_ae9d6d94c4a2b9bf4cc6e35620cc52ea8}
+プログラムスライシングのflagを初期化する。 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 対象のプログラムスライシング情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!new\_\-DD\_\-INFORMATION@{new\_\-DD\_\-INFORMATION}}
+\index{new\_\-DD\_\-INFORMATION@{new\_\-DD\_\-INFORMATION}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{new\_\-DD\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}DD\_\-INFORMATION$\ast$ new\_\-DD\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{dd\_\-variable\_\-name, }
+\item[{EXPR\_\-SLICING $\ast$}]{dd\_\-target}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a75837a5e5482fd76c8f4a2671a10d3d4}
+データ依存関係に関する情報を生成する。 
+\begin{DoxyParams}{引数}
+{\em dd\_\-variable\_\-name} & データ依存関係に関する変数名 \\
+\hline
+{\em $\ast$dd\_\-target} & データ依存関係のターゲットとなる命令\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたデータ依存関係に関する情報の構造体へのアドレスを返す。
+\end{DoxyReturn}
+データ依存関係に関する情報を生成する。 
+\begin{DoxyParams}{引数}
+{\em dd\_\-variable\_\-name} & データ依存関係に関する変数名 \\
+\hline
+{\em $\ast$dd\_\-target} & データ依存関係のターゲットとなる命令\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたデータ依存関係に関する情報の構造体へのアドレスを返す 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!new\_\-EXPR\_\-SLICING@{new\_\-EXPR\_\-SLICING}}
+\index{new\_\-EXPR\_\-SLICING@{new\_\-EXPR\_\-SLICING}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{new\_\-EXPR\_\-SLICING}]{\setlength{\rightskip}{0pt plus 5cm}EXPR\_\-SLICING$\ast$ new\_\-EXPR\_\-SLICING (
+\begin{DoxyParamCaption}
+\item[{int}]{expr\_\-slicing\_\-number, }
+\item[{{\bf AST} $\ast$}]{expression, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{target\_\-variable, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{dependences, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{children1, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{children2, }
+\item[{EXPR\_\-SLICING $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a5fcaa39f34bebb96e55bfccba380c8f5}
+スライシングを行うための構造体を生成する。 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-number} & 対象の式に対するAST番号 \\
+\hline
+{\em expression} & 対象の式へのＡＳＴノード \\
+\hline
+{\em target\_\-variable} & 変数のオフセットリスト \\
+\hline
+{\em dependences} & 依存関係の配列オフセットリスト \\
+\hline
+{\em children1} & ifやwhile、forに対するスライシングリスト \\
+\hline
+{\em children2} & else文に対するスライシングリスト \\
+\hline
+{\em parent} & 親をたどるためのノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたスライシングを行うための構造体へのアドレスを返す。
+\end{DoxyReturn}
+スライシングを行うための構造体を生成する。 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-number} & 対象の式に対するAST番号 \\
+\hline
+{\em expression} & 対象の式へのＡＳＴノード \\
+\hline
+{\em target\_\-variable} & 変数のオフセットリスト \\
+\hline
+{\em dependences} & 依存関係の配列オフセットリスト \\
+\hline
+{\em children1} & ifやwhile、forに対するスライシングリスト \\
+\hline
+{\em children2} & else文に対するスライシングリスト \\
+\hline
+{\em parent} & 親をたどるためのノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたスライシングを行うための構造体へのアドレスを返す 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!print\_\-EXPR\_\-SLICING\_\-LIST@{print\_\-EXPR\_\-SLICING\_\-LIST}}
+\index{print\_\-EXPR\_\-SLICING\_\-LIST@{print\_\-EXPR\_\-SLICING\_\-LIST}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{print\_\-EXPR\_\-SLICING\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void print\_\-EXPR\_\-SLICING\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_ac3e15e4f89b0695c945956b8625d677e}
+スライシングに関する情報リストexpr\_\-slicing\_\-listを出力させる。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & スライシングに関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST@{print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST}}
+\index{print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST@{print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void print\_\-tree\_\-EXPR\_\-SLICING\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{int}]{program\_\-slicing\_\-mode}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a954d09ab578b9da710a9d2b5b2e8ddb2}
+スライシングに関する情報リストexpr\_\-slicing\_\-listをツリー形式で出力させる。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & スライシングに関する情報リスト \\
+\hline
+{\em program\_\-slicing\_\-mode} & プログラムスライシング後のモードにするかどうかのフラグ　１：有効　０：無効 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!registerIncDecVariable@{registerIncDecVariable}}
+\index{registerIncDecVariable@{registerIncDecVariable}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{registerIncDecVariable}]{\setlength{\rightskip}{0pt plus 5cm}void registerIncDecVariable (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{dependences, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{target\_\-variable}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_ad16457c68fd63e728b3f7e9e3ef3edda}
+dependencesでインクリメントやデクリメントのフラグが立っている変数を見つけたら、それをtarget\_\-variableに登録する。
+
+
+\begin{DoxyParams}{引数}
+{\em dependences} & インクリメントやデクリメントを探す対象の依存変数 \\
+\hline
+{\em target\_\-variable} & 登録先の定義対象変数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!searchDD@{searchDD}}
+\index{searchDD@{searchDD}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{searchDD}]{\setlength{\rightskip}{0pt plus 5cm}int searchDD (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{variable\_\-name, }
+\item[{DD\_\-INFORMATION\_\-LIST $\ast$}]{dd\_\-information\_\-list, }
+\item[{DD\_\-INFORMATION $\ast$$\ast$}]{find\_\-dd\_\-informaiton}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_af533fcded426eaf0b3b9b169fafb9e34}
+指定したデータ依存関係のリストから、指定された変数名が存在するか調べる。
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-name} & 指定された変数名 \\
+\hline
+{\em dd\_\-information\_\-list} & 指定したデータ依存関係のリスト \\
+\hline
+{\em find\_\-dd\_\-informaiton} & 見つけた場合に返すデータ依存関係の情報 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+存在する場合は１、そうでない場合は０を返す。
+\end{DoxyReturn}
+指定したデータ依存関係のリストから、指定された変数名が存在するか調べる。
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-name} & 指定された変数名 \\
+\hline
+{\em dd\_\-information\_\-list} & 指定したデータ依存関係のリスト \\
+\hline
+{\em find\_\-dd\_\-informaiton} & 見つけた場合に返すデータ依存関係の情報 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+存在する場合は１、そうでない場合は０を返す 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!searchDeclarationDD@{searchDeclarationDD}}
+\index{searchDeclarationDD@{searchDeclarationDD}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{searchDeclarationDD}]{\setlength{\rightskip}{0pt plus 5cm}int searchDeclarationDD (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{variable\_\-name, }
+\item[{EXPR\_\-SLICING $\ast$}]{expr\_\-slicing}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a42b98f7dd2e05ea0af7ed5dd81415cb6}
+指定したプログラムスライシング情報のデータ依存関係から、指定された変数名である変数宣言が存在するか調べる。
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-name} & 指定された変数名 \\
+\hline
+{\em expr\_\-slicing} & 指定したプログラムスライシング情報のデータ\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+存在する場合は１、そうでない場合は０を返す。 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!searchFunctionPSI@{searchFunctionPSI}}
+\index{searchFunctionPSI@{searchFunctionPSI}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{searchFunctionPSI}]{\setlength{\rightskip}{0pt plus 5cm}EXPR\_\-SLICING$\ast$ searchFunctionPSI (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{function\_\-name, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_a73184dab14bd4aeaf82989656be695dc}
+プログラム全体のプログラムスライシングリストexpr\_\-slicing\_\-listから、 関数呼び出しに対応する関数定義のプログラムスライシング情報を取得する。
+
+
+\begin{DoxyParams}{引数}
+{\em function\_\-name} & 関数名 \\
+\hline
+{\em expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+取得に成功した場合、関数呼び出しに対応する関数定義へのプログラムスライシング情報を返す、失敗した場合はNULLを返す
+\end{DoxyReturn}
+プログラム全体のプログラムスライシングリストexpr\_\-slicing\_\-listから、 関数呼び出しに対応する関数定義のプログラムスライシング情報を取得する。
+
+
+\begin{DoxyParams}{引数}
+{\em function\_\-name} & 関数名 \\
+\hline
+{\em expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+取得に成功した場合、関数呼び出しに対応する関数定義へのプログラムスライシング情報を返す、失敗した場合はNULLを返す。 
+\end{DoxyReturn}
+\index{ProgramSlicingInformation.h@{ProgramSlicingInformation.h}!setGlobalVariable@{setGlobalVariable}}
+\index{setGlobalVariable@{setGlobalVariable}!ProgramSlicingInformation.h@{ProgramSlicingInformation.h}}
+\subsubsection[{setGlobalVariable}]{\setlength{\rightskip}{0pt plus 5cm}void setGlobalVariable (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{program\_\-expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{ProgramSlicingInformation_8h_aee829d9ec3393e8267b2f5af0d356bae}
+関数呼び出しから、取り扱うグローバル変数を抽出し、対象の変数一覧に追加していく。 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 追加対象のプログラムスライシングリスト \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト\\
+\hline
+\end{DoxyParams}
+関数呼び出しから、取り扱うグローバル変数を抽出し、対象の変数一覧に追加していく。 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 追加対象のプログラムスライシングリスト \\
+\hline
+{\em program\_\-expr\_\-slicing\_\-list} & プログラム全体のプログラムスライシングリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

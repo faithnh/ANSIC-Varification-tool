@@ -1,0 +1,149 @@
+.TH "ANSICInformation/PreProcess.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/PreProcess.h \- 
+.PP
+このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるための命令が含まれている。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができる。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBinclude_data\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBinclude_data\fP \fBINCLUDE_DATA\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBINCLUDE_DATA\fP * \fBnew_INCLUDE_DATA\fP (CSTLString *\fBinclude_data\fP, int line)"
+.br
+.ti -1c
+.RI "int \fBpreProcesser\fP (char *source_file_name)"
+.br
+.ti -1c
+.RI "int \fBincludeComment\fP (char *source_file_name)"
+.br
+.ti -1c
+.RI "int \fBadjustProgramStart\fP (char *source_file_name)"
+.br
+.ti -1c
+.RI "void \fBreadIncludeDataFromFile\fP (char *file_name, INCLUDE_LIST *include_list)"
+.br
+.ti -1c
+.RI "void \fBaddIncludeDataFromFile\fP (char *file_name, INCLUDE_LIST *include_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるための命令が含まれている。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができる。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBinclude_data\fP  \fBINCLUDE_DATA\fP"インクルードファイルに関する情報が格納される。これは、検証式付加時にインクルードファイルを付加するのに使用する。 
+.SH "関数"
+.PP 
+.SS "void addIncludeDataFromFile (char *file_name, INCLUDE_LIST *include_list)"インクルードリストを基に、対象のファイルにインクルードを追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfile_name\fP 開くファイル名 
+.br
+\fIinclude_list\fP インクルードリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int adjustProgramStart (char *source_file_name)"プログラムの始まりを示す位置まですべて削除する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsource_file_name\fP 対象のソースファイル名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SS "int includeComment (char *source_file_name)"'#include'にコメントをかけておく。コメントアウトをかけた結果はファイル名_out.cとして出力される。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsource_file_name\fP 対象のソースファイル名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SS "\fBINCLUDE_DATA\fP* new_INCLUDE_DATA (CSTLString *include_data, intline)"新しいインクルードファイルを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fI\fBinclude_data\fP\fP includeファイルの名前 
+.br
+\fIline\fP その行数 
+.RE
+.PP
+
+.SS "int preProcesser (char *source_file_name)"実行させたいソースにプリプロセッサをかける。プリプロセッサのかけたファイルはファイル名_out_pre.cとして出力される。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsource_file_name\fP 実行させたいソースファイル名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SS "void readIncludeDataFromFile (char *file_name, INCLUDE_LIST *include_list)"'#include'にコメントをかけたもののみを取り出し、取りだしたものをインクルードファイルのリストinclude_listにいれる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfile_name\fP 開くファイル名 
+.br
+\fIinclude_list\fP インクルードリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

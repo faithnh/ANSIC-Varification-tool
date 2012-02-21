@@ -1,0 +1,55 @@
+.TH "ANSICInformation/DivitionDeclarator.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/DivitionDeclarator.h \- 
+.PP
+これは簡潔化のために変数定義を分割させるためのものである。 　例：int a,b = 1; → int a; int b = 1;  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'AST.h'\fP
+.br
+\fC#include 'Synbol.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBOutputSourceAfterDivitionDeclarator\fP (FILE *output, \fBAST\fP *programAST, VARIABLE_TABLE_LIST *variable_table_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+これは簡潔化のために変数定義を分割させるためのものである。 　例：int a,b = 1; → int a; int b = 1; 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "void OutputSourceAfterDivitionDeclarator (FILE *output, \fBAST\fP *programAST, VARIABLE_TABLE_LIST *variable_table_list)"変数定義を分割させた状態で出力させる。 　例：int a,b = 1; → int a; int b = 1; 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 出力先のファイル構造体 
+.br
+\fIprogramAST\fP プログラムに対するAST 
+.br
+\fIvariable_table_list\fP 変数テーブル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

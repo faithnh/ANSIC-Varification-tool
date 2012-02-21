@@ -1,0 +1,37 @@
+.TH "for_information" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+for_information \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ForInformation.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "\fBAST\fP * \fBinit_expression\fP"
+.br
+.RI "\fIこのfor文自体へのASTノード \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBcontinue_condition\fP"
+.br
+.RI "\fI初期式へのASTノード \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBinc_dec_expression\fP"
+.br
+.RI "\fI継続式へのASTノード \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBstatement\fP"
+.br
+.RI "\fI増分式へのASTノード \fP"
+.in -1c
+.SH "説明"
+.PP 
+for文の初期式・継続式・増分式およびfor文内全体の式へのノードが格納される。 これは、検証式付加ツールでfor文をwhile文に使用される。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

@@ -1,0 +1,340 @@
+.TH "ProgramSlicing/ProgramSlicingInformation.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgramSlicing/ProgramSlicingInformation.h \- 
+.PP
+このファイルはプログラムスライシングに関する情報を取り扱う命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '../ANSICInformation/AST.h'\fP
+.br
+\fC#include '../ANSICInformation/PointerArrayControl.h'\fP
+.br
+\fC#include <cstl/list.h>\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "EXPR_SLICING * \fBnew_EXPR_SLICING\fP (int expr_slicing_number, \fBAST\fP *expression, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, EXPR_SLICING_LIST *children1, EXPR_SLICING_LIST *children2, EXPR_SLICING *parent)"
+.br
+.ti -1c
+.RI "DD_INFORMATION * \fBnew_DD_INFORMATION\fP (CSTLString *dd_variable_name, EXPR_SLICING *dd_target)"
+.br
+.ti -1c
+.RI "int \fBsearchDD\fP (CSTLString *variable_name, DD_INFORMATION_LIST *dd_information_list, DD_INFORMATION **find_dd_informaiton)"
+.br
+.ti -1c
+.RI "int \fBsearchDeclarationDD\fP (CSTLString *variable_name, EXPR_SLICING *expr_slicing)"
+.br
+.ti -1c
+.RI "void \fBinitExprSlicingListFlag\fP (EXPR_SLICING_LIST *expr_slicing_list)"
+.br
+.ti -1c
+.RI "EXPR_SLICING * \fBsearchFunctionPSI\fP (CSTLString *function_name, EXPR_SLICING_LIST *expr_slicing_list)"
+.br
+.ti -1c
+.RI "void \fBgetFunctionGrobalVariable\fP (ARRAY_OFFSET_LIST *output_global_variable_list, EXPR_SLICING_LIST *function_expr_slicing_list, ARRAY_OFFSET_LIST *global_variable_list)"
+.br
+.ti -1c
+.RI "void \fBgetVariableDeclarationFromEXPR_SLICING_LIST\fP (ARRAY_OFFSET_LIST *global_variable_list, EXPR_SLICING_LIST *program_expr_slicing_list)"
+.br
+.ti -1c
+.RI "void \fBsetGlobalVariable\fP (EXPR_SLICING_LIST *expr_slicing_list, EXPR_SLICING_LIST *program_expr_slicing_list)"
+.br
+.ti -1c
+.RI "void \fBprint_EXPR_SLICING_LIST\fP (EXPR_SLICING_LIST *expr_slicing_list)"
+.br
+.ti -1c
+.RI "void \fBprint_tree_EXPR_SLICING_LIST\fP (EXPR_SLICING_LIST *expr_slicing_list, int program_slicing_mode)"
+.br
+.ti -1c
+.RI "void \fBregisterIncDecVariable\fP (ARRAY_OFFSET_LIST *dependences, ARRAY_OFFSET_LIST *target_variable)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルはプログラムスライシングに関する情報を取り扱う命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "void getFunctionGrobalVariable (ARRAY_OFFSET_LIST *output_global_variable_list, EXPR_SLICING_LIST *function_expr_slicing_list, ARRAY_OFFSET_LIST *global_variable_list)"関数内で扱うグローバル変数を抽出し、配列オフセットリストとして抽出する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput_global_variable_list\fP 抽出先の配列オフセットリスト 
+.br
+\fIfunction_expr_slicing_list\fP 関数呼び出しに対するプログラムスライシングリスト 
+.br
+\fIglobal_variable_list\fP グローバル変数一覧を示す配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getVariableDeclarationFromEXPR_SLICING_LIST (ARRAY_OFFSET_LIST *global_variable_list, EXPR_SLICING_LIST *program_expr_slicing_list)"対象のプログラムスライシングリストから、変数宣言部分を抽出し、配列オフセット情報として抽出する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIglobal_variable_list\fP グローバル変数一覧を示す配列オフセットリスト 
+.br
+\fIprogram_expr_slicing_list\fP プログラム全体のプログラムスライシングリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void initExprSlicingListFlag (EXPR_SLICING_LIST *expr_slicing_list)"プログラムスライシングのflagを初期化する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 対象のプログラムスライシング情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "DD_INFORMATION* new_DD_INFORMATION (CSTLString *dd_variable_name, EXPR_SLICING *dd_target)"データ依存関係に関する情報を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIdd_variable_name\fP データ依存関係に関する変数名 
+.br
+\fI*dd_target\fP データ依存関係のターゲットとなる命令
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたデータ依存関係に関する情報の構造体へのアドレスを返す。
+.RE
+.PP
+データ依存関係に関する情報を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIdd_variable_name\fP データ依存関係に関する変数名 
+.br
+\fI*dd_target\fP データ依存関係のターゲットとなる命令
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたデータ依存関係に関する情報の構造体へのアドレスを返す 
+.RE
+.PP
+
+.SS "EXPR_SLICING* new_EXPR_SLICING (intexpr_slicing_number, \fBAST\fP *expression, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, EXPR_SLICING_LIST *children1, EXPR_SLICING_LIST *children2, EXPR_SLICING *parent)"スライシングを行うための構造体を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_number\fP 対象の式に対するAST番号 
+.br
+\fIexpression\fP 対象の式へのＡＳＴノード 
+.br
+\fItarget_variable\fP 変数のオフセットリスト 
+.br
+\fIdependences\fP 依存関係の配列オフセットリスト 
+.br
+\fIchildren1\fP ifやwhile、forに対するスライシングリスト 
+.br
+\fIchildren2\fP else文に対するスライシングリスト 
+.br
+\fIparent\fP 親をたどるためのノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたスライシングを行うための構造体へのアドレスを返す。
+.RE
+.PP
+スライシングを行うための構造体を生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_number\fP 対象の式に対するAST番号 
+.br
+\fIexpression\fP 対象の式へのＡＳＴノード 
+.br
+\fItarget_variable\fP 変数のオフセットリスト 
+.br
+\fIdependences\fP 依存関係の配列オフセットリスト 
+.br
+\fIchildren1\fP ifやwhile、forに対するスライシングリスト 
+.br
+\fIchildren2\fP else文に対するスライシングリスト 
+.br
+\fIparent\fP 親をたどるためのノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたスライシングを行うための構造体へのアドレスを返す 
+.RE
+.PP
+
+.SS "void print_EXPR_SLICING_LIST (EXPR_SLICING_LIST *expr_slicing_list)"スライシングに関する情報リストexpr_slicing_listを出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP スライシングに関する情報リスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void print_tree_EXPR_SLICING_LIST (EXPR_SLICING_LIST *expr_slicing_list, intprogram_slicing_mode)"スライシングに関する情報リストexpr_slicing_listをツリー形式で出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP スライシングに関する情報リスト 
+.br
+\fIprogram_slicing_mode\fP プログラムスライシング後のモードにするかどうかのフラグ　１：有効　０：無効 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void registerIncDecVariable (ARRAY_OFFSET_LIST *dependences, ARRAY_OFFSET_LIST *target_variable)"dependencesでインクリメントやデクリメントのフラグが立っている変数を見つけたら、それをtarget_variableに登録する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIdependences\fP インクリメントやデクリメントを探す対象の依存変数 
+.br
+\fItarget_variable\fP 登録先の定義対象変数
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int searchDD (CSTLString *variable_name, DD_INFORMATION_LIST *dd_information_list, DD_INFORMATION **find_dd_informaiton)"指定したデータ依存関係のリストから、指定された変数名が存在するか調べる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 指定された変数名 
+.br
+\fIdd_information_list\fP 指定したデータ依存関係のリスト 
+.br
+\fIfind_dd_informaiton\fP 見つけた場合に返すデータ依存関係の情報 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+存在する場合は１、そうでない場合は０を返す。
+.RE
+.PP
+指定したデータ依存関係のリストから、指定された変数名が存在するか調べる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 指定された変数名 
+.br
+\fIdd_information_list\fP 指定したデータ依存関係のリスト 
+.br
+\fIfind_dd_informaiton\fP 見つけた場合に返すデータ依存関係の情報 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+存在する場合は１、そうでない場合は０を返す 
+.RE
+.PP
+
+.SS "int searchDeclarationDD (CSTLString *variable_name, EXPR_SLICING *expr_slicing)"指定したプログラムスライシング情報のデータ依存関係から、指定された変数名である変数宣言が存在するか調べる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 指定された変数名 
+.br
+\fIexpr_slicing\fP 指定したプログラムスライシング情報のデータ
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+存在する場合は１、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SS "EXPR_SLICING* searchFunctionPSI (CSTLString *function_name, EXPR_SLICING_LIST *expr_slicing_list)"プログラム全体のプログラムスライシングリストexpr_slicing_listから、 関数呼び出しに対応する関数定義のプログラムスライシング情報を取得する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_name\fP 関数名 
+.br
+\fIexpr_slicing_list\fP プログラム全体のプログラムスライシングリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+取得に成功した場合、関数呼び出しに対応する関数定義へのプログラムスライシング情報を返す、失敗した場合はNULLを返す
+.RE
+.PP
+プログラム全体のプログラムスライシングリストexpr_slicing_listから、 関数呼び出しに対応する関数定義のプログラムスライシング情報を取得する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIfunction_name\fP 関数名 
+.br
+\fIexpr_slicing_list\fP プログラム全体のプログラムスライシングリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+取得に成功した場合、関数呼び出しに対応する関数定義へのプログラムスライシング情報を返す、失敗した場合はNULLを返す。 
+.RE
+.PP
+
+.SS "void setGlobalVariable (EXPR_SLICING_LIST *expr_slicing_list, EXPR_SLICING_LIST *program_expr_slicing_list)"関数呼び出しから、取り扱うグローバル変数を抽出し、対象の変数一覧に追加していく。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 追加対象のプログラムスライシングリスト 
+.br
+\fIprogram_expr_slicing_list\fP プログラム全体のプログラムスライシングリスト
+.RE
+.PP
+関数呼び出しから、取り扱うグローバル変数を抽出し、対象の変数一覧に追加していく。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 追加対象のプログラムスライシングリスト 
+.br
+\fIprogram_expr_slicing_list\fP プログラム全体のプログラムスライシングリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

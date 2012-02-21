@@ -1,0 +1,53 @@
+.TH "variable_table" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+variable_table \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Synbol.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "int \fBenable_end\fP"
+.br
+.RI "\fIこの変数が有効である開始の行数 \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBdeclaration_location_address\fP"
+.br
+.RI "\fIこの変数が有効である終了の行数 \fP"
+.ti -1c
+.RI "int \fBblock_level\fP"
+.br
+.RI "\fIこの変数の宣言をしているASTノードへのアドレス \fP"
+.ti -1c
+.RI "int \fBblock_id\fP"
+.br
+.RI "\fIこの変数が宣言しているブロックレベル(グローバル変数なら０、関数内のローカル変数なら１となる） \fP"
+.ti -1c
+.RI "IDLIST * \fBidlist\fP"
+.br
+.RI "\fIこの変数が宣言している各々のブロックの識別子 \fP"
+.ti -1c
+.RI "CSTLString * \fBtype\fP"
+.br
+.RI "\fIこの変数が宣言しているブロックレベルおよび識別子の両方に関する情報で、変数スコープを識別するのに使用される。 \fP"
+.ti -1c
+.RI "CSTLString * \fBvariable_name\fP"
+.br
+.RI "\fIこの変数の型 \fP"
+.ti -1c
+.RI "\fBAST\fP * \fBinitiarizer\fP"
+.br
+.RI "\fIこの変数の名前 \fP"
+.in -1c
+.SH "説明"
+.PP 
+プログラム中の変数に関する情報であり、検証式生成時に変数を識別するのに用いられる。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

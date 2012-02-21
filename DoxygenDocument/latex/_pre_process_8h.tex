@@ -1,0 +1,145 @@
+\section{ANSICInformation/PreProcess.h}
+\label{_pre_process_8h}\index{ANSICInformation/PreProcess.h@{ANSICInformation/PreProcess.h}}
+
+
+このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるものです。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができます。  
+
+
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf include\_\-data}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf include\_\-data} {\bf INCLUDE\_\-DATA}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+{\bf INCLUDE\_\-DATA} $\ast$ {\bf new\_\-INCLUDE\_\-DATA} (CSTLString $\ast${\bf include\_\-data}, int line)
+\item 
+int {\bf preProcesser} (char $\ast$source\_\-file\_\-name)
+\item 
+int {\bf includeComment} (char $\ast$source\_\-file\_\-name)
+\item 
+int {\bf adjustProgramStart} (char $\ast$source\_\-file\_\-name)
+\item 
+void {\bf readIncludeDataFromFile} (char $\ast$file\_\-name, INCLUDE\_\-LIST $\ast$include\_\-list)
+\item 
+void {\bf addIncludeDataFromFile} (char $\ast$file\_\-name, INCLUDE\_\-LIST $\ast$include\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるものです。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛けることができます。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{PreProcess.h@{PreProcess.h}!INCLUDE\_\-DATA@{INCLUDE\_\-DATA}}
+\index{INCLUDE\_\-DATA@{INCLUDE\_\-DATA}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{INCLUDE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf include\_\-data}  {\bf INCLUDE\_\-DATA}}\label{_pre_process_8h_a6d1a2dd96f6fa562d010b81ac0b69b21}
+インクルードファイルに関する情報が格納される。これは、検証式付加時にインクルードファイルを付加するのに使用する。 
+
+\subsection{関数}
+\index{PreProcess.h@{PreProcess.h}!addIncludeDataFromFile@{addIncludeDataFromFile}}
+\index{addIncludeDataFromFile@{addIncludeDataFromFile}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{addIncludeDataFromFile}]{\setlength{\rightskip}{0pt plus 5cm}void addIncludeDataFromFile (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\_\-name, }
+\item[{INCLUDE\_\-LIST $\ast$}]{include\_\-list}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_ad7bd5ce64ec94dac854c4633c099b379}
+インクルードリストを基に、対象のファイルにインクルードを追加する 
+\begin{DoxyParams}{引数}
+{\em file\_\-name} & 開くファイル名 \\
+\hline
+{\em include\_\-list} & インクルードリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{PreProcess.h@{PreProcess.h}!adjustProgramStart@{adjustProgramStart}}
+\index{adjustProgramStart@{adjustProgramStart}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{adjustProgramStart}]{\setlength{\rightskip}{0pt plus 5cm}int adjustProgramStart (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{source\_\-file\_\-name}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_a09e6288734c2015b2a7ec902afe34857}
+プログラムの始まりを示す位置まですべて削除する 
+\begin{DoxyParams}{引数}
+{\em source\_\-file\_\-name} & 対象のソースファイル名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す 
+\end{DoxyReturn}
+\index{PreProcess.h@{PreProcess.h}!includeComment@{includeComment}}
+\index{includeComment@{includeComment}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{includeComment}]{\setlength{\rightskip}{0pt plus 5cm}int includeComment (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{source\_\-file\_\-name}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_a8f4e9a441c1ba8c61a31f1d9fa70f7a2}
+\#includeにコメントをかけておく。コメントアウトをかけた結果はファイル名\_\-out.cとして出力される 
+\begin{DoxyParams}{引数}
+{\em source\_\-file\_\-name} & 対象のソースファイル名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す 
+\end{DoxyReturn}
+\index{PreProcess.h@{PreProcess.h}!new\_\-INCLUDE\_\-DATA@{new\_\-INCLUDE\_\-DATA}}
+\index{new\_\-INCLUDE\_\-DATA@{new\_\-INCLUDE\_\-DATA}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{new\_\-INCLUDE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INCLUDE\_\-DATA}$\ast$ new\_\-INCLUDE\_\-DATA (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{include\_\-data, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_a374f2859fbe8b968002a64b7ddedb676}
+新しいインクルードファイルを生成する。 
+\begin{DoxyParams}{引数}
+{\em \doxyref{include\_\-data}{p.}{structinclude__data}} & includeファイルの名前 \\
+\hline
+{\em line} & その行数 \\
+\hline
+\end{DoxyParams}
+\index{PreProcess.h@{PreProcess.h}!preProcesser@{preProcesser}}
+\index{preProcesser@{preProcesser}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{preProcesser}]{\setlength{\rightskip}{0pt plus 5cm}int preProcesser (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{source\_\-file\_\-name}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_a3af15f622d39d61db338a5b2e0c659b8}
+実行させたいソースにプリプロセッサをかける。プリプロセッサのかけたファイルはファイル名\_\-out\_\-pre.cとして出力される 
+\begin{DoxyParams}{引数}
+{\em source\_\-file\_\-name} & 実行させたいソースファイル名\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうかを示す　成功した場合は１をかえし、そうでない場合は０を返す 
+\end{DoxyReturn}
+\index{PreProcess.h@{PreProcess.h}!readIncludeDataFromFile@{readIncludeDataFromFile}}
+\index{readIncludeDataFromFile@{readIncludeDataFromFile}!PreProcess.h@{PreProcess.h}}
+\subsubsection[{readIncludeDataFromFile}]{\setlength{\rightskip}{0pt plus 5cm}void readIncludeDataFromFile (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\_\-name, }
+\item[{INCLUDE\_\-LIST $\ast$}]{include\_\-list}
+\end{DoxyParamCaption}
+)}\label{_pre_process_8h_a00b38a511fb2d9388ca76b7782890673}
+\#includeにコメントをかけたもののみを取り出し、取りだしたものをインクルードファイルのリストinclude\_\-listにいれる 
+\begin{DoxyParams}{引数}
+{\em file\_\-name} & 開くファイル名 \\
+\hline
+{\em include\_\-list} & インクルードリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

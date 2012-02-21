@@ -1,0 +1,39 @@
+\hypertarget{structvalidate__statement}{
+\section{構造体 validate\_\-statement}
+\label{structvalidate__statement}\index{validate\_\-statement@{validate\_\-statement}}
+}
+
+
+{\ttfamily \#include $<$Varidate\_\-statement.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structvalidate__statement_af811a34ac79801a37cfa0c5ce2f92d48}{
+int \hyperlink{structvalidate__statement_af811a34ac79801a37cfa0c5ce2f92d48}{check\_\-or\_\-modify}}
+\label{structvalidate__statement_af811a34ac79801a37cfa0c5ce2f92d48}
+
+\begin{DoxyCompactList}\small\item\em この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) \item\end{DoxyCompactList}\item 
+\hypertarget{structvalidate__statement_ad707b113b11d4a04d6950ec7581e52f2}{
+int \hyperlink{structvalidate__statement_ad707b113b11d4a04d6950ec7581e52f2}{used}}
+\label{structvalidate__statement_ad707b113b11d4a04d6950ec7581e52f2}
+
+\begin{DoxyCompactList}\small\item\em 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \item\end{DoxyCompactList}\item 
+\hypertarget{structvalidate__statement_a2c7d107cd83b73d65b9c6b7919b5f48e}{
+CSTLString $\ast$ \hyperlink{structvalidate__statement_a2c7d107cd83b73d65b9c6b7919b5f48e}{statement}}
+\label{structvalidate__statement_a2c7d107cd83b73d65b9c6b7919b5f48e}
+
+\begin{DoxyCompactList}\small\item\em この検証式は使用しているかどうかのフラグ 1:使用 0:未使用 \item\end{DoxyCompactList}\item 
+\hypertarget{structvalidate__statement_a97f962c68638a36d8d3ef5d52f017f84}{
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structvalidate__statement_a97f962c68638a36d8d3ef5d52f017f84}{target\_\-statement}}
+\label{structvalidate__statement_a97f962c68638a36d8d3ef5d52f017f84}
+
+\begin{DoxyCompactList}\small\item\em この検証式の内容 \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+実際に検証式として挿入するための情報 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{Varidate__statement_8h}{Varidate\_\-statement.h}\end{DoxyCompactItemize}

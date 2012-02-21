@@ -1,0 +1,65 @@
+.TH "ANSICInformation/SubEffectCheck.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/SubEffectCheck.h \- 
+.PP
+このファイルには副作用式のチェックする関数や代入式のタイプを求める命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'AST.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "int \fBcheckContainSubEffectStatement\fP (\fBAST\fP *node)"
+.br
+.ti -1c
+.RI "int \fBgetAssignment_TYPE\fP (\fBAST\fP *assignment_expression_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルには副作用式のチェックする関数や代入式のタイプを求める命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "int checkContainSubEffectStatement (\fBAST\fP *node)"指定されたASTノードnodeから、副作用式(インクリメント式・デクリメント式・代入式)が含まれているかどうかチェックする。
+.PP
+\fB引数:\fP
+.RS 4
+\fInode\fP 対象のASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+含まれていた式がインクリメント式の場合１、デクリメント式の場合２、代入式の場合３とする。含まれていない場合は０を返す。 
+.RE
+.PP
+
+.SS "int getAssignment_TYPE (\fBAST\fP *assignment_expression_list)"代入式のタイプを出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIassignment_expression_list\fP 代入式に関するASTノードのリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+代入式のタイプに応じた値を返却する。 0:=,1:+=,2:-=,3:*=,4:/=,5:=,6:<<=,7:>>=,8:&=,9:|=,10:^= 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

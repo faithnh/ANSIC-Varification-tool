@@ -1,0 +1,162 @@
+\hypertarget{DivitionInformation_8h}{
+\section{ANSICInformation/DivitionInformation.h}
+\label{DivitionInformation_8h}\index{ANSICInformation/DivitionInformation.h@{ANSICInformation/DivitionInformation.h}}
+}
+
+
+これは除算・剰余算を検出するために使用するのに必要な情報を確保する  
+
+
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Synbol.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}FunctionInformation.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdivition__information}{divition\_\-information}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structdivition__information}{divition\_\-information} \hyperlink{DivitionInformation_8h_afe33e19b368476a1c944f5b32da0a9d7}{DIVITION\_\-INFORMATION}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdivition__information}{DIVITION\_\-INFORMATION} $\ast$ \hyperlink{DivitionInformation_8h_a996b130740bc8874bbac2794d27bb94c}{new\_\-DIVITION\_\-INFORMATION} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int type, CSTLString $\ast$statement, ARRAY\_\-OFFSET\_\-LIST $\ast$identifiers)
+\item 
+\hyperlink{structdivition__information}{DIVITION\_\-INFORMATION} $\ast$ \hyperlink{DivitionInformation_8h_a2a58708b942277980a1e342214e8a254}{new\_\-DIVITION\_\-INFORMATION\_\-char} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int type, char $\ast$statement, ARRAY\_\-OFFSET\_\-LIST $\ast$identifiers)
+\item 
+void \hyperlink{DivitionInformation_8h_a644b8d5eff9ed05458a1fc23e956dec2}{getDIVITION\_\-INFORMATION\_\-LIST} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$expression\_\-ast, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, DIVITION\_\-INFORMATION\_\-LIST $\ast$divition\_\-information\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list)
+\item 
+void \hyperlink{DivitionInformation_8h_a74edf6ce59d5bd1990b6d76553b13380}{printDIVITION\_\-INFORMATION\_\-LIST} (DIVITION\_\-INFORMATION\_\-LIST $\ast$divition\_\-information\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これは除算・剰余算を検出するために使用するのに必要な情報を確保する \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\hypertarget{DivitionInformation_8h_afe33e19b368476a1c944f5b32da0a9d7}{
+\index{DivitionInformation.h@{DivitionInformation.h}!DIVITION\_\-INFORMATION@{DIVITION\_\-INFORMATION}}
+\index{DIVITION\_\-INFORMATION@{DIVITION\_\-INFORMATION}!DivitionInformation.h@{DivitionInformation.h}}
+\subsubsection[{DIVITION\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf divition\_\-information}  {\bf DIVITION\_\-INFORMATION}}}
+\label{DivitionInformation_8h_afe33e19b368476a1c944f5b32da0a9d7}
+除算および剰余算に関する情報を格納する 
+
+\subsection{関数}
+\hypertarget{DivitionInformation_8h_a644b8d5eff9ed05458a1fc23e956dec2}{
+\index{DivitionInformation.h@{DivitionInformation.h}!getDIVITION\_\-INFORMATION\_\-LIST@{getDIVITION\_\-INFORMATION\_\-LIST}}
+\index{getDIVITION\_\-INFORMATION\_\-LIST@{getDIVITION\_\-INFORMATION\_\-LIST}!DivitionInformation.h@{DivitionInformation.h}}
+\subsubsection[{getDIVITION\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getDIVITION\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{expression\_\-ast, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{DIVITION\_\-INFORMATION\_\-LIST $\ast$}]{divition\_\-information\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{DivitionInformation_8h_a644b8d5eff9ed05458a1fc23e956dec2}
+指定された式から、div\_\-exprおよびmod\_\-exprを見つけ、それ以下の式を除算および剰余残に関する情報に格納する
+
+
+\begin{DoxyParams}{引数}
+{\em expression\_\-ast} & 指定された式へのASTノードのアドレス \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 変数テーブルリスト \\
+\hline
+{\em divition\_\-information\_\-list} & 除算および剰余算に関する情報を格納するためのリスト \\
+\hline
+{\em target\_\-expression} & 対象の式へのASTノードのアドレス \\
+\hline
+{\em ignore\_\-ast\_\-list} & 重複防止のために使用するASTノードへのリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{DivitionInformation_8h_a996b130740bc8874bbac2794d27bb94c}{
+\index{DivitionInformation.h@{DivitionInformation.h}!new\_\-DIVITION\_\-INFORMATION@{new\_\-DIVITION\_\-INFORMATION}}
+\index{new\_\-DIVITION\_\-INFORMATION@{new\_\-DIVITION\_\-INFORMATION}!DivitionInformation.h@{DivitionInformation.h}}
+\subsubsection[{new\_\-DIVITION\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DIVITION\_\-INFORMATION}$\ast$ new\_\-DIVITION\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int}]{type, }
+\item[{CSTLString $\ast$}]{statement, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{identifiers}
+\end{DoxyParamCaption}
+)}}
+\label{DivitionInformation_8h_a996b130740bc8874bbac2794d27bb94c}
+DIVITION\_\-INFORMATIONのリスト 除算および剰余算に関する情報を生成する
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-expression} & 対象の式へのASTノードのアドレス \\
+\hline
+{\em type} & 除算か剰余かどうかのタイプ　０：除算式　１：剰余式 \\
+\hline
+{\em statement} & 除算および剰余以下の式 \\
+\hline
+{\em identifiers} & 式内の識別子一覧\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成された情報へのアドレスが返される 
+\end{DoxyReturn}
+\hypertarget{DivitionInformation_8h_a2a58708b942277980a1e342214e8a254}{
+\index{DivitionInformation.h@{DivitionInformation.h}!new\_\-DIVITION\_\-INFORMATION\_\-char@{new\_\-DIVITION\_\-INFORMATION\_\-char}}
+\index{new\_\-DIVITION\_\-INFORMATION\_\-char@{new\_\-DIVITION\_\-INFORMATION\_\-char}!DivitionInformation.h@{DivitionInformation.h}}
+\subsubsection[{new\_\-DIVITION\_\-INFORMATION\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DIVITION\_\-INFORMATION}$\ast$ new\_\-DIVITION\_\-INFORMATION\_\-char (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int}]{type, }
+\item[{char $\ast$}]{statement, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{identifiers}
+\end{DoxyParamCaption}
+)}}
+\label{DivitionInformation_8h_a2a58708b942277980a1e342214e8a254}
+除算および剰余算に関する情報を生成する
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-expression} & 対象の式へのASTノードのアドレス \\
+\hline
+{\em type} & 除算か剰余かどうかのタイプ　０：除算式　１：剰余式 \\
+\hline
+{\em statement} & 除算および剰余以下の式 \\
+\hline
+{\em identifiers} & 式内の識別子一覧\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成された情報へのアドレスが返される 
+\end{DoxyReturn}
+\hypertarget{DivitionInformation_8h_a74edf6ce59d5bd1990b6d76553b13380}{
+\index{DivitionInformation.h@{DivitionInformation.h}!printDIVITION\_\-INFORMATION\_\-LIST@{printDIVITION\_\-INFORMATION\_\-LIST}}
+\index{printDIVITION\_\-INFORMATION\_\-LIST@{printDIVITION\_\-INFORMATION\_\-LIST}!DivitionInformation.h@{DivitionInformation.h}}
+\subsubsection[{printDIVITION\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printDIVITION\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{DIVITION\_\-INFORMATION\_\-LIST $\ast$}]{divition\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{DivitionInformation_8h_a74edf6ce59d5bd1990b6d76553b13380}
+除算および剰余算に関する情報のリストの内容を出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em divition\_\-information\_\-list} & 除算および剰余算に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

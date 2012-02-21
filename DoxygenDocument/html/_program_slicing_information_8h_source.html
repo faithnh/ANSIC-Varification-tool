@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ProgramSlicing/ProgramSlicingInformation.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ProgramSlicing/ProgramSlicingInformation.h</h1>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00006"></a>00006 <span class="preprocessor">#ifndef PROGRAM_SLICING_INFORMATION_HEADDER</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define PROGRAM_SLICING_INFORMATION_HEADDER</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include&quot;<a class="code" href="_a_s_t_8h.html" title="このファイルは、ANSICのソースコードを省略させるためのマクロ文が含まれている">../ANSICInformation/AST.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include&quot;<a class="code" href="_pointer_array_control_8h.html" title="このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元のオフセットとして格納します。 各次元のオフセットとは動的配列や静的配列などにおいて、配列のどの部分を指しているかという...">../ANSICInformation/PointerArrayControl.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include&lt;cstl/list.h&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00017"></a>00017 <span class="keyword">struct </span><a class="code" href="structdd__information.html">dd_information</a>;
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 CSTL_LIST_INTERFACE(DD_INFORMATION_LIST, <span class="keyword">struct</span> <a class="code" href="structdd__information.html">dd_information</a>)
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00024"></a>00024 struct <a class="code" href="structexpr__slicing.html">expr_slicing</a>;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 CSTL_LIST_INTERFACE(EXPR_SLICING_LIST, struct expr_slicing);
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="structexpr__slicing.html">00028</a> typedef struct expr_slicing{
+<a name="l00029"></a>00029     <span class="keywordtype">int</span> expr_slicing_number;        
+<a name="l00030"></a><a class="code" href="structexpr__slicing.html#aedba8cfc4257b061cb957627eaa20aa8">00030</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structexpr__slicing.html#aedba8cfc4257b061cb957627eaa20aa8" title="プログラムスライシングに割り当てられるブロックごと番号">expression</a>;                
+<a name="l00031"></a><a class="code" href="structexpr__slicing.html#a6dd34be5ebc821a1981200b3fc99fcce">00031</a>     DD_INFORMATION_LIST *<a class="code" href="structexpr__slicing.html#a6dd34be5ebc821a1981200b3fc99fcce" title="対象の式へのＡＳＴノード">dd_list</a>;       
+<a name="l00032"></a><a class="code" href="structexpr__slicing.html#a81a6f2ff6b7d5bf71e74aec0bcc3d9c2">00032</a>     ARRAY_OFFSET_LIST *<a class="code" href="structexpr__slicing.html#a81a6f2ff6b7d5bf71e74aec0bcc3d9c2" title="依存関係リスト">target_variable</a>; 
+<a name="l00033"></a><a class="code" href="structexpr__slicing.html#a5b27eb7962b631a4f7b97886139d63bb">00033</a>     ARRAY_OFFSET_LIST *<a class="code" href="structexpr__slicing.html#a5b27eb7962b631a4f7b97886139d63bb" title="変数のオフセットリスト">dependences</a>;     
+<a name="l00034"></a><a class="code" href="structexpr__slicing.html#acbcce12cd076171078fd8c1cd5c04edc">00034</a>     EXPR_SLICING_LIST *<a class="code" href="structexpr__slicing.html#acbcce12cd076171078fd8c1cd5c04edc" title="依存関係の配列オフセットリスト">children1</a>;   
+<a name="l00035"></a><a class="code" href="structexpr__slicing.html#ad3287a356446f273cbb3f9fcd2f83788">00035</a>     EXPR_SLICING_LIST *<a class="code" href="structexpr__slicing.html#ad3287a356446f273cbb3f9fcd2f83788" title="ifやwhile、forに対するスライシングリスト">children2</a>;   
+<a name="l00036"></a><a class="code" href="structexpr__slicing.html#a4b70a026092925669b2dd281d0af849f">00036</a>     <span class="keyword">struct </span>expr_slicing *<a class="code" href="structexpr__slicing.html#a4b70a026092925669b2dd281d0af849f" title="else文に対するスライシングリスト">parent</a>;            
+<a name="l00037"></a><a class="code" href="structexpr__slicing.html#adf916204820072417ed73a32de1cefcf">00037</a>     <span class="keywordtype">int</span> <a class="code" href="structexpr__slicing.html#adf916204820072417ed73a32de1cefcf" title="親をたどるためのノード">flag</a>;                       
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 } <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a>;
+<a name="l00040"></a>00040 
+<a name="l00041"></a><a class="code" href="structdd__information.html">00041</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structdd__information.html">dd_information</a>{
+<a name="l00042"></a>00042     CSTLString *dd_variable_name;   <span class="comment">//データ依存関係に関する変数名</span>
+<a name="l00043"></a>00043     <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *dd_target;        <span class="comment">//データ依存関係のターゲットとなる命令</span>
+<a name="l00044"></a>00044 } <a class="code" href="structdd__information.html">DD_INFORMATION</a>;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
+<a name="l00060"></a>00060 <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *new_EXPR_SLICING(<span class="keywordtype">int</span> expr_slicing_number, <a class="code" href="structabstract__syntax__tree.html">AST</a> *expression, ARRAY_OFFSET_LIST *target_variable,
+<a name="l00061"></a>00061         ARRAY_OFFSET_LIST *dependences,EXPR_SLICING_LIST *children1, EXPR_SLICING_LIST *children2,
+<a name="l00062"></a>00062         <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *parent );
+<a name="l00063"></a>00063 
+<a name="l00072"></a>00072 <a class="code" href="structdd__information.html">DD_INFORMATION</a> *new_DD_INFORMATION(CSTLString *dd_variable_name, <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *dd_target);
+<a name="l00073"></a>00073 
+<a name="l00082"></a>00082 <span class="keywordtype">int</span> searchDeclarationDD(CSTLString *variable_name, <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="code" href="structexpr__slicing.html">expr_slicing</a>);
+<a name="l00083"></a>00083 
+<a name="l00090"></a>00090 <span class="keywordtype">void</span> initExprSlicingListFlag(EXPR_SLICING_LIST *expr_slicing_list);
+<a name="l00100"></a>00100 <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *searchFunctionPSI(CSTLString *function_name, EXPR_SLICING_LIST *expr_slicing_list);
+<a name="l00101"></a>00101 
+<a name="l00111"></a>00111 <span class="keywordtype">void</span> getFunctionGrobalVariable(ARRAY_OFFSET_LIST *output_global_variable_list, EXPR_SLICING_LIST *function_expr_slicing_list,
+<a name="l00112"></a>00112         ARRAY_OFFSET_LIST *global_variable_list);
+<a name="l00113"></a>00113 
+<a name="l00122"></a>00122 <span class="keywordtype">void</span> getVariableDeclarationFromEXPR_SLICING_LIST(ARRAY_OFFSET_LIST *global_variable_list, EXPR_SLICING_LIST *program_expr_slicing_list);
+<a name="l00123"></a>00123 
+<a name="l00130"></a>00130 <span class="keywordtype">void</span> setGlobalVariable(EXPR_SLICING_LIST *expr_slicing_list, EXPR_SLICING_LIST *program_expr_slicing_list);
+<a name="l00131"></a>00131 
+<a name="l00139"></a>00139 <span class="keywordtype">void</span> print_EXPR_SLICING_LIST(EXPR_SLICING_LIST *expr_slicing_list);
+<a name="l00140"></a>00140 
+<a name="l00148"></a>00148 <span class="keywordtype">void</span> print_tree_EXPR_SLICING_LIST(EXPR_SLICING_LIST *expr_slicing_list, <span class="keywordtype">int</span> program_slicing_mode);
+<a name="l00149"></a>00149 
+<a name="l00158"></a>00158 <span class="keywordtype">void</span> registerIncDecVariable(ARRAY_OFFSET_LIST *dependences, ARRAY_OFFSET_LIST *target_variable);
+<a name="l00159"></a>00159 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

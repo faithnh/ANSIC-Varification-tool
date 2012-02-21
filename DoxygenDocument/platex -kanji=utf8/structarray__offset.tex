@@ -1,0 +1,38 @@
+\section{構造体 array\_\-offset}
+\label{structarray__offset}\index{array\_\-offset@{array\_\-offset}}
+
+
+{\ttfamily \#include $<$PointerArrayControl.h$>$}
+
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structarray__offset_afd077f3bd6710cff01a7b45ed165bde2}{target\_\-statement}\label{structarray__offset_afd077f3bd6710cff01a7b45ed165bde2}
+
+\begin{DoxyCompactList}\small\item\em 変数名 \item\end{DoxyCompactList}\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{structarray__offset_af1c0654e42cb4c87213a76c1a5ed1b49}{variable\_\-address}\label{structarray__offset_af1c0654e42cb4c87213a76c1a5ed1b49}
+
+\begin{DoxyCompactList}\small\item\em ターゲットのstatement(ここではexpression\_\-statementなどが入る) \item\end{DoxyCompactList}\item 
+int \hyperlink{structarray__offset_acdec5a49acb00313d5f2639a8d65a19e}{pointer\_\-level}\label{structarray__offset_acdec5a49acb00313d5f2639a8d65a19e}
+
+\begin{DoxyCompactList}\small\item\em この変数名が指しているASTアドレス \item\end{DoxyCompactList}\item 
+int \hyperlink{structarray__offset_a7b52678b7dd18aee856cea8a4d33c31b}{array\_\-level}\label{structarray__offset_a7b52678b7dd18aee856cea8a4d33c31b}
+
+\begin{DoxyCompactList}\small\item\em この変数のポインタレベル \item\end{DoxyCompactList}\item 
+int \hyperlink{structarray__offset_abb7708411833c87b184d43809fd0d0fa}{anpasand\_\-flag}\label{structarray__offset_abb7708411833c87b184d43809fd0d0fa}
+
+\begin{DoxyCompactList}\small\item\em この変数の配列レベル \item\end{DoxyCompactList}\item 
+int \hyperlink{structarray__offset_a6a247a3ddfb4d6ae418c81521b3b327e}{inc\_\-dec\_\-flag}\label{structarray__offset_a6a247a3ddfb4d6ae418c81521b3b327e}
+
+\begin{DoxyCompactList}\small\item\em この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない \item\end{DoxyCompactList}\item 
+OFFSET\_\-LIST $\ast$ \hyperlink{structarray__offset_a3b07fc99c154fe2d99d1a31277897c65}{offset\_\-list}\label{structarray__offset_a3b07fc99c154fe2d99d1a31277897c65}
+
+\begin{DoxyCompactList}\small\item\em この変数はインクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+配列やポインタの各次元のオフセット関係を格納するための構造体である。配列オフセットと呼ばれる 
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ANSICInformation/\hyperlink{PointerArrayControl_8h}{PointerArrayControl.h}\end{DoxyCompactItemize}

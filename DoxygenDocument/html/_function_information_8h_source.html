@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ANSICInformation/FunctionInformation.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/FunctionInformation.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_function_information_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef FUNCTION_INFORMATION_HEADDER</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define FUNCTION_INFORMATION_HEADDER</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include&lt;cstl/list.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="_c_s_t_l_string_8h.html" title="このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行います。">../Library/CSTLString.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="_a_s_t_8h.html" title="このファイルは、ANSICのソースコードを省略させるためのマクロ文が含まれている">AST.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="comment">//パラメータが入出力タイプか入力タイプか出力タイプかを示す</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#define PARAM_INOUT_TYPE 2</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#define PARAM_IN_TYPE 1</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#define PARAM_OUT_TYPE 0</span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span>
+<a name="l00023"></a><a class="code" href="structparam__information.html">00023</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structparam__information.html">param_information</a>{
+<a name="l00024"></a>00024     CSTLString *param_type; 
+<a name="l00025"></a><a class="code" href="structparam__information.html#ae2d290dac824c76655235e523191b0da">00025</a>     CSTLString *<a class="code" href="structparam__information.html#ae2d290dac824c76655235e523191b0da" title="パラメータの型">param_name</a>; 
+<a name="l00026"></a><a class="code" href="structparam__information.html#aed05e5ea26e5b566810e672acde1f21a">00026</a>     <span class="keywordtype">int</span> <a class="code" href="structparam__information.html#aed05e5ea26e5b566810e672acde1f21a" title="パラメータの名前">array_level</a>;        
+<a name="l00027"></a><a class="code" href="structparam__information.html#ac9d348d0c88222d709045c028a2734d7">00027</a>     <span class="keywordtype">int</span> <a class="code" href="structparam__information.html#ac9d348d0c88222d709045c028a2734d7" title="配列のレベル">pointer_level</a>;      
+<a name="l00028"></a><a class="code" href="structparam__information.html#abfe7a3050f698aed2f9f887e59012a49">00028</a>     <span class="keywordtype">int</span> <a class="code" href="structparam__information.html#abfe7a3050f698aed2f9f887e59012a49" title="ポインタのレベル">in_out_flag</a>;        
+<a name="l00029"></a>00029 } <a class="code" href="_function_information_8h.html#ae4491ef8fff9eec21ce52d12bc035b04">PARAM_INFORMATION</a>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 CSTL_LIST_INTERFACE(PARAM_INFORMATION_LIST, <a class="code" href="structparam__information.html">PARAM_INFORMATION</a>)
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00036"></a><a class="code" href="structfunction__information.html">00036</a> typedef struct <a class="code" href="structfunction__information.html">function_information</a>{
+<a name="l00037"></a>00037     <a class="code" href="structabstract__syntax__tree.html">AST</a> *function_node;                             
+<a name="l00038"></a><a class="code" href="structfunction__information.html#a4468a2ac44722c3dc7135e78eb521fe1">00038</a>     CSTLString *<a class="code" href="structfunction__information.html#a4468a2ac44722c3dc7135e78eb521fe1" title="関数定義のASTノードへのアドレス">return_type</a>;                        
+<a name="l00039"></a><a class="code" href="structfunction__information.html#aa8246b7aa6931e2acee2be469949eec1">00039</a>     CSTLString *<a class="code" href="structfunction__information.html#aa8246b7aa6931e2acee2be469949eec1" title="返却値の型（const intなどと表記される)">function_name</a>;                      
+<a name="l00040"></a><a class="code" href="structfunction__information.html#ad4a6fa9e7eaffa4602c97e8260c24f7a">00040</a>     PARAM_INFORMATION_LIST *<a class="code" href="structfunction__information.html#ad4a6fa9e7eaffa4602c97e8260c24f7a" title="関数名(*funcなどと表記される）">param_information_list</a>; 
+<a name="l00041"></a>00041 } <a class="code" href="_function_information_8h.html#aab4e23ad10f5b3c5e209289dbb41df40">FUNCTION_INFORMATION</a>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 CSTL_LIST_INTERFACE(FUNCTION_INFORMATION_LIST, <a class="code" href="structfunction__information.html">FUNCTION_INFORMATION</a>)
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00057"></a>00057 <a class="code" href="structfunction__information.html">FUNCTION_INFORMATION</a> *new_FUNCTION_INFORMATION(<a class="code" href="structabstract__syntax__tree.html">AST</a> *function_node, CSTLString *return_type, CSTLString *function_name, PARAM_INFORMATION_LIST *param_informaition_list);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00070"></a>00070 <a class="code" href="structparam__information.html">PARAM_INFORMATION</a> *new_PARAM_INFORMATION(CSTLString *param_type, CSTLString *param_name,
+<a name="l00071"></a>00071             <span class="keywordtype">int</span> array_level, <span class="keywordtype">int</span> pointer_level, <span class="keywordtype">int</span> in_out_flag);
+<a name="l00072"></a>00072 
+<a name="l00082"></a>00082 <span class="keywordtype">void</span> getFunctionInformation(FUNCTION_INFORMATION_LIST *function_information_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root);
+<a name="l00083"></a>00083 
+<a name="l00091"></a>00091 <span class="keywordtype">void</span> getFunctionInformationFromFile(FUNCTION_INFORMATION_LIST *function_information_list, <span class="keywordtype">char</span>* file_name);
+<a name="l00092"></a>00092 
+<a name="l00100"></a>00100 <span class="keywordtype">void</span> deleteParameterDefine(CSTLString *target_string);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 
+<a name="l00110"></a>00110 <span class="keywordtype">void</span> printFUNCTION_INFORMATION_LIST(FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00111"></a>00111 
+<a name="l00121"></a>00121 <a class="code" href="structfunction__information.html">FUNCTION_INFORMATION</a> *searchFUNCTION_INFORMATION(CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00122"></a>00122 
+<a name="l00131"></a>00131 <span class="keywordtype">int</span> getPointerLevelFromFUNCTION_INFORMATION_LIST(CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00132"></a>00132 
+<a name="l00141"></a>00141 <span class="keywordtype">void</span> getParamInformationFromFunctionDifinition(<a class="code" href="structabstract__syntax__tree.html">AST</a> *param_info_node, PARAM_INFORMATION_LIST *param_information_list);
+<a name="l00142"></a>00142 
+<a name="l00152"></a>00152 <span class="keywordtype">int</span> getIN_OUT_FLAG(CSTLString *param_type, <span class="keywordtype">int</span> pointer_level, <span class="keywordtype">int</span> array_level);
+<a name="l00153"></a>00153 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:37:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

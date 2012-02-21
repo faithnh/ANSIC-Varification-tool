@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/Synbol.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/Synbol.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="Synbol_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef C_SYNBOL_HEADDER</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define C_SYNBOL_HEADDER</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;cstl/list.h&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#include&quot;<a class="code" href="CSTLString_8h.html" title="このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行うための命令が含まれている。">../Library/CSTLString.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="IdList_8h.html" title="このファイルは、この変数はC言語プログラム上のどのブロックに宣言しているかどうかを確認するための情報を生成するための命令が含まれている。">../Library/IdList.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="AST_8h.html" title="このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノ...">AST.h</a>&quot;</span>
+<a name="l00019"></a>00019 
+<a name="l00023"></a><a class="code" href="structtypedef__table.html">00023</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structtypedef__table.html">typedef_table</a> {
+<a name="l00024"></a>00024     CSTLString *target_type;    
+<a name="l00025"></a><a class="code" href="structtypedef__table.html#a4afc97b97fbd4fc47fdc746bfce061f2">00025</a>     CSTLString *<a class="code" href="structtypedef__table.html#a4afc97b97fbd4fc47fdc746bfce061f2" title="対象の型定義">change_type</a>;    
+<a name="l00026"></a>00026 } <a class="code" href="Synbol_8h.html#acea964af3672f8ac88991ff14c52694a">TYPEDEF_TABLE</a>;
+<a name="l00027"></a>00027 
+<a name="l00031"></a><a class="code" href="structvariable__table.html">00031</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvariable__table.html">variable_table</a> {
+<a name="l00032"></a>00032     <span class="keywordtype">int</span> enable_start;                   
+<a name="l00033"></a><a class="code" href="structvariable__table.html#a69b24ee97fe37831cbfe54edf6c5a9c0">00033</a>     <span class="keywordtype">int</span> <a class="code" href="structvariable__table.html#a69b24ee97fe37831cbfe54edf6c5a9c0" title="この変数が有効である開始の行数">enable_end</a>;                     
+<a name="l00034"></a><a class="code" href="structvariable__table.html#ad4eca9a1daf1ccf260a672768a054d73">00034</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structvariable__table.html#ad4eca9a1daf1ccf260a672768a054d73" title="この変数が有効である終了の行数">declaration_location_address</a>;  
+<a name="l00035"></a><a class="code" href="structvariable__table.html#a7dfd4036a14e108dda08ce0bd83e7fe1">00035</a>     <span class="keywordtype">int</span> <a class="code" href="structvariable__table.html#a7dfd4036a14e108dda08ce0bd83e7fe1" title="この変数の宣言をしているASTノードへのアドレス">block_level</a>;                    
+<a name="l00036"></a><a class="code" href="structvariable__table.html#a689fe54448fbbc46aaebb56203005cc4">00036</a>     <span class="keywordtype">int</span> <a class="code" href="structvariable__table.html#a689fe54448fbbc46aaebb56203005cc4" title="この変数が宣言しているブロックレベル(グローバル変数なら０、関数内のローカル変数なら１となる）">block_id</a>;                       
+<a name="l00037"></a><a class="code" href="structvariable__table.html#ab7fbad4dd717512360b7f947a277b10b">00037</a>     IDLIST *<a class="code" href="structvariable__table.html#ab7fbad4dd717512360b7f947a277b10b" title="この変数が宣言している各々のブロックの識別子">idlist</a>;                     
+<a name="l00038"></a><a class="code" href="structvariable__table.html#a3fbbc0d31aed9894be0bddaf8cb4af49">00038</a>     CSTLString *<a class="code" href="structvariable__table.html#a3fbbc0d31aed9894be0bddaf8cb4af49" title="この変数が宣言しているブロックレベルおよび識別子の両方に関する情報で、変数スコープを識別するのに使用される。">type</a>;                   
+<a name="l00039"></a><a class="code" href="structvariable__table.html#a5f81ceac01a5b8c2632ddd2e1588436b">00039</a>     CSTLString *<a class="code" href="structvariable__table.html#a5f81ceac01a5b8c2632ddd2e1588436b" title="この変数の型">variable_name</a>;          
+<a name="l00040"></a><a class="code" href="structvariable__table.html#ad1094019a19afcd1acf8b9242e501bf5">00040</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structvariable__table.html#ad1094019a19afcd1acf8b9242e501bf5" title="この変数の名前">initiarizer</a>;                   
+<a name="l00041"></a>00041 } <a class="code" href="Synbol_8h.html#aba95a019bb71ccd5e3e128174d299272">VARIABLE_TABLE</a>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 CSTL_LIST_INTERFACE(VARIABLE_TABLE_LIST, <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a>);
+<a name="l00044"></a>00044 
+<a name="l00048"></a><a class="code" href="structstruct__table.html">00048</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structstruct__table.html">struct_table</a>{
+<a name="l00049"></a>00049     <span class="keywordtype">int</span> line;               
+<a name="l00050"></a><a class="code" href="structstruct__table.html#aa24e637ea09371ee5332357c141541f2">00050</a>     CSTLString *<a class="code" href="structstruct__table.html#aa24e637ea09371ee5332357c141541f2" title="行数">type</a>;       
+<a name="l00051"></a><a class="code" href="structstruct__table.html#ac49bae1a4a5f05919ac8341b1406154d">00051</a>     CSTLString *<a class="code" href="structstruct__table.html#ac49bae1a4a5f05919ac8341b1406154d" title="構造体のタイプ union:共同体 struct:構造体">struct_name</a>;
+<a name="l00052"></a><a class="code" href="structstruct__table.html#af8a062298d679adae14b0303053d45a8">00052</a>     VARIABLE_TABLE_LIST *<a class="code" href="structstruct__table.html#af8a062298d679adae14b0303053d45a8" title="構造体の名前">member_list</a>;   
+<a name="l00053"></a>00053 } <a class="code" href="Synbol_8h.html#af5018610fe25e6d5a5a8bbe35d944ec5">STRUCT_TABLE</a>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 CSTL_LIST_INTERFACE(TYPEDEF_TABLE_LIST, <a class="code" href="structtypedef__table.html">TYPEDEF_TABLE</a>);
+<a name="l00056"></a>00056 CSTL_LIST_INTERFACE(STRUCT_TABLE_LIST, <a class="code" href="structstruct__table.html">STRUCT_TABLE</a>);
+<a name="l00063"></a>00063 <a class="code" href="structtypedef__table.html">TYPEDEF_TABLE</a> *new_TYPEDEF_TABLE(CSTLString *target_type, CSTLString *change_type);
+<a name="l00078"></a>00078 <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *new_VARIABLE_TABLE(<span class="keywordtype">int</span> enable_start, <span class="keywordtype">int</span> enable_end, <a class="code" href="structabstract__syntax__tree.html">AST</a>* declaration_location_address,
+<a name="l00079"></a>00079                                    <span class="keywordtype">int</span> block_level ,<span class="keywordtype">int</span> block_id, IDLIST *idlist, CSTLString *type, CSTLString *variable_name, <a class="code" href="structabstract__syntax__tree.html">AST</a> *initializer);
+<a name="l00080"></a>00080 
+<a name="l00089"></a>00089 <a class="code" href="structstruct__table.html">STRUCT_TABLE</a> *new_STRUCT_TABLE_with_char(<span class="keywordtype">int</span> line, <span class="keywordtype">char</span> *type, <span class="keywordtype">char</span> *struct_name, VARIABLE_TABLE_LIST *member_list);
+<a name="l00090"></a>00090 
+<a name="l00097"></a>00097 <a class="code" href="structtypedef__table.html">TYPEDEF_TABLE</a> *new_TYPEDEF_TABLE_with_char(<span class="keywordtype">char</span> *target_type, <span class="keywordtype">char</span> *change_type);
+<a name="l00112"></a>00112 <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *new_VARIABLE_TABLE_with_char(<span class="keywordtype">int</span> enable_start, <span class="keywordtype">int</span> enable_end, <a class="code" href="structabstract__syntax__tree.html">AST</a>* declaration_location_address,
+<a name="l00113"></a>00113                                    <span class="keywordtype">int</span> block_level ,<span class="keywordtype">int</span> block_id,IDLIST *idlist, <span class="keywordtype">char</span> *type, <span class="keywordtype">char</span> *variable_name, <a class="code" href="structabstract__syntax__tree.html">AST</a> *initializer);
+<a name="l00114"></a>00114 
+<a name="l00123"></a>00123 <a class="code" href="structstruct__table.html">STRUCT_TABLE</a> *new_STRUCT_TABLE(<span class="keywordtype">int</span> line, CSTLString *type, CSTLString *struct_name, VARIABLE_TABLE_LIST *member_list);
+<a name="l00124"></a>00124 
+<a name="l00132"></a>00132 <span class="keywordtype">void</span> getTYPEDEF_TABLE_DATA(TYPEDEF_TABLE_LIST *typedef_table_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *typelist, <a class="code" href="structabstract__syntax__tree.html">AST</a> *identifier);
+<a name="l00133"></a>00133 
+<a name="l00141"></a>00141 <a class="code" href="structabstract__syntax__tree.html">AST</a> *getTYPEDEFfromAST(TYPEDEF_TABLE_LIST *typedef_table_list, <span class="keywordtype">char</span> *token, <span class="keywordtype">int</span> line);
+<a name="l00150"></a>00150 <span class="keywordtype">void</span> printTYPEDEF_TABLE_LIST(TYPEDEF_TABLE_LIST *typedef_table_list);
+<a name="l00151"></a>00151 
+<a name="l00158"></a>00158 <span class="keywordtype">void</span> getSTRUCT_TABLE_DATA(STRUCT_TABLE_LIST *struct_table_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data);
+<a name="l00159"></a>00159 
+<a name="l00165"></a>00165 <span class="keywordtype">int</span> find_STRUCT_TABLE_DATA(STRUCT_TABLE_LIST *struct_table_list, CSTLString *target);
+<a name="l00166"></a>00166 
+<a name="l00173"></a>00173 <span class="keywordtype">void</span> getSTRUCT_DATA(<a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data, STRUCT_TABLE_LIST *struct_table_data);
+<a name="l00174"></a>00174 
+<a name="l00181"></a>00181 <span class="keywordtype">void</span> getMemberList(VARIABLE_TABLE_LIST *member_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data);
+<a name="l00182"></a>00182 
+<a name="l00195"></a>00195 <span class="keywordtype">void</span> getDeclaratorFromAST(<span class="keywordtype">char</span> <span class="keyword">const</span> *type, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data, VARIABLE_TABLE_LIST *member_list,
+<a name="l00196"></a>00196                           <span class="keywordtype">int</span> enable_start, <span class="keywordtype">int</span> enable_end ,<span class="keywordtype">int</span> block_level, <span class="keywordtype">int</span> block_id, <a class="code" href="structabstract__syntax__tree.html">AST</a>* declaration_location_address);
+<a name="l00197"></a>00197 
+<a name="l00204"></a>00204 <span class="keywordtype">void</span> printSTRUCT_TABLE_LIST(STRUCT_TABLE_LIST *struct_table_list);
+<a name="l00205"></a>00205 
+<a name="l00213"></a>00213 <span class="keywordtype">void</span> getVARIABLE_TABLE_LIST(VARIABLE_TABLE_LIST *variable_table_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data);
+<a name="l00214"></a>00214 
+<a name="l00223"></a>00223 <span class="keywordtype">void</span> getParameterData(VARIABLE_TABLE_LIST *variable_table_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data, <a class="code" href="structabstract__syntax__tree.html">AST</a> *enable_start, <a class="code" href="structabstract__syntax__tree.html">AST</a> *enable_end);
+<a name="l00224"></a>00224 
+<a name="l00231"></a>00231 <span class="keywordtype">void</span> getParameterVARIABLE_TABLE_LIST(VARIABLE_TABLE_LIST *variable_table_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *ast_data);
+<a name="l00238"></a>00238 <span class="keywordtype">void</span> printVARIABLE_TABLE_LIST(VARIABLE_TABLE_LIST *variable_table_list);
+<a name="l00239"></a>00239 
+<a name="l00247"></a>00247 <span class="keywordtype">void</span> getPointerLevelAndArrayLevelFromVARIABLE_TABLE(<a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *variable_table_data, <span class="keywordtype">int</span> *output_pointer_level, <span class="keywordtype">int</span> *output_array_level);
+<a name="l00248"></a>00248 
+<a name="l00256"></a>00256 <span class="keywordtype">void</span> getPointerLevelAndArrayLevel(CSTLString *target_identifier, <span class="keywordtype">int</span> *output_pointer_level, <span class="keywordtype">int</span> *output_array_level);
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258 
+<a name="l00268"></a>00268 <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *searchVARIABLE_TABLE_LIST(IDLIST *target_idlist, CSTLString *target_string, VARIABLE_TABLE_LIST* variable_table_list);
+<a name="l00269"></a>00269 
+<a name="l00275"></a>00275 <span class="keywordtype">void</span> <a class="code" href="PointerArrayControl_8h.html#acc3cd8275754e5412501748b96b6f23e">deletePointerAndArraySynbol</a>(CSTLString *target);
+<a name="l00276"></a>00276 
+<a name="l00282"></a>00282 <span class="keywordtype">void</span> <a class="code" href="PointerArrayControl_8h.html#a865793639f2aa40d0c7e5101f130ac3e">deletePointer</a>(CSTLString *target);
+<a name="l00283"></a>00283 <span class="preprocessor">#endif</span>
+<a name="l00284"></a>00284 <span class="preprocessor"></span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:38:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

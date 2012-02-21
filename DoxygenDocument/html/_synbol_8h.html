@@ -1,0 +1,1266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ANSICInformation/Synbol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/Synbol.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必須な処理です。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;cstl/list.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="_c_s_t_l_string_8h_source.html">../Library/CSTLString.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_id_list_8h_source.html">../Library/IdList.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_a_s_t_8h_source.html">AST.h</a>&quot;</code><br/>
+</div>
+<p><a href="_synbol_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtypedef__table.html">typedef_table</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvariable__table.html">variable_table</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstruct__table.html">struct_table</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structtypedef__table.html">typedef_table</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#acea964af3672f8ac88991ff14c52694a">TYPEDEF_TABLE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structvariable__table.html">variable_table</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aba95a019bb71ccd5e3e128174d299272">VARIABLE_TABLE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structstruct__table.html">struct_table</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#af5018610fe25e6d5a5a8bbe35d944ec5">STRUCT_TABLE</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03f40d95d6184c3aa260f0494ca2b6fd"></a><!-- doxytag: member="Synbol.h::CSTL_LIST_INTERFACE" ref="a03f40d95d6184c3aa260f0494ca2b6fd" args="(VARIABLE_TABLE_LIST, VARIABLE_TABLE)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>CSTL_LIST_INTERFACE</b> (VARIABLE_TABLE_LIST, <a class="el" href="structvariable__table.html">VARIABLE_TABLE</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32d9863c09d6bd2a54d67763539d911c"></a><!-- doxytag: member="Synbol.h::CSTL_LIST_INTERFACE" ref="a32d9863c09d6bd2a54d67763539d911c" args="(TYPEDEF_TABLE_LIST, TYPEDEF_TABLE)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>CSTL_LIST_INTERFACE</b> (TYPEDEF_TABLE_LIST, <a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c69bd2010dc86e2e4315d27a18cd379"></a><!-- doxytag: member="Synbol.h::CSTL_LIST_INTERFACE" ref="a9c69bd2010dc86e2e4315d27a18cd379" args="(STRUCT_TABLE_LIST, STRUCT_TABLE)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>CSTL_LIST_INTERFACE</b> (STRUCT_TABLE_LIST, <a class="el" href="structstruct__table.html">STRUCT_TABLE</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aff3bac744ce12f04e06889fa7eca475b">new_TYPEDEF_TABLE</a> (CSTLString *target_type, CSTLString *change_type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aaa35e789cbb88b2190e444b96035c379">new_VARIABLE_TABLE</a> (int enable_start, int enable_end, <a class="el" href="structabstract__syntax__tree.html">AST</a> *declaration_location_address, int block_level, int block_id, IDLIST *idlist, CSTLString *type, CSTLString *variable_name, <a class="el" href="structabstract__syntax__tree.html">AST</a> *initarizer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstruct__table.html">STRUCT_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aa95ef26c2c998337b7e10ede885869b9">new_STRUCT_TABLE_with_char</a> (int line, char *type, char *struct_name, VARIABLE_TABLE_LIST *member_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a2666e0087dc2d4475a0d342a216a6f5e">new_TYPEDEF_TABLE_with_char</a> (char *target_type, char *change_type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a2bc0fa995a58c38ba0882eee52a78e0c">new_VARIABLE_TABLE_with_char</a> (int enable_start, int enable_end, <a class="el" href="structabstract__syntax__tree.html">AST</a> *declaration_location_address, int block_level, int block_id, IDLIST *idlist, char *type, char *variable_name, <a class="el" href="structabstract__syntax__tree.html">AST</a> *initarizer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstruct__table.html">STRUCT_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aa0bb5baf5c427f56c23a7a945dc39859">new_STRUCT_TABLE</a> (int line, CSTLString *type, CSTLString *struct_name, VARIABLE_TABLE_LIST *member_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#ac57e5e84ec4979512c4fc20c9e1b9135">getTYPEDEF_TABLE_DATA</a> (TYPEDEF_TABLE_LIST *typedef_table_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *typelist, <a class="el" href="structabstract__syntax__tree.html">AST</a> *identifier)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a6d7fd082794fed9b030aaf19887da940">getTYPEDEFfromAST</a> (TYPEDEF_TABLE_LIST *typedef_table_list, char *token, int line)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#af74a1ea9bd21282292422f5c25a66d30">printTYPEDEF_TABLE_LIST</a> (TYPEDEF_TABLE_LIST *typedef_table_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#af79e414694270208cb0ac5c3e358eb68">getSTRUCT_TABLE_DATA</a> (STRUCT_TABLE_LIST *struct_table_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#ac3f428826e474fb1b0ca352b3ca011ab">find_STRUCT_TABLE_DATA</a> (STRUCT_TABLE_LIST *struct_table_list, CSTLString *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a1bd148c1aff660291572e425cffc8802">getSTRUCT_DATA</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data, STRUCT_TABLE_LIST *struct_table_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aafaf1504517931b7d80f1859acee3f5a">getMemberList</a> (VARIABLE_TABLE_LIST *member_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#af36d024559f3450d5914bfa571343857">getDeclaratorFromAST</a> (char const *type, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data, VARIABLE_TABLE_LIST *member_list, int enable_start, int enable_end, int block_level, int block_id, <a class="el" href="structabstract__syntax__tree.html">AST</a> *declaration_location_address)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#ab938829024cd08a5cb8edde55af0d59a">printSTRUCT_TABLE_LIST</a> (STRUCT_TABLE_LIST *struct_table_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#ab993873ae14599a0a7ba57a81aad9cf3">getVARIABLE_TABLE_LIST</a> (VARIABLE_TABLE_LIST *variable_table_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a2971c4a3533b56fd124ee6bbad16be26">getParameterData</a> (VARIABLE_TABLE_LIST *variable_table_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data, <a class="el" href="structabstract__syntax__tree.html">AST</a> *enable_start, <a class="el" href="structabstract__syntax__tree.html">AST</a> *enable_end)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a823d2eaaec934739c5ff3ebd1843d258">getParameterVARIABLE_TABLE_LIST</a> (VARIABLE_TABLE_LIST *variable_table_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *ast_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#aa0d5516918a872d6f17450c510482994">printVARIABLE_TABLE_LIST</a> (VARIABLE_TABLE_LIST *variable_table_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a5b46f7c05dd827544128d6ce0bff2ada">getPointerLevelAndArrayLevelFromVARIABLE_TABLE</a> (<a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *variable_table_data, int *output_pointer_level, int *output_array_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a0c1787648bcdd921d8b6372e90115d34">getPointerLevelAndArrayLevel</a> (CSTLString *target_identifier, int *output_pointer_level, int *output_array_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a22dbc5727793ae91c80b9b95f1e06d11">searchVARIABLE_TABLE_LIST</a> (IDLIST *target_idlist, CSTLString *target_string, VARIABLE_TABLE_LIST *variable_table_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#acc3cd8275754e5412501748b96b6f23e">deletePointerAndArraySynbol</a> (CSTLString *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_synbol_8h.html#a865793639f2aa40d0c7e5101f130ac3e">deletePointer</a> (CSTLString *target)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必須な処理です。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="af5018610fe25e6d5a5a8bbe35d944ec5"></a><!-- doxytag: member="Synbol.h::STRUCT_TABLE" ref="af5018610fe25e6d5a5a8bbe35d944ec5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structstruct__table.html">struct_table</a>  <a class="el" href="structstruct__table.html">STRUCT_TABLE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>構造体に関する情報であり、プログラム中の構造体の識別するのに用いられる。 </p>
+
+</div>
+</div>
+<a class="anchor" id="acea964af3672f8ac88991ff14c52694a"></a><!-- doxytag: member="Synbol.h::TYPEDEF_TABLE" ref="acea964af3672f8ac88991ff14c52694a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structtypedef__table.html">typedef_table</a>  <a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>型定義に関する情報で、BISONによる構文解析時の型定義の認識に用いられる。 </p>
+
+</div>
+</div>
+<a class="anchor" id="aba95a019bb71ccd5e3e128174d299272"></a><!-- doxytag: member="Synbol.h::VARIABLE_TABLE" ref="aba95a019bb71ccd5e3e128174d299272" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structvariable__table.html">variable_table</a>  <a class="el" href="structvariable__table.html">VARIABLE_TABLE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>プログラム中の変数に関する情報であり、検証式生成時に変数を識別するのに用いられる。 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a865793639f2aa40d0c7e5101f130ac3e"></a><!-- doxytag: member="Synbol.h::deletePointer" ref="a865793639f2aa40d0c7e5101f130ac3e" args="(CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deletePointer </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数名からポインタを示す記号のみ全て削除する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>変更対象の変数名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc3cd8275754e5412501748b96b6f23e"></a><!-- doxytag: member="Synbol.h::deletePointerAndArraySynbol" ref="acc3cd8275754e5412501748b96b6f23e" args="(CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deletePointerAndArraySynbol </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数名から配列およびポインタを示す記号を全て削除する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>変更対象の変数名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3f428826e474fb1b0ca352b3ca011ab"></a><!-- doxytag: member="Synbol.h::find_STRUCT_TABLE_DATA" ref="ac3f428826e474fb1b0ca352b3ca011ab" args="(STRUCT_TABLE_LIST *struct_table_list, CSTLString *target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int find_STRUCT_TABLE_DATA </td>
+          <td>(</td>
+          <td class="paramtype">STRUCT_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>struct_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>構造体テーブルリストに同じ定義がないかどうかを調べる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">struct_table_list</td><td>検索対象の構造体テーブルリスト </td></tr>
+    <tr><td class="paramname">target</td><td>検索する文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つけられたら、１を返し、そうでなければ０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af36d024559f3450d5914bfa571343857"></a><!-- doxytag: member="Synbol.h::getDeclaratorFromAST" ref="af36d024559f3450d5914bfa571343857" args="(char const *type, AST *ast_data, VARIABLE_TABLE_LIST *member_list, int enable_start, int enable_end, int block_level, int block_id, AST *declaration_location_address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getDeclaratorFromAST </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>member_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>declaration_location_address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノードから、declaratorを探し、それを見つけたら指定した型の変数として変数リストに登録する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>指定した型 </td></tr>
+    <tr><td class="paramname">ast_data</td><td>指定されたASTノード </td></tr>
+    <tr><td class="paramname">member_list</td><td>登録先の変数リスト </td></tr>
+    <tr><td class="paramname">enable_start</td><td>変数スコープの有効範囲の開始 </td></tr>
+    <tr><td class="paramname">enable_end</td><td>変数スコープの有効範囲の終わり </td></tr>
+    <tr><td class="paramname">block_level</td><td>この変数のブロックレベル </td></tr>
+    <tr><td class="paramname">block_level</td><td>ブロックを識別するための識別番号 </td></tr>
+    <tr><td class="paramname">declaration_location_address</td><td>この宣言自体へのASTアドレス</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>指定されたASTノードから、declaratorを探し、それを見つけたら指定した型の変数として変数リストに登録する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>指定した型 </td></tr>
+    <tr><td class="paramname">ast_data</td><td>指定されたASTノード </td></tr>
+    <tr><td class="paramname">member_list</td><td>登録先の変数リスト </td></tr>
+    <tr><td class="paramname">enable_start</td><td>変数スコープの有効範囲の開始 </td></tr>
+    <tr><td class="paramname">enable_end</td><td>変数スコープの有効範囲の終わり </td></tr>
+    <tr><td class="paramname">block_level</td><td>この変数のブロックレベル </td></tr>
+    <tr><td class="paramname">block_level</td><td>ブロックを識別するための識別番号 </td></tr>
+    <tr><td class="paramname">declaration_location_address</td><td>この宣言自体のASTへのアドレス(検証式の生成に必要) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aafaf1504517931b7d80f1859acee3f5a"></a><!-- doxytag: member="Synbol.h::getMemberList" ref="aafaf1504517931b7d80f1859acee3f5a" args="(VARIABLE_TABLE_LIST *member_list, AST *ast_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getMemberList </td>
+          <td>(</td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>member_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノードから、メンバリストを生成する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">member_list</td><td>登録対象のメンバリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>指定されたASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>作成された構造体データへのアドレスを返却する </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2971c4a3533b56fd124ee6bbad16be26"></a><!-- doxytag: member="Synbol.h::getParameterData" ref="a2971c4a3533b56fd124ee6bbad16be26" args="(VARIABLE_TABLE_LIST *variable_table_list, AST *ast_data, AST *enable_start, AST *enable_end)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getParameterData </td>
+          <td>(</td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>enable_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>enable_end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数のパラメータリストを示すASTノードから、parameter_declarationを見つけ、そこから変数テーブルのリストに登録させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルのリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>対象のASTノード </td></tr>
+    <tr><td class="paramname">enable_start</td><td>有効範囲の開始を示すASTノードのアドレス </td></tr>
+    <tr><td class="paramname">enable_end</td><td>有効範囲の終了を示すASTノードのアドレス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>関数のパラメータリストを示すASTノードから、parameter_declarationを見つけ、そこから変数テーブルのリストに登録させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルのリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>対象のASTノード </td></tr>
+    <tr><td class="paramname">enable_start</td><td>有効範囲の開始 </td></tr>
+    <tr><td class="paramname">enable_end</td><td>有効範囲の終了 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a823d2eaaec934739c5ff3ebd1843d258"></a><!-- doxytag: member="Synbol.h::getParameterVARIABLE_TABLE_LIST" ref="a823d2eaaec934739c5ff3ebd1843d258" args="(VARIABLE_TABLE_LIST *variable_table_list, AST *ast_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getParameterVARIABLE_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象のASTノードから関数を探し、関数内の引数を変数テーブルのリストに登録する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルのリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>対象のASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0c1787648bcdd921d8b6372e90115d34"></a><!-- doxytag: member="Synbol.h::getPointerLevelAndArrayLevel" ref="a0c1787648bcdd921d8b6372e90115d34" args="(CSTLString *target_identifier, int *output_pointer_level, int *output_array_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getPointerLevelAndArrayLevel </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_identifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>output_pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>output_array_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象の識別子のポインタの次元および配列の次元を取得する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_identifier</td><td>対象の識別子 </td></tr>
+    <tr><td class="paramname">output_pointer_level</td><td>出力されるポインタレベル </td></tr>
+    <tr><td class="paramname">output_array_level</td><td>出力される配列レベル </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5b46f7c05dd827544128d6ce0bff2ada"></a><!-- doxytag: member="Synbol.h::getPointerLevelAndArrayLevelFromVARIABLE_TABLE" ref="a5b46f7c05dd827544128d6ce0bff2ada" args="(VARIABLE_TABLE *variable_table_data, int *output_pointer_level, int *output_array_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getPointerLevelAndArrayLevelFromVARIABLE_TABLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a> *&#160;</td>
+          <td class="paramname"><em>variable_table_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>output_pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>output_array_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数テーブルから、ポインタの次元および配列の次元を取得する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_data</td><td>変数テーブルのリスト </td></tr>
+    <tr><td class="paramname">output_pointer_level</td><td>出力されるポインタレベル </td></tr>
+    <tr><td class="paramname">output_array_level</td><td>出力される配列レベル </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1bd148c1aff660291572e425cffc8802"></a><!-- doxytag: member="Synbol.h::getSTRUCT_DATA" ref="a1bd148c1aff660291572e425cffc8802" args="(AST *ast_data, STRUCT_TABLE_LIST *struct_table_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getSTRUCT_DATA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STRUCT_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>struct_table_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノードから、構造体データを作成させ、構造体テーブルのリストへ登録させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ast_data</td><td>指定されたASTノード </td></tr>
+    <tr><td class="paramname">struct_table_data</td><td>登録先の構造体テーブルリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af79e414694270208cb0ac5c3e358eb68"></a><!-- doxytag: member="Synbol.h::getSTRUCT_TABLE_DATA" ref="af79e414694270208cb0ac5c3e358eb68" args="(STRUCT_TABLE_LIST *struct_table_list, AST *ast_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getSTRUCT_TABLE_DATA </td>
+          <td>(</td>
+          <td class="paramtype">STRUCT_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>struct_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定されたASTノードから、構造体テーブルリストに構造体データを登録させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">struct_table_list</td><td>登録先の構造体テーブルリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>指定されたASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac57e5e84ec4979512c4fc20c9e1b9135"></a><!-- doxytag: member="Synbol.h::getTYPEDEF_TABLE_DATA" ref="ac57e5e84ec4979512c4fc20c9e1b9135" args="(TYPEDEF_TABLE_LIST *typedef_table_list, AST *typelist, AST *identifier)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getTYPEDEF_TABLE_DATA </td>
+          <td>(</td>
+          <td class="paramtype">TYPEDEF_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>typedef_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>typelist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>identifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したASTノードから参照し、もしtypedef宣言の場合は、typedefテーブルに入れる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typedef_table_list</td><td>typedefテーブル </td></tr>
+    <tr><td class="paramname">typelist</td><td>型リストへのASTノード </td></tr>
+    <tr><td class="paramname">identifier</td><td>識別へのASTノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6d7fd082794fed9b030aaf19887da940"></a><!-- doxytag: member="Synbol.h::getTYPEDEFfromAST" ref="a6d7fd082794fed9b030aaf19887da940" args="(TYPEDEF_TABLE_LIST *typedef_table_list, char *token, int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structabstract__syntax__tree.html">AST</a>* getTYPEDEFfromAST </td>
+          <td>(</td>
+          <td class="paramtype">TYPEDEF_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>typedef_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>token</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE_NAMEであるASTノードを生成し、それへのアドレスを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typedef_table_list</td><td>指定したtypedefテーブルのリスト </td></tr>
+    <tr><td class="paramname">token</td><td>指定されたトークン </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>生成されたASTノードへのアドレスを返す</dd></dl>
+<p>指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE_NAMEであるASTノードを生成し、それへのアドレスを返す。 見つけられなければ、名前がIDENTIFIERであるASTノードを生成し、それへのアドレスを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typedef_table_list</td><td>指定したtypedefテーブルのリスト </td></tr>
+    <tr><td class="paramname">token</td><td>指定されたトークン </td></tr>
+    <tr><td class="paramname">line</td><td>指定された行数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>生成されたASTノードへのアドレスを返す </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab993873ae14599a0a7ba57a81aad9cf3"></a><!-- doxytag: member="Synbol.h::getVARIABLE_TABLE_LIST" ref="ab993873ae14599a0a7ba57a81aad9cf3" args="(VARIABLE_TABLE_LIST *variable_table_list, AST *ast_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getVARIABLE_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>ast_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>対象のASTノードから変数テーブルのリストを登録する </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルのリスト </td></tr>
+    <tr><td class="paramname">ast_data</td><td>対象のASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa0bb5baf5c427f56c23a7a945dc39859"></a><!-- doxytag: member="Synbol.h::new_STRUCT_TABLE" ref="aa0bb5baf5c427f56c23a7a945dc39859" args="(int line, CSTLString *type, CSTLString *struct_name, VARIABLE_TABLE_LIST *member_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstruct__table.html">STRUCT_TABLE</a>* new_STRUCT_TABLE </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>struct_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>member_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しい構造体テーブルのデータを生成させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>行数 </td></tr>
+    <tr><td class="paramname">type</td><td>型名(structかunionのいずれか） </td></tr>
+    <tr><td class="paramname">struct_name</td><td>構造体の名前 </td></tr>
+    <tr><td class="paramname">member_list</td><td>メンバリスト(変数テーブルより） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成された構造体テーブルのデータへのアドレスが返される</dd></dl>
+<p>新しい構造体テーブルのデータを生成させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>行数 </td></tr>
+    <tr><td class="paramname">type</td><td>型名 </td></tr>
+    <tr><td class="paramname">struct_name</td><td>構造体名(structかunionのいずれか） </td></tr>
+    <tr><td class="paramname">member_list</td><td>メンバリスト(変数テーブルより） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成された構造体テーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa95ef26c2c998337b7e10ede885869b9"></a><!-- doxytag: member="Synbol.h::new_STRUCT_TABLE_with_char" ref="aa95ef26c2c998337b7e10ede885869b9" args="(int line, char *type, char *struct_name, VARIABLE_TABLE_LIST *member_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstruct__table.html">STRUCT_TABLE</a>* new_STRUCT_TABLE_with_char </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>struct_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>member_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しい構造体テーブルのデータを生成させる(char文字列対応) </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>行数 </td></tr>
+    <tr><td class="paramname">type</td><td>型名(structかunionのいずれか） </td></tr>
+    <tr><td class="paramname">struct_name</td><td>構造体の名前 </td></tr>
+    <tr><td class="paramname">member_list</td><td>メンバリスト(変数テーブルより） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成された構造体テーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff3bac744ce12f04e06889fa7eca475b"></a><!-- doxytag: member="Synbol.h::new_TYPEDEF_TABLE" ref="aff3bac744ce12f04e06889fa7eca475b" args="(CSTLString *target_type, CSTLString *change_type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a>* new_TYPEDEF_TABLE </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>change_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しいtypedefテーブルのデータを生成させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_type</td><td>typedefの対象の型 </td></tr>
+    <tr><td class="paramname">change_type</td><td>typedefで割り当てた後の新しい型名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成されたtypedefテーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2666e0087dc2d4475a0d342a216a6f5e"></a><!-- doxytag: member="Synbol.h::new_TYPEDEF_TABLE_with_char" ref="a2666e0087dc2d4475a0d342a216a6f5e" args="(char *target_type, char *change_type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtypedef__table.html">TYPEDEF_TABLE</a>* new_TYPEDEF_TABLE_with_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>target_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>change_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しいtypedefテーブルのデータを生成させる(char文字列対応) </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_type</td><td>typedefの対象の型 </td></tr>
+    <tr><td class="paramname">change_type</td><td>typedefで割り当てた後の新しい型名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成されたtypedefテーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaa35e789cbb88b2190e444b96035c379"></a><!-- doxytag: member="Synbol.h::new_VARIABLE_TABLE" ref="aaa35e789cbb88b2190e444b96035c379" args="(int enable_start, int enable_end, AST *declaration_location_address, int block_level, int block_id, IDLIST *idlist, CSTLString *type, CSTLString *variable_name, AST *initarizer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a>* new_VARIABLE_TABLE </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>declaration_location_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IDLIST *&#160;</td>
+          <td class="paramname"><em>idlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>initarizer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しい変数テーブルのデータを生成させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable_start</td><td>この変数の有効範囲の始まりの行数 </td></tr>
+    <tr><td class="paramname">enable_end</td><td>この変数の有効範囲の終わりの行数 </td></tr>
+    <tr><td class="paramname">declaration_location_address</td><td>この変数を宣言した場所を示すASTのアドレス </td></tr>
+    <tr><td class="paramname">block_level</td><td>この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） </td></tr>
+    <tr><td class="paramname">block_id</td><td>ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） </td></tr>
+    <tr><td class="paramname">idlist</td><td>ブロックごとのID（これは変数スコープを識別するために使用する） </td></tr>
+    <tr><td class="paramname">type</td><td>型名 </td></tr>
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">initiarizer</td><td>初期定義式へのASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成された変数テーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2bc0fa995a58c38ba0882eee52a78e0c"></a><!-- doxytag: member="Synbol.h::new_VARIABLE_TABLE_with_char" ref="a2bc0fa995a58c38ba0882eee52a78e0c" args="(int enable_start, int enable_end, AST *declaration_location_address, int block_level, int block_id, IDLIST *idlist, char *type, char *variable_name, AST *initarizer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a>* new_VARIABLE_TABLE_with_char </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable_end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>declaration_location_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>block_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IDLIST *&#160;</td>
+          <td class="paramname"><em>idlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>initarizer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>新しい変数テーブルのデータを生成させる(char文字列対応) </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable_start</td><td>この変数の有効範囲の始まりの行数 </td></tr>
+    <tr><td class="paramname">enable_end</td><td>この変数の有効範囲の終わりの行数 </td></tr>
+    <tr><td class="paramname">declaration_location_address</td><td>この変数を宣言した場所を示すASTのアドレス </td></tr>
+    <tr><td class="paramname">block_level</td><td>この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） </td></tr>
+    <tr><td class="paramname">block_id</td><td>ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） </td></tr>
+    <tr><td class="paramname">idlist</td><td>ブロックごとのID（これは変数スコープを識別するために使用する） </td></tr>
+    <tr><td class="paramname">type</td><td>型名 </td></tr>
+    <tr><td class="paramname">variable_name</td><td>変数名 </td></tr>
+    <tr><td class="paramname">initiarizer</td><td>初期定義式へのASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>新しく生成された変数テーブルのデータへのアドレスが返される </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab938829024cd08a5cb8edde55af0d59a"></a><!-- doxytag: member="Synbol.h::printSTRUCT_TABLE_LIST" ref="ab938829024cd08a5cb8edde55af0d59a" args="(STRUCT_TABLE_LIST *struct_table_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printSTRUCT_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">STRUCT_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>struct_table_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>構造体テーブルのリストの内容を出力させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">struct_table_list</td><td>出力対象の構造体テーブルのリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af74a1ea9bd21282292422f5c25a66d30"></a><!-- doxytag: member="Synbol.h::printTYPEDEF_TABLE_LIST" ref="af74a1ea9bd21282292422f5c25a66d30" args="(TYPEDEF_TABLE_LIST *typedef_table_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printTYPEDEF_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">TYPEDEF_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>typedef_table_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>typedefテーブルのリストに登録されているものを、次のような形式で出力させる。</p>
+<p>target_type change_type</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typedef_table_list</td><td>出力対象のtypedefテーブルのリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>typedefテーブルのリストに登録されているものを出力させる。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typedef_table_list</td><td>出力対象のtypedefテーブルのリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa0d5516918a872d6f17450c510482994"></a><!-- doxytag: member="Synbol.h::printVARIABLE_TABLE_LIST" ref="aa0d5516918a872d6f17450c510482994" args="(VARIABLE_TABLE_LIST *variable_table_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printVARIABLE_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数テーブルのリストの内容を出力させる </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable_table_list</td><td>出力対象の変数テーブルのリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22dbc5727793ae91c80b9b95f1e06d11"></a><!-- doxytag: member="Synbol.h::searchVARIABLE_TABLE_LIST" ref="a22dbc5727793ae91c80b9b95f1e06d11" args="(IDLIST *target_idlist, CSTLString *target_string, VARIABLE_TABLE_LIST *variable_table_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvariable__table.html">VARIABLE_TABLE</a>* searchVARIABLE_TABLE_LIST </td>
+          <td>(</td>
+          <td class="paramtype">IDLIST *&#160;</td>
+          <td class="paramname"><em>target_idlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>variable_table_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>変数テーブルリストvariable_table_listから、指定した変数スコープのIDLIST target_idlistとtarget_stringに該当ような変数テーブルへのアドレスを返す。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_idlist</td><td>指定した変数スコープのIDLIST </td></tr>
+    <tr><td class="paramname">target_string</td><td>対象の変数名 </td></tr>
+    <tr><td class="paramname">variable_table_list</td><td>変数テーブルリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>上記の処理から見つけた変数テーブルへのアドレスを返す。見つからなければNULLを返す。 </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

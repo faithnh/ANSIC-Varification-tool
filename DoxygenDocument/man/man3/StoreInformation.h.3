@@ -1,0 +1,57 @@
+.TH "Library/StoreInformation.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Library/StoreInformation.h \- 
+.PP
+これはファイル名などといったプログラム内で共通する部分を確保するための命令が含まれている。 主にファイル名などを確保する。  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetFileName\fP (char *str)"
+.br
+.ti -1c
+.RI "char * \fBgetFileName\fP ()"
+.br
+.in -1c
+.SH "説明"
+.PP 
+これはファイル名などといったプログラム内で共通する部分を確保するための命令が含まれている。 主にファイル名などを確保する。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "char* getFileName ()"設定したファイル名を呼び出す。
+.PP
+\fB戻り値:\fP
+.RS 4
+呼び出されたファイル名を返す 
+.RE
+.PP
+
+.SS "void setFileName (char *str)"ファイル名を設定する。4096バイト分までの文字が確保でき、それ以上は切り捨てられる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIstr\fP ファイル名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

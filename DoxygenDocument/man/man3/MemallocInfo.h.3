@@ -1,0 +1,228 @@
+.TH "ANSICInformation/MemallocInfo.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/MemallocInfo.h \- 
+.PP
+このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'PointerArrayControl.h'\fP
+.br
+\fC#include 'AST.h'\fP
+.br
+\fC#include 'Synbol.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmemory_allocation_info\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBmemory_allocation_info\fP \fBMEMALLOC_INFO\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBMEMALLOC_INFO\fP * \fBnew_MEMALLOC_INFO_char\fP (char *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, char *size)"
+.br
+.ti -1c
+.RI "\fBMEMALLOC_INFO\fP * \fBnew_MEMALLOC_INFO\fP (CSTLString *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, CSTLString *size)"
+.br
+.ti -1c
+.RI "\fBMEMALLOC_INFO\fP * \fBmemoryAllocationAnarysis\fP (\fBAST\fP *root, VARIABLE_TABLE_LIST *vtlist)"
+.br
+.ti -1c
+.RI "void \fBgetMallocInformation\fP (\fBAST\fP *root, CSTLString *sizeof_type, CSTLString *constant)"
+.br
+.ti -1c
+.RI "void \fBgetCallocInformation\fP (\fBAST\fP *root, CSTLString *sizeof_type, CSTLString *constant)"
+.br
+.ti -1c
+.RI "void \fBgetReallocInformation\fP (\fBAST\fP *root, VARIABLE_TABLE_LIST *vtlist, CSTLString *sizeof_type, CSTLString *constant, ARRAY_OFFSET_LIST *realloc_target)"
+.br
+.ti -1c
+.RI "int \fBsearchSizeof\fP (CSTLString *sizeof_type, \fBAST\fP *root)"
+.br
+.ti -1c
+.RI "void \fBgetMallocMaxsize\fP (CSTLString *constant, \fBAST\fP *root)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するための命令が含まれている。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保しているsizeofの型・realloc使用時で対象としている変数・確保しているサイズを取得する。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBmemory_allocation_info\fP  \fBMEMALLOC_INFO\fP"メモリ割り当てに関する情報を格納するための構造体。 
+.SH "関数"
+.PP 
+.SS "void getCallocInformation (\fBAST\fP *root, CSTLString *sizeof_type, CSTLString *constant)"calloc関数に関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 
+.br
+\fIsizeof_type\fP sizeofでの型 
+.br
+\fIconstant\fP sizeof以外での式（すなわち確保している型に対するサイズに相当する）
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getMallocInformation (\fBAST\fP *root, CSTLString *sizeof_type, CSTLString *constant)"malloc関数に関する情報を取得する 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 
+.br
+\fIsizeof_type\fP sizeofでの型 
+.br
+\fIconstant\fP sizeof以外での式（すなわち確保している型に対するサイズに相当する）
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+malloc関数に関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 
+.br
+\fIsizeof_type\fP sizeofでの型 
+.br
+\fIconstant\fP sizeof以外での式（すなわち確保している型に対するサイズに相当する）
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getMallocMaxsize (CSTLString *constant, \fBAST\fP *root)"mallocなどの関数内の式から、確保したサイズを示す式を取得する。これは、sizeof(型)を１に書き直しながら、式を出力させることで行っている。
+.PP
+\fB引数:\fP
+.RS 4
+\fIconstant\fP 取得するsizeof以外での式（すなわち確保している型に対するサイズに相当する） 
+.br
+\fIroot\fP mallocなどの関数内の式へのASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getReallocInformation (\fBAST\fP *root, VARIABLE_TABLE_LIST *vtlist, CSTLString *sizeof_type, CSTLString *constant, ARRAY_OFFSET_LIST *realloc_target)"realloc関数に関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード 
+.br
+\fIvtlist\fP 対象のプログラムの変数リスト 
+.br
+\fIsizeof_type\fP sizeofでの型 
+.br
+\fIconstant\fP sizeof以外での式（すなわち確保している型に対するサイズに相当する） 
+.br
+\fIrealloc_target\fP reallocが対象とするオフセット情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBMEMALLOC_INFO\fP* memoryAllocationAnarysis (\fBAST\fP *root, VARIABLE_TABLE_LIST *vtlist)"指定されたASTノードからメモリ確保関係の関数に関する情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定されたASTノード 
+.br
+\fIvtlist\fP reallocでreallocのターゲット情報のオフセット情報を取得するのに必要なプログラムの変数リスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+メモリ確保関係の構造体へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBMEMALLOC_INFO\fP* new_MEMALLOC_INFO (CSTLString *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, CSTLString *size)"メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsizeof_type\fP sizeofの型名 
+.br
+\fIrealloc_target\fP realloc時のターゲットタイプ 
+.br
+\fIsize\fP malloc時のサイズ
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBMEMALLOC_INFO\fP* new_MEMALLOC_INFO_char (char *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, char *size)"メモリ割り当てに関する情報を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsizeof_type\fP sizeofの型名 
+.br
+\fIrealloc_target\fP realloc時のターゲットタイプ 
+.br
+\fIsize\fP malloc時のサイズ
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+メモリ割り当てに関する情報を格納するための構造体へのアドレスを返す。 
+.RE
+.PP
+
+.SS "int searchSizeof (CSTLString *sizeof_type, \fBAST\fP *root)"指定した式のASTに対して、sizeofを探索し、その型名をsizeof_typeで取得する。もし、式に異なる２種類のsizeof定義があれば、探索フラグは失敗する。 また、見つからなければ、sizeof_typeは何も指定していないままの状態である。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIsizeof_type\fP 出力するsizeofの型名 
+.br
+\fIroot\fP 探索対象の式へのASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

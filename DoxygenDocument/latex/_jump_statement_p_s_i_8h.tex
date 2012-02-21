@@ -1,0 +1,44 @@
+\section{ProgramSlicing/JumpStatementPSI.h}
+\label{_jump_statement_p_s_i_8h}\index{ProgramSlicing/JumpStatementPSI.h@{ProgramSlicing/JumpStatementPSI.h}}
+
+
+このファイルは Jump Statement Program Slicing Informationの略である。 GOTO、continue、break文から、プログラムスライシングに関する情報を抽出するための操作が含まれている  
+
+
+{\ttfamily \#include \char`\"{}ProgramSlicingInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/FunctionInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ANSICInformation/Synbol.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf getJumpStatementPSI} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, {\bf AST} $\ast$jump\_\-statement, {\bf EXPR\_\-SLICING} $\ast$parent)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは Jump Statement Program Slicing Informationの略である。 GOTO、continue、break文から、プログラムスライシングに関する情報を抽出するための操作が含まれている \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{JumpStatementPSI.h@{JumpStatementPSI.h}!getJumpStatementPSI@{getJumpStatementPSI}}
+\index{getJumpStatementPSI@{getJumpStatementPSI}!JumpStatementPSI.h@{JumpStatementPSI.h}}
+\subsubsection[{getJumpStatementPSI}]{\setlength{\rightskip}{0pt plus 5cm}void getJumpStatementPSI (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{{\bf AST} $\ast$}]{jump\_\-statement, }
+\item[{{\bf EXPR\_\-SLICING} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{_jump_statement_p_s_i_8h_a233faf32ec8a4d8d56b16b575a628409}
+GOTO、continue、break文のASTノードexpression\_\-statementから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr\_\-slicing\_\-listに追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & 追加先のプログラムスライシングリストexpr\_\-slicing\_\-list \\
+\hline
+{\em jump\_\-statement} & GOTO、continue、break文に関するASTノード \\
+\hline
+{\em parent} & ノードを追加するときの親ノード \\
+\hline
+\end{DoxyParams}

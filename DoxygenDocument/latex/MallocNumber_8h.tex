@@ -1,0 +1,69 @@
+\hypertarget{MallocNumber_8h}{
+\section{ANSICInformation/MallocNumber.h}
+\label{MallocNumber_8h}\index{ANSICInformation/MallocNumber.h@{ANSICInformation/MallocNumber.h}}
+}
+
+
+これはどのmalloc用識別番号を付加する関数を生成するためのものである  
+
+
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}PreProcess.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MallocNumber_8h_a6a7ea0f1f8ad3055f1fd66b58a66635e}{generateMallocNumber} (CSTLString $\ast$target\_\-directory)
+\item 
+void \hyperlink{MallocNumber_8h_a898f92bb8363e245cb26af5855213035}{insertMallocNumberHeadder} (INCLUDE\_\-LIST $\ast$include\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これはどのmalloc用識別番号を付加する関数を生成するためのものである \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\hypertarget{MallocNumber_8h_a6a7ea0f1f8ad3055f1fd66b58a66635e}{
+\index{MallocNumber.h@{MallocNumber.h}!generateMallocNumber@{generateMallocNumber}}
+\index{generateMallocNumber@{generateMallocNumber}!MallocNumber.h@{MallocNumber.h}}
+\subsubsection[{generateMallocNumber}]{\setlength{\rightskip}{0pt plus 5cm}void generateMallocNumber (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-directory}
+\end{DoxyParamCaption}
+)}}
+\label{MallocNumber_8h_a6a7ea0f1f8ad3055f1fd66b58a66635e}
+malloc用識別番号付加関数をカレントディレクトリ上に生成させる 
+\begin{DoxyParams}{引数}
+{\em target\_\-directory} & 作成するディレクトリ先\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+malloc用識別番号関数をカレントディレクトリ上に生成させる 
+\begin{DoxyParams}{引数}
+{\em target\_\-directory} & 作成するディレクトリ先\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{MallocNumber_8h_a898f92bb8363e245cb26af5855213035}{
+\index{MallocNumber.h@{MallocNumber.h}!insertMallocNumberHeadder@{insertMallocNumberHeadder}}
+\index{insertMallocNumberHeadder@{insertMallocNumberHeadder}!MallocNumber.h@{MallocNumber.h}}
+\subsubsection[{insertMallocNumberHeadder}]{\setlength{\rightskip}{0pt plus 5cm}void insertMallocNumberHeadder (
+\begin{DoxyParamCaption}
+\item[{INCLUDE\_\-LIST $\ast$}]{include\_\-list}
+\end{DoxyParamCaption}
+)}}
+\label{MallocNumber_8h_a898f92bb8363e245cb26af5855213035}
+インクルード情報にmalloc用識別番号付加関数が含まれているヘッダーファイルを追加させる 
+\begin{DoxyParams}{引数}
+{\em include\_\-information} & インクルード情報へのリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

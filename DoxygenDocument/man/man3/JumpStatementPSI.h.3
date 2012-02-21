@@ -1,0 +1,57 @@
+.TH "ProgramSlicing/JumpStatementPSI.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ProgramSlicing/JumpStatementPSI.h \- 
+.PP
+このファイルは Jump Statement Program Slicing Informationの略である。 GOTO、continue、break文から、プログラムスライシングに関する情報を抽出するための命令が含まれている。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ProgramSlicingInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/FunctionInformation.h'\fP
+.br
+\fC#include '../ANSICInformation/Synbol.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBgetJumpStatementPSI\fP (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *jump_statement, EXPR_SLICING *parent)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは Jump Statement Program Slicing Informationの略である。 GOTO、continue、break文から、プログラムスライシングに関する情報を抽出するための命令が含まれている。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "関数"
+.PP 
+.SS "void getJumpStatementPSI (EXPR_SLICING_LIST *expr_slicing_list, \fBAST\fP *jump_statement, EXPR_SLICING *parent)"GOTO、continue、break文のASTノードexpression_statementから、関数に対するプログラムスライシングを抽出し、 プログラムスライシングリストexpr_slicing_listに追加する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpr_slicing_list\fP 追加先のプログラムスライシングリストexpr_slicing_list 
+.br
+\fIjump_statement\fP GOTO、continue、break文に関するASTノード 
+.br
+\fIparent\fP ノードを追加するときの親ノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

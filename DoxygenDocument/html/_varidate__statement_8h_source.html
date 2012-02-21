@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ANSICInformation/Varidate_statement.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/Varidate_statement.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_varidate__statement_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00007"></a>00007 <span class="preprocessor">#ifndef VARIDATE_STATEMENT_HEADDER</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define VARIDATE_STATEMENT_HEADDER</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;cstl/list.h&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="_synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必...">Synbol.h</a>&quot;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="preprocessor">#include&quot;<a class="code" href="_pointer_array_control_8h.html" title="このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元のオフセットとして格納します。 各次元のオフセットとは動的配列や静的配列などにおいて、配列のどの部分を指しているかという...">PointerArrayControl.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include&quot;<a class="code" href="_memalloc_info_8h.html" title="このファイルはメモリ確保関係の関数から、メモリ確保関係に関する情報を格納するためのものです。 具体的には、C言語プログラム上にある、malloc・calloc・reallocなどといった関数から、確保し...">MemallocInfo.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include&quot;<a class="code" href="_free_mem_info_8h.html" title="このファイルは、メモリ解放関係の関数から、メモリ解放関係の情報を取得します。 具体的には、C言語プログラム上にあるfree関数から、どの変数が解放されているかどうかについて取得します。">FreeMemInfo.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;ForInformation.h&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_divition_information_8h.html" title="これは除算・剰余算を検出するために使用するのに必要な情報を確保する">DivitionInformation.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_pre_process_8h.html" title="このファイルは構文解析を通せるように、GccでC言語にプリプロセス（前処理）をさせるものです。 このファイルでできることとしては、::includeをコメントアウトすることで省いて、プリプロセスを掛ける...">PreProcess.h</a>&quot;</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#include&quot;../ProgramSlicing/ProgramSlicingInformation.h&quot;</span>
+<a name="l00025"></a><a class="code" href="structvalidate__variable.html">00025</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvalidate__variable.html">validate_variable</a> {
+<a name="l00026"></a>00026     <span class="keywordtype">int</span> used;                   
+<a name="l00027"></a><a class="code" href="structvalidate__variable.html#a918fe0885c45a45143d18f3a69b60ef0">00027</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#a918fe0885c45a45143d18f3a69b60ef0" title="この検証用の変数が使用しているかどうかのフラグ 1:使用 0:未使用">enable_start</a>;           
+<a name="l00028"></a><a class="code" href="structvalidate__variable.html#a50db2329cdcad1dc40f87e42e2160f83">00028</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#a50db2329cdcad1dc40f87e42e2160f83" title="この変数の有効範囲（ブロックでの）の開始行数を示す">enable_end</a>;             
+<a name="l00029"></a><a class="code" href="structvalidate__variable.html#a978db0d2ce4887dffe1a43267b79c9d8">00029</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#a978db0d2ce4887dffe1a43267b79c9d8" title="この変数の有効範囲（ブロックでの）の終了行数を示す">declaration_location</a>;   
+<a name="l00030"></a><a class="code" href="structvalidate__variable.html#a4231f805fef635b7b32f6f71e9ba66ac">00030</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#a4231f805fef635b7b32f6f71e9ba66ac" title="この変数を宣言する行数を示す">block_level</a>;            
+<a name="l00031"></a><a class="code" href="structvalidate__variable.html#a1705b1dab5709252086f7e447694e9b7">00031</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#a1705b1dab5709252086f7e447694e9b7" title="この変数を宣言するブロックレベルを示す（０ならグローバル変数・１なら関数内と示す）">block_id</a>;               
+<a name="l00032"></a><a class="code" href="structvalidate__variable.html#a6cb05e72907a38d8f57ed6a2d6ec9470">00032</a>     CSTLString *<a class="code" href="structvalidate__variable.html#a6cb05e72907a38d8f57ed6a2d6ec9470" title="この変数を宣言するブロックIDを示す（同ブロックレベルで別のブロックを識別するための番号）">type</a>;           
+<a name="l00033"></a><a class="code" href="structvalidate__variable.html#a811304968e14234e1b388ea3c020dbfe">00033</a>     CSTLString *<a class="code" href="structvalidate__variable.html#a811304968e14234e1b388ea3c020dbfe" title="この変数の型">variable_name</a>;  
+<a name="l00034"></a><a class="code" href="structvalidate__variable.html#ac8a37f802e5ea3ddf0f74016cc9bd18f">00034</a>     CSTLString *<a class="code" href="structvalidate__variable.html#ac8a37f802e5ea3ddf0f74016cc9bd18f" title="この変数名">target_variable_name</a>; 
+<a name="l00035"></a><a class="code" href="structvalidate__variable.html#acf44bfc8e1d229ff7dd87b666355a32a">00035</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__variable.html#acf44bfc8e1d229ff7dd87b666355a32a" title="この変数の検証対象となる変数名">offset_level</a>;           
+<a name="l00036"></a>00036 } <a class="code" href="_varidate__statement_8h.html#a44deffa9c818ee2269d1af086048deee">VALIDATE_VARIABLE</a>;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 CSTL_LIST_INTERFACE(VALIDATE_VARIABLE_LIST, <a class="code" href="structvalidate__variable.html">VALIDATE_VARIABLE</a>);
+<a name="l00039"></a>00039 
+<a name="l00043"></a><a class="code" href="structvalidate__statement.html">00043</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvalidate__statement.html">validate_statement</a> {
+<a name="l00044"></a>00044     <span class="keywordtype">int</span> target_id;          
+<a name="l00045"></a><a class="code" href="structvalidate__statement.html#a8d3ffad0114830c515aaab6669941ef0">00045</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__statement.html#a8d3ffad0114830c515aaab6669941ef0" title="この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID)">check_or_modify</a>;    
+<a name="l00046"></a><a class="code" href="structvalidate__statement.html#a5810b6407672b8e7aeba609b4bb649de">00046</a>     <span class="keywordtype">int</span> <a class="code" href="structvalidate__statement.html#a5810b6407672b8e7aeba609b4bb649de" title="検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ">used</a>;               
+<a name="l00047"></a><a class="code" href="structvalidate__statement.html#a90b6e36d162352dbb160d561998d0d80">00047</a>     CSTLString *<a class="code" href="structvalidate__statement.html#a90b6e36d162352dbb160d561998d0d80" title="この検証式は使用しているかどうかのフラグ 1:使用 0:未使用">statement</a>;  
+<a name="l00048"></a><a class="code" href="structvalidate__statement.html#a9d81c60562be00c7bc43d19a2087e52b">00048</a>     <a class="code" href="structabstract__syntax__tree.html">AST</a> *<a class="code" href="structvalidate__statement.html#a9d81c60562be00c7bc43d19a2087e52b" title="この検証式の内容">target_statement</a>;  
+<a name="l00049"></a>00049 } <a class="code" href="_varidate__statement_8h.html#aa29cf26f061e9a911576b7bd9ca1c8eb">VALIDATE_STATEMENT</a>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 CSTL_LIST_INTERFACE(VALIDATE_STATEMENT_LIST, <a class="code" href="structvalidate__statement.html">VALIDATE_STATEMENT</a>);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 
+<a name="l00064"></a>00064 <a class="code" href="structvalidate__statement.html">VALIDATE_STATEMENT</a> *new_VALIDATE_STATEMENT_char(<span class="keywordtype">int</span> target_id, <span class="keywordtype">int</span> check_or_modify, <span class="keywordtype">int</span> used, <span class="keywordtype">char</span> *statement, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00065"></a>00065 
+<a name="l00076"></a>00076 <a class="code" href="structvalidate__statement.html">VALIDATE_STATEMENT</a> *new_VALIDATE_STATEMENT(<span class="keywordtype">int</span> target_id, <span class="keywordtype">int</span> check_or_modify, <span class="keywordtype">int</span> used, CSTLString *statement, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00077"></a>00077 
+<a name="l00093"></a>00093 <a class="code" href="structvalidate__variable.html">VALIDATE_VARIABLE</a> *new_VALIDATE_VARIABLE(<span class="keywordtype">int</span> used, <span class="keywordtype">int</span> enable_start, <span class="keywordtype">int</span> enable_end, <span class="keywordtype">int</span> declaration_location,
+<a name="l00094"></a>00094                                    <span class="keywordtype">int</span> block_level ,<span class="keywordtype">int</span> block_id, CSTLString *type, CSTLString *variable_name, CSTLString *target_variable_name, <span class="keywordtype">int</span> offset_level);
+<a name="l00095"></a>00095 
+<a name="l00111"></a>00111 <a class="code" href="structvalidate__variable.html">VALIDATE_VARIABLE</a> *new_VALIDATE_VARIABLE_with_char(<span class="keywordtype">int</span> used, <span class="keywordtype">int</span> enable_start, <span class="keywordtype">int</span> enable_end, <span class="keywordtype">int</span> declaration_location,
+<a name="l00112"></a>00112                                    <span class="keywordtype">int</span> block_level ,<span class="keywordtype">int</span> block_id, <span class="keywordtype">char</span> *type, <span class="keywordtype">char</span> *variable_name, <span class="keywordtype">char</span> *target_variable_name, <span class="keywordtype">int</span> offset_level);
+<a name="l00113"></a>00113 
+<a name="l00120"></a>00120 <span class="keywordtype">void</span> initVALIDATE_STATEMENT_flag(VALIDATE_STATEMENT_LIST *validate_statement_list);
+<a name="l00121"></a>00121 
+<a name="l00130"></a>00130 <span class="keywordtype">void</span> getValidate_Variable(VARIABLE_TABLE_LIST *variable_table_list, VALIDATE_VARIABLE_LIST *<a class="code" href="structvalidate__variable.html">validate_variable</a>);
+<a name="l00131"></a>00131 
+<a name="l00138"></a>00138 <span class="keywordtype">void</span> printVALIDATE_VARIABLE_LIST(VALIDATE_VARIABLE_LIST *validate_variable_list);
+<a name="l00139"></a>00139 
+<a name="l00155"></a>00155 <span class="keywordtype">void</span> createValidateStatement(<a class="code" href="structabstract__syntax__tree.html">AST</a> * root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, VALIDATE_VARIABLE_LIST *validate_variable_list,
+<a name="l00156"></a>00156                                             VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list, <span class="keywordtype">int</span> undefined_control_check,
+<a name="l00157"></a>00157                                             <span class="keywordtype">int</span> zero_divition_check, <span class="keywordtype">int</span> array_unbound_check, <span class="keywordtype">int</span> free_violation_check);
+<a name="l00158"></a>00158 
+<a name="l00173"></a>00173 <span class="keywordtype">void</span> getValidateStatementFromInitializer(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00174"></a>00174                                             VALIDATE_VARIABLE_LIST *validate_variable_list,VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list,
+<a name="l00175"></a>00175                                             <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> undefined_control_check, <span class="keywordtype">int</span> zero_divition_check, <span class="keywordtype">int</span> array_unbound_check);
+<a name="l00176"></a>00176 
+<a name="l00186"></a>00186 <span class="keywordtype">void</span> getValidateStatementFromMallocNumber(VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *call_function, ARRAY_OFFSET_LIST* right_array_offset_list, <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *memalloc_info);
+<a name="l00187"></a>00187 
+<a name="l00203"></a>00203 <span class="keywordtype">void</span> getValidateStatementFromForIteration(VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list,
+<a name="l00204"></a>00204                                         FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,VALIDATE_VARIABLE_LIST *validate_variable_list,
+<a name="l00205"></a>00205                                         ASTPOINTER_LIST *ignore_ast_list, <span class="keywordtype">int</span> undefined_control_check,<span class="keywordtype">int</span> zero_divition_check,<span class="keywordtype">int</span> array_unbound_check,
+<a name="l00206"></a>00206                                         <span class="keywordtype">int</span> free_violation_check);
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208 
+<a name="l00225"></a>00225 <span class="keywordtype">void</span> getValidateStatementFromAssignStatement(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00226"></a>00226                                             VALIDATE_VARIABLE_LIST *validate_variable_list,
+<a name="l00227"></a>00227                                             VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list,
+<a name="l00228"></a>00228                                             <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> undefined_control_check, <span class="keywordtype">int</span> zero_divition_check, <span class="keywordtype">int</span> array_unbound_check
+<a name="l00229"></a>00229                                             , <span class="keywordtype">int</span> free_violation_check);
+<a name="l00230"></a>00230 
+<a name="l00241"></a>00241 <span class="keywordtype">void</span> getValidateStatementFromPointerOperator(VALIDATE_STATEMENT_LIST *validate_statement_list,ARRAY_OFFSET_LIST *left_array_offset_list,ARRAY_OFFSET_LIST *right_array_offset_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *right_expression, <span class="keywordtype">int</span> a_op_flag);
+<a name="l00242"></a>00242 
+<a name="l00254"></a>00254 <span class="keywordtype">void</span> getValidateStatementFromCallFunction(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *left_array_offset_list,
+<a name="l00255"></a>00255         ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00256"></a>00256 
+<a name="l00268"></a>00268 <span class="keywordtype">void</span> getBasisLocationFromAssignmentExpression(CSTLString *output, ARRAY_OFFSET_LIST *left_array_offset_list,
+<a name="l00269"></a>00269                                               ARRAY_OFFSET_LIST *right_array_offset_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *right_expression_ast, <span class="keywordtype">int</span> a_op_flag);
+<a name="l00270"></a>00270 
+<a name="l00271"></a>00271 
+<a name="l00278"></a>00278 <span class="keywordtype">void</span> getBasisLocationFromExpression(CSTLString *output, <a class="code" href="structarray__offset.html">ARRAY_OFFSET</a> *<a class="code" href="structarray__offset.html">array_offset</a>, <a class="code" href="structabstract__syntax__tree.html">AST</a> *expression_ast);
+<a name="l00279"></a>00279 
+<a name="l00290"></a>00290 <span class="keywordtype">void</span> createValidateStatementForMallocAction(VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *memalloc_info,
+<a name="l00291"></a>00291                                         ARRAY_OFFSET_LIST *array_offset_list,VALIDATE_VARIABLE_LIST *validate_variable_list);
+<a name="l00292"></a>00292 
+<a name="l00303"></a>00303 <span class="keywordtype">void</span> createValidateStatemenFromIncDecExpr(VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list);
+<a name="l00304"></a>00304 
+<a name="l00314"></a>00314 <span class="keywordtype">void</span> createValidateStatementForFreeAction(VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structfreemem__info.html">FREEMEMINFO</a> *freememinfo,
+<a name="l00315"></a>00315                 VALIDATE_VARIABLE_LIST *validate_variable_list);
+<a name="l00324"></a>00324 <span class="keywordtype">void</span> createValidateStatementFromArrayDefine(VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list
+<a name="l00325"></a>00325                     ,FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00326"></a>00326 
+<a name="l00336"></a>00336 <span class="keywordtype">void</span> createVaridateStatementFromPointerDefine( VALIDATE_STATEMENT_LIST *validate_statement_list, VARIABLE_TABLE_LIST *variable_table_list,
+<a name="l00337"></a>00337             FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00338"></a>00338 
+<a name="l00348"></a>00348 <span class="keywordtype">void</span> ArrayOffsetToValidateStatement(CSTLString* output, VALIDATE_VARIABLE_LIST *validate_variable_list, <a class="code" href="structvariable__table.html">VARIABLE_TABLE</a> *<a class="code" href="structvariable__table.html">variable_table</a>, OFFSET_LIST *offset_list);
+<a name="l00349"></a>00349 
+<a name="l00360"></a>00360 <span class="keywordtype">void</span> createCheckUnboundAndUndefineOperationCheck(VALIDATE_STATEMENT_LIST *validate_statement_list, ARRAY_OFFSET_LIST *array_offset_list, <span class="keywordtype">int</span> array_unbound_check, <span class="keywordtype">int</span> undefined_control_check);
+<a name="l00361"></a>00361 
+<a name="l00370"></a>00370 <span class="keywordtype">void</span> createViolentFreeOperation(VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structfreemem__info.html">FREEMEMINFO</a> *freememinfo);
+<a name="l00371"></a>00371 
+<a name="l00379"></a>00379 <span class="keywordtype">void</span> createZeroDivitionCheck(VALIDATE_STATEMENT_LIST *validate_statement_list, DIVITION_INFORMATION_LIST *divition_information_list);
+<a name="l00389"></a>00389 <span class="keywordtype">int</span> getNewValidateStatementID(VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00390"></a>00390 
+<a name="l00402"></a>00402 <span class="keywordtype">void</span> getLeftAssignmentInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *left_expression, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00403"></a>00403         VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST * array_offset_list,
+<a name="l00404"></a>00404         <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> *switch_mode);
+<a name="l00405"></a>00405 
+<a name="l00418"></a>00418 <span class="keywordtype">void</span> getRightAssignmentInfo(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> **memalloc_info,
+<a name="l00419"></a>00419      ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00420"></a>00420 
+<a name="l00431"></a>00431 <span class="keywordtype">void</span> printProgramDataWithValidateStatement(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list);
+<a name="l00432"></a>00432 
+<a name="l00444"></a>00444 <span class="keywordtype">void</span> fprintProgramDataWithValidateStatement(FILE *output, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root, VALIDATE_VARIABLE_LIST *validate_variable_list, VALIDATE_STATEMENT_LIST *validate_statement_list, FOR_INFORMATION_LIST *for_information_list);
+<a name="l00445"></a>00445 
+<a name="l00457"></a>00457 <span class="keywordtype">void</span> fprintValidateStatement(FILE *output, VALIDATE_STATEMENT_LIST *validate_statement_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_ast, <span class="keywordtype">int</span> check_or_modify, <span class="keywordtype">int</span> allow_output_used_statement);
+<a name="l00458"></a>00458 
+<a name="l00466"></a>00466 <span class="keywordtype">void</span> setValidateVariableFromExprSlicing(VALIDATE_VARIABLE_LIST *validate_variable_list, EXPR_SLICING_LIST *expr_slicing_list);
+<a name="l00467"></a>00467 
+<a name="l00478"></a>00478 <span class="keywordtype">void</span> fprintProgramDataWithPSIVaridateStatement(FILE *output, EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list,
+<a name="l00479"></a>00479             VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *check_target_ast);
+<a name="l00480"></a>00480 
+<a name="l00490"></a>00490 <span class="keywordtype">void</span> createValidateStatementAdderFileEachCheck(EXPR_SLICING_LIST *expr_slicing_list, VALIDATE_STATEMENT_LIST *validate_statement_list,
+<a name="l00491"></a>00491         VALIDATE_VARIABLE_LIST *validate_variable_list, FOR_INFORMATION_LIST *for_information_list, INCLUDE_LIST *include_list);
+<a name="l00492"></a>00492 
+<a name="l00500"></a>00500 <span class="keywordtype">void</span> <a class="code" href="_varidate__statement_8h.html#ada2fcad0ebd03da626bb968378fd1831">VALIDATE_STATEMENT_LIST_sort_ast</a>(VALIDATE_STATEMENT_LIST *validate_statement_list);
+<a name="l00501"></a>00501 
+<a name="l00509"></a>00509 <span class="keywordtype">void</span> getASTList_FromVALIDATE_STATEMENT_LIST(VALIDATE_STATEMENT_LIST *validate_statement_list, ASTPOINTER_LIST *ast_node_list);
+<a name="l00510"></a>00510 
+<a name="l00511"></a>00511 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:37:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

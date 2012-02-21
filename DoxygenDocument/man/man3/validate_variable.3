@@ -1,0 +1,57 @@
+.TH "validate_variable" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+validate_variable \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Varidate_statement.h>\fP
+.SS "変数"
+
+.in +1c
+.ti -1c
+.RI "int \fBenable_start\fP"
+.br
+.RI "\fIこの検証用の変数が使用しているかどうかのフラグ 1:使用 0:未使用 \fP"
+.ti -1c
+.RI "int \fBenable_end\fP"
+.br
+.RI "\fIこの変数の有効範囲（ブロックでの）の開始行数を示す \fP"
+.ti -1c
+.RI "int \fBdeclaration_location\fP"
+.br
+.RI "\fIこの変数の有効範囲（ブロックでの）の終了行数を示す \fP"
+.ti -1c
+.RI "int \fBblock_level\fP"
+.br
+.RI "\fIこの変数を宣言する行数を示す \fP"
+.ti -1c
+.RI "int \fBblock_id\fP"
+.br
+.RI "\fIこの変数を宣言するブロックレベルを示す（０ならグローバル変数・１なら関数内と示す） \fP"
+.ti -1c
+.RI "CSTLString * \fBtype\fP"
+.br
+.RI "\fIこの変数を宣言するブロックIDを示す（同ブロックレベルで別のブロックを識別するための番号） \fP"
+.ti -1c
+.RI "CSTLString * \fBvariable_name\fP"
+.br
+.RI "\fIこの変数の型 \fP"
+.ti -1c
+.RI "CSTLString * \fBtarget_variable_name\fP"
+.br
+.RI "\fIこの変数名 \fP"
+.ti -1c
+.RI "int \fBoffset_level\fP"
+.br
+.RI "\fIこの変数の検証対象となる変数名 \fP"
+.in -1c
+.SH "説明"
+.PP 
+ポインタや配列変数に対する検証用の変数リストを作成するための構造体である。 
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

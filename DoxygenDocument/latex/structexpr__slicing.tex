@@ -1,0 +1,37 @@
+\section{構造体 expr\_\-slicing}
+\label{structexpr__slicing}\index{expr\_\-slicing@{expr\_\-slicing}}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries expr\_\-slicing\_\-number}\label{structexpr__slicing_ab5e11840ad619b346ef918e7ae1e4192}
+
+\item 
+{\bf AST} $\ast$ {\bf expression}\label{structexpr__slicing_aedba8cfc4257b061cb957627eaa20aa8}
+
+\begin{DoxyCompactList}\small\item\em プログラムスライシングに割り当てられるブロックごと番号 \item\end{DoxyCompactList}\item 
+DD\_\-INFORMATION\_\-LIST $\ast$ {\bf dd\_\-list}\label{structexpr__slicing_a6dd34be5ebc821a1981200b3fc99fcce}
+
+\begin{DoxyCompactList}\small\item\em 対象の式へのＡＳＴノード \item\end{DoxyCompactList}\item 
+ARRAY\_\-OFFSET\_\-LIST $\ast$ {\bf target\_\-variable}\label{structexpr__slicing_a81a6f2ff6b7d5bf71e74aec0bcc3d9c2}
+
+\begin{DoxyCompactList}\small\item\em 依存関係リスト \item\end{DoxyCompactList}\item 
+ARRAY\_\-OFFSET\_\-LIST $\ast$ {\bf dependences}\label{structexpr__slicing_a5b27eb7962b631a4f7b97886139d63bb}
+
+\begin{DoxyCompactList}\small\item\em 変数のオフセットリスト \item\end{DoxyCompactList}\item 
+EXPR\_\-SLICING\_\-LIST $\ast$ {\bf children1}\label{structexpr__slicing_acbcce12cd076171078fd8c1cd5c04edc}
+
+\begin{DoxyCompactList}\small\item\em 依存関係の配列オフセットリスト \item\end{DoxyCompactList}\item 
+EXPR\_\-SLICING\_\-LIST $\ast$ {\bf children2}\label{structexpr__slicing_ad3287a356446f273cbb3f9fcd2f83788}
+
+\begin{DoxyCompactList}\small\item\em ifやwhile、forに対するスライシングリスト \item\end{DoxyCompactList}\item 
+struct {\bf expr\_\-slicing} $\ast$ {\bf parent}\label{structexpr__slicing_a4b70a026092925669b2dd281d0af849f}
+
+\begin{DoxyCompactList}\small\item\em else文に対するスライシングリスト \item\end{DoxyCompactList}\item 
+int {\bf flag}\label{structexpr__slicing_adf916204820072417ed73a32de1cefcf}
+
+\begin{DoxyCompactList}\small\item\em 親をたどるためのノード \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+この構造体の説明は次のファイルから生成されました:\begin{DoxyCompactItemize}
+\item 
+ProgramSlicing/ProgramSlicingInformation.h\end{DoxyCompactItemize}

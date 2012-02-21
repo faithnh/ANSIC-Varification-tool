@@ -1,0 +1,114 @@
+久しぶりにDoxygenをバージョンアップ(1.5.9)して、PHPをPDF化しようとしたら、
+
+LaTeX Error: File `listings.sty’ not found.
+
+のエラーでDVIができません。ChangeLog Rel.1.5.9のところを見ると、新機能として
+
+Added new option LATEX_SOURCE_CODE, which when enabled adds source code also to the latex output (typically to be used in combination with SOURCE_BROWSER) 
+
+とあるので、LaTeX出力時にソースコードを出力するために追加されたのでしょうか。
+
+listings.sty（とjlisting.sty)はすぐに入手することができ、インストール方法もわかったのですが、インストール前にlistings.styの使い方とDoxygenが出力したTeXファイルを見比べると、どうもlistingsの設定だけして使用はしていないみたいです。Doxygenが出力したlatexディレクトリで% grep lst * しても、\lstsetしか見つからないし。
+
+試しに refman.tex の
+
+\usepackage{listings}
+
+と、
+
+\lstset{language= … }
+
+をコメントアウト(行頭に%)してmakeしたら、DVIもできてPDFもできました。LATEX_SOURCE_CODE をチェックして再度Doxygen→latex→PDFするとPDFでソースコードも綺麗に出力されました。とりあえず上記二ヶ所のコメントアウトでも大丈夫そう。
+
+今回listings.styのインストールは見送り、うまくいかなくなったときにインストールすることにしました。そのうち、listingsを使ってソースコード出力するようになるのか、pspictureのようにいつの間にかrefman.texから消えるのか…
+
+上記を試してからブログに書くまでに、Rel. 1.6.0, 1.6.1がでているので、新しいDoxygenで試すと違った結果になるかもしれません。
+
+作成すべきMakefile
+
+all: clean refman.pdf
+
+pdf: refman.pdf
+
+refman.pdf: refman.tex
+	platex -kanji=utf8 refman.tex
+	makeindex refman.idx
+	platex -kanji=utf8 refman.tex
+	latex_count=5 ; \
+	while egrep -s 'Rerun (LaTeX|to get cross-references right)' refman.log && [ $$latex_count -gt 0 ] ;\
+	    do \
+	      echo "Rerunning latex...." ;\
+	      platex -kanji=utf8 refman.tex ;\
+	      latex_count=`expr $$latex_count - 1` ;\
+	    done
+	dvipdfmx refman.dvi
+
+clean:
+	rm -f *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out refman.pdf
+
+Windows上でDoxygenのPDF形式出力 
+DoxygenでAPIドキュメント生成するのは非常に便利ですが、HTML形式では印刷するとき大変なので、試しにPDF形式ドキュメントを生成するよう変更しました。手順は下記通り
+
+Texインストール
+PDFで生成するにはまずTexをインストールする必要があります。下記ページから「TeXインストーラ3」をダウンロードします。
+
+http://www.ms.u-tokyo.ac.jp/~abenori/mycreate/
+
+listings/xcolorインストール
+下記ページからlistings/xcolorパッケージをダウンロード
+　　　http://tug.ctan.org/tex-archive/macros/latex/contrib/listings/
+
+　　　http://tug.ctan.org/tex-archive/macros/latex/contrib/xcolor/
+
+上記ファイルを解凍し、下記コマンドを実行
+　　> platex listings.ins　　> platex xcolor.ins
+
+生成されたファイルを下記フォルダにコピー
+　　w32tex\share\texmf-local\tex\latex
+
+mediabb.styインストール（2011/01/26追加）
+
+Class Graphを生成する場合、PDF形式の図を挿入する必要があります。そのためmediabb.styパッケージをインストールします。
+
+下記URLからダウンロードできます
+
+　　http://www.ma.ns.musashi-tech.ac.jp/Pages/TeX/mediabb.sty.html
+
+ダウンロードしたら下記フォルダにコピーします
+
+　　w32tex\share\texmf-local\tex\latex
+
+DoxygenでLatexを生成
+
+Doxygen設定ファイルに下記変更を行います 
+
+GENERATE_LATEX         = YES
+
+LATEX_CMD_NAME         = "platex --kanji=utf8"
+
+MAKEINDEX_CMD_NAME     = jmakeindex
+
+PDF_HYPERLINKS         = NO
+
+USE_PDFLATEX           = YES
+
+Doxygenを実行
+
+PDFを生成 
+
+生成されたMakefileに下記変更を行います
+
+pdflatexをpdfplatex.batに変更
+
+delをrm -rfに変更
+
+Cygwinからmakeを実行
+
+実行完了後、refman.pdfというファイルが生成されます
+
+・Acrobat ReaderのPDF表示で細い線が表示されません 
+doxygenで作ったPDFドキュメントをAcrobat Readerで開いたら、表の枠が一部しか表示されません。
+印刷してみたらちゃんとプリントアウトされてるし、Chromeで表示てもちゃんと表示される。
+
+試しに下記環境設定で「ページ表示」⇒「細い線を拡張」オプションをオフにしたら、
+ちゃんと表示されるようになりました。

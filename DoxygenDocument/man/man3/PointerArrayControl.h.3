@@ -1,0 +1,932 @@
+.TH "ANSICInformation/PointerArrayControl.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/PointerArrayControl.h \- 
+.PP
+このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指しているかという式に関する情報のことである。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+\fC#include 'AST.h'\fP
+.br
+\fC#include 'Synbol.h'\fP
+.br
+\fC#include 'FunctionInformation.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBarray_offset\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBarray_offset\fP \fBARRAY_OFFSET\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBARRAY_OFFSET\fP * \fBnew_ARRAY_OFFSET_char\fP (char *variable_name, \fBAST\fP *target_statement, \fBAST\fP *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)"
+.br
+.ti -1c
+.RI "\fBARRAY_OFFSET\fP * \fBnew_ARRAY_OFFSET\fP (CSTLString *variable_name, \fBAST\fP *target_statement, \fBAST\fP *variable_address, OFFSET_LIST *offset_list, int pointer_level, int array_level, int anpasand_flag, int inc_dec_flag)"
+.br
+.ti -1c
+.RI "void \fBOFFSET_LIST_push_back_alloc\fP (OFFSET_LIST *offset_list, char *string)"
+.br
+.ti -1c
+.RI "int \fBgetPointerArrayOffset\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, int offset_level, ASTPOINTER_LIST *ignore_ast_list, \fBARRAY_OFFSET\fP **\fBarray_offset\fP, \fBAST\fP *target_statement, int anpasand_flag, int inc_dec_flag)"
+.br
+.ti -1c
+.RI "void \fBgetARRAY_OFFSET_LIST\fP (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBget_ARRAY_OFFSET_LISTIgnoreASTNAME\fP (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, CSTLString *ignore_ast_name)"
+.br
+.ti -1c
+.RI "void \fBgetArrayOffsetInAnpasandInfo\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"
+.br
+.ti -1c
+.RI "void \fBgetArrayOffsetInIncDecInfo\fP (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, int inc_dec_flag)"
+.br
+.ti -1c
+.RI "int \fBgetUpperExpressionRelationNode\fP (\fBAST\fP *target, \fBAST\fP *root, \fBAST\fP **output, \fBAST\fP **output2)"
+.br
+.ti -1c
+.RI "void \fBdeletePointerAndArraySynbol\fP (CSTLString *target)"
+.br
+.ti -1c
+.RI "void \fBdeletePointer\fP (CSTLString *target)"
+.br
+.ti -1c
+.RI "int \fBsearchExpressionOrPointeArrayOrIden\fP (\fBAST\fP *root, \fBAST\fP **output)"
+.br
+.ti -1c
+.RI "int \fBsearchPointerAccessOrIdentifierOrPrimary\fP (\fBAST\fP *root, \fBAST\fP **output)"
+.br
+.ti -1c
+.RI "void \fBgetPointerAccessOrIdentifierList\fP (\fBAST\fP *root, \fBAST\fP ***output, int *getSize)"
+.br
+.ti -1c
+.RI "int \fBcheckIdentifierPointerArrayLevel\fP (\fBAST\fP *identifier, int offset_level, VARIABLE_TABLE_LIST *variable_table_list, ASTPOINTER_LIST *ignore_ast_list, int *pointer_level, int *array_level)"
+.br
+.ti -1c
+.RI "void \fBcheckCallFunction\fP (\fBAST\fP *call_function, int offset_level, FUNCTION_INFORMATION_LIST *function_information_list)"
+.br
+.ti -1c
+.RI "int \fBcheckIgnoreASTList\fP (\fBAST\fP *ast_data, ASTPOINTER_LIST *ignore_ast_list)"
+.br
+.ti -1c
+.RI "void \fBgetOFFSET_LISTFromVariableTable\fP (OFFSET_LIST *offset_list, \fBVARIABLE_TABLE\fP *\fBvariable_table\fP)"
+.br
+.ti -1c
+.RI "void \fBdeleteOFFSET_LIST\fP (OFFSET_LIST *offset_list)"
+.br
+.ti -1c
+.RI "int \fBgetOffsetLevelFromArrayOffset\fP (\fBARRAY_OFFSET\fP *\fBarray_offset\fP)"
+.br
+.ti -1c
+.RI "\fBARRAY_OFFSET\fP * \fBmaxOffsetLevelAddressFromArrayOffsetList\fP (ARRAY_OFFSET_LIST *array_offset_list)"
+.br
+.ti -1c
+.RI "\fBARRAY_OFFSET\fP * \fBsearchOffsetLevelAddressFromArrayOffsetList\fP (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, int pointer_level, int array_level)"
+.br
+.ti -1c
+.RI "int \fBmaxOffsetLevelFromArrayOffsetList\fP (ARRAY_OFFSET_LIST *array_offset_list)"
+.br
+.ti -1c
+.RI "void \fBgetExpressionOffsetInfo\fP (\fBAST\fP *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode, int allow_subeffect)"
+.br
+.ti -1c
+.RI "void \fBgetArgumentOffsetInfo\fP (\fBAST\fP *argument, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"
+.br
+.ti -1c
+.RI "void \fBgetSingleExpressionOffsetInfo\fP (\fBAST\fP *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"
+.br
+.ti -1c
+.RI "void \fBcreateArrayExpression\fP (CSTLString *output, \fBARRAY_OFFSET\fP *\fBarray_offset\fP, int output_level)"
+.br
+.ti -1c
+.RI "int \fBcreateValidateVariableArrayExpression\fP (CSTLString *output, \fBARRAY_OFFSET\fP *\fBarray_offset\fP)"
+.br
+.ti -1c
+.RI "void \fBmoveArrayOffsetList\fP (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)"
+.br
+.ti -1c
+.RI "void \fBcopyArrayOffsetList\fP (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, int move_start)"
+.br
+.ti -1c
+.RI "void \fBgetDeclaratorArrayOffset\fP (ARRAY_OFFSET_LIST *declarator_array_offset_list, \fBAST\fP *declarator_expression, \fBAST\fP *target_expression, VARIABLE_TABLE_LIST *vtlist)"
+.br
+.ti -1c
+.RI "\fBARRAY_OFFSET\fP * \fBsearchARRAY_OFFSET_LIST\fP (ARRAY_OFFSET_LIST *array_offset_list, CSTLString *name)"
+.br
+.ti -1c
+.RI "void \fBminusArrayOffsetList\fP (ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET_LIST *delete_array_offset_list)"
+.br
+.ti -1c
+.RI "void \fBARRAY_OFFSET_LIST_push_back_ref_not_dup\fP (ARRAY_OFFSET_LIST *target_array_offset_list, \fBARRAY_OFFSET\fP *\fBarray_offset\fP)"
+.br
+.ti -1c
+.RI "void \fBprintASTPOINTER_LIST\fP (ASTPOINTER_LIST *astpointer_list)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指しているかという式に関する情報のことである。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBarray_offset\fP  \fBARRAY_OFFSET\fP"配列やポインタの各次元のオフセット関係を格納するための構造体である。配列オフセットと呼ばれる。 
+.SH "関数"
+.PP 
+.SS "void ARRAY_OFFSET_LIST_push_back_ref_not_dup (ARRAY_OFFSET_LIST *target_array_offset_list, \fBARRAY_OFFSET\fP *array_offset)"配列オフセットリストに配列オフセット情報を追加する。ただし、変数名が重複するのであれば、追加しない。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_array_offset_list\fP 追加先の配列オフセットリスト 
+.br
+\fI\fBarray_offset\fP\fP 追加する配列オフセット情報
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void checkCallFunction (\fBAST\fP *call_function, intoffset_level, FUNCTION_INFORMATION_LIST *function_information_list)"関数呼び出しを示すASTノードが、登録されている関数に関する情報に含まれているかどうかを調べ、もし、その関数のポインタレベルがオフセットレベルと一致 した場合は、エラーを出力し、強制終了させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIcall_function\fP 関数呼び出しを示すASTノード 
+.br
+\fIoffset_level\fP オフセットレベル 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int checkIdentifierPointerArrayLevel (\fBAST\fP *identifier, intoffset_level, VARIABLE_TABLE_LIST *variable_table_list, ASTPOINTER_LIST *ignore_ast_list, int *pointer_level, int *array_level)"識別子の名前を一致する変数を変数リストから探す。このとき、一致する変数を調べたら、ポインタと配列の次元も調べ、オフセットレベル以上であれば、 見つけたことになり、１を返す。そうでなければ、０を返す。また、ignore_ast_listは無視するIDENTIFIERのASTのアドレスリストを見つけるたびに登録 される。もし、ignore_ast_listに登録されているノードなら、それは無視される。また、見つけるのに成功した場合、その該当する変数の配列レベルやポ インタのレベルも返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fIidentifier\fP 識別子の名前 
+.br
+\fIoffset_level\fP オフセットレベル 
+.br
+\fIvariable_table_list\fP 変数テーブルリスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIpointer_level\fP 変数リストから見つけた変数のポインタレベル 
+.br
+\fIarray_level\fP 変数リストから見つけた変数の配列レベル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+識別子の名前およびオフセットレベルが条件を満たしていれば１を返し、そうでなければ０を返す。 
+.RE
+.PP
+
+.SS "int checkIgnoreASTList (\fBAST\fP *ast_data, ASTPOINTER_LIST *ignore_ast_list)"指定したASTノードast_dataがASTアドレスリストignore_ast_listに存在するかどうかを調べる。存在する場合は１をかえす。 存在しない場合は、ast_dataのアドレスをignore_ast_listに追加した上、0を返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIast_data\fP 指定したASTノード 
+.br
+\fIignore_ast_list\fP 調べる対象のASTアドレスリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+存在する場合は１を返し、そうでない場合は０を返す 
+.RE
+.PP
+
+.SS "void copyArrayOffsetList (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, intmove_start)"配列オフセットリストfromlist内のmove_start以降のデータをすべて、もう一方の配列オフセットリストtolistにコピーさせる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfromlist\fP コピー元の配列オフセットリスト 
+.br
+\fItolist\fP コピー先の配列オフセットリスト 
+.br
+\fImove_start\fP 移動させたいデータの位置(先頭から０番目とする)
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void createArrayExpression (CSTLString *output, \fBARRAY_OFFSET\fP *array_offset, intoutput_level)"配列オフセット情報から、任意の次元までの配列式を生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 配列式を生成される文字列 
+.br
+\fI\fBarray_offset\fP\fP 対象の配列オフセット 
+.br
+\fIoutput_level\fP 出力したい次元(このとき、配列オフセットを超える値を入れた場合は、配列オフセットが次元までの配列式を出力する)
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int createValidateVariableArrayExpression (CSTLString *output, \fBARRAY_OFFSET\fP *array_offset)"配列オフセット情報から、検証用変数に使われる配列式を生成し、オフセットレベルを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 生成先の文字列 
+.br
+\fI\fBarray_offset\fP\fP 対象の配列オフセット
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列オフセット情報から生成されたオフセットレベルを返す
+.RE
+.PP
+配列オフセット情報から、検証用変数に使われる配列式を生成し、オフセットレベルを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoutput\fP 生成先の文字列 
+.br
+\fI\fBarray_offset\fP\fP 対象の配列オフセット
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列オフセット情報から生成されたオフセットレベルを返す。 
+.RE
+.PP
+
+.SS "void deleteOFFSET_LIST (OFFSET_LIST *offset_list)"オフセットリストoffset_listの中身を完全に解放させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoffset_list\fP 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+オフセットリストoffset_listの中身を完全に解放させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoffset_list\fP 解放させるoffset_list
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void deletePointer (CSTLString *target)"変数名からポインタを示す記号のみ全て削除する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 変更対象の変数名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void deletePointerAndArraySynbol (CSTLString *target)"変数名から配列およびポインタを示す記号を全て削除する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 変更対象の変数名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void get_ARRAY_OFFSET_LISTIgnoreASTNAME (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, CSTLString *ignore_ast_name)"ポインタおよび配列変数の各次元のオフセットリストを取得する。また、無視をする対象のノードを設定可能である。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP オフセットリストに該当するASTノード 
+.br
+\fIarray_offset_list\fP ポインタおよび配列のオフセット情報のリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント 
+.br
+\fIignore_ast_name\fP 無視をするＡＳＴ名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getArgumentOffsetInfo (\fBAST\fP *argument, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"指定した引数から、必要なオフセット情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIargument\fP 指定した引数に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIarray_offset_list\fP 各ポインタおよび配列ごとのオフセットのリスト 
+.br
+\fItarget_expression\fP この左辺式の上位に位置するASTノード 
+.br
+\fIswitch_mode\fP 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getARRAY_OFFSET_LIST (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"ポインタおよび配列変数の各次元のオフセットリストを取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP オフセットリストに該当するASTノード 
+.br
+\fIarray_offset_list\fP ポインタおよび配列のオフセット情報のリスト 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getArrayOffsetInAnpasandInfo (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement)"address_refであるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray_offset_listへ入れる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 右辺式に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP メモリ確保情報を取得するのに必要なプログラム変数リスト 
+.br
+\fIarray_offset_list\fP 左辺式上にあるポインタ参照に対するオフセットリスト 
+.br
+\fIignore_ast_list\fP 同じ位置のポインタが来ても無視するためのリスト 
+.br
+\fItarget_statement\fP この計算式を属しているASTノードへのアドレス（基本的にexpression_statementであるノードが入る）
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getArrayOffsetInIncDecInfo (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ARRAY_OFFSET_LIST *array_offset_list, ASTPOINTER_LIST *ignore_ast_list, \fBAST\fP *target_statement, intinc_dec_flag)"inc_exprやdec_exprなどのインクリメントやデクリメント式であるノード内を探索し、それに対するアドレス参照や、識別子を探し出し、見つけたら配列オフセットリストarray_offset_listへ入れる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP inc_exprやdec_exprなどのインクリメントやデクリメント式に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP メモリ確保情報を取得するのに必要なプログラム変数リスト 
+.br
+\fIarray_offset_list\fP 左辺式上にあるポインタ参照に対するオフセットリスト 
+.br
+\fIignore_ast_list\fP 同じ位置のポインタが来ても無視するためのリスト 
+.br
+\fItarget_statement\fP この計算式を属しているASTノードへのアドレス（基本的にexpression_statementであるノードが入る） 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　１：インクリメントが含まれている　２：デクリメントが含まれている
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getDeclaratorArrayOffset (ARRAY_OFFSET_LIST *declarator_array_offset_list, \fBAST\fP *declarator_expression, \fBAST\fP *target_expression, VARIABLE_TABLE_LIST *vtlist)"変数テーブルから、変数の定義に対するノードに該当する情報を探し、それに対する配列オフセット情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIdeclarator_array_offset_list\fP 取得先の配列オフセット情報 
+.br
+\fIdeclarator_expression\fP 変数定義までのASTアドレス 
+.br
+\fItarget_expression\fP 対象のdeclarator_with_initへのASTアドレス 
+.br
+\fIvtlist\fP 調べる先の変数テーブル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getExpressionOffsetInfo (\fBAST\fP *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode, intallow_subeffect)"指定した式から、必要なオフセット情報を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpression\fP 指定した式に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIarray_offset_list\fP 各ポインタおよび配列ごとのオフセットのリスト 
+.br
+\fItarget_expression\fP この左辺式の上位に位置するASTノード 
+.br
+\fIswitch_mode\fP 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す 
+.br
+\fIallow_subeffect\fP 副作用の式を許すかどうかのフラグ １：許す ０：許さない 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getOFFSET_LISTFromVariableTable (OFFSET_LIST *offset_list, \fBVARIABLE_TABLE\fP *variable_table)"変数テーブルデータvariable_tableからオフセットリストoffset_listを生成する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIoffset_list\fP 生成先のオフセットリスト 
+.br
+\fI\fBvariable_table\fP\fP 変数テーブルデータ
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getOffsetLevelFromArrayOffset (\fBARRAY_OFFSET\fP *array_offset)"指定した配列オフセットから、演算後のポインタレベルを求める。演算後のポインタレベルはつぎのとおりである。 演算後のポインタレベル＝この変数の配列とポインタレベルの合計値＋アンパサンドフラグ（挟んでいるなら１、そうでない場合は０）−この配列オフセット内のオフセットリスト 
+.PP
+\fB引数:\fP
+.RS 4
+\fI\fBarray_offset\fP\fP 指定した配列オフセット
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+求めた演算後のポインタレベルを返す 
+.RE
+.PP
+
+.SS "void getPointerAccessOrIdentifierList (\fBAST\fP *root, \fBAST\fP ***output, int *getSize)"direct_refとして指定したASTノードrootから、以下のノードを探しだし、それをASTリストoutputとして取得する。
+.PP
+IDENTIFIER array_access, direct_ref, IDENTIFIER, primary_expression
+.PP
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.br
+\fIoutput\fP 上記の見つけたノードへのアドレス 
+.br
+\fIgetSize\fP 取得した値のサイズを返すための変数。見つからない場合は0にされる。
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getPointerArrayOffset (\fBAST\fP *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, intoffset_level, ASTPOINTER_LIST *ignore_ast_list, \fBARRAY_OFFSET\fP **array_offset, \fBAST\fP *target_statement, intanpasand_flag, intinc_dec_flag)"ポインタおよび配列変数の各次元のオフセットとなる式を求める。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 左辺値に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報リスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIoffset_level\fP オフセットレベルを計算するためのところ。基本的に０を入力する。１以上入力すれば、それが最下位レベルとなる。 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fI\fBarray_offset\fP\fP ポインタおよび配列のオフセット情報 
+.br
+\fItarget_statement\fP 検証式の対象となるステートメント 
+.br
+\fIanpasand_flag\fP アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　0：挟んでいない 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getSingleExpressionOffsetInfo (\fBAST\fP *expression, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, ARRAY_OFFSET_LIST *array_offset_list, \fBAST\fP *target_expression, int *switch_mode)"指定した式から、必要なオフセット情報を取得する。これは副作用の式を許す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIexpression\fP 指定した式に関するASTノード 
+.br
+\fIfunction_information_list\fP 関数に関する情報のリスト 
+.br
+\fIvtlist\fP 検証対象の式をマークするための変数リスト 
+.br
+\fIignore_ast_list\fP ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト 
+.br
+\fIarray_offset_list\fP 各ポインタおよび配列ごとのオフセットのリスト 
+.br
+\fItarget_expression\fP この左辺式の上位に位置するASTノード 
+.br
+\fIswitch_mode\fP 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct_refやarray_accessのみ探す 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int getUpperExpressionRelationNode (\fBAST\fP *target, \fBAST\fP *root, \fBAST\fP **output, \fBAST\fP **output2)"ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus_exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 検証対象となっている変数 
+.br
+\fIroot\fP 検証対象のノード 
+.br
+\fIoutput\fP 出力される間接的に関係しているノードへのアドレス 
+.br
+\fIoutput2\fP outputがminus_exprの場合、minus_exprより1つ下のノードがここに代入される 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。
+.PP
+なし
+.RE
+.PP
+ポインタのオフセットの検証対象となっている変数を示すASTノードtargetから、間接的にどの関係の中に位置しているかどうかを調べ、そのノードのアドレスoutputとして返す。 このとき、targetより明らかに上位であるASTノードrootを設定しなければならない。 また、outputがminus_exprの場合はそのポインタよりひとつ下が左辺か右辺かどうかを調べるために、 そのポインタの一つ下のノードをoutput2へ代入する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 検証対象となっている変数 
+.br
+\fIroot\fP 検証対象のノード 
+.br
+\fIoutput\fP 出力される間接的に関係しているノードへのアドレス 
+.br
+\fIoutput2\fP outputがminus_exprの場合、minus_exprより1つ下のノードがここに代入される 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+検索が成功したかどうかのフラグ。成功した場合は１、そうでない場合は０を返す。 
+.RE
+.PP
+
+.SS "\fBARRAY_OFFSET\fP* maxOffsetLevelAddressFromArrayOffsetList (ARRAY_OFFSET_LIST *array_offset_list)"指定した配列オフセットリストでの演算後のポインタレベルの最大レベルである配列オフセットのアドレスを求める。配列オフセットが空の場合はNULLを代入する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIarray_offset_list\fP 指定した配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+求めた演算後のポインタレベルが最大である配列オフセットのアドレスを返す 
+.RE
+.PP
+
+.SS "int maxOffsetLevelFromArrayOffsetList (ARRAY_OFFSET_LIST *array_offset_list)"指定した配列オフセットリストでの演算後のポインタレベルの最大レベルを求める。配列オフセットが空の場合は０を代入する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIarray_offset_list\fP 指定した配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+求めた演算後のポインタレベルを返す。
+.RE
+.PP
+指定した配列オフセットリストでの演算後のポインタレベルの最大レベルを求める。配列オフセットが空の場合は０を代入する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIarray_offset_list\fP 指定した配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+求めた演算後のポインタレベルを返す 
+.RE
+.PP
+
+.SS "void minusArrayOffsetList (ARRAY_OFFSET_LIST *target_array_offset_list, ARRAY_OFFSET_LIST *delete_array_offset_list)"対象の配列オフセットリストtarget_array_offset_listに対して、対象から取り除きたい 配列オフセットリストdelete_array_offset_listの名前に該当する配列オフセット情報を 削除する。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_array_offset_list\fP 対象の配列オフセットリスト 
+.br
+\fIdelete_array_offset_list\fP 対象から取り除きたい配列オフセットリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void moveArrayOffsetList (ARRAY_OFFSET_LIST *fromlist, ARRAY_OFFSET_LIST *tolist, intmove_start)"配列オフセットリストfromlist内のmove_start以降のデータをすべて、もう一方の配列オフセットリストtolistに移動させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIfromlist\fP 移動もとの配列オフセットリスト 
+.br
+\fItolist\fP 移動先の配列オフセットリスト 
+.br
+\fImove_start\fP 移動させたいデータの位置(先頭から０番目とする)
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBARRAY_OFFSET\fP* new_ARRAY_OFFSET (CSTLString *variable_name, \fBAST\fP *target_statement, \fBAST\fP *variable_address, OFFSET_LIST *offset_list, intpointer_level, intarray_level, intanpasand_flag, intinc_dec_flag)"配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_statement\fP ターゲットのstatement 
+.br
+\fIvariable_address\fP この変数名が指しているASTアドレス 
+.br
+\fIoffset_list\fP 各次元のオフセット 
+.br
+\fIpointer_level\fP この変数のポインタレベル 
+.br
+\fIarray_level\fP この変数の配列レベル 
+.br
+\fIanpasand_flag\fP この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。
+.RE
+.PP
+。 配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_statement\fP ターゲットのstatement 
+.br
+\fIvariable_address\fP この変数名が指しているASTアドレス 
+.br
+\fIoffset_list\fP 各次元のオフセット 
+.br
+\fIpointer_level\fP この変数のポインタレベル 
+.br
+\fIarray_level\fP この変数の配列レベル 
+.br
+\fIanpasand_flag\fP この変数はアンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。 
+.RE
+.PP
+
+.SS "\fBARRAY_OFFSET\fP* new_ARRAY_OFFSET_char (char *variable_name, \fBAST\fP *target_statement, \fBAST\fP *variable_address, OFFSET_LIST *offset_list, intpointer_level, intarray_level, intanpasand_flag, intinc_dec_flag)"配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_statement\fP ターゲットのstatement 
+.br
+\fIvariable_address\fP この変数名が指しているASTアドレス 
+.br
+\fIoffset_list\fP 各次元のオフセット 
+.br
+\fIpointer_level\fP この変数のポインタレベル 
+.br
+\fIarray_level\fP この変数の配列レベル 
+.br
+\fIanpasand_flag\fP アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す
+.RE
+.PP
+配列やポインタの各次元のオフセット関係を格納するための構造体のデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_name\fP 変数名 
+.br
+\fItarget_statement\fP ターゲットのstatement 
+.br
+\fIvariable_address\fP この変数名が指しているASTアドレス 
+.br
+\fIoffset_list\fP 各次元のオフセット 
+.br
+\fIpointer_level\fP この変数のポインタレベル 
+.br
+\fIarray_level\fP この変数の配列レベル 
+.br
+\fIanpasand_flag\fP アンパサンドを挟んでいるかどうかのフラグ　１：挟んでいる　０：挟んでいない 
+.br
+\fIinc_dec_flag\fP インクリメントおよびデクリメントが含まれているかどうかのフラグ　０：含んでいない　１：インクリメントが含まれている　２：デクリメントが含まれている
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+配列やポインタの各次元のオフセットに関する構造体へのアドレスを返す。 
+.RE
+.PP
+
+.SS "void OFFSET_LIST_push_back_alloc (OFFSET_LIST *offset_list, char *string)"任意の文字列を、動的変数としてオフセットリストに追加する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIoffset_list\fP 対象のオフセットリスト 
+.br
+\fIstring\fP 任意の文字列
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void printASTPOINTER_LIST (ASTPOINTER_LIST *astpointer_list)"ASTのポインタリストの内容を出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fIastpointer_list\fP ASTのポインタリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBARRAY_OFFSET\fP* searchARRAY_OFFSET_LIST (ARRAY_OFFSET_LIST *array_offset_list, CSTLString *name)"配列オフセットリストarray_offset_listから、指定した変数名を探索し、 見つかればその変数名へのアドレスを返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fIarray_offset_list\fP 探索対象の配列オフセットリスト 
+.br
+\fIname\fP 探索したい変数名
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つかれば変数名へのアドレスを返す。そうでなければNULLを返す。 
+.RE
+.PP
+
+.SS "int searchExpressionOrPointeArrayOrIden (\fBAST\fP *root, \fBAST\fP **output)"primary_expressionとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。
+.PP
+minus_expr, plus_expr, array_access, direct_ref, IDENTIFIER, primary_expression
+.PP
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 また、ポインタ計算の関係上、+-演算演算子を示すようなものやCONSTANT(定数）が来た場合のみ、-1を返す。 見つからない場合は0である。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.br
+\fIoutput\fP 上記の見つけたノードへのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+上記の条件で値を返却する。 
+.RE
+.PP
+
+.SS "\fBARRAY_OFFSET\fP* searchOffsetLevelAddressFromArrayOffsetList (\fBAST\fP *root, ARRAY_OFFSET_LIST *array_offset_list, intpointer_level, intarray_level)"対象のASTノードから、演算後のポインタレベルが指定されたポインタレベルと配列レベルの合計と一致するような 変数の配列オフセットを指定された配列オフセットリストから探し出し、見つかったらアドレスを取得する。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 対象のASTノード 
+.br
+\fIarray_offset_list\fP 対象の配列オフセットリスト 
+.br
+\fIpointer_level\fP 指定するポインタレベル 
+.br
+\fIarray_level\fP 指定する配列レベル
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+演算後のポインタレベルと指定されたポインタレベルと配列レベルの合計が一致するような変数を返す。失敗した場合はNULLを返す。 
+.RE
+.PP
+
+.SS "int searchPointerAccessOrIdentifierOrPrimary (\fBAST\fP *root, \fBAST\fP **output)"direct_refとして指定したASTノードrootから、その次の下位である次のノード名を探し出し、そのアドレスをoutputへ出力させ、1を返す。
+.PP
+IDENTIFIER array_access, direct_ref, IDENTIFIER, primary_expression inc_after_expression, inc_expr, dec_after_expr, inc_expr assignment_expression
+.PP
+なお、outputの内容をNULLにすることで、rootより下位のノードからが検索の対象となる。 見つからない場合は0である。
+.PP
+\fB引数:\fP
+.RS 4
+\fIroot\fP 指定したASTノード 
+.br
+\fIoutput\fP 上記の見つけたノードへのアドレス
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+上記の条件で値を返却する。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

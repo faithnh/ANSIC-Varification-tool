@@ -1,0 +1,56 @@
+\section{ANSICInformation/Return\_\-Info.h}
+\label{Return__Info_8h}\index{ANSICInformation/Return\_\-Info.h@{ANSICInformation/Return\_\-Info.h}}
+
+
+これはリターン命令に関する情報を取得するためのものである  
+
+
+{\ttfamily \#include \char`\"{}PointerArrayControl.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structreturn__info}{return\_\-info}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structreturn__info}{return\_\-info} \hyperlink{Return__Info_8h_a47fbc30788666354ae6600d608a8d551}{RETURN\_\-INFO}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structreturn__info}{RETURN\_\-INFO} $\ast$ \hyperlink{Return__Info_8h_a4830d2ad27d026fbb9e45ab93ceb221c}{new\_\-RETURN\_\-INFO} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, ARRAY\_\-OFFSET\_\-LIST $\ast$return\_\-array\_\-offset\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これはリターン命令に関する情報を取得するためのものである \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{Return\_\-Info.h@{Return\_\-Info.h}!RETURN\_\-INFO@{RETURN\_\-INFO}}
+\index{RETURN\_\-INFO@{RETURN\_\-INFO}!Return_Info.h@{Return\_\-Info.h}}
+\subsubsection[{RETURN\_\-INFO}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf return\_\-info}  {\bf RETURN\_\-INFO}}\label{Return__Info_8h_a47fbc30788666354ae6600d608a8d551}
+リターン命令に関する情報 
+
+\subsection{関数}
+\index{Return\_\-Info.h@{Return\_\-Info.h}!new\_\-RETURN\_\-INFO@{new\_\-RETURN\_\-INFO}}
+\index{new\_\-RETURN\_\-INFO@{new\_\-RETURN\_\-INFO}!Return_Info.h@{Return\_\-Info.h}}
+\subsubsection[{new\_\-RETURN\_\-INFO}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RETURN\_\-INFO}$\ast$ new\_\-RETURN\_\-INFO (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{return\_\-array\_\-offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{Return__Info_8h_a4830d2ad27d026fbb9e45ab93ceb221c}
+リターン命令に関する情報を生成させる 
+\begin{DoxyParams}{引数}
+{\em target\_\-expression} & リターン命令自体へのノードへのアドレス \\
+\hline
+{\em return\_\-array\_\-offset\_\-list} & リターン命令で表記された式の配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたリターン命令に関する情報へのアドレスを返す 
+\end{DoxyReturn}

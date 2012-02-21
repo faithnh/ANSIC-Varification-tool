@@ -1,0 +1,44 @@
+\section{ANSICInformation/DivitionDeclarator.h}
+\label{DivitionDeclarator_8h}\index{ANSICInformation/DivitionDeclarator.h@{ANSICInformation/DivitionDeclarator.h}}
+
+
+これは簡潔化のために変数定義を分割させるためのものである 　例：int a,b = 1; → int a; int b = 1;  
+
+
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Synbol.h\char`\"{}}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{DivitionDeclarator_8h_a837cc79335c63eb0a21e7ead3516b06a}{OutputSourceAfterDivitionDeclarator} (FILE $\ast$output, \hyperlink{structabstract__syntax__tree}{AST} $\ast$programAST, VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これは簡潔化のために変数定義を分割させるためのものである 　例：int a,b = 1; → int a; int b = 1; \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{DivitionDeclarator.h@{DivitionDeclarator.h}!OutputSourceAfterDivitionDeclarator@{OutputSourceAfterDivitionDeclarator}}
+\index{OutputSourceAfterDivitionDeclarator@{OutputSourceAfterDivitionDeclarator}!DivitionDeclarator.h@{DivitionDeclarator.h}}
+\subsubsection[{OutputSourceAfterDivitionDeclarator}]{\setlength{\rightskip}{0pt plus 5cm}void OutputSourceAfterDivitionDeclarator (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{programAST, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list}
+\end{DoxyParamCaption}
+)}\label{DivitionDeclarator_8h_a837cc79335c63eb0a21e7ead3516b06a}
+変数定義を分割させた状態で出力させる 　例：int a,b = 1; → int a; int b = 1; 
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em programAST} & プログラムに対するAST \\
+\hline
+{\em variable\_\-table\_\-list} & 変数テーブル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

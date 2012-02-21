@@ -1,0 +1,133 @@
+\section{Library/CSTLString.h}
+\label{CSTLString_8h}\index{Library/CSTLString.h@{Library/CSTLString.h}}
+
+
+このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行うための命令が含まれている。  
+
+
+{\ttfamily \#include $<$cstl/string.h$>$}\par
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{CSTLString_8h_a18e26d83587b82c192fdee06afe130ec}{CSTLString\_\-replace\_\-string} (CSTLString $\ast$target, char $\ast$search, char $\ast$replace)
+\item 
+int \hyperlink{CSTLString_8h_afc5ade5716a279fc0576b75f933b19a9}{CSTLString\_\-compare\_\-with\_\-char} (CSTLString $\ast$target1, char $\ast$target2)
+\item 
+int \hyperlink{CSTLString_8h_a1625e5156ceff6f2f505600d574757ae}{CSTLString\_\-delete\_\-tail\_\-str} (CSTLString $\ast$target1, char $\ast$del\_\-str)
+\item 
+void \hyperlink{CSTLString_8h_af2fe29138e25738a297f48a95dc741c6}{CSTLString\_\-printf} (CSTLString $\ast$target, int add\_\-flag, char $\ast$source,...)
+\item 
+void \hyperlink{CSTLString_8h_ad2c259b0d8fa85264f32cad8eaf05c00}{CSTLString\_\-ltrim} (CSTLString $\ast$target)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行うための命令が含まれている。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{関数}
+\index{CSTLString.h@{CSTLString.h}!CSTLString\_\-compare\_\-with\_\-char@{CSTLString\_\-compare\_\-with\_\-char}}
+\index{CSTLString\_\-compare\_\-with\_\-char@{CSTLString\_\-compare\_\-with\_\-char}!CSTLString.h@{CSTLString.h}}
+\subsubsection[{CSTLString\_\-compare\_\-with\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}int CSTLString\_\-compare\_\-with\_\-char (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target1, }
+\item[{char $\ast$}]{target2}
+\end{DoxyParamCaption}
+)}\label{CSTLString_8h_afc5ade5716a279fc0576b75f933b19a9}
+指定したCSTL文字列target1と比較対象の普通の文字列target2と比較する。
+
+
+\begin{DoxyParams}{引数}
+{\em target1} & 指定したCSTL文字列 \\
+\hline
+{\em target2} & 比較対象の普通の文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+比較した結果を返す、一致した場合は０、そうでない場合は０以外の値を返す。 
+\end{DoxyReturn}
+\index{CSTLString.h@{CSTLString.h}!CSTLString\_\-delete\_\-tail\_\-str@{CSTLString\_\-delete\_\-tail\_\-str}}
+\index{CSTLString\_\-delete\_\-tail\_\-str@{CSTLString\_\-delete\_\-tail\_\-str}!CSTLString.h@{CSTLString.h}}
+\subsubsection[{CSTLString\_\-delete\_\-tail\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}int CSTLString\_\-delete\_\-tail\_\-str (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target1, }
+\item[{char $\ast$}]{del\_\-str}
+\end{DoxyParamCaption}
+)}\label{CSTLString_8h_a1625e5156ceff6f2f505600d574757ae}
+指定したCSTL文字列target1から、指定した文字列del\_\-strの最初に出現する箇所以降を全て削除する。
+
+
+\begin{DoxyParams}{引数}
+{\em target1} & 指定したCSTL文字列 \\
+\hline
+{\em del\_\-str} & 削除する場所を指定するための文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功したかどうか否かを返す。成功した場合は１、そうでない場合は0を返す。 
+\end{DoxyReturn}
+\index{CSTLString.h@{CSTLString.h}!CSTLString\_\-ltrim@{CSTLString\_\-ltrim}}
+\index{CSTLString\_\-ltrim@{CSTLString\_\-ltrim}!CSTLString.h@{CSTLString.h}}
+\subsubsection[{CSTLString\_\-ltrim}]{\setlength{\rightskip}{0pt plus 5cm}void CSTLString\_\-ltrim (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{CSTLString_8h_ad2c259b0d8fa85264f32cad8eaf05c00}
+指定した文字列の前の半角スペース・改行文字・タブを削除する。
+
+
+\begin{DoxyParams}{引数}
+{\em target} & 指定した文字列 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{CSTLString.h@{CSTLString.h}!CSTLString\_\-printf@{CSTLString\_\-printf}}
+\index{CSTLString\_\-printf@{CSTLString\_\-printf}!CSTLString.h@{CSTLString.h}}
+\subsubsection[{CSTLString\_\-printf}]{\setlength{\rightskip}{0pt plus 5cm}void CSTLString\_\-printf (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target, }
+\item[{int}]{add\_\-flag, }
+\item[{char $\ast$}]{source, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{CSTLString_8h_af2fe29138e25738a297f48a95dc741c6}
+指定した文字列sourceを簡易版の書式フォーマット形式で指定したCSTL文字列targetに入力する。 簡易版なので、d、f、s、d、\%にしか対応していない。\par
+は可能。 また、add\_\-flagを指定することで、追加・代入の選択もできる。 
+\begin{DoxyParams}{引数}
+{\em target} & 入力先の指定したCSTL文字列（あらかじめ初期化する必要あり） \\
+\hline
+{\em add\_\-flag} & 追加挿入するかどうかのフラグ　１：追加　０：代入 \\
+\hline
+{\em source} & 指定した文字列（書式フォーマット形式） \\
+\hline
+{\em ...} & 書式に対応した任意の引数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{CSTLString.h@{CSTLString.h}!CSTLString\_\-replace\_\-string@{CSTLString\_\-replace\_\-string}}
+\index{CSTLString\_\-replace\_\-string@{CSTLString\_\-replace\_\-string}!CSTLString.h@{CSTLString.h}}
+\subsubsection[{CSTLString\_\-replace\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void CSTLString\_\-replace\_\-string (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target, }
+\item[{char $\ast$}]{search, }
+\item[{char $\ast$}]{replace}
+\end{DoxyParamCaption}
+)}\label{CSTLString_8h_a18e26d83587b82c192fdee06afe130ec}
+指定したCSTL文字列targetに対して、置換対象の文字列searchから置換したい文字列replaceに置換を行う。 
+\begin{DoxyParams}{引数}
+{\em target} & 指定したCSTL文字列 \\
+\hline
+{\em search} & 置換対象の文字列 \\
+\hline
+{\em replace} & 置換したい文字列\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

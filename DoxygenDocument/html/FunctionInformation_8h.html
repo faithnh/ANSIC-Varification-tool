@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/FunctionInformation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">データ構造</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ANSICInformation/FunctionInformation.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルは関数に関する情報を取得するための命令が含まれている。  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &lt;cstl/list.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="CSTLString_8h_source.html">../Library/CSTLString.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="AST_8h_source.html">AST.h</a>&quot;</code><br/>
+</div>
+<p><a href="FunctionInformation_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+データ構造</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparam__information.html">param_information</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfunction__information.html">function_information</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structparam__information.html">param_information</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#ae4491ef8fff9eec21ce52d12bc035b04">PARAM_INFORMATION</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structfunction__information.html">function_information</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#aab4e23ad10f5b3c5e209289dbb41df40">FUNCTION_INFORMATION</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfunction__information.html">FUNCTION_INFORMATION</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#a08e9e7f3d64ef0deeb2d9b6b7590a373">new_FUNCTION_INFORMATION</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *function_node, CSTLString *return_type, CSTLString *function_name, PARAM_INFORMATION_LIST *param_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparam__information.html">PARAM_INFORMATION</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#ae6e5d43a10dd5ee5a7f31306c42aadcb">new_PARAM_INFORMATION</a> (CSTLString *param_type, CSTLString *param_name, int array_level, int pointer_level, int in_out_flag)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#af12c024074ed26d67e981249f4d73216">getFunctionInformation</a> (FUNCTION_INFORMATION_LIST *function_information_list, <a class="el" href="structabstract__syntax__tree.html">AST</a> *root)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#acecbefba50732f6a9926d72e926df76d">getFunctionInformationFromFile</a> (FUNCTION_INFORMATION_LIST *function_information_list, char *file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#af5bf958c5e789e03ca88250f06328ae5">deleteParameterDefine</a> (CSTLString *target_string)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#a7970484f0104369f1c54d52852990c73">printFUNCTION_INFORMATION_LIST</a> (FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfunction__information.html">FUNCTION_INFORMATION</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#adb4d66844004d42703e1a3bb1653361b">searchFUNCTION_INFORMATION</a> (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#af1b60d4c0b4f57c666a46e01db6f01d6">getPointerLevelFromFUNCTION_INFORMATION_LIST</a> (CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#a90fb29ce9d6e3487e9e5bdc69c4afd7b">getParamInformationFromFunctionDifinition</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *param_info_node, PARAM_INFORMATION_LIST *param_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FunctionInformation_8h.html#a2f237d512dcb1a72e29ff42aa972a557">getIN_OUT_FLAG</a> (CSTLString *param_type, int pointer_level, int array_level)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルは関数に関する情報を取得するための命令が含まれている。 </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="aab4e23ad10f5b3c5e209289dbb41df40"></a><!-- doxytag: member="FunctionInformation.h::FUNCTION_INFORMATION" ref="aab4e23ad10f5b3c5e209289dbb41df40" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structfunction__information.html">function_information</a>  <a class="el" href="structfunction__information.html">FUNCTION_INFORMATION</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数に関する情報。関数からの検証式の生成などに用いる。 </p>
+
+</div>
+</div>
+<a class="anchor" id="ae4491ef8fff9eec21ce52d12bc035b04"></a><!-- doxytag: member="FunctionInformation.h::PARAM_INFORMATION" ref="ae4491ef8fff9eec21ce52d12bc035b04" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structparam__information.html">param_information</a>  <a class="el" href="structparam__information.html">PARAM_INFORMATION</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>引数に関する情報 </p>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="af5bf958c5e789e03ca88250f06328ae5"></a><!-- doxytag: member="FunctionInformation.h::deleteParameterDefine" ref="af5bf958c5e789e03ca88250f06328ae5" args="(CSTLString *target_string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteParameterDefine </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した関数の定義自体から、パラメータ定義などを削除する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_string</td><td>対象の関数の定義自体の文字列</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af12c024074ed26d67e981249f4d73216"></a><!-- doxytag: member="FunctionInformation.h::getFunctionInformation" ref="af12c024074ed26d67e981249f4d73216" args="(FUNCTION_INFORMATION_LIST *function_information_list, AST *root)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getFunctionInformation </td>
+          <td>(</td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したプログラムのASTノードから関数定義を探し、それに基づいて関数に関する情報を生成し、それらのリストfunction_information_list に登録する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function_information_list</td><td>登録先の関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">root</td><td>指定したプログラムのASTノード</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acecbefba50732f6a9926d72e926df76d"></a><!-- doxytag: member="FunctionInformation.h::getFunctionInformationFromFile" ref="acecbefba50732f6a9926d72e926df76d" args="(FUNCTION_INFORMATION_LIST *function_information_list, char *file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getFunctionInformationFromFile </td>
+          <td>(</td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したファイル名file_nameで定義された関数に関する情報を関数に関する情報のリストfunction_information_listに設定する。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function_information_list</td><td>登録先の関数に関する情報のリスト </td></tr>
+    <tr><td class="paramname">file_name</td><td>指定したファイル名</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2f237d512dcb1a72e29ff42aa972a557"></a><!-- doxytag: member="FunctionInformation.h::getIN_OUT_FLAG" ref="a2f237d512dcb1a72e29ff42aa972a557" args="(CSTLString *param_type, int pointer_level, int array_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getIN_OUT_FLAG </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>param_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>array_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>パラメータのポインタレベル・配列レベルおよび型名から、このパラメータは入力型か出力型か判定する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param_type</td><td>パラメータの型名 </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>ポインタのレベル </td></tr>
+    <tr><td class="paramname">array_level</td><td>配列のレベル</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>入力型ならば１、出力型ならば０を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a90fb29ce9d6e3487e9e5bdc69c4afd7b"></a><!-- doxytag: member="FunctionInformation.h::getParamInformationFromFunctionDifinition" ref="a90fb29ce9d6e3487e9e5bdc69c4afd7b" args="(AST *param_info_node, PARAM_INFORMATION_LIST *param_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getParamInformationFromFunctionDifinition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>param_info_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PARAM_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>param_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>パラメータリストを示すノードparam_info_nodeから、パラメータの情報を取得し、param_information_listに登録する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param_info_node</td><td>パラメータリストを示すノード </td></tr>
+    <tr><td class="paramname">param_information_list</td><td>登録先のパラメータ情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af1b60d4c0b4f57c666a46e01db6f01d6"></a><!-- doxytag: member="FunctionInformation.h::getPointerLevelFromFUNCTION_INFORMATION_LIST" ref="af1b60d4c0b4f57c666a46e01db6f01d6" args="(CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getPointerLevelFromFUNCTION_INFORMATION_LIST </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_function_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_function_name</td><td>指定した関数名 </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>検索対象の関数に関する情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つかった場合はその関数のポインタレベルを返す、そうでない場合は-1を返す。</dd></dl>
+<p>指定した関数名が関数に関する情報リストから探し、ポインタレベルを返す。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_function_name</td><td>指定した関数名 </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>検索対象の関数に関する情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つかった場合はその関数のポインタレベルを返す。そうでない場合は-1を返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a08e9e7f3d64ef0deeb2d9b6b7590a373"></a><!-- doxytag: member="FunctionInformation.h::new_FUNCTION_INFORMATION" ref="a08e9e7f3d64ef0deeb2d9b6b7590a373" args="(AST *function_node, CSTLString *return_type, CSTLString *function_name, PARAM_INFORMATION_LIST *param_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfunction__information.html">FUNCTION_INFORMATION</a>* new_FUNCTION_INFORMATION </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>function_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>return_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>function_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PARAM_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>param_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数に関する情報を生成する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function_node</td><td>対象の関数へのノード </td></tr>
+    <tr><td class="paramname">return_type</td><td>返却値のタイプ </td></tr>
+    <tr><td class="paramname">function_name</td><td>関数名 </td></tr>
+    <tr><td class="paramname">param_information_list</td><td>パラメータに関する情報</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>生成された関数に関する情報へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6e5d43a10dd5ee5a7f31306c42aadcb"></a><!-- doxytag: member="FunctionInformation.h::new_PARAM_INFORMATION" ref="ae6e5d43a10dd5ee5a7f31306c42aadcb" args="(CSTLString *param_type, CSTLString *param_name, int array_level, int pointer_level, int in_out_flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structparam__information.html">PARAM_INFORMATION</a>* new_PARAM_INFORMATION </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>param_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>param_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>array_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pointer_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>in_out_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>パラメータに関する情報を生成する。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param_type</td><td>パラメータの型 </td></tr>
+    <tr><td class="paramname">param_name</td><td>パラメータの名前 </td></tr>
+    <tr><td class="paramname">array_level</td><td>配列のレベル </td></tr>
+    <tr><td class="paramname">pointer_level</td><td>ポインタのレベル </td></tr>
+    <tr><td class="paramname">in_out_flag</td><td>入力型か出力型かの判定　１：入力　０：出力　２：入出力</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>生成されたパラメータに関する情報へのアドレスを返す。 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7970484f0104369f1c54d52852990c73"></a><!-- doxytag: member="FunctionInformation.h::printFUNCTION_INFORMATION_LIST" ref="a7970484f0104369f1c54d52852990c73" args="(FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printFUNCTION_INFORMATION_LIST </td>
+          <td>(</td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数に関する情報リストの内容を出力させる。 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function_information_list</td><td>出力対象の関数に関する情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adb4d66844004d42703e1a3bb1653361b"></a><!-- doxytag: member="FunctionInformation.h::searchFUNCTION_INFORMATION" ref="adb4d66844004d42703e1a3bb1653361b" args="(CSTLString *target_function_name, FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfunction__information.html">FUNCTION_INFORMATION</a>* searchFUNCTION_INFORMATION </td>
+          <td>(</td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>target_function_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数に関する情報リストから、指定した関数名を探し、それに関する構造体へのアドレスを返す。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_function_name</td><td>指定した関数名 </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>検索対象の関数に関する情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>見つかった場合はその関数に関する構造体へのアドレスを返す。みつからなければ、NULLを返す。 </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

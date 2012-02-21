@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/DivitionInformation.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/DivitionInformation.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="DivitionInformation_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor"> #ifndef DIVITION_INFORMATION_HEADDER</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor"> #define DIVITION_INFORMATION_HEADDER</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor"> #include&lt;cstl/list.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor"> #include&quot;<a class="code" href="AST_8h.html" title="このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノ...">AST.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor"> #include&quot;<a class="code" href="Synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを 生成させるための命令が含まれている。 とくに、typedefテーブルの生成は、C言語の...">Synbol.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor"> #include&quot;<a class="code" href="CSTLString_8h.html" title="このファイルは、CSTLライブラリを用いた文字列型CSTLStringを生成したり、それに関する操作を行うための命令が含まれている。">../Library/CSTLString.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor"> #include&quot;<a class="code" href="PointerArrayControl_8h.html" title="このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指...">PointerArrayControl.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include&quot;<a class="code" href="FunctionInformation_8h.html" title="このファイルは関数に関する情報を取得するための命令が含まれている。">FunctionInformation.h</a>&quot;</span>
+<a name="l00020"></a><a class="code" href="structdivition__information.html">00020</a>  <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structdivition__information.html">divition_information</a>{
+<a name="l00021"></a>00021     <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression; 
+<a name="l00022"></a><a class="code" href="structdivition__information.html#a47c7af44ae5f360dc369efd35b72129e">00022</a>     <span class="keywordtype">int</span> <a class="code" href="structdivition__information.html#a47c7af44ae5f360dc369efd35b72129e" title="対象の式">type</a>; 
+<a name="l00023"></a><a class="code" href="structdivition__information.html#ad79d014f72312183ee99402b6b2001e9">00023</a>     CSTLString *<a class="code" href="structdivition__information.html#ad79d014f72312183ee99402b6b2001e9" title="除算か剰余かどうかのタイプ　０：除算式　１：剰余式">statement</a>; 
+<a name="l00024"></a><a class="code" href="structdivition__information.html#aef16f1ef4d1f8cb9e2440017dd8c004f">00024</a>     ARRAY_OFFSET_LIST *<a class="code" href="structdivition__information.html#aef16f1ef4d1f8cb9e2440017dd8c004f" title="除算および剰余以下の式">identifiers</a>; 
+<a name="l00025"></a>00025  } <a class="code" href="DivitionInformation_8h.html#afe33e19b368476a1c944f5b32da0a9d7">DIVITION_INFORMATION</a>;
+<a name="l00026"></a>00026 
+<a name="l00030"></a>00030  CSTL_LIST_INTERFACE(DIVITION_INFORMATION_LIST, <a class="code" href="structdivition__information.html">DIVITION_INFORMATION</a>)
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032  
+<a name="l00042"></a>00042  <a class="code" href="structdivition__information.html">DIVITION_INFORMATION</a> *new_DIVITION_INFORMATION(<a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> type, CSTLString *statement, ARRAY_OFFSET_LIST *identifiers);
+<a name="l00043"></a>00043 
+<a name="l00054"></a>00054  <a class="code" href="structdivition__information.html">DIVITION_INFORMATION</a> *new_DIVITION_INFORMATION_char(<a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression, <span class="keywordtype">int</span> type, <span class="keywordtype">char</span> *statement, ARRAY_OFFSET_LIST *identifiers);
+<a name="l00055"></a>00055 
+<a name="l00068"></a>00068  <span class="keywordtype">void</span> getDIVITION_INFORMATION_LIST(<a class="code" href="structabstract__syntax__tree.html">AST</a> *expression_ast, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00069"></a>00069          VARIABLE_TABLE_LIST *vtlist, DIVITION_INFORMATION_LIST *divition_information_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_expression,
+<a name="l00070"></a>00070          ASTPOINTER_LIST *ignore_ast_list);
+<a name="l00071"></a>00071 
+<a name="l00079"></a>00079  <span class="keywordtype">void</span> printDIVITION_INFORMATION_LIST(DIVITION_INFORMATION_LIST *divition_information_list);
+<a name="l00080"></a>00080  <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:38:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

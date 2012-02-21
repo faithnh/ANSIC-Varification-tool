@@ -1,0 +1,116 @@
+\hypertarget{FreeMemInfo_8h}{
+\section{ANSICInformation/FreeMemInfo.h}
+\label{FreeMemInfo_8h}\index{ANSICInformation/FreeMemInfo.h@{ANSICInformation/FreeMemInfo.h}}
+}
+
+
+このファイルは、メモリ解放関係の関数から、メモリ解放関係の情報を取得します。 具体的には、C言語プログラム上にあるfree関数から、どの変数が解放されているかどうかについて取得します。  
+
+
+{\ttfamily \#include \char`\"{}PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}FunctionInformation.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfreemem__info}{freemem\_\-info}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structfreemem__info}{freemem\_\-info} \hyperlink{FreeMemInfo_8h_a9a97a736b52d4cbc7fdf9069a8caccb1}{FREEMEMINFO}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structfreemem__info}{FREEMEMINFO} $\ast$ \hyperlink{FreeMemInfo_8h_a7c3d2f791f8c0f22639a6c8eb31c71b7}{new\_\-FREEMEMINFO} (ARRAY\_\-OFFSET\_\-LIST $\ast$free\_\-variable)
+\item 
+void \hyperlink{FreeMemInfo_8h_a77d47b49aed920cf9c5bd24f364153dd}{getFreememInfo} (\hyperlink{structfreemem__info}{FREEMEMINFO} $\ast$$\ast$freememinfo, \hyperlink{structabstract__syntax__tree}{AST} $\ast$call\_\-function, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+void \hyperlink{FreeMemInfo_8h_ad4fd95936820494011ea2f39b9ea5fde}{printFREEMEMINFO} (\hyperlink{structfreemem__info}{FREEMEMINFO} $\ast$freememinfo)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、メモリ解放関係の関数から、メモリ解放関係の情報を取得します。 具体的には、C言語プログラム上にあるfree関数から、どの変数が解放されているかどうかについて取得します。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\hypertarget{FreeMemInfo_8h_a9a97a736b52d4cbc7fdf9069a8caccb1}{
+\index{FreeMemInfo.h@{FreeMemInfo.h}!FREEMEMINFO@{FREEMEMINFO}}
+\index{FREEMEMINFO@{FREEMEMINFO}!FreeMemInfo.h@{FreeMemInfo.h}}
+\subsubsection[{FREEMEMINFO}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf freemem\_\-info}  {\bf FREEMEMINFO}}}
+\label{FreeMemInfo_8h_a9a97a736b52d4cbc7fdf9069a8caccb1}
+メモリ確保関係に関係する変数が含まれる。これは、メモリ解放関数の挙動に合わせて検証式を追加するために用いる。 
+
+\subsection{関数}
+\hypertarget{FreeMemInfo_8h_a77d47b49aed920cf9c5bd24f364153dd}{
+\index{FreeMemInfo.h@{FreeMemInfo.h}!getFreememInfo@{getFreememInfo}}
+\index{getFreememInfo@{getFreememInfo}!FreeMemInfo.h@{FreeMemInfo.h}}
+\subsubsection[{getFreememInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getFreememInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf FREEMEMINFO} $\ast$$\ast$}]{freememinfo, }
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}}
+\label{FreeMemInfo_8h_a77d47b49aed920cf9c5bd24f364153dd}
+対象の関数へのASTノードからfree関数を見つけ、それに関する情報を取得する。
+
+
+\begin{DoxyParams}{引数}
+{\em freemeninfo} & 取得先のメモリ解放関係の情報 \\
+\hline
+{\em call\_\-function} & 対象の関数へのASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 変数テーブルの情報 \\
+\hline
+{\em target\_\-statement} & 対象の関数が位置している式へのASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\hypertarget{FreeMemInfo_8h_a7c3d2f791f8c0f22639a6c8eb31c71b7}{
+\index{FreeMemInfo.h@{FreeMemInfo.h}!new\_\-FREEMEMINFO@{new\_\-FREEMEMINFO}}
+\index{new\_\-FREEMEMINFO@{new\_\-FREEMEMINFO}!FreeMemInfo.h@{FreeMemInfo.h}}
+\subsubsection[{new\_\-FREEMEMINFO}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FREEMEMINFO}$\ast$ new\_\-FREEMEMINFO (
+\begin{DoxyParamCaption}
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{free\_\-variable}
+\end{DoxyParamCaption}
+)}}
+\label{FreeMemInfo_8h_a7c3d2f791f8c0f22639a6c8eb31c71b7}
+新しいメモリ解放関係の情報を生成する
+
+
+\begin{DoxyParams}{引数}
+{\em freememinfo} & 新しい解放先の変数に関するオフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成されたメモリ解放関係の情報へのアドレスを返す。 
+\end{DoxyReturn}
+\hypertarget{FreeMemInfo_8h_ad4fd95936820494011ea2f39b9ea5fde}{
+\index{FreeMemInfo.h@{FreeMemInfo.h}!printFREEMEMINFO@{printFREEMEMINFO}}
+\index{printFREEMEMINFO@{printFREEMEMINFO}!FreeMemInfo.h@{FreeMemInfo.h}}
+\subsubsection[{printFREEMEMINFO}]{\setlength{\rightskip}{0pt plus 5cm}void printFREEMEMINFO (
+\begin{DoxyParamCaption}
+\item[{{\bf FREEMEMINFO} $\ast$}]{freememinfo}
+\end{DoxyParamCaption}
+)}}
+\label{FreeMemInfo_8h_ad4fd95936820494011ea2f39b9ea5fde}
+指定したメモリ解放関係の情報を出力する
+
+
+\begin{DoxyParams}{引数}
+{\em freememinfo} & 出力するメモリ解放関係の情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

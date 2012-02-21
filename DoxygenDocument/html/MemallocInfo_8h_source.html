@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ANSICInformation/MemallocInfo.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ANSICInformation/MemallocInfo.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="MemallocInfo_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef MEMALLOC_INFO_HEADDER</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define MEMALLOC_INFO_HEADDER</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="PointerArrayControl_8h.html" title="このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指...">PointerArrayControl.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="AST_8h.html" title="このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノ...">AST.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include&quot;<a class="code" href="Synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを 生成させるための命令が含まれている。 とくに、typedefテーブルの生成は、C言語の...">Synbol.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00019"></a><a class="code" href="structmemory__allocation__info.html">00019</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structmemory__allocation__info.html">memory_allocation_info</a>{
+<a name="l00020"></a>00020     CSTLString *sizeof_type;    
+<a name="l00021"></a><a class="code" href="structmemory__allocation__info.html#af1edaa8634179c3185a37cb1518e4fde">00021</a>     ARRAY_OFFSET_LIST *<a class="code" href="structmemory__allocation__info.html#af1edaa8634179c3185a37cb1518e4fde" title="sizeofの型名">realloc_target</a>;  
+<a name="l00022"></a><a class="code" href="structmemory__allocation__info.html#a0ad96160d67dbf835dd7d599ece0d9b4">00022</a>     CSTLString *<a class="code" href="structmemory__allocation__info.html#a0ad96160d67dbf835dd7d599ece0d9b4" title="realloc時のターゲット変数の配列オフセットリスト">size</a>;           
+<a name="l00023"></a>00023 } <a class="code" href="MemallocInfo_8h.html#ac195f09baa3fd86235c8bf9c0c103888">MEMALLOC_INFO</a>;
+<a name="l00024"></a>00024 
+<a name="l00033"></a>00033 <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *new_MEMALLOC_INFO_char(<span class="keywordtype">char</span> *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, <span class="keywordtype">char</span> *size);
+<a name="l00034"></a>00034 
+<a name="l00043"></a>00043 <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *new_MEMALLOC_INFO(CSTLString *sizeof_type, ARRAY_OFFSET_LIST *realloc_target, CSTLString *size);
+<a name="l00044"></a>00044 
+<a name="l00051"></a>00051 <a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *memoryAllocationAnarysis(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, VARIABLE_TABLE_LIST *vtlist);
+<a name="l00052"></a>00052 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> getMallocInformation(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, CSTLString *sizeof_type, CSTLString *constant);
+<a name="l00062"></a>00062 
+<a name="l00071"></a>00071 <span class="keywordtype">void</span> getCallocInformation(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, CSTLString *sizeof_type, CSTLString *constant);
+<a name="l00072"></a>00072 
+<a name="l00083"></a>00083 <span class="keywordtype">void</span> getReallocInformation(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root,VARIABLE_TABLE_LIST *vtlist, CSTLString *sizeof_type, CSTLString *constant, ARRAY_OFFSET_LIST *realloc_target);
+<a name="l00084"></a>00084 
+<a name="l00092"></a>00092 <span class="keywordtype">int</span> searchSizeof(CSTLString *sizeof_type, <a class="code" href="structabstract__syntax__tree.html">AST</a> *root);
+<a name="l00093"></a>00093 
+<a name="l00101"></a>00101 <span class="keywordtype">void</span> getMallocMaxsize(CSTLString *constant,<a class="code" href="structabstract__syntax__tree.html">AST</a> *root);
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="comment">/*</span>
+<a name="l00105"></a>00105 <span class="comment">指定したメモリ確保情報memalloc_infoの内容を出力する。</span>
+<a name="l00106"></a>00106 <span class="comment"></span>
+<a name="l00107"></a>00107 <span class="comment">@param memalloc_info 出力対象のメモリ確保情報</span>
+<a name="l00108"></a>00108 <span class="comment"></span>
+<a name="l00109"></a>00109 <span class="comment">@return なし</span>
+<a name="l00110"></a>00110 <span class="comment">*/</span>
+<a name="l00111"></a>00111 <span class="keywordtype">void</span> printMEMALLOC_INFO(<a class="code" href="structmemory__allocation__info.html">MEMALLOC_INFO</a> *memalloc_info);
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:38:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

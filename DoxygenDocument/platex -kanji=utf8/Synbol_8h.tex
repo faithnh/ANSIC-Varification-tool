@@ -1,0 +1,666 @@
+\section{ANSICInformation/Synbol.h}
+\label{Synbol_8h}\index{ANSICInformation/Synbol.h@{ANSICInformation/Synbol.h}}
+
+
+このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必須な処理です。  
+
+
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}../Library/CSTLString.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../Library/IdList.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtypedef__table}{typedef\_\-table}
+\item 
+struct \hyperlink{structvariable__table}{variable\_\-table}
+\item 
+struct \hyperlink{structstruct__table}{struct\_\-table}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtypedef__table}{typedef\_\-table} \hyperlink{Synbol_8h_acea964af3672f8ac88991ff14c52694a}{TYPEDEF\_\-TABLE}
+\item 
+typedef struct \hyperlink{structvariable__table}{variable\_\-table} \hyperlink{Synbol_8h_aba95a019bb71ccd5e3e128174d299272}{VARIABLE\_\-TABLE}
+\item 
+typedef struct \hyperlink{structstruct__table}{struct\_\-table} \hyperlink{Synbol_8h_af5018610fe25e6d5a5a8bbe35d944ec5}{STRUCT\_\-TABLE}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structtypedef__table}{TYPEDEF\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_aff3bac744ce12f04e06889fa7eca475b}{new\_\-TYPEDEF\_\-TABLE} (CSTLString $\ast$target\_\-type, CSTLString $\ast$change\_\-type)
+\item 
+\hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_ad6f6de1ea1d321db508f2c338ab54a50}{new\_\-VARIABLE\_\-TABLE} (int enable\_\-start, int enable\_\-end, \hyperlink{structabstract__syntax__tree}{AST} $\ast$declaration\_\-location\_\-address, int block\_\-level, int block\_\-id, IDLIST $\ast$idlist, CSTLString $\ast$type, CSTLString $\ast$variable\_\-name, \hyperlink{structabstract__syntax__tree}{AST} $\ast$initializer)
+\item 
+\hyperlink{structstruct__table}{STRUCT\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_aa95ef26c2c998337b7e10ede885869b9}{new\_\-STRUCT\_\-TABLE\_\-with\_\-char} (int line, char $\ast$type, char $\ast$struct\_\-name, VARIABLE\_\-TABLE\_\-LIST $\ast$member\_\-list)
+\item 
+\hyperlink{structtypedef__table}{TYPEDEF\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_a2666e0087dc2d4475a0d342a216a6f5e}{new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char} (char $\ast$target\_\-type, char $\ast$change\_\-type)
+\item 
+\hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_a0625ef2500d1f120f7b530c0c93d00b8}{new\_\-VARIABLE\_\-TABLE\_\-with\_\-char} (int enable\_\-start, int enable\_\-end, \hyperlink{structabstract__syntax__tree}{AST} $\ast$declaration\_\-location\_\-address, int block\_\-level, int block\_\-id, IDLIST $\ast$idlist, char $\ast$type, char $\ast$variable\_\-name, \hyperlink{structabstract__syntax__tree}{AST} $\ast$initializer)
+\item 
+\hyperlink{structstruct__table}{STRUCT\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_aa0bb5baf5c427f56c23a7a945dc39859}{new\_\-STRUCT\_\-TABLE} (int line, CSTLString $\ast$type, CSTLString $\ast$struct\_\-name, VARIABLE\_\-TABLE\_\-LIST $\ast$member\_\-list)
+\item 
+void \hyperlink{Synbol_8h_ac57e5e84ec4979512c4fc20c9e1b9135}{getTYPEDEF\_\-TABLE\_\-DATA} (TYPEDEF\_\-TABLE\_\-LIST $\ast$typedef\_\-table\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$typelist, \hyperlink{structabstract__syntax__tree}{AST} $\ast$identifier)
+\item 
+\hyperlink{structabstract__syntax__tree}{AST} $\ast$ \hyperlink{Synbol_8h_a6d7fd082794fed9b030aaf19887da940}{getTYPEDEFfromAST} (TYPEDEF\_\-TABLE\_\-LIST $\ast$typedef\_\-table\_\-list, char $\ast$token, int line)
+\item 
+void \hyperlink{Synbol_8h_af74a1ea9bd21282292422f5c25a66d30}{printTYPEDEF\_\-TABLE\_\-LIST} (TYPEDEF\_\-TABLE\_\-LIST $\ast$typedef\_\-table\_\-list)
+\item 
+void \hyperlink{Synbol_8h_af79e414694270208cb0ac5c3e358eb68}{getSTRUCT\_\-TABLE\_\-DATA} (STRUCT\_\-TABLE\_\-LIST $\ast$struct\_\-table\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data)
+\item 
+int \hyperlink{Synbol_8h_ac3f428826e474fb1b0ca352b3ca011ab}{find\_\-STRUCT\_\-TABLE\_\-DATA} (STRUCT\_\-TABLE\_\-LIST $\ast$struct\_\-table\_\-list, CSTLString $\ast$target)
+\item 
+void \hyperlink{Synbol_8h_a1bd148c1aff660291572e425cffc8802}{getSTRUCT\_\-DATA} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data, STRUCT\_\-TABLE\_\-LIST $\ast$struct\_\-table\_\-data)
+\item 
+void \hyperlink{Synbol_8h_aafaf1504517931b7d80f1859acee3f5a}{getMemberList} (VARIABLE\_\-TABLE\_\-LIST $\ast$member\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data)
+\item 
+void \hyperlink{Synbol_8h_af36d024559f3450d5914bfa571343857}{getDeclaratorFromAST} (char const $\ast$type, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data, VARIABLE\_\-TABLE\_\-LIST $\ast$member\_\-list, int enable\_\-start, int enable\_\-end, int block\_\-level, int block\_\-id, \hyperlink{structabstract__syntax__tree}{AST} $\ast$declaration\_\-location\_\-address)
+\item 
+void \hyperlink{Synbol_8h_ab938829024cd08a5cb8edde55af0d59a}{printSTRUCT\_\-TABLE\_\-LIST} (STRUCT\_\-TABLE\_\-LIST $\ast$struct\_\-table\_\-list)
+\item 
+void \hyperlink{Synbol_8h_ab993873ae14599a0a7ba57a81aad9cf3}{getVARIABLE\_\-TABLE\_\-LIST} (VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data)
+\item 
+void \hyperlink{Synbol_8h_a2971c4a3533b56fd124ee6bbad16be26}{getParameterData} (VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data, \hyperlink{structabstract__syntax__tree}{AST} $\ast$enable\_\-start, \hyperlink{structabstract__syntax__tree}{AST} $\ast$enable\_\-end)
+\item 
+void \hyperlink{Synbol_8h_a823d2eaaec934739c5ff3ebd1843d258}{getParameterVARIABLE\_\-TABLE\_\-LIST} (VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$ast\_\-data)
+\item 
+void \hyperlink{Synbol_8h_aa0d5516918a872d6f17450c510482994}{printVARIABLE\_\-TABLE\_\-LIST} (VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list)
+\item 
+void \hyperlink{Synbol_8h_a5b46f7c05dd827544128d6ce0bff2ada}{getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE} (\hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$variable\_\-table\_\-data, int $\ast$output\_\-pointer\_\-level, int $\ast$output\_\-array\_\-level)
+\item 
+void \hyperlink{Synbol_8h_a0c1787648bcdd921d8b6372e90115d34}{getPointerLevelAndArrayLevel} (CSTLString $\ast$target\_\-identifier, int $\ast$output\_\-pointer\_\-level, int $\ast$output\_\-array\_\-level)
+\item 
+\hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$ \hyperlink{Synbol_8h_a22dbc5727793ae91c80b9b95f1e06d11}{searchVARIABLE\_\-TABLE\_\-LIST} (IDLIST $\ast$target\_\-idlist, CSTLString $\ast$target\_\-string, VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list)
+\item 
+void \hyperlink{Synbol_8h_acc3cd8275754e5412501748b96b6f23e}{deletePointerAndArraySynbol} (CSTLString $\ast$target)
+\item 
+void \hyperlink{Synbol_8h_a865793639f2aa40d0c7e5101f130ac3e}{deletePointer} (CSTLString $\ast$target)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必須な処理です。 \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{Synbol.h@{Synbol.h}!STRUCT\_\-TABLE@{STRUCT\_\-TABLE}}
+\index{STRUCT\_\-TABLE@{STRUCT\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{STRUCT\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf struct\_\-table}  {\bf STRUCT\_\-TABLE}}\label{Synbol_8h_af5018610fe25e6d5a5a8bbe35d944ec5}
+構造体に関する情報であり、プログラム中の構造体の識別するのに用いられる。 \index{Synbol.h@{Synbol.h}!TYPEDEF\_\-TABLE@{TYPEDEF\_\-TABLE}}
+\index{TYPEDEF\_\-TABLE@{TYPEDEF\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{TYPEDEF\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf typedef\_\-table}  {\bf TYPEDEF\_\-TABLE}}\label{Synbol_8h_acea964af3672f8ac88991ff14c52694a}
+型定義に関する情報で、BISONによる構文解析時の型定義の認識に用いられる。 \index{Synbol.h@{Synbol.h}!VARIABLE\_\-TABLE@{VARIABLE\_\-TABLE}}
+\index{VARIABLE\_\-TABLE@{VARIABLE\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{VARIABLE\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf variable\_\-table}  {\bf VARIABLE\_\-TABLE}}\label{Synbol_8h_aba95a019bb71ccd5e3e128174d299272}
+プログラム中の変数に関する情報であり、検証式生成時に変数を識別するのに用いられる。 
+
+\subsection{関数}
+\index{Synbol.h@{Synbol.h}!deletePointer@{deletePointer}}
+\index{deletePointer@{deletePointer}!Synbol.h@{Synbol.h}}
+\subsubsection[{deletePointer}]{\setlength{\rightskip}{0pt plus 5cm}void deletePointer (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a865793639f2aa40d0c7e5101f130ac3e}
+変数名からポインタを示す記号のみ全て削除する 
+\begin{DoxyParams}{引数}
+{\em target} & 変更対象の変数名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!deletePointerAndArraySynbol@{deletePointerAndArraySynbol}}
+\index{deletePointerAndArraySynbol@{deletePointerAndArraySynbol}!Synbol.h@{Synbol.h}}
+\subsubsection[{deletePointerAndArraySynbol}]{\setlength{\rightskip}{0pt plus 5cm}void deletePointerAndArraySynbol (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_acc3cd8275754e5412501748b96b6f23e}
+変数名から配列およびポインタを示す記号を全て削除する 
+\begin{DoxyParams}{引数}
+{\em target} & 変更対象の変数名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!find\_\-STRUCT\_\-TABLE\_\-DATA@{find\_\-STRUCT\_\-TABLE\_\-DATA}}
+\index{find\_\-STRUCT\_\-TABLE\_\-DATA@{find\_\-STRUCT\_\-TABLE\_\-DATA}!Synbol.h@{Synbol.h}}
+\subsubsection[{find\_\-STRUCT\_\-TABLE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}int find\_\-STRUCT\_\-TABLE\_\-DATA (
+\begin{DoxyParamCaption}
+\item[{STRUCT\_\-TABLE\_\-LIST $\ast$}]{struct\_\-table\_\-list, }
+\item[{CSTLString $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_ac3f428826e474fb1b0ca352b3ca011ab}
+構造体テーブルリストに同じ定義がないかどうかを調べる 
+\begin{DoxyParams}{引数}
+{\em struct\_\-table\_\-list} & 検索対象の構造体テーブルリスト \\
+\hline
+{\em target} & 検索する文字列 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つけられたら、１を返し、そうでなければ０を返す。 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getDeclaratorFromAST@{getDeclaratorFromAST}}
+\index{getDeclaratorFromAST@{getDeclaratorFromAST}!Synbol.h@{Synbol.h}}
+\subsubsection[{getDeclaratorFromAST}]{\setlength{\rightskip}{0pt plus 5cm}void getDeclaratorFromAST (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{type, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{member\_\-list, }
+\item[{int}]{enable\_\-start, }
+\item[{int}]{enable\_\-end, }
+\item[{int}]{block\_\-level, }
+\item[{int}]{block\_\-id, }
+\item[{{\bf AST} $\ast$}]{declaration\_\-location\_\-address}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_af36d024559f3450d5914bfa571343857}
+指定されたASTノードから、declaratorを探し、それを見つけたら指定した型の変数として変数リストに登録する 
+\begin{DoxyParams}{引数}
+{\em type} & 指定した型 \\
+\hline
+{\em ast\_\-data} & 指定されたASTノード \\
+\hline
+{\em member\_\-list} & 登録先の変数リスト \\
+\hline
+{\em enable\_\-start} & 変数スコープの有効範囲の開始 \\
+\hline
+{\em enable\_\-end} & 変数スコープの有効範囲の終わり \\
+\hline
+{\em block\_\-level} & この変数のブロックレベル \\
+\hline
+{\em block\_\-id} & ブロックを識別するための識別番号 \\
+\hline
+{\em declaration\_\-location\_\-address} & この宣言自体のASTへのアドレス(検証式の生成に必要)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getMemberList@{getMemberList}}
+\index{getMemberList@{getMemberList}!Synbol.h@{Synbol.h}}
+\subsubsection[{getMemberList}]{\setlength{\rightskip}{0pt plus 5cm}void getMemberList (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{member\_\-list, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_aafaf1504517931b7d80f1859acee3f5a}
+指定されたASTノードから、メンバリストを生成する 
+\begin{DoxyParams}{引数}
+{\em member\_\-list} & 登録対象のメンバリスト \\
+\hline
+{\em ast\_\-data} & 指定されたASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+作成された構造体データへのアドレスを返却する 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getParameterData@{getParameterData}}
+\index{getParameterData@{getParameterData}!Synbol.h@{Synbol.h}}
+\subsubsection[{getParameterData}]{\setlength{\rightskip}{0pt plus 5cm}void getParameterData (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data, }
+\item[{{\bf AST} $\ast$}]{enable\_\-start, }
+\item[{{\bf AST} $\ast$}]{enable\_\-end}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a2971c4a3533b56fd124ee6bbad16be26}
+関数のパラメータリストを示すASTノードから、parameter\_\-declarationを見つけ、そこから変数テーブルのリストに登録させる 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & 変数テーブルのリスト \\
+\hline
+{\em ast\_\-data} & 対象のASTノード \\
+\hline
+{\em enable\_\-start} & 有効範囲の開始を示すASTノードのアドレス \\
+\hline
+{\em enable\_\-end} & 有効範囲の終了を示すASTノードのアドレス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+関数のパラメータリストを示すASTノードから、parameter\_\-declarationを見つけ、そこから変数テーブルのリストに登録させる 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & 変数テーブルのリスト \\
+\hline
+{\em ast\_\-data} & 対象のASTノード \\
+\hline
+{\em enable\_\-start} & 有効範囲の開始 \\
+\hline
+{\em enable\_\-end} & 有効範囲の終了 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getParameterVARIABLE\_\-TABLE\_\-LIST@{getParameterVARIABLE\_\-TABLE\_\-LIST}}
+\index{getParameterVARIABLE\_\-TABLE\_\-LIST@{getParameterVARIABLE\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{getParameterVARIABLE\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getParameterVARIABLE\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a823d2eaaec934739c5ff3ebd1843d258}
+対象のASTノードから関数を探し、関数内の引数を変数テーブルのリストに登録する 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & 変数テーブルのリスト \\
+\hline
+{\em ast\_\-data} & 対象のASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getPointerLevelAndArrayLevel@{getPointerLevelAndArrayLevel}}
+\index{getPointerLevelAndArrayLevel@{getPointerLevelAndArrayLevel}!Synbol.h@{Synbol.h}}
+\subsubsection[{getPointerLevelAndArrayLevel}]{\setlength{\rightskip}{0pt plus 5cm}void getPointerLevelAndArrayLevel (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-identifier, }
+\item[{int $\ast$}]{output\_\-pointer\_\-level, }
+\item[{int $\ast$}]{output\_\-array\_\-level}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a0c1787648bcdd921d8b6372e90115d34}
+対象の識別子のポインタの次元および配列の次元を取得する 
+\begin{DoxyParams}{引数}
+{\em target\_\-identifier} & 対象の識別子 \\
+\hline
+{\em output\_\-pointer\_\-level} & 出力されるポインタレベル \\
+\hline
+{\em output\_\-array\_\-level} & 出力される配列レベル \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE@{getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE}}
+\index{getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE@{getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}void getPointerLevelAndArrayLevelFromVARIABLE\_\-TABLE (
+\begin{DoxyParamCaption}
+\item[{{\bf VARIABLE\_\-TABLE} $\ast$}]{variable\_\-table\_\-data, }
+\item[{int $\ast$}]{output\_\-pointer\_\-level, }
+\item[{int $\ast$}]{output\_\-array\_\-level}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a5b46f7c05dd827544128d6ce0bff2ada}
+変数テーブルから、ポインタの次元および配列の次元を取得する 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-data} & 変数テーブルのリスト \\
+\hline
+{\em output\_\-pointer\_\-level} & 出力されるポインタレベル \\
+\hline
+{\em output\_\-array\_\-level} & 出力される配列レベル \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getSTRUCT\_\-DATA@{getSTRUCT\_\-DATA}}
+\index{getSTRUCT\_\-DATA@{getSTRUCT\_\-DATA}!Synbol.h@{Synbol.h}}
+\subsubsection[{getSTRUCT\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}void getSTRUCT\_\-DATA (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{ast\_\-data, }
+\item[{STRUCT\_\-TABLE\_\-LIST $\ast$}]{struct\_\-table\_\-data}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a1bd148c1aff660291572e425cffc8802}
+指定されたASTノードから、構造体データを作成させ、構造体テーブルのリストへ登録させる 
+\begin{DoxyParams}{引数}
+{\em ast\_\-data} & 指定されたASTノード \\
+\hline
+{\em struct\_\-table\_\-data} & 登録先の構造体テーブルリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getSTRUCT\_\-TABLE\_\-DATA@{getSTRUCT\_\-TABLE\_\-DATA}}
+\index{getSTRUCT\_\-TABLE\_\-DATA@{getSTRUCT\_\-TABLE\_\-DATA}!Synbol.h@{Synbol.h}}
+\subsubsection[{getSTRUCT\_\-TABLE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}void getSTRUCT\_\-TABLE\_\-DATA (
+\begin{DoxyParamCaption}
+\item[{STRUCT\_\-TABLE\_\-LIST $\ast$}]{struct\_\-table\_\-list, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_af79e414694270208cb0ac5c3e358eb68}
+指定されたASTノードから、構造体テーブルリストに構造体データを登録させる 
+\begin{DoxyParams}{引数}
+{\em struct\_\-table\_\-list} & 登録先の構造体テーブルリスト \\
+\hline
+{\em ast\_\-data} & 指定されたASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getTYPEDEF\_\-TABLE\_\-DATA@{getTYPEDEF\_\-TABLE\_\-DATA}}
+\index{getTYPEDEF\_\-TABLE\_\-DATA@{getTYPEDEF\_\-TABLE\_\-DATA}!Synbol.h@{Synbol.h}}
+\subsubsection[{getTYPEDEF\_\-TABLE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}void getTYPEDEF\_\-TABLE\_\-DATA (
+\begin{DoxyParamCaption}
+\item[{TYPEDEF\_\-TABLE\_\-LIST $\ast$}]{typedef\_\-table\_\-list, }
+\item[{{\bf AST} $\ast$}]{typelist, }
+\item[{{\bf AST} $\ast$}]{identifier}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_ac57e5e84ec4979512c4fc20c9e1b9135}
+指定したASTノードから参照し、もしtypedef宣言の場合は、typedefテーブルに入れる 
+\begin{DoxyParams}{引数}
+{\em typedef\_\-table\_\-list} & typedefテーブル \\
+\hline
+{\em typelist} & 型リストへのASTノード \\
+\hline
+{\em identifier} & 識別へのASTノード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getTYPEDEFfromAST@{getTYPEDEFfromAST}}
+\index{getTYPEDEFfromAST@{getTYPEDEFfromAST}!Synbol.h@{Synbol.h}}
+\subsubsection[{getTYPEDEFfromAST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AST}$\ast$ getTYPEDEFfromAST (
+\begin{DoxyParamCaption}
+\item[{TYPEDEF\_\-TABLE\_\-LIST $\ast$}]{typedef\_\-table\_\-list, }
+\item[{char $\ast$}]{token, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a6d7fd082794fed9b030aaf19887da940}
+指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE\_\-NAMEであるASTノードを生成し、それへのアドレスを返す。 
+\begin{DoxyParams}{引数}
+{\em typedef\_\-table\_\-list} & 指定したtypedefテーブルのリスト \\
+\hline
+{\em token} & 指定されたトークン \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたASTノードへのアドレスを返す
+\end{DoxyReturn}
+指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE\_\-NAMEであるASTノードを生成し、それへのアドレスを返す。 見つけられなければ、名前がIDENTIFIERであるASTノードを生成し、それへのアドレスを返す。 
+\begin{DoxyParams}{引数}
+{\em typedef\_\-table\_\-list} & 指定したtypedefテーブルのリスト \\
+\hline
+{\em token} & 指定されたトークン \\
+\hline
+{\em line} & 指定された行数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたASTノードへのアドレスを返す 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!getVARIABLE\_\-TABLE\_\-LIST@{getVARIABLE\_\-TABLE\_\-LIST}}
+\index{getVARIABLE\_\-TABLE\_\-LIST@{getVARIABLE\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{getVARIABLE\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getVARIABLE\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{{\bf AST} $\ast$}]{ast\_\-data}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_ab993873ae14599a0a7ba57a81aad9cf3}
+対象のASTノードから変数テーブルのリストを登録する 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & 変数テーブルのリスト \\
+\hline
+{\em ast\_\-data} & 対象のASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-STRUCT\_\-TABLE@{new\_\-STRUCT\_\-TABLE}}
+\index{new\_\-STRUCT\_\-TABLE@{new\_\-STRUCT\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-STRUCT\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf STRUCT\_\-TABLE}$\ast$ new\_\-STRUCT\_\-TABLE (
+\begin{DoxyParamCaption}
+\item[{int}]{line, }
+\item[{CSTLString $\ast$}]{type, }
+\item[{CSTLString $\ast$}]{struct\_\-name, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{member\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_aa0bb5baf5c427f56c23a7a945dc39859}
+新しい構造体テーブルのデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em line} & 行数 \\
+\hline
+{\em type} & 型名(structかunionのいずれか） \\
+\hline
+{\em struct\_\-name} & 構造体の名前 \\
+\hline
+{\em member\_\-list} & メンバリスト(変数テーブルより） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された構造体テーブルのデータへのアドレスが返される
+\end{DoxyReturn}
+新しい構造体テーブルのデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em line} & 行数 \\
+\hline
+{\em type} & 型名 \\
+\hline
+{\em struct\_\-name} & 構造体名(structかunionのいずれか） \\
+\hline
+{\em member\_\-list} & メンバリスト(変数テーブルより） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された構造体テーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-STRUCT\_\-TABLE\_\-with\_\-char@{new\_\-STRUCT\_\-TABLE\_\-with\_\-char}}
+\index{new\_\-STRUCT\_\-TABLE\_\-with\_\-char@{new\_\-STRUCT\_\-TABLE\_\-with\_\-char}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-STRUCT\_\-TABLE\_\-with\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf STRUCT\_\-TABLE}$\ast$ new\_\-STRUCT\_\-TABLE\_\-with\_\-char (
+\begin{DoxyParamCaption}
+\item[{int}]{line, }
+\item[{char $\ast$}]{type, }
+\item[{char $\ast$}]{struct\_\-name, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{member\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_aa95ef26c2c998337b7e10ede885869b9}
+新しい構造体テーブルのデータを生成させる(char文字列対応) 
+\begin{DoxyParams}{引数}
+{\em line} & 行数 \\
+\hline
+{\em type} & 型名(structかunionのいずれか） \\
+\hline
+{\em struct\_\-name} & 構造体の名前 \\
+\hline
+{\em member\_\-list} & メンバリスト(変数テーブルより） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された構造体テーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-TYPEDEF\_\-TABLE@{new\_\-TYPEDEF\_\-TABLE}}
+\index{new\_\-TYPEDEF\_\-TABLE@{new\_\-TYPEDEF\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-TYPEDEF\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TYPEDEF\_\-TABLE}$\ast$ new\_\-TYPEDEF\_\-TABLE (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{target\_\-type, }
+\item[{CSTLString $\ast$}]{change\_\-type}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_aff3bac744ce12f04e06889fa7eca475b}
+新しいtypedefテーブルのデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em target\_\-type} & typedefの対象の型 \\
+\hline
+{\em change\_\-type} & typedefで割り当てた後の新しい型名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成されたtypedefテーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char@{new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char}}
+\index{new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char@{new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TYPEDEF\_\-TABLE}$\ast$ new\_\-TYPEDEF\_\-TABLE\_\-with\_\-char (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{target\_\-type, }
+\item[{char $\ast$}]{change\_\-type}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a2666e0087dc2d4475a0d342a216a6f5e}
+新しいtypedefテーブルのデータを生成させる(char文字列対応) 
+\begin{DoxyParams}{引数}
+{\em target\_\-type} & typedefの対象の型 \\
+\hline
+{\em change\_\-type} & typedefで割り当てた後の新しい型名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成されたtypedefテーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-VARIABLE\_\-TABLE@{new\_\-VARIABLE\_\-TABLE}}
+\index{new\_\-VARIABLE\_\-TABLE@{new\_\-VARIABLE\_\-TABLE}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-VARIABLE\_\-TABLE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VARIABLE\_\-TABLE}$\ast$ new\_\-VARIABLE\_\-TABLE (
+\begin{DoxyParamCaption}
+\item[{int}]{enable\_\-start, }
+\item[{int}]{enable\_\-end, }
+\item[{{\bf AST} $\ast$}]{declaration\_\-location\_\-address, }
+\item[{int}]{block\_\-level, }
+\item[{int}]{block\_\-id, }
+\item[{IDLIST $\ast$}]{idlist, }
+\item[{CSTLString $\ast$}]{type, }
+\item[{CSTLString $\ast$}]{variable\_\-name, }
+\item[{{\bf AST} $\ast$}]{initializer}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_ad6f6de1ea1d321db508f2c338ab54a50}
+新しい変数テーブルのデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em enable\_\-start} & この変数の有効範囲の始まりの行数 \\
+\hline
+{\em enable\_\-end} & この変数の有効範囲の終わりの行数 \\
+\hline
+{\em declaration\_\-location\_\-address} & この変数を宣言した場所を示すASTのアドレス \\
+\hline
+{\em block\_\-level} & この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） \\
+\hline
+{\em block\_\-id} & ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） \\
+\hline
+{\em idlist} & ブロックごとのID（これは変数スコープを識別するために使用する） \\
+\hline
+{\em type} & 型名 \\
+\hline
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em initializer} & 初期定義式へのASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された変数テーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!new\_\-VARIABLE\_\-TABLE\_\-with\_\-char@{new\_\-VARIABLE\_\-TABLE\_\-with\_\-char}}
+\index{new\_\-VARIABLE\_\-TABLE\_\-with\_\-char@{new\_\-VARIABLE\_\-TABLE\_\-with\_\-char}!Synbol.h@{Synbol.h}}
+\subsubsection[{new\_\-VARIABLE\_\-TABLE\_\-with\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VARIABLE\_\-TABLE}$\ast$ new\_\-VARIABLE\_\-TABLE\_\-with\_\-char (
+\begin{DoxyParamCaption}
+\item[{int}]{enable\_\-start, }
+\item[{int}]{enable\_\-end, }
+\item[{{\bf AST} $\ast$}]{declaration\_\-location\_\-address, }
+\item[{int}]{block\_\-level, }
+\item[{int}]{block\_\-id, }
+\item[{IDLIST $\ast$}]{idlist, }
+\item[{char $\ast$}]{type, }
+\item[{char $\ast$}]{variable\_\-name, }
+\item[{{\bf AST} $\ast$}]{initializer}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a0625ef2500d1f120f7b530c0c93d00b8}
+新しい変数テーブルのデータを生成させる(char文字列対応) 
+\begin{DoxyParams}{引数}
+{\em enable\_\-start} & この変数の有効範囲の始まりの行数 \\
+\hline
+{\em enable\_\-end} & この変数の有効範囲の終わりの行数 \\
+\hline
+{\em declaration\_\-location\_\-address} & この変数を宣言した場所を示すASTのアドレス \\
+\hline
+{\em block\_\-level} & この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） \\
+\hline
+{\em block\_\-id} & ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） \\
+\hline
+{\em idlist} & ブロックごとのID（これは変数スコープを識別するために使用する） \\
+\hline
+{\em type} & 型名 \\
+\hline
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em initializer} & 初期定義式へのASTノード\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された変数テーブルのデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!printSTRUCT\_\-TABLE\_\-LIST@{printSTRUCT\_\-TABLE\_\-LIST}}
+\index{printSTRUCT\_\-TABLE\_\-LIST@{printSTRUCT\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{printSTRUCT\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printSTRUCT\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{STRUCT\_\-TABLE\_\-LIST $\ast$}]{struct\_\-table\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_ab938829024cd08a5cb8edde55af0d59a}
+構造体テーブルのリストの内容を出力させる 
+\begin{DoxyParams}{引数}
+{\em struct\_\-table\_\-list} & 出力対象の構造体テーブルのリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!printTYPEDEF\_\-TABLE\_\-LIST@{printTYPEDEF\_\-TABLE\_\-LIST}}
+\index{printTYPEDEF\_\-TABLE\_\-LIST@{printTYPEDEF\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{printTYPEDEF\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printTYPEDEF\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{TYPEDEF\_\-TABLE\_\-LIST $\ast$}]{typedef\_\-table\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_af74a1ea9bd21282292422f5c25a66d30}
+typedefテーブルのリストに登録されているものを、次のような形式で出力させる。
+
+target\_\-type change\_\-type
+
+
+\begin{DoxyParams}{引数}
+{\em typedef\_\-table\_\-list} & 出力対象のtypedefテーブルのリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+typedefテーブルのリストに登録されているものを出力させる。
+
+
+\begin{DoxyParams}{引数}
+{\em typedef\_\-table\_\-list} & 出力対象のtypedefテーブルのリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!printVARIABLE\_\-TABLE\_\-LIST@{printVARIABLE\_\-TABLE\_\-LIST}}
+\index{printVARIABLE\_\-TABLE\_\-LIST@{printVARIABLE\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{printVARIABLE\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printVARIABLE\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_aa0d5516918a872d6f17450c510482994}
+変数テーブルのリストの内容を出力させる 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & 出力対象の変数テーブルのリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Synbol.h@{Synbol.h}!searchVARIABLE\_\-TABLE\_\-LIST@{searchVARIABLE\_\-TABLE\_\-LIST}}
+\index{searchVARIABLE\_\-TABLE\_\-LIST@{searchVARIABLE\_\-TABLE\_\-LIST}!Synbol.h@{Synbol.h}}
+\subsubsection[{searchVARIABLE\_\-TABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VARIABLE\_\-TABLE}$\ast$ searchVARIABLE\_\-TABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{IDLIST $\ast$}]{target\_\-idlist, }
+\item[{CSTLString $\ast$}]{target\_\-string, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list}
+\end{DoxyParamCaption}
+)}\label{Synbol_8h_a22dbc5727793ae91c80b9b95f1e06d11}
+変数テーブルリストvariable\_\-table\_\-listから、指定した変数スコープのIDLIST target\_\-idlistとtarget\_\-stringに該当ような変数テーブルへのアドレスを返す。
+
+
+\begin{DoxyParams}{引数}
+{\em target\_\-idlist} & 指定した変数スコープのIDLIST \\
+\hline
+{\em target\_\-string} & 対象の変数名 \\
+\hline
+{\em variable\_\-table\_\-list} & 変数テーブルリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+上記の処理から見つけた変数テーブルへのアドレスを返す。見つからなければNULLを返す。 
+\end{DoxyReturn}

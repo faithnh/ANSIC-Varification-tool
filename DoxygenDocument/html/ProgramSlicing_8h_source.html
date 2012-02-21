@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ValidateStatementAdder: ProgramSlicing/ProgramSlicing.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ValidateStatementAdder&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ProgramSlicing/ProgramSlicing.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="ProgramSlicing_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00007"></a>00007 <span class="preprocessor">#ifndef PROGRAM_SLICING_HEADDER</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define PROGRAM_SLICING_HEADDER</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include&quot;<a class="code" href="AST_8h.html" title="このファイルは、構文解析によって通されたC言語プログラムから、抽象構文木（AST）を生成させるためのものである。 また生成させるほかに、実際に抽象構文木からソースファイルを生成しなおしたり、ある部分のノ...">../ANSICInformation/AST.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include&quot;<a class="code" href="PointerArrayControl_8h.html" title="このファイルは、C言語プログラム上の複雑な配列参照および直接参照による演算を各次元の配列オフセット情報として格納するための命令が含まれている。 各次元の配列オフセット情報とは各次元において、どの部分を指...">../ANSICInformation/PointerArrayControl.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="FunctionInformation_8h.html" title="このファイルは関数に関する情報を取得するための命令が含まれている。">../ANSICInformation/FunctionInformation.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="Synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを 生成させるための命令が含まれている。 とくに、typedefテーブルの生成は、C言語の...">../ANSICInformation/Synbol.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include&quot;<a class="code" href="ProgramSlicingInformation_8h.html" title="このファイルはプログラムスライシングに関する情報を取り扱う命令が含まれている。">ProgramSlicingInformation.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include&lt;cstl/list.h&gt;</span>
+<a name="l00017"></a>00017 
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> *createStatementNodeList(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, EXPR_SLICING_LIST *expr_slicing_list, EXPR_SLICING *parent,
+<a name="l00036"></a>00036         VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00037"></a>00037 
+<a name="l00048"></a>00048 <span class="keywordtype">void</span> createDD_list_in_global(EXPR_SLICING *expr_slicing, EXPR_SLICING_LIST *program_expr_slicing_list);
+<a name="l00049"></a>00049 
+<a name="l00057"></a>00057 <span class="keywordtype">void</span> createDD_list(EXPR_SLICING *expr_slicing);
+<a name="l00066"></a>00066 <span class="keywordtype">void</span> createDD_listAll(EXPR_SLICING_LIST *expr_slicing_list, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00067"></a>00067         EXPR_SLICING_LIST *program_expr_slicing_list);
+<a name="l00068"></a>00068 
+<a name="l00078"></a>00078 <span class="keywordtype">void</span> createDD_list_in_Function(EXPR_SLICING *expr_slicing, EXPR_SLICING_LIST *expr_slicing_list,
+<a name="l00079"></a>00079         FUNCTION_INFORMATION_LIST *function_information_list);
+<a name="l00080"></a>00080 
+<a name="l00092"></a>00092 <span class="keywordtype">void</span> createDD_list_in_argument(EXPR_SLICING *expr_slicing, CSTLString *argument_name,
+<a name="l00093"></a>00093         EXPR_SLICING *function_definition_expr_slicing);
+<a name="l00094"></a>00094 
+<a name="l00103"></a>00103 <span class="keywordtype">void</span> staticSlicing(EXPR_SLICING *expr_slicing);
+<a name="l00104"></a>00104 
+<a name="l00114"></a>00114 <span class="keywordtype">int</span> startStaticSlicing(<a class="code" href="structabstract__syntax__tree.html">AST</a> *inst_ast, EXPR_SLICING_LIST *expr_slicing_list);
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ValidateStatementAdderに対してTue Feb 1 2011 09:39:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

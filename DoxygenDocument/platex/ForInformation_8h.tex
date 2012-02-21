@@ -1,0 +1,147 @@
+\section{ANSICInformation/ForInformation.h}
+\label{ForInformation_8h}\index{ANSICInformation/ForInformation.h@{ANSICInformation/ForInformation.h}}
+
+
+このファイルは、forループに関する情報を集めるための命令が含まれている  
+
+
+{\ttfamily \#include \char`\"{}AST.h\char`\"{}}\par
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf for\_\-information}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf for\_\-information} {\bf FOR\_\-INFORMATION}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+{\bf FOR\_\-INFORMATION} $\ast$ {\bf new\_\-FOR\_\-INFORMATION} ({\bf AST} $\ast$target\_\-expression, {\bf AST} $\ast$init\_\-expression, {\bf AST} $\ast$continue\_\-condition, {\bf AST} $\ast$inc\_\-dec\_\-expression, {\bf AST} $\ast$statement)
+\item 
+void {\bf print\_\-FOR\_\-INFORMATION\_\-LIST} (FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list)
+\item 
+{\bf FOR\_\-INFORMATION} $\ast$ {\bf searchFOR\_\-INFORMATION\_\-FromAST} (FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, {\bf AST} $\ast$target\_\-ast)
+\item 
+void {\bf getFOR\_\-INFORMATION\_\-LIST} (FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, {\bf AST} $\ast$for\_\-iteration\_\-ast)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+このファイルは、forループに関する情報を集めるための命令が含まれている \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{ForInformation.h@{ForInformation.h}!FOR\_\-INFORMATION@{FOR\_\-INFORMATION}}
+\index{FOR\_\-INFORMATION@{FOR\_\-INFORMATION}!ForInformation.h@{ForInformation.h}}
+\subsubsection[{FOR\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf for\_\-information}  {\bf FOR\_\-INFORMATION}}\label{ForInformation_8h_a2f30e4e2396ee1da23c3c282fbef2234}
+for文の初期式・継続式・増分式およびfor文内全体の式へのノードが格納される。 これは、検証式付加ツールでfor文をwhile文に使用される。 
+
+\subsection{関数}
+\index{ForInformation.h@{ForInformation.h}!getFOR\_\-INFORMATION\_\-LIST@{getFOR\_\-INFORMATION\_\-LIST}}
+\index{getFOR\_\-INFORMATION\_\-LIST@{getFOR\_\-INFORMATION\_\-LIST}!ForInformation.h@{ForInformation.h}}
+\subsubsection[{getFOR\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getFOR\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{{\bf AST} $\ast$}]{for\_\-iteration\_\-ast}
+\end{DoxyParamCaption}
+)}\label{ForInformation_8h_a2f25ff3d1088a97208582080fdae4d01}
+for\_\-iterationのASTノードから、for文に関する情報のリストを取得する。
+
+
+\begin{DoxyParams}{引数}
+{\em for\_\-information\_\-list} & for文に関する情報のリスト \\
+\hline
+{\em for\_\-iteration\_\-ast} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ForInformation.h@{ForInformation.h}!new\_\-FOR\_\-INFORMATION@{new\_\-FOR\_\-INFORMATION}}
+\index{new\_\-FOR\_\-INFORMATION@{new\_\-FOR\_\-INFORMATION}!ForInformation.h@{ForInformation.h}}
+\subsubsection[{new\_\-FOR\_\-INFORMATION}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FOR\_\-INFORMATION}$\ast$ new\_\-FOR\_\-INFORMATION (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{{\bf AST} $\ast$}]{init\_\-expression, }
+\item[{{\bf AST} $\ast$}]{continue\_\-condition, }
+\item[{{\bf AST} $\ast$}]{inc\_\-dec\_\-expression, }
+\item[{{\bf AST} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)}\label{ForInformation_8h_a21a8cce7aba7cea3f56bbf3a6d84b14b}
+これは、FOR\_\-INFORMATIONの実装を確かめる for文に関する情報FOR\_\-INFORMATIONを生成する。 
+\begin{DoxyParams}{引数}
+{\em target\_\-expression} & このfor文自体の情報 \\
+\hline
+{\em init\_\-expression} & 初期式 \\
+\hline
+{\em continue\_\-condition} & 継続式 \\
+\hline
+{\em inc\_\-dec\_\-expression} & 増分式 AST $\ast$statement for文内の全体の式を指す \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたFOR\_\-INFORMATIONへのアドレスを返す。
+\end{DoxyReturn}
+for文に関する情報FOR\_\-INFORMATIONを生成する。 
+\begin{DoxyParams}{引数}
+{\em target\_\-expression} & このfor文自体の情報 \\
+\hline
+{\em init\_\-expression} & 初期式 \\
+\hline
+{\em continue\_\-condition} & 継続式 \\
+\hline
+{\em inc\_\-dec\_\-expression} & 増分式 \\
+\hline
+{\em statement} & for文内の全体の式を指す \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+生成されたFOR\_\-INFORMATIONへのアドレスを返す。 
+\end{DoxyReturn}
+\index{ForInformation.h@{ForInformation.h}!print\_\-FOR\_\-INFORMATION\_\-LIST@{print\_\-FOR\_\-INFORMATION\_\-LIST}}
+\index{print\_\-FOR\_\-INFORMATION\_\-LIST@{print\_\-FOR\_\-INFORMATION\_\-LIST}!ForInformation.h@{ForInformation.h}}
+\subsubsection[{print\_\-FOR\_\-INFORMATION\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void print\_\-FOR\_\-INFORMATION\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{ForInformation_8h_af3b7535a1754cb46702469bf0e1989b2}
+for文に関する情報のリストfor\_\-information\_\-listを出力する。 
+\begin{DoxyParams}{引数}
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+for文に関する情報のリストfor\_\-information\_\-listを出力する 
+\begin{DoxyParams}{引数}
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{ForInformation.h@{ForInformation.h}!searchFOR\_\-INFORMATION\_\-FromAST@{searchFOR\_\-INFORMATION\_\-FromAST}}
+\index{searchFOR\_\-INFORMATION\_\-FromAST@{searchFOR\_\-INFORMATION\_\-FromAST}!ForInformation.h@{ForInformation.h}}
+\subsubsection[{searchFOR\_\-INFORMATION\_\-FromAST}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FOR\_\-INFORMATION}$\ast$ searchFOR\_\-INFORMATION\_\-FromAST (
+\begin{DoxyParamCaption}
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-ast}
+\end{DoxyParamCaption}
+)}\label{ForInformation_8h_abd0a6a19cc86b9a0089eaca36dafaab2}
+for文に関する情報のリストfor\_\-information\_\-listから、指定したASTノードに対応したものを出力させる。 
+\begin{DoxyParams}{引数}
+{\em for\_\-information\_\-list} & 検索対象のfor文に関する情報のリスト \\
+\hline
+{\em target\_\-ast} & 検索するAST\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+マッチしたものが見つかれば、それに対応したものへのアドレスを出力させる。見つからない場合はNULLを返す。 
+\end{DoxyReturn}

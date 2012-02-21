@@ -1,0 +1,1350 @@
+\section{ANSICInformation/Varidate\_\-statement.h}
+\label{Varidate__statement_8h}\index{ANSICInformation/Varidate\_\-statement.h@{ANSICInformation/Varidate\_\-statement.h}}
+
+
+これはC言語プログラム上から、不具合を検証するための検証式や検証用に使用する変数などを追加するためのものである  
+
+
+{\ttfamily \#include $<$cstl/list.h$>$}\par
+{\ttfamily \#include \char`\"{}Synbol.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}PointerArrayControl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}MemallocInfo.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}FreeMemInfo.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}ForInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DivitionInformation.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}PreProcess.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}../ProgramSlicing/ProgramSlicingInformation.h\char`\"{}}\par
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structvalidate__variable}{validate\_\-variable}
+\item 
+struct \hyperlink{structvalidate__statement}{validate\_\-statement}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structvalidate__variable}{validate\_\-variable} \hyperlink{Varidate__statement_8h_a44deffa9c818ee2269d1af086048deee}{VALIDATE\_\-VARIABLE}
+\item 
+typedef struct \hyperlink{structvalidate__statement}{validate\_\-statement} \hyperlink{Varidate__statement_8h_aa29cf26f061e9a911576b7bd9ca1c8eb}{VALIDATE\_\-STATEMENT}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structvalidate__statement}{VALIDATE\_\-STATEMENT} $\ast$ \hyperlink{Varidate__statement_8h_a9a1bd7d44506b29806d054da90a5cd50}{new\_\-VALIDATE\_\-STATEMENT\_\-char} (int target\_\-id, int check\_\-or\_\-modify, int used, char $\ast$statement, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+\hyperlink{structvalidate__statement}{VALIDATE\_\-STATEMENT} $\ast$ \hyperlink{Varidate__statement_8h_a806714cc7424b1b56b0c82157ce3af32}{new\_\-VALIDATE\_\-STATEMENT} (int target\_\-id, int check\_\-or\_\-modify, int used, CSTLString $\ast$statement, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+\hyperlink{structvalidate__variable}{VALIDATE\_\-VARIABLE} $\ast$ \hyperlink{Varidate__statement_8h_a845ca6f189c4d15863ad9dce707b107a}{new\_\-VALIDATE\_\-VARIABLE} (int used, int enable\_\-start, int enable\_\-end, int declaration\_\-location, int block\_\-level, int block\_\-id, CSTLString $\ast$type, CSTLString $\ast$variable\_\-name, CSTLString $\ast$target\_\-variable\_\-name, int offset\_\-level)
+\item 
+\hyperlink{structvalidate__variable}{VALIDATE\_\-VARIABLE} $\ast$ \hyperlink{Varidate__statement_8h_a708dc1fd2fb8644b8dc9edbe94b90129}{new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char} (int used, int enable\_\-start, int enable\_\-end, int declaration\_\-location, int block\_\-level, int block\_\-id, char $\ast$type, char $\ast$variable\_\-name, char $\ast$target\_\-variable\_\-name, int offset\_\-level)
+\item 
+void \hyperlink{Varidate__statement_8h_a8e3b4d40e99652b834d5e52c1cccf555}{initVALIDATE\_\-STATEMENT\_\-flag} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_aa20f7df53433b99821de7ef757271d4b}{getValidate\_\-Variable} (VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, VALIDATE\_\-VARIABLE\_\-LIST $\ast$\hyperlink{structvalidate__variable}{validate\_\-variable})
+\item 
+void \hyperlink{Varidate__statement_8h_a6a6b94202879d7536e3de49b28dc975b}{printVALIDATE\_\-VARIABLE\_\-LIST} (VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a151271f7803498af7e5096f1e4d8c186}{createValidateStatement} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, int undefined\_\-control\_\-check, int zero\_\-divition\_\-check, int array\_\-unbound\_\-check, int free\_\-violation\_\-check)
+\item 
+void \hyperlink{Varidate__statement_8h_a0b17a43ec9679b3b3058933552bfa734}{getValidateStatementFromInitializer} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int undefined\_\-control\_\-check, int zero\_\-divition\_\-check, int array\_\-unbound\_\-check)
+\item 
+void \hyperlink{Varidate__statement_8h_a90132c1a1e583affd0a5d9f1ba4efe1d}{getValidateStatementFromMallocNumber} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$call\_\-function, ARRAY\_\-OFFSET\_\-LIST $\ast$right\_\-array\_\-offset\_\-list, \hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$memalloc\_\-info)
+\item 
+void \hyperlink{Varidate__statement_8h_ab5434dbc6f98a0b8098d48fbcc6951e8}{getValidateStatementFromForIteration} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, int undefined\_\-control\_\-check, int zero\_\-divition\_\-check, int array\_\-unbound\_\-check, int free\_\-violation\_\-check)
+\item 
+void \hyperlink{Varidate__statement_8h_af9bd0329c9e3cb3c46e8b6be300d1182}{getValidateStatementFromAssignStatement} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int undefined\_\-control\_\-check, int zero\_\-divition\_\-check, int array\_\-unbound\_\-check, int free\_\-violation\_\-check)
+\item 
+void \hyperlink{Varidate__statement_8h_a92935ece8844a8e8a5ec7eed0df523bc}{getValidateStatementFromPointerOperator} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$left\_\-array\_\-offset\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$right\_\-array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$right\_\-expression, int a\_\-op\_\-flag)
+\item 
+void \hyperlink{Varidate__statement_8h_a1fcad266e45a41a6ae23650349c6adde}{getValidateStatementFromCallFunction} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$left\_\-array\_\-offset\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$right\_\-array\_\-offset\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a613d3eee495ee9097bf53699f1495205}{getBasisLocationFromAssignmentExpression} (CSTLString $\ast$output, ARRAY\_\-OFFSET\_\-LIST $\ast$left\_\-array\_\-offset\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$right\_\-array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$right\_\-expression\_\-ast, int a\_\-op\_\-flag)
+\item 
+void \hyperlink{Varidate__statement_8h_a8bece040dd7a61d7936e87da300d2dad}{getBasisLocationFromExpression} (CSTLString $\ast$output, \hyperlink{structarray__offset}{ARRAY\_\-OFFSET} $\ast$\hyperlink{structarray__offset}{array\_\-offset}, \hyperlink{structabstract__syntax__tree}{AST} $\ast$expression\_\-ast)
+\item 
+void \hyperlink{Varidate__statement_8h_aaa4b66ed2d29ec4dd42a288b37e2a7de}{createValidateStatementForMallocAction} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$memalloc\_\-info, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_ac836a7545fa31d002b5f8522fb5c7272}{createValidateStatemenFromIncDecExpr} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a7a4c169635ae15aa731d31e26e54efd5}{createValidateStatementForFreeAction} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structfreemem__info}{FREEMEMINFO} $\ast$freememinfo, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a5298c5a01af1005ed5c45cd86b162d70}{createValidateStatementFromArrayDefine} (VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_aedc6997524037e82fb5a1a4512258981}{createVaridateStatementFromPointerDefine} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$variable\_\-table\_\-list, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_abb2441e28fddfef1552333a44d678966}{ArrayOffsetToValidateStatement} (CSTLString $\ast$output, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, \hyperlink{structvariable__table}{VARIABLE\_\-TABLE} $\ast$\hyperlink{structvariable__table}{variable\_\-table}, OFFSET\_\-LIST $\ast$offset\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a3d74e67ba9ec148d7efaba480d179c3b}{createCheckUnboundAndUndefineOperationCheck} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, int array\_\-unbound\_\-check, int undefined\_\-control\_\-check)
+\item 
+void \hyperlink{Varidate__statement_8h_aafb03c83a3e230546b0798459097e566}{createViolentFreeOperation} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structfreemem__info}{FREEMEMINFO} $\ast$freememinfo)
+\item 
+void \hyperlink{Varidate__statement_8h_a722a526669b1786c0ee311f742fcab5e}{createZeroDivitionCheck} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, DIVITION\_\-INFORMATION\_\-LIST $\ast$divition\_\-information\_\-list)
+\item 
+int \hyperlink{Varidate__statement_8h_a67a425d9c80a11752fea1c09e02c37c8}{getNewValidateStatementID} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+void \hyperlink{Varidate__statement_8h_ad7d1ad81f81f0780527904c6dc144cc2}{getLeftAssignmentInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$left\_\-expression, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-expression, int $\ast$switch\_\-mode)
+\item 
+void \hyperlink{Varidate__statement_8h_aa60bcbae8da7bdc52524503b7c715348}{getRightAssignmentInfo} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, FUNCTION\_\-INFORMATION\_\-LIST $\ast$function\_\-information\_\-list, VARIABLE\_\-TABLE\_\-LIST $\ast$vtlist, \hyperlink{structmemory__allocation__info}{MEMALLOC\_\-INFO} $\ast$$\ast$memalloc\_\-info, ARRAY\_\-OFFSET\_\-LIST $\ast$array\_\-offset\_\-list, ASTPOINTER\_\-LIST $\ast$ignore\_\-ast\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-statement)
+\item 
+void \hyperlink{Varidate__statement_8h_ab71973a49693680ddea5a8d1b7aa41d1}{printProgramDataWithValidateStatement} (\hyperlink{structabstract__syntax__tree}{AST} $\ast$root, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a96b7689a221fdc741ce8b54ccb6adef7}{fprintProgramDataWithValidateStatement} (FILE $\ast$output, \hyperlink{structabstract__syntax__tree}{AST} $\ast$root, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a608f035966d41e1f46bbb71141573bf5}{fprintValidateStatement} (FILE $\ast$output, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-ast, int check\_\-or\_\-modify, int allow\_\-output\_\-used\_\-statement)
+\item 
+void \hyperlink{Varidate__statement_8h_aaa230f70405d7e663f9b8b24ec0500f2}{fprintValidateStatement\_\-not\_\-assert} (FILE $\ast$output, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$target\_\-ast, int check\_\-or\_\-modify, int allow\_\-output\_\-used\_\-statement)
+\item 
+void \hyperlink{Varidate__statement_8h_adb83c5deab92ed6631e559bac2e476b4}{setValidateVariableFromExprSlicing} (VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a6b2f1b6c6fcd95240c2329c542335ce9}{fprintProgramDataWithPSIVaridateStatement} (FILE $\ast$output, EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, \hyperlink{structabstract__syntax__tree}{AST} $\ast$check\_\-target\_\-ast)
+\item 
+void \hyperlink{Varidate__statement_8h_a1dcf69651951215cbf7e123507d087dd}{createValidateStatementAdderFileEachCheck} (EXPR\_\-SLICING\_\-LIST $\ast$expr\_\-slicing\_\-list, VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, VALIDATE\_\-VARIABLE\_\-LIST $\ast$validate\_\-variable\_\-list, FOR\_\-INFORMATION\_\-LIST $\ast$for\_\-information\_\-list, INCLUDE\_\-LIST $\ast$include\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_ada2fcad0ebd03da626bb968378fd1831}{VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list)
+\item 
+void \hyperlink{Varidate__statement_8h_a608a237c57f573aac1c7e6d6ced6bae0}{getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST} (VALIDATE\_\-STATEMENT\_\-LIST $\ast$validate\_\-statement\_\-list, ASTPOINTER\_\-LIST $\ast$ast\_\-node\_\-list)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+これはC言語プログラム上から、不具合を検証するための検証式や検証用に使用する変数などを追加するためのものである \begin{DoxyAuthor}{作者}
+faithnh 
+\end{DoxyAuthor}
+
+
+\subsection{型定義}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!VALIDATE\_\-STATEMENT@{VALIDATE\_\-STATEMENT}}
+\index{VALIDATE\_\-STATEMENT@{VALIDATE\_\-STATEMENT}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{VALIDATE\_\-STATEMENT}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf validate\_\-statement}  {\bf VALIDATE\_\-STATEMENT}}\label{Varidate__statement_8h_aa29cf26f061e9a911576b7bd9ca1c8eb}
+実際に検証式として挿入するための情報 \index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!VALIDATE\_\-VARIABLE@{VALIDATE\_\-VARIABLE}}
+\index{VALIDATE\_\-VARIABLE@{VALIDATE\_\-VARIABLE}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{VALIDATE\_\-VARIABLE}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf validate\_\-variable}  {\bf VALIDATE\_\-VARIABLE}}\label{Varidate__statement_8h_a44deffa9c818ee2269d1af086048deee}
+ポインタや配列変数に対する検証用の変数リストを作成するための構造体 
+
+\subsection{関数}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!ArrayOffsetToValidateStatement@{ArrayOffsetToValidateStatement}}
+\index{ArrayOffsetToValidateStatement@{ArrayOffsetToValidateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{ArrayOffsetToValidateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void ArrayOffsetToValidateStatement (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{{\bf VARIABLE\_\-TABLE} $\ast$}]{variable\_\-table, }
+\item[{OFFSET\_\-LIST $\ast$}]{offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_abb2441e28fddfef1552333a44d678966}
+配列のオフセットリストを基に、検証式を作成する 
+\begin{DoxyParams}{引数}
+{\em output} & 出力する検証式 \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト \\
+\hline
+{\em \hyperlink{structvariable__table}{variable\_\-table}} & 対象の変数データ \\
+\hline
+{\em offset\_\-list} & オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+配列のオフセットリストを基に、検証式を作成する 
+\begin{DoxyParams}{引数}
+{\em output} & 出力する検証式 \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em \hyperlink{structvariable__table}{variable\_\-table}} & 対象の変数データ \\
+\hline
+{\em offset\_\-list} & オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createCheckUnboundAndUndefineOperationCheck@{createCheckUnboundAndUndefineOperationCheck}}
+\index{createCheckUnboundAndUndefineOperationCheck@{createCheckUnboundAndUndefineOperationCheck}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createCheckUnboundAndUndefineOperationCheck}]{\setlength{\rightskip}{0pt plus 5cm}void createCheckUnboundAndUndefineOperationCheck (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{int}]{array\_\-unbound\_\-check, }
+\item[{int}]{undefined\_\-control\_\-check}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a3d74e67ba9ec148d7efaba480d179c3b}
+配列やポインタなどのオフセット情報のリストarray\_\-offset\_\-listから、配列の範囲外参照のチェックをするための検証式 や、未定義状態で処理をチェックするための検証式を生成し、VALIDATE\_\-STATEMENT\_\-LISTへ追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 追加先の検証式リスト \\
+\hline
+{\em array\_\-offset\_\-list} & 配列やポインタなどのオフセット情報のリスト \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+配列やポインタなどのオフセット情報のリストarray\_\-offset\_\-listから、配列の範囲外参照のチェックをするための検証式 や、未定義状態で処理をチェックするための検証式を生成し、validate\_\-statement\_\-listへ追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 追加先の検証式リスト \\
+\hline
+{\em array\_\-offset\_\-list} & 配列やポインタなどのオフセット情報のリスト \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatemenFromIncDecExpr@{createValidateStatemenFromIncDecExpr}}
+\index{createValidateStatemenFromIncDecExpr@{createValidateStatemenFromIncDecExpr}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatemenFromIncDecExpr}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatemenFromIncDecExpr (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_ac836a7545fa31d002b5f8522fb5c7272}
+指定した配列オフセットarrya\_\-offset\_\-listから、インクリメントおよびデクリメント式を含んでいたら、 それに応じてbasis\_\-locationに反映させるための検証式を生成し、VALIDATE\_\-STATEMENT\_\-LISTに追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 追加先の検証式 \\
+\hline
+{\em array\_\-offset\_\-list} & 配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+指定した配列オフセットリストarrya\_\-offset\_\-listから、インクリメントおよびデクリメント式を含んでいたら、 それに応じてbasis\_\-locationに反映させるための検証式を生成し、validate\_\-statement\_\-listに追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 追加先の検証式 \\
+\hline
+{\em array\_\-offset\_\-list} & 配列オフセットリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatement@{createValidateStatement}}
+\index{createValidateStatement@{createValidateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatement (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{int}]{undefined\_\-control\_\-check, }
+\item[{int}]{zero\_\-divition\_\-check, }
+\item[{int}]{array\_\-unbound\_\-check, }
+\item[{int}]{free\_\-violation\_\-check}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a151271f7803498af7e5096f1e4d8c186}
+基本的な検証式の生成を行う 
+\begin{DoxyParams}{引数}
+{\em root} & 検証式生成対象のASTノード \\
+\hline
+{\em function\_\-informaiton\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 検証用変数リスト \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 取得した検証式が格納するところ \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報 \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em free\_\-violation\_\-check} & メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+基本的な検証式の生成を行う 
+\begin{DoxyParams}{引数}
+{\em root} & 検証式生成対象のASTノード \\
+\hline
+{\em function\_\-informaiton\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-variable\_\-list} & 取得した検証式が格納するところ \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報 \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em free\_\-violation\_\-check} & メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatementAdderFileEachCheck@{createValidateStatementAdderFileEachCheck}}
+\index{createValidateStatementAdderFileEachCheck@{createValidateStatementAdderFileEachCheck}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatementAdderFileEachCheck}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatementAdderFileEachCheck (
+\begin{DoxyParamCaption}
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{INCLUDE\_\-LIST $\ast$}]{include\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a1dcf69651951215cbf7e123507d087dd}
+プログラムをチェック式ごとにプログラムスライシングと検証式付加を行ったファイルを生成する 
+\begin{DoxyParams}{引数}
+{\em expr\_\-slicing\_\-list} & プログラムスライシング情報 \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報 \\
+\hline
+{\em include\_\-list} & インクルードリスト \\
+\hline
+\end{DoxyParams}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatementForFreeAction@{createValidateStatementForFreeAction}}
+\index{createValidateStatementForFreeAction@{createValidateStatementForFreeAction}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatementForFreeAction}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatementForFreeAction (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf FREEMEMINFO} $\ast$}]{freememinfo, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a7a4c169635ae15aa731d31e26e54efd5}
+メモリ解放関係の情報freememinfoから検証式を生成し、VALIDATE\_\-STATEMENT\_\-LISTに追加する
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-statement\_\-list} & 生成先の検証式リスト \\
+\hline
+{\em freememinfo} & メモリ確保関係の情報 \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+メモリ解放関係の情報freememinfoから検証式を生成し、validate\_\-statement\_\-listに追加する
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-statement\_\-list} & 生成先の検証式リスト \\
+\hline
+{\em freememinfo} & メモリ確保関係の情報 \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatementForMallocAction@{createValidateStatementForMallocAction}}
+\index{createValidateStatementForMallocAction@{createValidateStatementForMallocAction}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatementForMallocAction}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatementForMallocAction (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf MEMALLOC\_\-INFO} $\ast$}]{memalloc\_\-info, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aaa4b66ed2d29ec4dd42a288b37e2a7de}
+メモリ確保関係の情報memalloc\_\-infoや配列やポインタのオフセット情報array\_\-offset\_\-listから検証式を生成し、VALIDATE\_\-STATEMENT\_\-LISTに追加する
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-statement\_\-list} & 生成先の検証式リスト \\
+\hline
+{\em memalloc\_\-info} & メモリ確保関係の情報 \\
+\hline
+{\em array\_\-offset\_\-list} & 配列やポインタのオフセット情報 \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+メモリ確保関係の情報memalloc\_\-infoや配列やポインタのオフセット情報array\_\-offset\_\-listから検証式を生成し、validate\_\-statement\_\-listに追加する
+
+
+\begin{DoxyParams}{引数}
+{\em variable\_\-statement\_\-list} & 生成先の検証式リスト \\
+\hline
+{\em memalloc\_\-info} & メモリ確保関係の情報 \\
+\hline
+{\em array\_\-offset\_\-list} & 配列やポインタのオフセット情報 \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createValidateStatementFromArrayDefine@{createValidateStatementFromArrayDefine}}
+\index{createValidateStatementFromArrayDefine@{createValidateStatementFromArrayDefine}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createValidateStatementFromArrayDefine}]{\setlength{\rightskip}{0pt plus 5cm}void createValidateStatementFromArrayDefine (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a5298c5a01af1005ed5c45cd86b162d70}
+変数定義リストで、配列生成時の検証用変数の更新するための検証式を作成し、validate\_\-statement\_\-listに追加する また、検証用変数リストvalidate\_\-variable\_\-listに、配列のオフセットを生成するのに使用する変数vviterator\_\-2〜vviterator\_\-n（nは配列の最大次元数）を生成し、追加する。 
+\begin{DoxyParams}{引数}
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 追加先の検証式 \\
+\hline
+{\em variable\_\-table\_\-list} & 変数テーブルリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数定義に関する情報リスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createVaridateStatementFromPointerDefine@{createVaridateStatementFromPointerDefine}}
+\index{createVaridateStatementFromPointerDefine@{createVaridateStatementFromPointerDefine}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createVaridateStatementFromPointerDefine}]{\setlength{\rightskip}{0pt plus 5cm}void createVaridateStatementFromPointerDefine (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aedc6997524037e82fb5a1a4512258981}
+変数定義リストでポインタ変数に対する検証用変数を更新するための検証式を作成し、validate\_\-statement\_\-listに追加する また、検証用変数リストvalidate\_\-variable\_\-listに、配列のオフセットを生成するのに使用する変数vviterator\_\-2〜vviterator\_\-n（nは配列の最大次元数）を生成し、追加する。 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 追加先の検証式 \\
+\hline
+{\em variable\_\-table\_\-list} & 変数テーブルリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数定義に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createViolentFreeOperation@{createViolentFreeOperation}}
+\index{createViolentFreeOperation@{createViolentFreeOperation}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createViolentFreeOperation}]{\setlength{\rightskip}{0pt plus 5cm}void createViolentFreeOperation (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf FREEMEMINFO} $\ast$}]{freememinfo}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aafb03c83a3e230546b0798459097e566}
+メモリ解放関係の情報freememinfoから、free関数に関する違反行為を行っていないかどうかをチェックするための検証式を生成し、VALIDATE\_\-STATEMENT\_\-LISTへ追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 追加先の検証式リスト \\
+\hline
+{\em freememinfo} & メモリ解放関係の情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+メモリ解放関係の情報freememinfoから、free関数に関する違反行為を行っていないかどうかをチェックするための検証式を生成し、validate\_\-statement\_\-listへ追加する。
+
+
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 追加先の検証式リスト \\
+\hline
+{\em freememinfo} & メモリ解放関係の情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!createZeroDivitionCheck@{createZeroDivitionCheck}}
+\index{createZeroDivitionCheck@{createZeroDivitionCheck}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{createZeroDivitionCheck}]{\setlength{\rightskip}{0pt plus 5cm}void createZeroDivitionCheck (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{DIVITION\_\-INFORMATION\_\-LIST $\ast$}]{divition\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a722a526669b1786c0ee311f742fcab5e}
+除算および剰余式の情報から、ゼロ除算および剰余になっていないかどうかの検証式を生成する 
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 格納先の検証式リスト \\
+\hline
+{\em divition\_\-information\_\-list} & 対象の除算および剰余式の情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+除算および剰余式の情報から、ゼロ除算および剰余になっていないかどうかの検証式を生成する 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 格納先の検証式リスト \\
+\hline
+{\em divition\_\-information\_\-list} & 対象の除算および剰余式の情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!fprintProgramDataWithPSIVaridateStatement@{fprintProgramDataWithPSIVaridateStatement}}
+\index{fprintProgramDataWithPSIVaridateStatement@{fprintProgramDataWithPSIVaridateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{fprintProgramDataWithPSIVaridateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void fprintProgramDataWithPSIVaridateStatement (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{{\bf AST} $\ast$}]{check\_\-target\_\-ast}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a6b2f1b6c6fcd95240c2329c542335ce9}
+プログラムスライシング情報をもとに検証式を追加しながら出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力する先のファイル \\
+\hline
+{\em expr\_\-slicing\_\-list} & プログラムスライシング情報 \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報 \\
+\hline
+{\em check\_\-target\_\-ast} & チェック検証式の対象へのASTノード \\
+\hline
+\end{DoxyParams}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!fprintProgramDataWithValidateStatement@{fprintProgramDataWithValidateStatement}}
+\index{fprintProgramDataWithValidateStatement@{fprintProgramDataWithValidateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{fprintProgramDataWithValidateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void fprintProgramDataWithValidateStatement (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a96b7689a221fdc741ce8b54ccb6adef7}
+検証式リストや検証用変数をもとにプログラムデータを生成し、指定したファイルoutputに出力する。
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em root} & プログラムへのASTノード \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト \\
+\hline
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+検証式リストや検証用変数をもとにプログラムデータを生成し、指定したファイルoutputに出力する。
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em root} & プログラムへのASTノード \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!fprintValidateStatement@{fprintValidateStatement}}
+\index{fprintValidateStatement@{fprintValidateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{fprintValidateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void fprintValidateStatement (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-ast, }
+\item[{int}]{check\_\-or\_\-modify, }
+\item[{int}]{allow\_\-output\_\-used\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a608f035966d41e1f46bbb71141573bf5}
+式に対応する検証式を出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 出力対象の検証式リスト \\
+\hline
+{\em target\_\-ast} & 対象のASTノード \\
+\hline
+{\em check\_\-or\_\-modify} & 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \\
+\hline
+{\em allow\_\-output\_\-used\_\-statement} & 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+式に対応する検証式を出力させる
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em validate\_\-statement\_\-list} & 出力対象の検証式リスト \\
+\hline
+{\em target\_\-ast} & 対象のASTノード \\
+\hline
+{\em check\_\-or\_\-modify} & 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \\
+\hline
+{\em allow\_\-output\_\-used\_\-statement} & 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!fprintValidateStatement\_\-not\_\-assert@{fprintValidateStatement\_\-not\_\-assert}}
+\index{fprintValidateStatement\_\-not\_\-assert@{fprintValidateStatement\_\-not\_\-assert}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{fprintValidateStatement\_\-not\_\-assert}]{\setlength{\rightskip}{0pt plus 5cm}void fprintValidateStatement\_\-not\_\-assert (
+\begin{DoxyParamCaption}
+\item[{FILE $\ast$}]{output, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-ast, }
+\item[{int}]{check\_\-or\_\-modify, }
+\item[{int}]{allow\_\-output\_\-used\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aaa230f70405d7e663f9b8b24ec0500f2}
+式に対応する検証式をassert(0); を削除したうえ出力させる。
+
+
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のファイル構造体 \\
+\hline
+{\em validate\_\-statement\_\-list} & 出力対象の検証式リスト \\
+\hline
+{\em target\_\-ast} & 対象のASTノード \\
+\hline
+{\em check\_\-or\_\-modify} & 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \\
+\hline
+{\em allow\_\-output\_\-used\_\-statement} & 使用済みの検証式も含めて出力するかどうかのフラグ　０：出力しない　１：出力する\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST@{getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST}}
+\index{getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST@{getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void getASTList\_\-FromVALIDATE\_\-STATEMENT\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ast\_\-node\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a608a237c57f573aac1c7e6d6ced6bae0}
+検証式リストのチェック式から、ASTノードを取り出し、ASTリストとしてまとめる 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 取り出し先の検証式リスト \\
+\hline
+{\em ast\_\-node\_\-list} & まとめる先のASTノードリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getBasisLocationFromAssignmentExpression@{getBasisLocationFromAssignmentExpression}}
+\index{getBasisLocationFromAssignmentExpression@{getBasisLocationFromAssignmentExpression}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getBasisLocationFromAssignmentExpression}]{\setlength{\rightskip}{0pt plus 5cm}void getBasisLocationFromAssignmentExpression (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{left\_\-array\_\-offset\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{right\_\-array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{right\_\-expression\_\-ast, }
+\item[{int}]{a\_\-op\_\-flag}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a613d3eee495ee9097bf53699f1495205}
+ポインタ演算式に対して、ポインタ演算における基本的な位置の式を文字列として求め、outputに入れる。 
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のCSTL文字列 \\
+\hline
+{\em left\_\-array\_\-offset\_\-list} & 左辺値の配列オフセットリスト \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 右辺式の配列オフセットリスト \\
+\hline
+{\em right\_\-expression\_\-ast} & 右辺式へのASTアドレス \\
+\hline
+{\em a\_\-op\_\-flag} & 代入演算子が何かを示すフラグ 0:=,1:+=,2:-\/=,3:$\ast$=,4:/=,5:=,6:$<$$<$=,7:$>$$>$=,8:\&=,9:$|$=,10:$^\wedge$=\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getBasisLocationFromExpression@{getBasisLocationFromExpression}}
+\index{getBasisLocationFromExpression@{getBasisLocationFromExpression}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getBasisLocationFromExpression}]{\setlength{\rightskip}{0pt plus 5cm}void getBasisLocationFromExpression (
+\begin{DoxyParamCaption}
+\item[{CSTLString $\ast$}]{output, }
+\item[{{\bf ARRAY\_\-OFFSET} $\ast$}]{array\_\-offset, }
+\item[{{\bf AST} $\ast$}]{expression\_\-ast}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a8bece040dd7a61d7936e87da300d2dad}
+指定した式expression\_\-astから、ポインタ演算における基本的な位置の式を文字列として求め、outputに入れる。このとき、array\_\-offsetを見つけたらそれに該当する式を０に変換する。 
+\begin{DoxyParams}{引数}
+{\em output} & 出力先のCSTL文字列 \\
+\hline
+{\em \hyperlink{structarray__offset}{array\_\-offset}} & 指定した識別子の配列オフセット \\
+\hline
+{\em expression\_\-ast} & 指定した式へのASTアドレス \\
+\hline
+\end{DoxyParams}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getLeftAssignmentInfo@{getLeftAssignmentInfo}}
+\index{getLeftAssignmentInfo@{getLeftAssignmentInfo}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getLeftAssignmentInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getLeftAssignmentInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{left\_\-expression, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int $\ast$}]{switch\_\-mode}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_ad7d1ad81f81f0780527904c6dc144cc2}
+代入式の左辺値について、検証式に必要な情報を取得する 
+\begin{DoxyParams}{引数}
+{\em left\_\-expression} & 左辺値に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 検証対象の式をマークするための変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em array\_\-offset\_\-list} & 各ポインタおよび配列ごとのオフセットのリスト \\
+\hline
+{\em target\_\-expression} & この左辺式の上位に位置するASTノード \\
+\hline
+{\em switch\_\-mode} & 直接アクセスおよび配列アクセスを探すか、IDENTIFIERを探すかどうかのスイッチフラグ ０：両方さがす　１：direct\_\-refやarray\_\-accessのみ探す \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getNewValidateStatementID@{getNewValidateStatementID}}
+\index{getNewValidateStatementID@{getNewValidateStatementID}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getNewValidateStatementID}]{\setlength{\rightskip}{0pt plus 5cm}int getNewValidateStatementID (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a67a425d9c80a11752fea1c09e02c37c8}
+検証式リストVALIDATE\_\-STATEMENT\_\-LISTから、target\_\-statementと同じASTのアドレスを持ったものを探し出し、それを基に重複しないようにするための新しい検証式の識別番号を取得する。 新しい検証式を作るにはこの関数から新しい識別番号を取得すること。
+
+
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 対象の検証式リスト \\
+\hline
+{\em target\_\-statement} & 対象の検証式から確認するためのASTのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しい識別番号を出力する。すでに同じASTのアドレスを持っている検証式がなければ０を返す。
+\end{DoxyReturn}
+検証式リストvalidate\_\-statement\_\-listから、target\_\-statementと同じASTのアドレスを持ったものを探し出し、それを基に重複しないようにするための新しい検証式の識別番号を取得する。 新しい検証式を作るにはこの関数から新しい識別番号を取得すること。
+
+
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 対象の検証式リスト \\
+\hline
+{\em target\_\-statement} & 対象の検証式から確認するためのASTのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しい識別番号を出力する。すでに同じASTのアドレスを持っている検証式がなければ０を返す。 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getRightAssignmentInfo@{getRightAssignmentInfo}}
+\index{getRightAssignmentInfo@{getRightAssignmentInfo}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getRightAssignmentInfo}]{\setlength{\rightskip}{0pt plus 5cm}void getRightAssignmentInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{{\bf MEMALLOC\_\-INFO} $\ast$$\ast$}]{memalloc\_\-info, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{array\_\-offset\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aa60bcbae8da7bdc52524503b7c715348}
+代入式の右辺式について、検証式に必要な情報を取得する 
+\begin{DoxyParams}{引数}
+{\em root} & 右辺式に関するASTノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & メモリ確保情報を取得するのに必要なプログラム変数リスト \\
+\hline
+{\em memalloc\_\-info} & malloc関係の情報が出力される \\
+\hline
+{\em array\_\-offset\_\-list} & 左辺式上にあるポインタ参照に対するオフセットリスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & 同じ位置のポインタが来ても無視するためのリスト \\
+\hline
+{\em target\_\-statement} & この計算式を属しているASTノードへのアドレス（基本的にexpression\_\-statementであるノードが入る）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidate\_\-Variable@{getValidate\_\-Variable}}
+\index{getValidate\_\-Variable@{getValidate\_\-Variable}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidate\_\-Variable}]{\setlength{\rightskip}{0pt plus 5cm}void getValidate\_\-Variable (
+\begin{DoxyParamCaption}
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{variable\_\-table\_\-list, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_aa20f7df53433b99821de7ef757271d4b}
+プログラムの変数リストをもとにプログラムの検証用の変数を設定する 
+\begin{DoxyParams}{引数}
+{\em variable\_\-table\_\-list} & プログラムの変数リスト \\
+\hline
+{\em \hyperlink{structvalidate__variable}{validate\_\-variable}} & 検証用の変数リスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromAssignStatement@{getValidateStatementFromAssignStatement}}
+\index{getValidateStatementFromAssignStatement@{getValidateStatementFromAssignStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromAssignStatement}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromAssignStatement (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int}]{undefined\_\-control\_\-check, }
+\item[{int}]{zero\_\-divition\_\-check, }
+\item[{int}]{array\_\-unbound\_\-check, }
+\item[{int}]{free\_\-violation\_\-check}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_af9bd0329c9e3cb3c46e8b6be300d1182}
+指定したASTノードrootから、assign\_\-expressionを探しだし、そこからVARIDATE\_\-STATEMENTに関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & 指定したノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 対象の変数リスト \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 取得した検証式が格納するところ \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em target\_\-expression} & assign\_\-expressionが属しているexpression\_\-statement \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em free\_\-violation\_\-check} & メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromCallFunction@{getValidateStatementFromCallFunction}}
+\index{getValidateStatementFromCallFunction@{getValidateStatementFromCallFunction}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromCallFunction}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromCallFunction (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{left\_\-array\_\-offset\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{right\_\-array\_\-offset\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a1fcad266e45a41a6ae23650349c6adde}
+式から、関数呼出を探しだし、関数呼出に対する検証式を追加する
+
+
+\begin{DoxyParams}{引数}
+{\em root} & 探索対象のASTノード \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em left\_\-array\_\-offset\_\-list} & 左辺値の配列オフセットリスト \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 右辺式の配列オフセットリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromForIteration@{getValidateStatementFromForIteration}}
+\index{getValidateStatementFromForIteration@{getValidateStatementFromForIteration}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromForIteration}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromForIteration (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{int}]{undefined\_\-control\_\-check, }
+\item[{int}]{zero\_\-divition\_\-check, }
+\item[{int}]{array\_\-unbound\_\-check, }
+\item[{int}]{free\_\-violation\_\-check}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_ab5434dbc6f98a0b8098d48fbcc6951e8}
+for文の末尾の情報から、検証式を取得し、検証式リストに入れる 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 取得した検証式が格納するところ \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報のリスト \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 対象の変数リスト \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em free\_\-violation\_\-check} & メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromInitializer@{getValidateStatementFromInitializer}}
+\index{getValidateStatementFromInitializer@{getValidateStatementFromInitializer}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromInitializer}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromInitializer (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{FUNCTION\_\-INFORMATION\_\-LIST $\ast$}]{function\_\-information\_\-list, }
+\item[{VARIABLE\_\-TABLE\_\-LIST $\ast$}]{vtlist, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ASTPOINTER\_\-LIST $\ast$}]{ignore\_\-ast\_\-list, }
+\item[{{\bf AST} $\ast$}]{target\_\-expression, }
+\item[{int}]{undefined\_\-control\_\-check, }
+\item[{int}]{zero\_\-divition\_\-check, }
+\item[{int}]{array\_\-unbound\_\-check}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a0b17a43ec9679b3b3058933552bfa734}
+指定したASTノードrootから、init\_\-declaratorを探しだし、そこからVARIDATE\_\-STATEMENTに関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & 指定したノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 対象の変数リスト \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト \\
+\hline
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 取得した検証式が格納するところ \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em target\_\-expression} & assign\_\-expressionが属しているexpression\_\-statement \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない\\
+\hline
+\end{DoxyParams}
+指定したASTノードrootから、init\_\-declaratorを探しだし、そこからVARIDATE\_\-STATEMENTに関する情報を取得する。 
+\begin{DoxyParams}{引数}
+{\em root} & 指定したノード \\
+\hline
+{\em function\_\-information\_\-list} & 関数に関する情報のリスト \\
+\hline
+{\em vtlist} & 対象の変数リスト \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 取得した検証式が格納するところ \\
+\hline
+{\em ignore\_\-ast\_\-list} & ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト \\
+\hline
+{\em target\_\-expression} & assign\_\-expressionが属しているexpression\_\-statement \\
+\hline
+{\em undefined\_\-control\_\-check} & 未定義な処理を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない \\
+\hline
+{\em zero\_\-divition\_\-check} & 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+{\em array\_\-unbound\_\-check} & 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない \\
+\hline
+\end{DoxyParams}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromMallocNumber@{getValidateStatementFromMallocNumber}}
+\index{getValidateStatementFromMallocNumber@{getValidateStatementFromMallocNumber}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromMallocNumber}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromMallocNumber (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{{\bf AST} $\ast$}]{call\_\-function, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{right\_\-array\_\-offset\_\-list, }
+\item[{{\bf MEMALLOC\_\-INFO} $\ast$}]{memalloc\_\-info}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a90132c1a1e583affd0a5d9f1ba4efe1d}
+malloc用識別番号を付加するための関数に変換するための検証式を追加させる 
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 追加先の検証式リスト \\
+\hline
+{\em call\_\-function} & 関数呼び出しに対するノード \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 左辺値に関する配列オフセットリスト \\
+\hline
+{\em memalloc\_\-info} & メモリ確保情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+malloc用識別番号を付加するための関数に変換するための検証式を追加させる 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 追加先の検証式リスト \\
+\hline
+{\em call\_\-function} & 関数呼び出しに対するノード \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 左辺値に関する配列オフセットリスト \\
+\hline
+{\em memalloc\_\-info} & メモリ確保情報\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!getValidateStatementFromPointerOperator@{getValidateStatementFromPointerOperator}}
+\index{getValidateStatementFromPointerOperator@{getValidateStatementFromPointerOperator}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{getValidateStatementFromPointerOperator}]{\setlength{\rightskip}{0pt plus 5cm}void getValidateStatementFromPointerOperator (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{left\_\-array\_\-offset\_\-list, }
+\item[{ARRAY\_\-OFFSET\_\-LIST $\ast$}]{right\_\-array\_\-offset\_\-list, }
+\item[{{\bf AST} $\ast$}]{right\_\-expression, }
+\item[{int}]{a\_\-op\_\-flag}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a92935ece8844a8e8a5ec7eed0df523bc}
+ポインタ演算式後の内容を検証用変数に反映するための検証式を追加する
+
+
+\begin{DoxyParams}{引数}
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 検証式リスト \\
+\hline
+{\em left\_\-array\_\-offset\_\-list} & 左辺値の配列オフセットリスト \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 右辺式の配列オフセットリスト \\
+\hline
+{\em right\_\-expression} & 右辺式へのＡＳＴアドレス \\
+\hline
+{\em a\_\-op\_\-flag} & 代入演算子が何かを示すフラグ 0:=,1:+=,2:-\/=,3:$\ast$=,4:/=,5:=,6:$<$$<$=,7:$>$$>$=,8:\&=,9:$|$=,10:$^\wedge$= \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+ポインタ演算式後の内容を検証用変数に反映するための検証式を追加する
+
+
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em left\_\-array\_\-offset\_\-list} & 左辺値の配列オフセットリスト \\
+\hline
+{\em right\_\-array\_\-offset\_\-list} & 右辺式の配列オフセットリスト \\
+\hline
+{\em right\_\-expression} & 右辺式へのＡＳＴアドレス \\
+\hline
+{\em a\_\-op\_\-flag} & 代入演算子が何かを示すフラグ 0:=,1:+=,2:-\/=,3:$\ast$=,4:/=,5:=,6:$<$$<$=,7:$>$$>$=,8:\&=,9:$|$=,10:$^\wedge$= \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!initVALIDATE\_\-STATEMENT\_\-flag@{initVALIDATE\_\-STATEMENT\_\-flag}}
+\index{initVALIDATE\_\-STATEMENT\_\-flag@{initVALIDATE\_\-STATEMENT\_\-flag}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{initVALIDATE\_\-STATEMENT\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}void initVALIDATE\_\-STATEMENT\_\-flag (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a8e3b4d40e99652b834d5e52c1cccf555}
+検証式リストの使用フラグを未使用状態に初期化する 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & $\ast$初期化対象の検証式リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!new\_\-VALIDATE\_\-STATEMENT@{new\_\-VALIDATE\_\-STATEMENT}}
+\index{new\_\-VALIDATE\_\-STATEMENT@{new\_\-VALIDATE\_\-STATEMENT}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{new\_\-VALIDATE\_\-STATEMENT}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VALIDATE\_\-STATEMENT}$\ast$ new\_\-VALIDATE\_\-STATEMENT (
+\begin{DoxyParamCaption}
+\item[{int}]{target\_\-id, }
+\item[{int}]{check\_\-or\_\-modify, }
+\item[{int}]{used, }
+\item[{CSTLString $\ast$}]{statement, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a806714cc7424b1b56b0c82157ce3af32}
+実際に検証式として挿入するための情報を生成する 
+\begin{DoxyParams}{引数}
+{\em target\_\-id} & この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) \\
+\hline
+{\em check\_\-or\_\-modify} & 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \\
+\hline
+{\em used} & この検証式は使用しているかどうかのフラグ 1:使用 0:未使用 \\
+\hline
+{\em statement} & この検証式の内容 \\
+\hline
+{\em target\_\-statement} & この検証式のターゲットとなるASTノードへのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+実際に検証式として挿入するための情報へのアドレスを返す 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!new\_\-VALIDATE\_\-STATEMENT\_\-char@{new\_\-VALIDATE\_\-STATEMENT\_\-char}}
+\index{new\_\-VALIDATE\_\-STATEMENT\_\-char@{new\_\-VALIDATE\_\-STATEMENT\_\-char}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{new\_\-VALIDATE\_\-STATEMENT\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VALIDATE\_\-STATEMENT}$\ast$ new\_\-VALIDATE\_\-STATEMENT\_\-char (
+\begin{DoxyParamCaption}
+\item[{int}]{target\_\-id, }
+\item[{int}]{check\_\-or\_\-modify, }
+\item[{int}]{used, }
+\item[{char $\ast$}]{statement, }
+\item[{{\bf AST} $\ast$}]{target\_\-statement}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a9a1bd7d44506b29806d054da90a5cd50}
+実際に検証式として挿入するための情報を生成する 
+\begin{DoxyParams}{引数}
+{\em target\_\-id} & この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID) \\
+\hline
+{\em check\_\-or\_\-modify} & 検証式をチェックするタイプか、プログラムを元に編集するタイプかを判断するフラグ。０：チェックするタイプ、１：編集するタイプ \\
+\hline
+{\em used} & この検証式は使用しているかどうかのフラグ 1:使用 0:未使用 \\
+\hline
+{\em statement} & この検証式の内容 \\
+\hline
+{\em target\_\-statement} & この検証式のターゲットとなるASTノードへのアドレス\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+実際に検証式として挿入するための情報へのアドレスを返す 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!new\_\-VALIDATE\_\-VARIABLE@{new\_\-VALIDATE\_\-VARIABLE}}
+\index{new\_\-VALIDATE\_\-VARIABLE@{new\_\-VALIDATE\_\-VARIABLE}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{new\_\-VALIDATE\_\-VARIABLE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VALIDATE\_\-VARIABLE}$\ast$ new\_\-VALIDATE\_\-VARIABLE (
+\begin{DoxyParamCaption}
+\item[{int}]{used, }
+\item[{int}]{enable\_\-start, }
+\item[{int}]{enable\_\-end, }
+\item[{int}]{declaration\_\-location, }
+\item[{int}]{block\_\-level, }
+\item[{int}]{block\_\-id, }
+\item[{CSTLString $\ast$}]{type, }
+\item[{CSTLString $\ast$}]{variable\_\-name, }
+\item[{CSTLString $\ast$}]{target\_\-variable\_\-name, }
+\item[{int}]{offset\_\-level}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a845ca6f189c4d15863ad9dce707b107a}
+新しい検証用変数テーブルのデータを生成させる 
+\begin{DoxyParams}{引数}
+{\em used} & この検証用変数テーブルを使用したかどうか \\
+\hline
+{\em enable\_\-start} & この変数の有効範囲の始まりの行数 \\
+\hline
+{\em enable\_\-end} & この変数の有効範囲の終わりの行数 \\
+\hline
+{\em declaration\_\-location} & この変数を宣言した場所の行数 \\
+\hline
+{\em block\_\-level} & この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） \\
+\hline
+{\em block\_\-id} & ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） \\
+\hline
+{\em type} & 型名 \\
+\hline
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em target\_\-variable\_\-name} & 検証対象の変数名 \\
+\hline
+{\em offset\_\-level} & この変数の配列やポインタの次元レベル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された検証用変数のデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char@{new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char}}
+\index{new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char@{new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VALIDATE\_\-VARIABLE}$\ast$ new\_\-VALIDATE\_\-VARIABLE\_\-with\_\-char (
+\begin{DoxyParamCaption}
+\item[{int}]{used, }
+\item[{int}]{enable\_\-start, }
+\item[{int}]{enable\_\-end, }
+\item[{int}]{declaration\_\-location, }
+\item[{int}]{block\_\-level, }
+\item[{int}]{block\_\-id, }
+\item[{char $\ast$}]{type, }
+\item[{char $\ast$}]{variable\_\-name, }
+\item[{char $\ast$}]{target\_\-variable\_\-name, }
+\item[{int}]{offset\_\-level}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a708dc1fd2fb8644b8dc9edbe94b90129}
+新しい検証用変数テーブルのデータを生成させる(char対応版) 
+\begin{DoxyParams}{引数}
+{\em used} & この検証用変数テーブルを使用したかどうか \\
+\hline
+{\em enable\_\-start} & この変数の有効範囲の始まりの行数 \\
+\hline
+{\em enable\_\-end} & この変数の有効範囲の終わりの行数 \\
+\hline
+{\em declaration\_\-location} & この変数を宣言した場所の行数 \\
+\hline
+{\em block\_\-level} & この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） \\
+\hline
+{\em block\_\-id} & ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） \\
+\hline
+{\em type} & 型名 \\
+\hline
+{\em variable\_\-name} & 変数名 \\
+\hline
+{\em target\_\-variable\_\-name} & 検証対象の変数名 \\
+\hline
+{\em offset\_\-level} & この変数の配列やポインタの次元レベル\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+新しく生成された検証用変数のデータへのアドレスが返される 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!printProgramDataWithValidateStatement@{printProgramDataWithValidateStatement}}
+\index{printProgramDataWithValidateStatement@{printProgramDataWithValidateStatement}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{printProgramDataWithValidateStatement}]{\setlength{\rightskip}{0pt plus 5cm}void printProgramDataWithValidateStatement (
+\begin{DoxyParamCaption}
+\item[{{\bf AST} $\ast$}]{root, }
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list, }
+\item[{FOR\_\-INFORMATION\_\-LIST $\ast$}]{for\_\-information\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_ab71973a49693680ddea5a8d1b7aa41d1}
+検証式リストとともにプログラムデータを出力する
+
+
+\begin{DoxyParams}{引数}
+{\em root} & プログラムへのASTノード \\
+\hline
+{\em VALIDATE\_\-VARIABLE\_\-LIST} & 検証用変数リスト \\
+\hline
+{\em VALIDATE\_\-STATEMENT\_\-LIST} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし
+\end{DoxyReturn}
+検証式リストとともにプログラムデータを出力する
+
+
+\begin{DoxyParams}{引数}
+{\em root} & プログラムへのASTノード \\
+\hline
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em validate\_\-statement\_\-list} & 検証式リスト \\
+\hline
+{\em for\_\-information\_\-list} & for文に関する情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!printVALIDATE\_\-VARIABLE\_\-LIST@{printVALIDATE\_\-VARIABLE\_\-LIST}}
+\index{printVALIDATE\_\-VARIABLE\_\-LIST@{printVALIDATE\_\-VARIABLE\_\-LIST}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{printVALIDATE\_\-VARIABLE\_\-LIST}]{\setlength{\rightskip}{0pt plus 5cm}void printVALIDATE\_\-VARIABLE\_\-LIST (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_a6a6b94202879d7536e3de49b28dc975b}
+検証用変数テーブルのリストの内容を出力させる 
+\begin{DoxyParams}{引数}
+{\em validate\_\-variable\_\-list} & 出力対象の検証用変数テーブルのリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!setValidateVariableFromExprSlicing@{setValidateVariableFromExprSlicing}}
+\index{setValidateVariableFromExprSlicing@{setValidateVariableFromExprSlicing}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{setValidateVariableFromExprSlicing}]{\setlength{\rightskip}{0pt plus 5cm}void setValidateVariableFromExprSlicing (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-VARIABLE\_\-LIST $\ast$}]{validate\_\-variable\_\-list, }
+\item[{EXPR\_\-SLICING\_\-LIST $\ast$}]{expr\_\-slicing\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_adb83c5deab92ed6631e559bac2e476b4}
+プログラムスライシング情報の変数定義をもとに、検証用変数リストの出力を設定する 
+\begin{DoxyParams}{引数}
+{\em validate\_\-variable\_\-list} & 検証用変数リスト \\
+\hline
+{\em expr\_\-slicing\_\-list} & プログラムスライシング情報のリスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+\index{Varidate\_\-statement.h@{Varidate\_\-statement.h}!VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast@{VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast}}
+\index{VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast@{VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast}!Varidate_statement.h@{Varidate\_\-statement.h}}
+\subsubsection[{VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast}]{\setlength{\rightskip}{0pt plus 5cm}void VALIDATE\_\-STATEMENT\_\-LIST\_\-sort\_\-ast (
+\begin{DoxyParamCaption}
+\item[{VALIDATE\_\-STATEMENT\_\-LIST $\ast$}]{validate\_\-statement\_\-list}
+\end{DoxyParamCaption}
+)}\label{Varidate__statement_8h_ada2fcad0ebd03da626bb968378fd1831}
+検証式リストをASTノードごとにソートする 
+\begin{DoxyParams}{引数}
+{\em validate\_\-statement\_\-list} & ソート対象の検証式リスト\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}

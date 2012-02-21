@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ProgramSlicing/ExpressionStatementPSI.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>ProgramSlicing/ExpressionStatementPSI.h</h1>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef EXPRESSIONSTATEMENTPSI_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define EXPRESSIONSTATEMENTPSI_H_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;ProgramSlicingInformation.h&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="_function_information_8h.html" title="このファイルは関数に関する情報を取得するためのファイルである。">../ANSICInformation/FunctionInformation.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include&quot;<a class="code" href="_synbol_8h.html" title="このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを生成させることができます。 また、typedefテーブルの生成は、C言語の構文解析では必...">../ANSICInformation/Synbol.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00029"></a>00029 <span class="keywordtype">void</span> getExpressionStatementPSI(EXPR_SLICING_LIST *expr_slicing_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *expression_statement, <a class="code" href="structexpr__slicing.html">EXPR_SLICING</a> *parent,
+<a name="l00030"></a>00030         VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list, ASTPOINTER_LIST *ignore_ast_list,
+<a name="l00031"></a>00031         <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00032"></a>00032 
+<a name="l00043"></a>00043 <span class="keywordtype">void</span> getInputFunctionPSI(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *target_variable, ARRAY_OFFSET_LIST *dependences, FUNCTION_INFORMATION_LIST *function_information_list,
+<a name="l00044"></a>00044         VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement);
+<a name="l00045"></a>00045 
+<a name="l00059"></a>00059 <span class="keywordtype">void</span> getASI_ARRAY_OFFSET_LIST(<a class="code" href="structabstract__syntax__tree.html">AST</a> *root, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+<a name="l00060"></a>00060                           ASTPOINTER_LIST *ignore_ast_list, <a class="code" href="structabstract__syntax__tree.html">AST</a> *target_statement, <span class="keywordtype">int</span> allow_side_effect);
+<a name="l00061"></a>00061 
+<a name="l00072"></a>00072 <span class="keywordtype">void</span> setARGUMENT_NUMBER( ARRAY_OFFSET_LIST *argument_list, <span class="keywordtype">int</span> arg_num, <a class="code" href="structabstract__syntax__tree.html">AST</a> *call_function);
+<a name="l00073"></a>00073 <span class="preprocessor">#endif </span><span class="comment">/* EXPRESSIONSTATEMENTPSI_H_ */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

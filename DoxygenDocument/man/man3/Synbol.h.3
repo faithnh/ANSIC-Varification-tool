@@ -1,0 +1,634 @@
+.TH "ANSICInformation/Synbol.h" 3 "Tue Feb 1 2011" "Version 1.0" "ValidateStatementAdder" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANSICInformation/Synbol.h \- 
+.PP
+このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを 生成させるための命令が含まれている。 とくに、typedefテーブルの生成は、C言語の構文解析では必須な処理である。  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio.h>\fP
+.br
+\fC#include <cstl/list.h>\fP
+.br
+\fC#include '../Library/CSTLString.h'\fP
+.br
+\fC#include '../Library/IdList.h'\fP
+.br
+\fC#include 'AST.h'\fP
+.br
+
+.SS "データ構造"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtypedef_table\fP"
+.br
+.ti -1c
+.RI "struct \fBvariable_table\fP"
+.br
+.ti -1c
+.RI "struct \fBstruct_table\fP"
+.br
+.in -1c
+.SS "型定義"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBtypedef_table\fP \fBTYPEDEF_TABLE\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBvariable_table\fP \fBVARIABLE_TABLE\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBstruct_table\fP \fBSTRUCT_TABLE\fP"
+.br
+.in -1c
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "\fBTYPEDEF_TABLE\fP * \fBnew_TYPEDEF_TABLE\fP (CSTLString *target_type, CSTLString *change_type)"
+.br
+.ti -1c
+.RI "\fBVARIABLE_TABLE\fP * \fBnew_VARIABLE_TABLE\fP (int enable_start, int enable_end, \fBAST\fP *declaration_location_address, int block_level, int block_id, IDLIST *idlist, CSTLString *type, CSTLString *variable_name, \fBAST\fP *initializer)"
+.br
+.ti -1c
+.RI "\fBSTRUCT_TABLE\fP * \fBnew_STRUCT_TABLE_with_char\fP (int line, char *type, char *struct_name, VARIABLE_TABLE_LIST *member_list)"
+.br
+.ti -1c
+.RI "\fBTYPEDEF_TABLE\fP * \fBnew_TYPEDEF_TABLE_with_char\fP (char *target_type, char *change_type)"
+.br
+.ti -1c
+.RI "\fBVARIABLE_TABLE\fP * \fBnew_VARIABLE_TABLE_with_char\fP (int enable_start, int enable_end, \fBAST\fP *declaration_location_address, int block_level, int block_id, IDLIST *idlist, char *type, char *variable_name, \fBAST\fP *initializer)"
+.br
+.ti -1c
+.RI "\fBSTRUCT_TABLE\fP * \fBnew_STRUCT_TABLE\fP (int line, CSTLString *type, CSTLString *struct_name, VARIABLE_TABLE_LIST *member_list)"
+.br
+.ti -1c
+.RI "void \fBgetTYPEDEF_TABLE_DATA\fP (TYPEDEF_TABLE_LIST *typedef_table_list, \fBAST\fP *typelist, \fBAST\fP *identifier)"
+.br
+.ti -1c
+.RI "\fBAST\fP * \fBgetTYPEDEFfromAST\fP (TYPEDEF_TABLE_LIST *typedef_table_list, char *token, int line)"
+.br
+.ti -1c
+.RI "void \fBprintTYPEDEF_TABLE_LIST\fP (TYPEDEF_TABLE_LIST *typedef_table_list)"
+.br
+.ti -1c
+.RI "void \fBgetSTRUCT_TABLE_DATA\fP (STRUCT_TABLE_LIST *struct_table_list, \fBAST\fP *ast_data)"
+.br
+.ti -1c
+.RI "int \fBfind_STRUCT_TABLE_DATA\fP (STRUCT_TABLE_LIST *struct_table_list, CSTLString *target)"
+.br
+.ti -1c
+.RI "void \fBgetSTRUCT_DATA\fP (\fBAST\fP *ast_data, STRUCT_TABLE_LIST *struct_table_data)"
+.br
+.ti -1c
+.RI "void \fBgetMemberList\fP (VARIABLE_TABLE_LIST *member_list, \fBAST\fP *ast_data)"
+.br
+.ti -1c
+.RI "void \fBgetDeclaratorFromAST\fP (char const *type, \fBAST\fP *ast_data, VARIABLE_TABLE_LIST *member_list, int enable_start, int enable_end, int block_level, int block_id, \fBAST\fP *declaration_location_address)"
+.br
+.ti -1c
+.RI "void \fBprintSTRUCT_TABLE_LIST\fP (STRUCT_TABLE_LIST *struct_table_list)"
+.br
+.ti -1c
+.RI "void \fBgetVARIABLE_TABLE_LIST\fP (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data)"
+.br
+.ti -1c
+.RI "void \fBgetParameterData\fP (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data, \fBAST\fP *enable_start, \fBAST\fP *enable_end)"
+.br
+.ti -1c
+.RI "void \fBgetParameterVARIABLE_TABLE_LIST\fP (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data)"
+.br
+.ti -1c
+.RI "void \fBprintVARIABLE_TABLE_LIST\fP (VARIABLE_TABLE_LIST *variable_table_list)"
+.br
+.ti -1c
+.RI "void \fBgetPointerLevelAndArrayLevelFromVARIABLE_TABLE\fP (\fBVARIABLE_TABLE\fP *variable_table_data, int *output_pointer_level, int *output_array_level)"
+.br
+.ti -1c
+.RI "void \fBgetPointerLevelAndArrayLevel\fP (CSTLString *target_identifier, int *output_pointer_level, int *output_array_level)"
+.br
+.ti -1c
+.RI "\fBVARIABLE_TABLE\fP * \fBsearchVARIABLE_TABLE_LIST\fP (IDLIST *target_idlist, CSTLString *target_string, VARIABLE_TABLE_LIST *variable_table_list)"
+.br
+.ti -1c
+.RI "void \fBdeletePointerAndArraySynbol\fP (CSTLString *target)"
+.br
+.ti -1c
+.RI "void \fBdeletePointer\fP (CSTLString *target)"
+.br
+.in -1c
+.SH "説明"
+.PP 
+このファイルは、構文解析によって生成された抽象構文木（AST）から、変数・typedefテーブル・構造体テーブルを 生成させるための命令が含まれている。 とくに、typedefテーブルの生成は、C言語の構文解析では必須な処理である。 
+
+\fB作者:\fP
+.RS 4
+faithnh 
+.RE
+.PP
+
+.SH "型定義"
+.PP 
+.SS "typedef struct \fBstruct_table\fP  \fBSTRUCT_TABLE\fP"構造体に関する情報であり、プログラム中の構造体の識別するのに用いられる。 
+.SS "typedef struct \fBtypedef_table\fP  \fBTYPEDEF_TABLE\fP"型定義に関する情報で、BISONによる構文解析時の型定義の認識に用いられる。 
+.SS "typedef struct \fBvariable_table\fP  \fBVARIABLE_TABLE\fP"プログラム中の変数に関する情報であり、検証式生成時に変数を識別するのに用いられる。 
+.SH "関数"
+.PP 
+.SS "void deletePointer (CSTLString *target)"変数名からポインタを示す記号のみ全て削除する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 変更対象の変数名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void deletePointerAndArraySynbol (CSTLString *target)"変数名から配列およびポインタを示す記号を全て削除する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget\fP 変更対象の変数名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "int find_STRUCT_TABLE_DATA (STRUCT_TABLE_LIST *struct_table_list, CSTLString *target)"構造体テーブルリストに同じ定義がないかどうかを調べる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIstruct_table_list\fP 検索対象の構造体テーブルリスト 
+.br
+\fItarget\fP 検索する文字列 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+見つけられたら、１を返し、そうでなければ０を返す。 
+.RE
+.PP
+
+.SS "void getDeclaratorFromAST (char const *type, \fBAST\fP *ast_data, VARIABLE_TABLE_LIST *member_list, intenable_start, intenable_end, intblock_level, intblock_id, \fBAST\fP *declaration_location_address)"指定されたASTノードから、declaratorを探し、それを見つけたら指定した型の変数として変数リストに登録する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItype\fP 指定した型 
+.br
+\fIast_data\fP 指定されたASTノード 
+.br
+\fImember_list\fP 登録先の変数リスト 
+.br
+\fIenable_start\fP 変数スコープの有効範囲の開始 
+.br
+\fIenable_end\fP 変数スコープの有効範囲の終わり 
+.br
+\fIblock_level\fP この変数のブロックレベル 
+.br
+\fIblock_id\fP ブロックを識別するための識別番号 
+.br
+\fIdeclaration_location_address\fP この宣言自体のASTへのアドレス(検証式の生成に必要)
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getMemberList (VARIABLE_TABLE_LIST *member_list, \fBAST\fP *ast_data)"指定されたASTノードから、メンバリストを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fImember_list\fP 登録対象のメンバリスト 
+.br
+\fIast_data\fP 指定されたASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+作成された構造体データへのアドレスを返却する
+.RE
+.PP
+指定されたASTノードから、メンバリストを生成する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fImember_list\fP 登録対象のメンバリスト 
+.br
+\fIast_data\fP 指定されたASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+作成された構造体データへのアドレスを返却する。 
+.RE
+.PP
+
+.SS "void getParameterData (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data, \fBAST\fP *enable_start, \fBAST\fP *enable_end)"関数のパラメータリストを示すASTノードから、parameter_declarationを見つけ、そこから変数テーブルのリストに登録させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP 変数テーブルのリスト 
+.br
+\fIast_data\fP 対象のASTノード 
+.br
+\fIenable_start\fP 有効範囲の開始を示すASTノードのアドレス 
+.br
+\fIenable_end\fP 有効範囲の終了を示すASTノードのアドレス 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+関数のパラメータリストを示すASTノードから、parameter_declarationを見つけ、そこから変数テーブルのリストに登録させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP 変数テーブルのリスト 
+.br
+\fIast_data\fP 対象のASTノード 
+.br
+\fIenable_start\fP 有効範囲の開始 
+.br
+\fIenable_end\fP 有効範囲の終了 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getParameterVARIABLE_TABLE_LIST (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data)"対象のASTノードから関数を探し、関数内の引数を変数テーブルのリストに登録する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP 変数テーブルのリスト 
+.br
+\fIast_data\fP 対象のASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getPointerLevelAndArrayLevel (CSTLString *target_identifier, int *output_pointer_level, int *output_array_level)"対象の識別子のポインタの次元および配列の次元を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_identifier\fP 対象の識別子 
+.br
+\fIoutput_pointer_level\fP 出力されるポインタレベル 
+.br
+\fIoutput_array_level\fP 出力される配列レベル 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getPointerLevelAndArrayLevelFromVARIABLE_TABLE (\fBVARIABLE_TABLE\fP *variable_table_data, int *output_pointer_level, int *output_array_level)"変数テーブルから、ポインタの次元および配列の次元を取得する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_data\fP 変数テーブルのリスト 
+.br
+\fIoutput_pointer_level\fP 出力されるポインタレベル 
+.br
+\fIoutput_array_level\fP 出力される配列レベル 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getSTRUCT_DATA (\fBAST\fP *ast_data, STRUCT_TABLE_LIST *struct_table_data)"指定されたASTノードから、構造体データを作成させ、構造体テーブルのリストへ登録させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIast_data\fP 指定されたASTノード 
+.br
+\fIstruct_table_data\fP 登録先の構造体テーブルリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getSTRUCT_TABLE_DATA (STRUCT_TABLE_LIST *struct_table_list, \fBAST\fP *ast_data)"指定されたASTノードから、構造体テーブルリストに構造体データを登録させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIstruct_table_list\fP 登録先の構造体テーブルリスト 
+.br
+\fIast_data\fP 指定されたASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void getTYPEDEF_TABLE_DATA (TYPEDEF_TABLE_LIST *typedef_table_list, \fBAST\fP *typelist, \fBAST\fP *identifier)"指定したASTノードから参照し、もしtypedef宣言の場合は、typedefテーブルに入れる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItypedef_table_list\fP typedefテーブル 
+.br
+\fItypelist\fP 型リストへのASTノード 
+.br
+\fIidentifier\fP 識別へのASTノード 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBAST\fP* getTYPEDEFfromAST (TYPEDEF_TABLE_LIST *typedef_table_list, char *token, intline)"指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE_NAMEであるASTノードを生成し、それへのアドレスを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItypedef_table_list\fP 指定したtypedefテーブルのリスト 
+.br
+\fItoken\fP 指定されたトークン 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたASTノードへのアドレスを返す。
+.RE
+.PP
+指定したtypedefテーブルのリストから参照し、指定されたトークンに一致するようなtypedefテーブルデータが存在するかどうか調べる。 もし、見つければ、内容が指定されたトークンで、名前がTYPE_NAMEであるASTノードを生成し、それへのアドレスを返す。 見つけられなければ、名前がIDENTIFIERであるASTノードを生成し、それへのアドレスを返す。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItypedef_table_list\fP 指定したtypedefテーブルのリスト 
+.br
+\fItoken\fP 指定されたトークン 
+.br
+\fIline\fP 指定された行数 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+生成されたASTノードへのアドレスを返す。 
+.RE
+.PP
+
+.SS "void getVARIABLE_TABLE_LIST (VARIABLE_TABLE_LIST *variable_table_list, \fBAST\fP *ast_data)"対象のASTノードから変数テーブルのリストを登録する。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP 変数テーブルのリスト 
+.br
+\fIast_data\fP 対象のASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBSTRUCT_TABLE\fP* new_STRUCT_TABLE (intline, CSTLString *type, CSTLString *struct_name, VARIABLE_TABLE_LIST *member_list)"新しい構造体テーブルのデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIline\fP 行数 
+.br
+\fItype\fP 型名(structかunionのいずれか） 
+.br
+\fIstruct_name\fP 構造体の名前 
+.br
+\fImember_list\fP メンバリスト(変数テーブルより） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された構造体テーブルのデータへのアドレスが返される。
+.RE
+.PP
+新しい構造体テーブルのデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIline\fP 行数 
+.br
+\fItype\fP 型名 
+.br
+\fIstruct_name\fP 構造体名(structかunionのいずれか） 
+.br
+\fImember_list\fP メンバリスト(変数テーブルより） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された構造体テーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBSTRUCT_TABLE\fP* new_STRUCT_TABLE_with_char (intline, char *type, char *struct_name, VARIABLE_TABLE_LIST *member_list)"新しい構造体テーブルのデータを生成させる(char文字列対応)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIline\fP 行数 
+.br
+\fItype\fP 型名(structかunionのいずれか） 
+.br
+\fIstruct_name\fP 構造体の名前 
+.br
+\fImember_list\fP メンバリスト(変数テーブルより） 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された構造体テーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBTYPEDEF_TABLE\fP* new_TYPEDEF_TABLE (CSTLString *target_type, CSTLString *change_type)"新しいtypedefテーブルのデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_type\fP typedefの対象の型 
+.br
+\fIchange_type\fP typedefで割り当てた後の新しい型名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成されたtypedefテーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBTYPEDEF_TABLE\fP* new_TYPEDEF_TABLE_with_char (char *target_type, char *change_type)"新しいtypedefテーブルのデータを生成させる(char文字列対応)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_type\fP typedefの対象の型 
+.br
+\fIchange_type\fP typedefで割り当てた後の新しい型名 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成されたtypedefテーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBVARIABLE_TABLE\fP* new_VARIABLE_TABLE (intenable_start, intenable_end, \fBAST\fP *declaration_location_address, intblock_level, intblock_id, IDLIST *idlist, CSTLString *type, CSTLString *variable_name, \fBAST\fP *initializer)"新しい変数テーブルのデータを生成させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIenable_start\fP この変数の有効範囲の始まりの行数 
+.br
+\fIenable_end\fP この変数の有効範囲の終わりの行数 
+.br
+\fIdeclaration_location_address\fP この変数を宣言した場所を示すASTのアドレス 
+.br
+\fIblock_level\fP この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） 
+.br
+\fIblock_id\fP ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） 
+.br
+\fIidlist\fP ブロックごとのID（これは変数スコープを識別するために使用する） 
+.br
+\fItype\fP 型名 
+.br
+\fIvariable_name\fP 変数名 
+.br
+\fIinitializer\fP 初期定義式へのASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された変数テーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "\fBVARIABLE_TABLE\fP* new_VARIABLE_TABLE_with_char (intenable_start, intenable_end, \fBAST\fP *declaration_location_address, intblock_level, intblock_id, IDLIST *idlist, char *type, char *variable_name, \fBAST\fP *initializer)"新しい変数テーブルのデータを生成させる(char文字列対応)。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIenable_start\fP この変数の有効範囲の始まりの行数 
+.br
+\fIenable_end\fP この変数の有効範囲の終わりの行数 
+.br
+\fIdeclaration_location_address\fP この変数を宣言した場所を示すASTのアドレス 
+.br
+\fIblock_level\fP この変数のブロックレベル（グローバル変数なら０とし、関数の中での定義なら１、その関数内のfor文などのブロック文ないでの宣言なら２とする） 
+.br
+\fIblock_id\fP ブロックごとのID（基本的には0から始り、ブロックレベル２が２回目にくると、１となる） 
+.br
+\fIidlist\fP ブロックごとのID（これは変数スコープを識別するために使用する） 
+.br
+\fItype\fP 型名 
+.br
+\fIvariable_name\fP 変数名 
+.br
+\fIinitializer\fP 初期定義式へのASTノード
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+新しく生成された変数テーブルのデータへのアドレスが返される。 
+.RE
+.PP
+
+.SS "void printSTRUCT_TABLE_LIST (STRUCT_TABLE_LIST *struct_table_list)"構造体テーブルのリストの内容を出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIstruct_table_list\fP 出力対象の構造体テーブルのリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void printTYPEDEF_TABLE_LIST (TYPEDEF_TABLE_LIST *typedef_table_list)"typedefテーブルのリストに登録されているものを、次のような形式で出力させる。
+.PP
+target_type change_type
+.PP
+\fB引数:\fP
+.RS 4
+\fItypedef_table_list\fP 出力対象のtypedefテーブルのリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし
+.RE
+.PP
+typedefテーブルのリストに登録されているものを出力させる。
+.PP
+\fB引数:\fP
+.RS 4
+\fItypedef_table_list\fP 出力対象のtypedefテーブルのリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "void printVARIABLE_TABLE_LIST (VARIABLE_TABLE_LIST *variable_table_list)"変数テーブルのリストの内容を出力させる。 
+.PP
+\fB引数:\fP
+.RS 4
+\fIvariable_table_list\fP 出力対象の変数テーブルのリスト 
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+なし 
+.RE
+.PP
+
+.SS "\fBVARIABLE_TABLE\fP* searchVARIABLE_TABLE_LIST (IDLIST *target_idlist, CSTLString *target_string, VARIABLE_TABLE_LIST *variable_table_list)"変数テーブルリストvariable_table_listから、指定した変数スコープのIDLIST target_idlistとtarget_stringに該当ような変数テーブルへのアドレスを返す。
+.PP
+\fB引数:\fP
+.RS 4
+\fItarget_idlist\fP 指定した変数スコープのIDLIST 
+.br
+\fItarget_string\fP 対象の変数名 
+.br
+\fIvariable_table_list\fP 変数テーブルリスト
+.RE
+.PP
+\fB戻り値:\fP
+.RS 4
+上記の処理から見つけた変数テーブルへのアドレスを返す。見つからなければNULLを返す。 
+.RE
+.PP
+
+.SH "作者"
+.PP 
+ValidateStatementAdderのソースから Doxygen により生成しました。

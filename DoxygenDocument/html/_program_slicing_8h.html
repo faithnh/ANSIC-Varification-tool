@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ANSIC VALIDATE ADDER: ProgramSlicing/ProgramSlicing.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ANSIC VALIDATE ADDER&#160;<span id="projectnumber">1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>グローバル</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>ProgramSlicing/ProgramSlicing.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>このファイルはプログラムスライシングを行うためのものである。 指定した識別子名および行数を入れることで、それに基づいてプログラムスライシングを行う  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_a_s_t_8h_source.html">../ANSICInformation/AST.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_pointer_array_control_8h_source.html">../ANSICInformation/PointerArrayControl.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_function_information_8h_source.html">../ANSICInformation/FunctionInformation.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_synbol_8h_source.html">../ANSICInformation/Synbol.h</a>&quot;</code><br/>
+<code>#include &quot;ProgramSlicingInformation.h&quot;</code><br/>
+<code>#include &lt;cstl/list.h&gt;</code><br/>
+</div>
+<p><a href="_program_slicing_8h_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#a6a2ca14664f7ed318ed7f4a56ea79560">createStatementNodeList</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *root, EXPR_SLICING_LIST *expr_slicing_list, <a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#a7482809fe7168aab7be5176c11ccdaf8">createDD_list_in_global</a> (<a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="el" href="structexpr__slicing.html">expr_slicing</a>, EXPR_SLICING_LIST *program_expr_slicing_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#ad1682bc84f12e54629e4d7ceb4b34e30">createDD_list</a> (<a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="el" href="structexpr__slicing.html">expr_slicing</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#a8e5922cd376066300931a42aa9a263fa">createDD_listAll</a> (EXPR_SLICING_LIST *expr_slicing_list, FUNCTION_INFORMATION_LIST *function_information_list, EXPR_SLICING_LIST *program_expr_slicing_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#aefec4daeb571c2b448091c4f8bc81201">createDD_list_in_Function</a> (<a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="el" href="structexpr__slicing.html">expr_slicing</a>, EXPR_SLICING_LIST *expr_slicing_list, FUNCTION_INFORMATION_LIST *function_information_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#a2ff3f358e5ececbd7410b57db736f8bf">createDD_list_in_argument</a> (<a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="el" href="structexpr__slicing.html">expr_slicing</a>, CSTLString *argument_name, <a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *function_definition_expr_slicing)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#a138a79f2268c9b23ea7c2777bf9dd9a6">staticSlicing</a> (<a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *<a class="el" href="structexpr__slicing.html">expr_slicing</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_program_slicing_8h.html#adb143d3b1bb729d23cf620666c81b063">startStaticSlicing</a> (<a class="el" href="structabstract__syntax__tree.html">AST</a> *inst_ast, EXPR_SLICING_LIST *expr_slicing_list)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>このファイルはプログラムスライシングを行うためのものである。 指定した識別子名および行数を入れることで、それに基づいてプログラムスライシングを行う </p>
+<p>このファイルはプログラムスライシングに関する情報を追加のみが含まれている</p>
+<dl class="author"><dt><b>作者:</b></dt><dd>faithnh </dd></dl>
+</div><hr/><h2>関数</h2>
+<a class="anchor" id="ad1682bc84f12e54629e4d7ceb4b34e30"></a><!-- doxytag: member="ProgramSlicing.h::createDD_list" ref="ad1682bc84f12e54629e4d7ceb4b34e30" args="(EXPR_SLICING *expr_slicing)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createDD_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>expr_slicing</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した対象の命令に対して、データ依存関係の命令を探し、その命令を結びつける。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>指定した対象の命令</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし</dd></dl>
+<p>指定した対象の命令に対して、データ依存関係の命令を探し、その命令を結びつける。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>指定した対象の命令 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ff3f358e5ececbd7410b57db736f8bf"></a><!-- doxytag: member="ProgramSlicing.h::createDD_list_in_argument" ref="a2ff3f358e5ececbd7410b57db736f8bf" args="(EXPR_SLICING *expr_slicing, CSTLString *argument_name, EXPR_SLICING *function_definition_expr_slicing)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createDD_list_in_argument </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>expr_slicing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CSTLString *&#160;</td>
+          <td class="paramname"><em>argument_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>function_definition_expr_slicing</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数へのスライシング情報に対して、仮引数名が依存関係として用いている命令を探し、それを指定したプログラムスライシング のデータ依存関係として追加する</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>関数呼び出しのプログラムスライシング </td></tr>
+    <tr><td class="paramname">argument_name</td><td>仮引数名 </td></tr>
+    <tr><td class="paramname">function_definition_expr_slicing</td><td>関数宣言へのプログラムスライシング</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aefec4daeb571c2b448091c4f8bc81201"></a><!-- doxytag: member="ProgramSlicing.h::createDD_list_in_Function" ref="aefec4daeb571c2b448091c4f8bc81201" args="(EXPR_SLICING *expr_slicing, EXPR_SLICING_LIST *expr_slicing_list, FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createDD_list_in_Function </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>expr_slicing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>expr_slicing_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>関数呼び出しから、呼び出している関数へのデータ依存関係を生成する</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>関数呼び出しが含まれている処理名 </td></tr>
+    <tr><td class="paramname">expr_slicing_list</td><td>プログラム全体のプログラムスライシングリスト </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7482809fe7168aab7be5176c11ccdaf8"></a><!-- doxytag: member="ProgramSlicing.h::createDD_list_in_global" ref="a7482809fe7168aab7be5176c11ccdaf8" args="(EXPR_SLICING *expr_slicing, EXPR_SLICING_LIST *program_expr_slicing_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createDD_list_in_global </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>expr_slicing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>program_expr_slicing_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した対象の命令とグローバル変数に関してデータ依存関係があるかどうか調べる。 存在すれば、グローバル変数宣言に対して、データ依存関係として結びつける</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>指定した対象の命令 </td></tr>
+    <tr><td class="paramname">program_expr_slicing_list</td><td>プログラム全体のスライシングリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>指定した対象の命令とグローバル変数宣言に関してデータ依存関係があるかどうか調べる。 存在すれば、グローバル変数宣言に対して、データ依存関係として結びつける</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structexpr__slicing.html">expr_slicing</a></td><td>指定した対象の命令 </td></tr>
+    <tr><td class="paramname">program_expr_slicing_list</td><td>プログラム全体のスライシングリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8e5922cd376066300931a42aa9a263fa"></a><!-- doxytag: member="ProgramSlicing.h::createDD_listAll" ref="a8e5922cd376066300931a42aa9a263fa" args="(EXPR_SLICING_LIST *expr_slicing_list, FUNCTION_INFORMATION_LIST *function_information_list, EXPR_SLICING_LIST *program_expr_slicing_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createDD_listAll </td>
+          <td>(</td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>expr_slicing_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>program_expr_slicing_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>プログラムスライシングリスト中のすべての命令に対し、データ依存関係の命令を探し、その命令を結びつける。</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr_slicing_list</td><td>指定した対象のプログラムスライシングリスト </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報リスト </td></tr>
+    <tr><td class="paramname">program_expr_slicing_list</td><td>プログラム全体へのスライシングリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6a2ca14664f7ed318ed7f4a56ea79560"></a><!-- doxytag: member="ProgramSlicing.h::createStatementNodeList" ref="a6a2ca14664f7ed318ed7f4a56ea79560" args="(AST *root, EXPR_SLICING_LIST *expr_slicing_list, EXPR_SLICING *parent, VARIABLE_TABLE_LIST *vtlist, FUNCTION_INFORMATION_LIST *function_information_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* createStatementNodeList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>expr_slicing_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIABLE_TABLE_LIST *&#160;</td>
+          <td class="paramname"><em>vtlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FUNCTION_INFORMATION_LIST *&#160;</td>
+          <td class="paramname"><em>function_information_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定したプログラムＡＳＴノードから次のようなノードを取得し、 そこからスライシングを行うための構造体リストexpr_slicing_listを生成する function_definition_type_a、function_definition_type_b、 expression_statement、declaration_with_init、if_statement、ifelse_statement、switch_statement、while_statement、 dowhile_statement、for_statement_type_a、for_statement_type_b、for_statement_type_c、for_statement_type_d、 goto_statement、continue_statement、break_statement、return_statement、return_expr_statement goto_labeled_statement、case_labeled_statement、default_labeled_statement</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>指定したプログラムＡＳＴノード </td></tr>
+    <tr><td class="paramname">expr_slicing_list</td><td>スライシングを行うための構造体 </td></tr>
+    <tr><td class="paramname">parent</td><td>親のスライシングデータ </td></tr>
+    <tr><td class="paramname">vtlist</td><td>変数テーブルリスト </td></tr>
+    <tr><td class="paramname">function_information_list</td><td>関数に関する情報のリスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adb143d3b1bb729d23cf620666c81b063"></a><!-- doxytag: member="ProgramSlicing.h::startStaticSlicing" ref="adb143d3b1bb729d23cf620666c81b063" args="(AST *inst_ast, EXPR_SLICING_LIST *expr_slicing_list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int startStaticSlicing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structabstract__syntax__tree.html">AST</a> *&#160;</td>
+          <td class="paramname"><em>inst_ast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EXPR_SLICING_LIST *&#160;</td>
+          <td class="paramname"><em>expr_slicing_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した命令へのASTノードに基づいてexpr_slicing_listに対してスタティックスライシング処理を行う</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inst_ast</td><td>指定した命令へのASTノード </td></tr>
+    <tr><td class="paramname">expr_slicing_list</td><td>スタティックスライシング処理を行うための構造体リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>成功したかどうかを返却する　１：成功　０：失敗 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a138a79f2268c9b23ea7c2777bf9dd9a6"></a><!-- doxytag: member="ProgramSlicing.h::staticSlicing" ref="a138a79f2268c9b23ea7c2777bf9dd9a6" args="(EXPR_SLICING *expr_slicing)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void staticSlicing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structexpr__slicing.html">EXPR_SLICING</a> *&#160;</td>
+          <td class="paramname"><em>expr_slicing</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>指定した識別子の命令に対してスタティックスライシング処理を行う</p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifiers</td><td>指定した識別子の配列オフセットリスト </td></tr>
+    <tr><td class="paramname">line</td><td>指定した行数 </td></tr>
+    <tr><td class="paramname">expr_slicing_list</td><td>スタティックスライシング処理を行うための構造体リスト</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>戻り値:</b></dt><dd>なし </dd></dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>データ構造</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>ANSIC VALIDATE ADDERに対してThu Jan 13 2011 13:38:00に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>
