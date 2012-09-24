@@ -1,0 +1,95 @@
+・検証式で使用する変数一覧
+max_size_変数名:配列や動的配列を宣言したときの配列の長さを示す。これは配列の範囲外参照を検出させるのに使用する。
+defined_変数名:ポインタ変数を定義したときに、何らかの変数へのアドレスを割り当てたかどうかの変数を示す。
+malloc_flag_変数名:mallocなどで動的割り当てとして使用しているかどうかを示すのに使用する変数。
+defined_member_変数名_メンバ名:構造体でのポインタ系のメンバ変数がなんらかの変数へのアドレスを割り当てたかどうかを示す。
+malloc_member_flag_変数名_メンバ名:構造体でのポインタ系のメンバ変数がmallocなどで動的割り当てとして使用しているかどうかを示すのに使用する変数。
+・（共通）検証式の変数の宣言について
+	検証式に使用する変数の宣言は基本的に関数の定義の{の直後に挿入させる。
+	これは全ての検証式を生成させてから、まとめて宣言する。
+
+・unboundエラーの検出(配列)
+　・エラーの検出対象
+    配列の宣言
+　　mallocでの動的配列の生成
+　　配列を使用している場合 例:a[i] a[9] a[INTER]←INTERはdefine文で定義したものである
+　　ポインタでの配列参照方法を使用している場合 例： *(a + i) *(a + 9)
+
+　・エラーの検出の生成方法
+１．配列の宣言および、mallocでの動的配列の生成の後に以下の式を生成する
+	max_size_変数名 = 配列の長さ;
+２．次の文を配列アクセスを使用した式の直後に生成する
+	if((0 > 配列のカッコ内の式+ basis_location_変数名) && ( 配列のカッコ内の式 + basis_location_変数名 >= max_size_変数名){
+		printf("line:行数: detected unbound array in variable 変数名!");
+		assert(0); //アサートでの検出　偽の場合はエラーとして扱う
+	}
+
+・メモリーリークエラーの検出
+　・エラーの検出対象
+　　・malloc命令 例：i = malloc(sizeof(int)); i = malloc(sizeof(int)*10);
+　　・free命令 例：free(i);
+　　・mallocで使用した変数以外でのreturn 命令 例：return 0; return z; ←zはmallocで使用していない変数
+
+  ・エラーでの検出文
+    ・malloc命令に対して
+	malloc_flag_変数名 = 1;
+　　・free命令に対して(変数名に対してのmalloc命令が存在しなければならない）
+	malloc_flag_変数名 = 0;
+　　・mallocで使用した変数以外でのreturn 命令(これも変数名に対してのmalloc命令が存在しなければならない）
+	if(malloc_flag_変数名 == 1){
+		printf("line:行数: detected memory leake in variable 変数名");
+		assert(0);
+	}
+・未定義ポインタに対してのエラー
+　・エラーの検出対象
+　　・ポインタ型変数の宣言 例：int *i; int* i,j; int *i,j; ←jはポインタではない
+　　・malloc命令 例：i = malloc(sizeof(int)); i = malloc(sizeof(int)*10);
+　　・free命令 例：free(i);
+　　・ポインタの設定 例：i=&target; ←targetはポインタ型ではない i=target ←targetはポインタである
+　　・参照ポインタ記号での参照 例：*i = 100; *(i + a) = 200;
+　　・配列ポインタでの参照 例：i[point] = 100;
+
+　・エラーでの検出文
+　　・ポインタ型変数の宣言
+　　　defined_変数名 = 0;
+    ・malloc命令
+	defined_変数名 = 0;
+　　・free命令
+	defined_変数名 = 1;
+　　・ポインタの設定
+　　　ポインタ以外の代入の場合
+　　　defined_変数名 = 0;
+      ポインタの代入の場合（代入対象のポインタをポインタ１、代入するポインタをポインタ２とする）
+	defined_ポインタ１ = defined_ポインタ２;
+　　・参照ポインタ記号での参照の場合(*を使用している式の場合）
+	if(defined_変数名 == 0){
+		printf("line:行数: pointer variable 変数名 is undefined!");
+		assert(0);
+	}
+
+　　・ゼロ除算対策
+　　　・検出対象
+	・割り算計算を使用している式全般(/を含まれている式全て)
+      
+　　　・エラーでの検出文
+　　　　if((割り算以降の式) == 0){
+        	printf("line:行数: zero divition error in variable 変数名１=%d 変数名２=%d...",変数名１,変数名２...);
+	}
+
+    ・オーバーフローエラー検知
+	・検出対象
+		・式全般
+	・エラーでの検出文
+	最初にファイルの一番前に以下を追加する
+	int const LIMIT_MIN_INT = -2147483648;
+	int const LIMIT_MAX_INT = 2147483647;
+	
+	//次に以下を追加する
+	if((式全体) > LIMIT_MAX_INT || (式全体) < LIMIT_MIN_INT){
+        	printf("line:行数: OVER FROW EXPRSSION in variable 変数名１=%d 変数名２=%d...",変数名１,変数名２...);
+	}
+
+　・CBMCではできないこと
+　　・リストのイテレータを使用した参照方法でのループは不可能。無限ループに陥る
+　　・printf命令で%xや%pは認識しない
+　　・アドレスでのアドレス値を除くことは不可能であり、アドレス値の比較などには使用できない。（ポインタに変数のアドレス指定は可能）

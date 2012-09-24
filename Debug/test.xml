@@ -1,0 +1,1143 @@
+
+
+int main(void){
+ int a[10][10];
+ int b[10];
+ int i = 0, j = 0;
+ 
+ if((b[1] && b[2] == 0 && b[3] == 0) || (b[4] == 0 && b[5] == 0)){
+  b[i] = 0;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+---------------VARIABLE_TABLE---------------
+
+---------------VARIABLE_1_INFO---------------
+
+VARIABLE_1_TYPE = "int"
+VARIABLE_1_NAME = "a [ 10 ] [ 10 ]"
+VARIABLE_1_ENABLE_START = "3"
+VARIABLE_1_ENABLE_END = "22"
+VARIABLE_1_DECLARATION_LOCATION = "4"
+VARIABLE_1_BLOCK_LEVEL = "1"
+VARIABLE_1_BLOCK_ID = "0"VARIABLE_1_IDLIST = "1"
+---------------VARIABLE_2_INFO---------------
+
+VARIABLE_2_TYPE = "int"
+VARIABLE_2_NAME = "b [ 10 ]"
+VARIABLE_2_ENABLE_START = "3"
+VARIABLE_2_ENABLE_END = "22"
+VARIABLE_2_DECLARATION_LOCATION = "5"
+VARIABLE_2_BLOCK_LEVEL = "1"
+VARIABLE_2_BLOCK_ID = "0"VARIABLE_2_IDLIST = "1"
+---------------VARIABLE_3_INFO---------------
+
+VARIABLE_3_TYPE = "int"
+VARIABLE_3_NAME = "i"
+VARIABLE_3_ENABLE_START = "3"
+VARIABLE_3_ENABLE_END = "22"
+VARIABLE_3_DECLARATION_LOCATION = "6"
+VARIABLE_3_BLOCK_LEVEL = "1"
+VARIABLE_3_BLOCK_ID = "0"VARIABLE_3_IDLIST = "1"
+---------------VARIABLE_4_INFO---------------
+
+VARIABLE_4_TYPE = "int"
+VARIABLE_4_NAME = "j"
+VARIABLE_4_ENABLE_START = "3"
+VARIABLE_4_ENABLE_END = "22"
+VARIABLE_4_DECLARATION_LOCATION = "6"
+VARIABLE_4_BLOCK_LEVEL = "1"
+VARIABLE_4_BLOCK_ID = "0"VARIABLE_4_IDLIST = "1"
+--------------------------------------------
+
+
+
+int main ( void ) { 
+int a [ 10 ] [ 10 ] ; 
+int b [ 10 ] ; 
+int i = 0 ; int j = 0 ; 
+
+if ( ( b [ 1 ] && b [ 2 ] == 0 && b [ 3 ] == 0 ) || ( b [ 4 ] == 0 && b [ 5 ] == 0 ) ) { 
+b [ i ] = 0 ; 
+} 
+
+
+
+
+
+
+
+
+
+
+return 0 ; 
+} <program content = "" line = "3">
+	<t_translation_unit content = "" line = "3">
+		<external_declaration content = "" line = "3">
+			<function_definition_type_b content = "" line = "3">
+				<type_specifier content = "" line = "3">
+					<leaf name = "int" content = "int" line = "3"/>
+				</type_specifier>
+				<declarator content = "" line = "3">
+					<direct_declarator_function content = "" line = "3">
+						<direct_declarator content = "" line = "3">
+							<leaf name = "IDENTIFIER" content = "main" line = "3"/>
+						</direct_declarator>
+						<leaf name = "(" content = "(" line = "3"/>
+						<parameter_type_list content = "" line = "3">
+							<t_parameter_list content = "" line = "3">
+								<parameter_declaration content = "" line = "3">
+									<type_specifier content = "" line = "3">
+										<leaf name = "void" content = "void" line = "3"/>
+									</type_specifier>
+								</parameter_declaration>
+							</t_parameter_list>
+						</parameter_type_list>
+						<leaf name = ")" content = ")" line = "3"/>
+					</direct_declarator_function>
+				</declarator>
+				<compound_statement_b content = "" line = "3">
+					<leaf name = "{" content = "{" line = "3"/>
+					<block_item_list content = "" line = "4">
+						<block_item_list content = "" line = "4">
+							<block_item_list content = "" line = "4">
+								<block_item_list content = "" line = "4">
+									<block_item_list content = "" line = "4">
+										<t_block_item_list content = "" line = "4">
+											<block_item content = "" line = "4">
+												<declaration_with_init content = "" line = "4">
+													<type_specifier content = "" line = "4">
+														<leaf name = "int" content = "int" line = "4"/>
+													</type_specifier>
+													<t_init_declarator_list content = "" line = "4">
+														<t_init_declarator content = "" line = "4">
+															<declarator content = "" line = "4">
+																<direct_declarator_array content = "" line = "4">
+																	<direct_declarator_array content = "" line = "4">
+																		<direct_declarator content = "" line = "4">
+																			<leaf name = "IDENTIFIER" content = "a" line = "4"/>
+																		</direct_declarator>
+																		<leaf name = "[" content = "[" line = "4"/>
+																		<t_assignment_expression content = "" line = "4">
+																			<t_conditional_expression content = "" line = "4">
+																				<t_all_expression content = "" line = "4">
+																					<t_cast_expression content = "" line = "4">
+																						<unary_expression content = "" line = "4">
+																							<postfix_expression content = "" line = "4">
+																								<leaf name = "CONSTANT" content = "10" line = "4"/>
+																							</postfix_expression>
+																						</unary_expression>
+																					</t_cast_expression>
+																				</t_all_expression>
+																			</t_conditional_expression>
+																		</t_assignment_expression>
+																		<leaf name = "]" content = "]" line = "4"/>
+																	</direct_declarator_array>
+																	<leaf name = "[" content = "[" line = "4"/>
+																	<t_assignment_expression content = "" line = "4">
+																		<t_conditional_expression content = "" line = "4">
+																			<t_all_expression content = "" line = "4">
+																				<t_cast_expression content = "" line = "4">
+																					<unary_expression content = "" line = "4">
+																						<postfix_expression content = "" line = "4">
+																							<leaf name = "CONSTANT" content = "10" line = "4"/>
+																						</postfix_expression>
+																					</unary_expression>
+																				</t_cast_expression>
+																			</t_all_expression>
+																		</t_conditional_expression>
+																	</t_assignment_expression>
+																	<leaf name = "]" content = "]" line = "4"/>
+																</direct_declarator_array>
+															</declarator>
+														</t_init_declarator>
+													</t_init_declarator_list>
+													<leaf name = ";" content = ";" line = "4"/>
+												</declaration_with_init>
+											</block_item>
+										</t_block_item_list>
+										<block_item content = "" line = "5">
+											<declaration_with_init content = "" line = "5">
+												<type_specifier content = "" line = "5">
+													<leaf name = "int" content = "int" line = "5"/>
+												</type_specifier>
+												<t_init_declarator_list content = "" line = "5">
+													<t_init_declarator content = "" line = "5">
+														<declarator content = "" line = "5">
+															<direct_declarator_array content = "" line = "5">
+																<direct_declarator content = "" line = "5">
+																	<leaf name = "IDENTIFIER" content = "b" line = "5"/>
+																</direct_declarator>
+																<leaf name = "[" content = "[" line = "5"/>
+																<t_assignment_expression content = "" line = "5">
+																	<t_conditional_expression content = "" line = "5">
+																		<t_all_expression content = "" line = "5">
+																			<t_cast_expression content = "" line = "5">
+																				<unary_expression content = "" line = "5">
+																					<postfix_expression content = "" line = "5">
+																						<leaf name = "CONSTANT" content = "10" line = "5"/>
+																					</postfix_expression>
+																				</unary_expression>
+																			</t_cast_expression>
+																		</t_all_expression>
+																	</t_conditional_expression>
+																</t_assignment_expression>
+																<leaf name = "]" content = "]" line = "5"/>
+															</direct_declarator_array>
+														</declarator>
+													</t_init_declarator>
+												</t_init_declarator_list>
+												<leaf name = ";" content = ";" line = "5"/>
+											</declaration_with_init>
+										</block_item>
+									</block_item_list>
+									<block_item content = "" line = "6">
+										<declaration_with_init content = "" line = "6">
+											<type_specifier content = "" line = "6">
+												<leaf name = "int" content = "int" line = "6"/>
+											</type_specifier>
+											<t_init_declarator_list content = "" line = "6">
+												<init_declarator content = "" line = "6">
+													<declarator content = "" line = "6">
+														<direct_declarator content = "" line = "6">
+															<leaf name = "IDENTIFIER" content = "i" line = "6"/>
+														</direct_declarator>
+													</declarator>
+													<leaf name = "=" content = "=" line = "6"/>
+													<initializer content = "" line = "6">
+														<t_assignment_expression content = "" line = "6">
+															<t_conditional_expression content = "" line = "6">
+																<t_all_expression content = "" line = "6">
+																	<t_cast_expression content = "" line = "6">
+																		<unary_expression content = "" line = "6">
+																			<postfix_expression content = "" line = "6">
+																				<leaf name = "CONSTANT" content = "0" line = "6"/>
+																			</postfix_expression>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+															</t_conditional_expression>
+														</t_assignment_expression>
+													</initializer>
+												</init_declarator>
+											</t_init_declarator_list>
+											<leaf name = ";" content = ";" line = "6"/>
+										</declaration_with_init>
+									</block_item>
+								</block_item_list>
+								<block_item content = "" line = "6">
+									<declaration_with_init content = "" line = "6">
+										<type_specifier content = "" line = "6">
+											<leaf name = "int" content = "int" line = "6"/>
+										</type_specifier>
+										<t_init_declarator_list content = "" line = "6">
+											<init_declarator content = "" line = "6">
+												<declarator content = "" line = "6">
+													<direct_declarator content = "" line = "6">
+														<leaf name = "IDENTIFIER" content = "j" line = "6"/>
+													</direct_declarator>
+												</declarator>
+												<leaf name = "=" content = "=" line = "6"/>
+												<initializer content = "" line = "6">
+													<t_assignment_expression content = "" line = "6">
+														<t_conditional_expression content = "" line = "6">
+															<t_all_expression content = "" line = "6">
+																<t_cast_expression content = "" line = "6">
+																	<unary_expression content = "" line = "6">
+																		<postfix_expression content = "" line = "6">
+																			<leaf name = "CONSTANT" content = "0" line = "6"/>
+																		</postfix_expression>
+																	</unary_expression>
+																</t_cast_expression>
+															</t_all_expression>
+														</t_conditional_expression>
+													</t_assignment_expression>
+												</initializer>
+											</init_declarator>
+										</t_init_declarator_list>
+										<leaf name = ";" content = ";" line = "6"/>
+									</declaration_with_init>
+								</block_item>
+							</block_item_list>
+							<block_item content = "" line = "8">
+								<statement content = "" line = "8">
+									<if_statement content = "" line = "8">
+										<leaf name = "if" content = "if" line = "8"/>
+										<leaf name = "(" content = "(" line = "8"/>
+										<t_expression content = "" line = "8">
+											<t_assignment_expression content = "" line = "8">
+												<t_conditional_expression content = "" line = "8">
+													<log_or_expr content = "" line = "8">
+														<t_all_expression content = "" line = "8">
+															<t_cast_expression content = "" line = "8">
+																<unary_expression content = "" line = "8">
+																	<postfix_expression content = "" line = "8">
+																		<primary_expression content = "" line = "8">
+																			<leaf name = "(" content = "(" line = "8"/>
+																			<t_expression content = "" line = "8">
+																				<t_assignment_expression content = "" line = "8">
+																					<t_conditional_expression content = "" line = "8">
+																						<log_and_expr content = "" line = "8">
+																							<log_and_expr content = "" line = "8">
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<array_access content = "" line = "8">
+																												<postfix_expression content = "" line = "8">
+																													<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																												</postfix_expression>
+																												<leaf name = "[" content = "[" line = "8"/>
+																												<array_content content = "" line = "8">
+																													<t_assignment_expression content = "" line = "8">
+																														<t_conditional_expression content = "" line = "8">
+																															<t_all_expression content = "" line = "8">
+																																<t_cast_expression content = "" line = "8">
+																																	<unary_expression content = "" line = "8">
+																																		<postfix_expression content = "" line = "8">
+																																			<leaf name = "CONSTANT" content = "1" line = "8"/>
+																																		</postfix_expression>
+																																	</unary_expression>
+																																</t_cast_expression>
+																															</t_all_expression>
+																														</t_conditional_expression>
+																													</t_assignment_expression>
+																												</array_content>
+																												<leaf name = "]" content = "]" line = "8"/>
+																											</array_access>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																								<leaf name = "&&" content = "&&" line = "8"/>
+																								<eq_expr content = "" line = "8">
+																									<t_all_expression content = "" line = "8">
+																										<t_cast_expression content = "" line = "8">
+																											<unary_expression content = "" line = "8">
+																												<array_access content = "" line = "8">
+																													<postfix_expression content = "" line = "8">
+																														<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																													</postfix_expression>
+																													<leaf name = "[" content = "[" line = "8"/>
+																													<array_content content = "" line = "8">
+																														<t_assignment_expression content = "" line = "8">
+																															<t_conditional_expression content = "" line = "8">
+																																<t_all_expression content = "" line = "8">
+																																	<t_cast_expression content = "" line = "8">
+																																		<unary_expression content = "" line = "8">
+																																			<postfix_expression content = "" line = "8">
+																																				<leaf name = "CONSTANT" content = "2" line = "8"/>
+																																			</postfix_expression>
+																																		</unary_expression>
+																																	</t_cast_expression>
+																																</t_all_expression>
+																															</t_conditional_expression>
+																														</t_assignment_expression>
+																													</array_content>
+																													<leaf name = "]" content = "]" line = "8"/>
+																												</array_access>
+																											</unary_expression>
+																										</t_cast_expression>
+																									</t_all_expression>
+																									<leaf name = "==" content = "==" line = "8"/>
+																									<t_all_expression content = "" line = "8">
+																										<t_cast_expression content = "" line = "8">
+																											<unary_expression content = "" line = "8">
+																												<postfix_expression content = "" line = "8">
+																													<leaf name = "CONSTANT" content = "0" line = "8"/>
+																												</postfix_expression>
+																											</unary_expression>
+																										</t_cast_expression>
+																									</t_all_expression>
+																								</eq_expr>
+																							</log_and_expr>
+																							<leaf name = "&&" content = "&&" line = "8"/>
+																							<eq_expr content = "" line = "8">
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<array_access content = "" line = "8">
+																												<postfix_expression content = "" line = "8">
+																													<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																												</postfix_expression>
+																												<leaf name = "[" content = "[" line = "8"/>
+																												<array_content content = "" line = "8">
+																													<t_assignment_expression content = "" line = "8">
+																														<t_conditional_expression content = "" line = "8">
+																															<t_all_expression content = "" line = "8">
+																																<t_cast_expression content = "" line = "8">
+																																	<unary_expression content = "" line = "8">
+																																		<postfix_expression content = "" line = "8">
+																																			<leaf name = "CONSTANT" content = "3" line = "8"/>
+																																		</postfix_expression>
+																																	</unary_expression>
+																																</t_cast_expression>
+																															</t_all_expression>
+																														</t_conditional_expression>
+																													</t_assignment_expression>
+																												</array_content>
+																												<leaf name = "]" content = "]" line = "8"/>
+																											</array_access>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																								<leaf name = "==" content = "==" line = "8"/>
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<postfix_expression content = "" line = "8">
+																												<leaf name = "CONSTANT" content = "0" line = "8"/>
+																											</postfix_expression>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																							</eq_expr>
+																						</log_and_expr>
+																					</t_conditional_expression>
+																				</t_assignment_expression>
+																			</t_expression>
+																			<leaf name = ")" content = ")" line = "8"/>
+																		</primary_expression>
+																	</postfix_expression>
+																</unary_expression>
+															</t_cast_expression>
+														</t_all_expression>
+														<leaf name = "||" content = "||" line = "8"/>
+														<t_all_expression content = "" line = "8">
+															<t_cast_expression content = "" line = "8">
+																<unary_expression content = "" line = "8">
+																	<postfix_expression content = "" line = "8">
+																		<primary_expression content = "" line = "8">
+																			<leaf name = "(" content = "(" line = "8"/>
+																			<t_expression content = "" line = "8">
+																				<t_assignment_expression content = "" line = "8">
+																					<t_conditional_expression content = "" line = "8">
+																						<log_and_expr content = "" line = "8">
+																							<eq_expr content = "" line = "8">
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<array_access content = "" line = "8">
+																												<postfix_expression content = "" line = "8">
+																													<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																												</postfix_expression>
+																												<leaf name = "[" content = "[" line = "8"/>
+																												<array_content content = "" line = "8">
+																													<t_assignment_expression content = "" line = "8">
+																														<t_conditional_expression content = "" line = "8">
+																															<t_all_expression content = "" line = "8">
+																																<t_cast_expression content = "" line = "8">
+																																	<unary_expression content = "" line = "8">
+																																		<postfix_expression content = "" line = "8">
+																																			<leaf name = "CONSTANT" content = "4" line = "8"/>
+																																		</postfix_expression>
+																																	</unary_expression>
+																																</t_cast_expression>
+																															</t_all_expression>
+																														</t_conditional_expression>
+																													</t_assignment_expression>
+																												</array_content>
+																												<leaf name = "]" content = "]" line = "8"/>
+																											</array_access>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																								<leaf name = "==" content = "==" line = "8"/>
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<postfix_expression content = "" line = "8">
+																												<leaf name = "CONSTANT" content = "0" line = "8"/>
+																											</postfix_expression>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																							</eq_expr>
+																							<leaf name = "&&" content = "&&" line = "8"/>
+																							<eq_expr content = "" line = "8">
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<array_access content = "" line = "8">
+																												<postfix_expression content = "" line = "8">
+																													<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																												</postfix_expression>
+																												<leaf name = "[" content = "[" line = "8"/>
+																												<array_content content = "" line = "8">
+																													<t_assignment_expression content = "" line = "8">
+																														<t_conditional_expression content = "" line = "8">
+																															<t_all_expression content = "" line = "8">
+																																<t_cast_expression content = "" line = "8">
+																																	<unary_expression content = "" line = "8">
+																																		<postfix_expression content = "" line = "8">
+																																			<leaf name = "CONSTANT" content = "5" line = "8"/>
+																																		</postfix_expression>
+																																	</unary_expression>
+																																</t_cast_expression>
+																															</t_all_expression>
+																														</t_conditional_expression>
+																													</t_assignment_expression>
+																												</array_content>
+																												<leaf name = "]" content = "]" line = "8"/>
+																											</array_access>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																								<leaf name = "==" content = "==" line = "8"/>
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<postfix_expression content = "" line = "8">
+																												<leaf name = "CONSTANT" content = "0" line = "8"/>
+																											</postfix_expression>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																							</eq_expr>
+																						</log_and_expr>
+																					</t_conditional_expression>
+																				</t_assignment_expression>
+																			</t_expression>
+																			<leaf name = ")" content = ")" line = "8"/>
+																		</primary_expression>
+																	</postfix_expression>
+																</unary_expression>
+															</t_cast_expression>
+														</t_all_expression>
+													</log_or_expr>
+												</t_conditional_expression>
+											</t_assignment_expression>
+										</t_expression>
+										<leaf name = ")" content = ")" line = "8"/>
+										<statement content = "" line = "8">
+											<compound_statement_b content = "" line = "8">
+												<leaf name = "{" content = "{" line = "8"/>
+												<t_block_item_list content = "" line = "9">
+													<block_item content = "" line = "9">
+														<statement content = "" line = "9">
+															<expression_statement content = "" line = "9">
+																<t_expression content = "" line = "9">
+																	<assignment_expression content = "" line = "9">
+																		<unary_expression content = "" line = "9">
+																			<array_access content = "" line = "9">
+																				<postfix_expression content = "" line = "9">
+																					<leaf name = "IDENTIFIER" content = "b" line = "9"/>
+																				</postfix_expression>
+																				<leaf name = "[" content = "[" line = "9"/>
+																				<array_content content = "" line = "9">
+																					<t_assignment_expression content = "" line = "9">
+																						<t_conditional_expression content = "" line = "9">
+																							<t_all_expression content = "" line = "9">
+																								<t_cast_expression content = "" line = "9">
+																									<unary_expression content = "" line = "9">
+																										<postfix_expression content = "" line = "9">
+																											<leaf name = "IDENTIFIER" content = "i" line = "9"/>
+																										</postfix_expression>
+																									</unary_expression>
+																								</t_cast_expression>
+																							</t_all_expression>
+																						</t_conditional_expression>
+																					</t_assignment_expression>
+																				</array_content>
+																				<leaf name = "]" content = "]" line = "9"/>
+																			</array_access>
+																		</unary_expression>
+																		<leaf name = "=" content = "=" line = "9"/>
+																		<t_assignment_expression content = "" line = "9">
+																			<t_conditional_expression content = "" line = "9">
+																				<t_all_expression content = "" line = "9">
+																					<t_cast_expression content = "" line = "9">
+																						<unary_expression content = "" line = "9">
+																							<postfix_expression content = "" line = "9">
+																								<leaf name = "CONSTANT" content = "0" line = "9"/>
+																							</postfix_expression>
+																						</unary_expression>
+																					</t_cast_expression>
+																				</t_all_expression>
+																			</t_conditional_expression>
+																		</t_assignment_expression>
+																	</assignment_expression>
+																</t_expression>
+																<leaf name = ";" content = ";" line = "9"/>
+															</expression_statement>
+														</statement>
+													</block_item>
+												</t_block_item_list>
+												<leaf name = "}" content = "}" line = "10"/>
+											</compound_statement_b>
+										</statement>
+									</if_statement>
+								</statement>
+							</block_item>
+						</block_item_list>
+						<block_item content = "" line = "21">
+							<statement content = "" line = "21">
+								<return_expr_statement content = "" line = "21">
+									<leaf name = "return" content = "return" line = "21"/>
+									<t_expression content = "" line = "21">
+										<t_assignment_expression content = "" line = "21">
+											<t_conditional_expression content = "" line = "21">
+												<t_all_expression content = "" line = "21">
+													<t_cast_expression content = "" line = "21">
+														<unary_expression content = "" line = "21">
+															<postfix_expression content = "" line = "21">
+																<leaf name = "CONSTANT" content = "0" line = "21"/>
+															</postfix_expression>
+														</unary_expression>
+													</t_cast_expression>
+												</t_all_expression>
+											</t_conditional_expression>
+										</t_assignment_expression>
+									</t_expression>
+									<leaf name = ";" content = ";" line = "21"/>
+								</return_expr_statement>
+							</statement>
+						</block_item>
+					</block_item_list>
+					<leaf name = "}" content = "}" line = "22"/>
+				</compound_statement_b>
+			</function_definition_type_b>
+		</external_declaration>
+	</t_translation_unit>
+</program>
+line = "8" , content = "b [ 1 ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "8">
+		<postfix_expression content = "" line = "8">
+			<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "8"/>
+		<array_content content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<t_all_expression content = "" line = "8">
+						<t_cast_expression content = "" line = "8">
+							<unary_expression content = "" line = "8">
+								<postfix_expression content = "" line = "8">
+									<leaf name = "CONSTANT" content = "1" line = "8"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "8"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "8" , content = "b [ 2 ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "8">
+		<postfix_expression content = "" line = "8">
+			<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "8"/>
+		<array_content content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<t_all_expression content = "" line = "8">
+						<t_cast_expression content = "" line = "8">
+							<unary_expression content = "" line = "8">
+								<postfix_expression content = "" line = "8">
+									<leaf name = "CONSTANT" content = "2" line = "8"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "8"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "8" , content = "b [ 3 ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "8">
+		<postfix_expression content = "" line = "8">
+			<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "8"/>
+		<array_content content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<t_all_expression content = "" line = "8">
+						<t_cast_expression content = "" line = "8">
+							<unary_expression content = "" line = "8">
+								<postfix_expression content = "" line = "8">
+									<leaf name = "CONSTANT" content = "3" line = "8"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "8"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "8" , content = "b [ 4 ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "8">
+		<postfix_expression content = "" line = "8">
+			<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "8"/>
+		<array_content content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<t_all_expression content = "" line = "8">
+						<t_cast_expression content = "" line = "8">
+							<unary_expression content = "" line = "8">
+								<postfix_expression content = "" line = "8">
+									<leaf name = "CONSTANT" content = "4" line = "8"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "8"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "8" , content = "b [ 5 ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "8">
+		<postfix_expression content = "" line = "8">
+			<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "8"/>
+		<array_content content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<t_all_expression content = "" line = "8">
+						<t_cast_expression content = "" line = "8">
+							<unary_expression content = "" line = "8">
+								<postfix_expression content = "" line = "8">
+									<leaf name = "CONSTANT" content = "5" line = "8"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "8"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "9" , content = "b [ i ]"
+
+#AST TREE INFOMATION
+	<array_access content = "" line = "9">
+		<postfix_expression content = "" line = "9">
+			<leaf name = "IDENTIFIER" content = "b" line = "9"/>
+		</postfix_expression>
+		<leaf name = "[" content = "[" line = "9"/>
+		<array_content content = "" line = "9">
+			<t_assignment_expression content = "" line = "9">
+				<t_conditional_expression content = "" line = "9">
+					<t_all_expression content = "" line = "9">
+						<t_cast_expression content = "" line = "9">
+							<unary_expression content = "" line = "9">
+								<postfix_expression content = "" line = "9">
+									<leaf name = "IDENTIFIER" content = "i" line = "9"/>
+								</postfix_expression>
+							</unary_expression>
+						</t_cast_expression>
+					</t_all_expression>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</array_content>
+		<leaf name = "]" content = "]" line = "9"/>
+	</array_access>
+
+#HERE IS END AST TREE INFOMATION
+line = "9" , content = "b [ i ] = 0 ;"
+
+#AST TREE INFOMATION
+	<expression_statement content = "" line = "9">
+		<t_expression content = "" line = "9">
+			<assignment_expression content = "" line = "9">
+				<unary_expression content = "" line = "9">
+					<array_access content = "" line = "9">
+						<postfix_expression content = "" line = "9">
+							<leaf name = "IDENTIFIER" content = "b" line = "9"/>
+						</postfix_expression>
+						<leaf name = "[" content = "[" line = "9"/>
+						<array_content content = "" line = "9">
+							<t_assignment_expression content = "" line = "9">
+								<t_conditional_expression content = "" line = "9">
+									<t_all_expression content = "" line = "9">
+										<t_cast_expression content = "" line = "9">
+											<unary_expression content = "" line = "9">
+												<postfix_expression content = "" line = "9">
+													<leaf name = "IDENTIFIER" content = "i" line = "9"/>
+												</postfix_expression>
+											</unary_expression>
+										</t_cast_expression>
+									</t_all_expression>
+								</t_conditional_expression>
+							</t_assignment_expression>
+						</array_content>
+						<leaf name = "]" content = "]" line = "9"/>
+					</array_access>
+				</unary_expression>
+				<leaf name = "=" content = "=" line = "9"/>
+				<t_assignment_expression content = "" line = "9">
+					<t_conditional_expression content = "" line = "9">
+						<t_all_expression content = "" line = "9">
+							<t_cast_expression content = "" line = "9">
+								<unary_expression content = "" line = "9">
+									<postfix_expression content = "" line = "9">
+										<leaf name = "CONSTANT" content = "0" line = "9"/>
+									</postfix_expression>
+								</unary_expression>
+							</t_cast_expression>
+						</t_all_expression>
+					</t_conditional_expression>
+				</t_assignment_expression>
+			</assignment_expression>
+		</t_expression>
+		<leaf name = ";" content = ";" line = "9"/>
+	</expression_statement>
+
+#HERE IS END AST TREE INFOMATION
+line = "8" , content = "if ( ( b [ 1 ] && b [ 2 ] == 0 && b [ 3 ] == 0 ) || ( b [ 4 ] == 0 && b [ 5 ] == 0 ) ) { b [ i ] = 0 ; }"
+
+#AST TREE INFOMATION
+	<if_statement content = "" line = "8">
+		<leaf name = "if" content = "if" line = "8"/>
+		<leaf name = "(" content = "(" line = "8"/>
+		<t_expression content = "" line = "8">
+			<t_assignment_expression content = "" line = "8">
+				<t_conditional_expression content = "" line = "8">
+					<log_or_expr content = "" line = "8">
+						<t_all_expression content = "" line = "8">
+							<t_cast_expression content = "" line = "8">
+								<unary_expression content = "" line = "8">
+									<postfix_expression content = "" line = "8">
+										<primary_expression content = "" line = "8">
+											<leaf name = "(" content = "(" line = "8"/>
+											<t_expression content = "" line = "8">
+												<t_assignment_expression content = "" line = "8">
+													<t_conditional_expression content = "" line = "8">
+														<log_and_expr content = "" line = "8">
+															<log_and_expr content = "" line = "8">
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<array_access content = "" line = "8">
+																				<postfix_expression content = "" line = "8">
+																					<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																				</postfix_expression>
+																				<leaf name = "[" content = "[" line = "8"/>
+																				<array_content content = "" line = "8">
+																					<t_assignment_expression content = "" line = "8">
+																						<t_conditional_expression content = "" line = "8">
+																							<t_all_expression content = "" line = "8">
+																								<t_cast_expression content = "" line = "8">
+																									<unary_expression content = "" line = "8">
+																										<postfix_expression content = "" line = "8">
+																											<leaf name = "CONSTANT" content = "1" line = "8"/>
+																										</postfix_expression>
+																									</unary_expression>
+																								</t_cast_expression>
+																							</t_all_expression>
+																						</t_conditional_expression>
+																					</t_assignment_expression>
+																				</array_content>
+																				<leaf name = "]" content = "]" line = "8"/>
+																			</array_access>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+																<leaf name = "&&" content = "&&" line = "8"/>
+																<eq_expr content = "" line = "8">
+																	<t_all_expression content = "" line = "8">
+																		<t_cast_expression content = "" line = "8">
+																			<unary_expression content = "" line = "8">
+																				<array_access content = "" line = "8">
+																					<postfix_expression content = "" line = "8">
+																						<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																					</postfix_expression>
+																					<leaf name = "[" content = "[" line = "8"/>
+																					<array_content content = "" line = "8">
+																						<t_assignment_expression content = "" line = "8">
+																							<t_conditional_expression content = "" line = "8">
+																								<t_all_expression content = "" line = "8">
+																									<t_cast_expression content = "" line = "8">
+																										<unary_expression content = "" line = "8">
+																											<postfix_expression content = "" line = "8">
+																												<leaf name = "CONSTANT" content = "2" line = "8"/>
+																											</postfix_expression>
+																										</unary_expression>
+																									</t_cast_expression>
+																								</t_all_expression>
+																							</t_conditional_expression>
+																						</t_assignment_expression>
+																					</array_content>
+																					<leaf name = "]" content = "]" line = "8"/>
+																				</array_access>
+																			</unary_expression>
+																		</t_cast_expression>
+																	</t_all_expression>
+																	<leaf name = "==" content = "==" line = "8"/>
+																	<t_all_expression content = "" line = "8">
+																		<t_cast_expression content = "" line = "8">
+																			<unary_expression content = "" line = "8">
+																				<postfix_expression content = "" line = "8">
+																					<leaf name = "CONSTANT" content = "0" line = "8"/>
+																				</postfix_expression>
+																			</unary_expression>
+																		</t_cast_expression>
+																	</t_all_expression>
+																</eq_expr>
+															</log_and_expr>
+															<leaf name = "&&" content = "&&" line = "8"/>
+															<eq_expr content = "" line = "8">
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<array_access content = "" line = "8">
+																				<postfix_expression content = "" line = "8">
+																					<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																				</postfix_expression>
+																				<leaf name = "[" content = "[" line = "8"/>
+																				<array_content content = "" line = "8">
+																					<t_assignment_expression content = "" line = "8">
+																						<t_conditional_expression content = "" line = "8">
+																							<t_all_expression content = "" line = "8">
+																								<t_cast_expression content = "" line = "8">
+																									<unary_expression content = "" line = "8">
+																										<postfix_expression content = "" line = "8">
+																											<leaf name = "CONSTANT" content = "3" line = "8"/>
+																										</postfix_expression>
+																									</unary_expression>
+																								</t_cast_expression>
+																							</t_all_expression>
+																						</t_conditional_expression>
+																					</t_assignment_expression>
+																				</array_content>
+																				<leaf name = "]" content = "]" line = "8"/>
+																			</array_access>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+																<leaf name = "==" content = "==" line = "8"/>
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<postfix_expression content = "" line = "8">
+																				<leaf name = "CONSTANT" content = "0" line = "8"/>
+																			</postfix_expression>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+															</eq_expr>
+														</log_and_expr>
+													</t_conditional_expression>
+												</t_assignment_expression>
+											</t_expression>
+											<leaf name = ")" content = ")" line = "8"/>
+										</primary_expression>
+									</postfix_expression>
+								</unary_expression>
+							</t_cast_expression>
+						</t_all_expression>
+						<leaf name = "||" content = "||" line = "8"/>
+						<t_all_expression content = "" line = "8">
+							<t_cast_expression content = "" line = "8">
+								<unary_expression content = "" line = "8">
+									<postfix_expression content = "" line = "8">
+										<primary_expression content = "" line = "8">
+											<leaf name = "(" content = "(" line = "8"/>
+											<t_expression content = "" line = "8">
+												<t_assignment_expression content = "" line = "8">
+													<t_conditional_expression content = "" line = "8">
+														<log_and_expr content = "" line = "8">
+															<eq_expr content = "" line = "8">
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<array_access content = "" line = "8">
+																				<postfix_expression content = "" line = "8">
+																					<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																				</postfix_expression>
+																				<leaf name = "[" content = "[" line = "8"/>
+																				<array_content content = "" line = "8">
+																					<t_assignment_expression content = "" line = "8">
+																						<t_conditional_expression content = "" line = "8">
+																							<t_all_expression content = "" line = "8">
+																								<t_cast_expression content = "" line = "8">
+																									<unary_expression content = "" line = "8">
+																										<postfix_expression content = "" line = "8">
+																											<leaf name = "CONSTANT" content = "4" line = "8"/>
+																										</postfix_expression>
+																									</unary_expression>
+																								</t_cast_expression>
+																							</t_all_expression>
+																						</t_conditional_expression>
+																					</t_assignment_expression>
+																				</array_content>
+																				<leaf name = "]" content = "]" line = "8"/>
+																			</array_access>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+																<leaf name = "==" content = "==" line = "8"/>
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<postfix_expression content = "" line = "8">
+																				<leaf name = "CONSTANT" content = "0" line = "8"/>
+																			</postfix_expression>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+															</eq_expr>
+															<leaf name = "&&" content = "&&" line = "8"/>
+															<eq_expr content = "" line = "8">
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<array_access content = "" line = "8">
+																				<postfix_expression content = "" line = "8">
+																					<leaf name = "IDENTIFIER" content = "b" line = "8"/>
+																				</postfix_expression>
+																				<leaf name = "[" content = "[" line = "8"/>
+																				<array_content content = "" line = "8">
+																					<t_assignment_expression content = "" line = "8">
+																						<t_conditional_expression content = "" line = "8">
+																							<t_all_expression content = "" line = "8">
+																								<t_cast_expression content = "" line = "8">
+																									<unary_expression content = "" line = "8">
+																										<postfix_expression content = "" line = "8">
+																											<leaf name = "CONSTANT" content = "5" line = "8"/>
+																										</postfix_expression>
+																									</unary_expression>
+																								</t_cast_expression>
+																							</t_all_expression>
+																						</t_conditional_expression>
+																					</t_assignment_expression>
+																				</array_content>
+																				<leaf name = "]" content = "]" line = "8"/>
+																			</array_access>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+																<leaf name = "==" content = "==" line = "8"/>
+																<t_all_expression content = "" line = "8">
+																	<t_cast_expression content = "" line = "8">
+																		<unary_expression content = "" line = "8">
+																			<postfix_expression content = "" line = "8">
+																				<leaf name = "CONSTANT" content = "0" line = "8"/>
+																			</postfix_expression>
+																		</unary_expression>
+																	</t_cast_expression>
+																</t_all_expression>
+															</eq_expr>
+														</log_and_expr>
+													</t_conditional_expression>
+												</t_assignment_expression>
+											</t_expression>
+											<leaf name = ")" content = ")" line = "8"/>
+										</primary_expression>
+									</postfix_expression>
+								</unary_expression>
+							</t_cast_expression>
+						</t_all_expression>
+					</log_or_expr>
+				</t_conditional_expression>
+			</t_assignment_expression>
+		</t_expression>
+		<leaf name = ")" content = ")" line = "8"/>
+		<statement content = "" line = "8">
+			<compound_statement_b content = "" line = "8">
+				<leaf name = "{" content = "{" line = "8"/>
+				<t_block_item_list content = "" line = "9">
+					<block_item content = "" line = "9">
+						<statement content = "" line = "9">
+							<expression_statement content = "" line = "9">
+								<t_expression content = "" line = "9">
+									<assignment_expression content = "" line = "9">
+										<unary_expression content = "" line = "9">
+											<array_access content = "" line = "9">
+												<postfix_expression content = "" line = "9">
+													<leaf name = "IDENTIFIER" content = "b" line = "9"/>
+												</postfix_expression>
+												<leaf name = "[" content = "[" line = "9"/>
+												<array_content content = "" line = "9">
+													<t_assignment_expression content = "" line = "9">
+														<t_conditional_expression content = "" line = "9">
+															<t_all_expression content = "" line = "9">
+																<t_cast_expression content = "" line = "9">
+																	<unary_expression content = "" line = "9">
+																		<postfix_expression content = "" line = "9">
+																			<leaf name = "IDENTIFIER" content = "i" line = "9"/>
+																		</postfix_expression>
+																	</unary_expression>
+																</t_cast_expression>
+															</t_all_expression>
+														</t_conditional_expression>
+													</t_assignment_expression>
+												</array_content>
+												<leaf name = "]" content = "]" line = "9"/>
+											</array_access>
+										</unary_expression>
+										<leaf name = "=" content = "=" line = "9"/>
+										<t_assignment_expression content = "" line = "9">
+											<t_conditional_expression content = "" line = "9">
+												<t_all_expression content = "" line = "9">
+													<t_cast_expression content = "" line = "9">
+														<unary_expression content = "" line = "9">
+															<postfix_expression content = "" line = "9">
+																<leaf name = "CONSTANT" content = "0" line = "9"/>
+															</postfix_expression>
+														</unary_expression>
+													</t_cast_expression>
+												</t_all_expression>
+											</t_conditional_expression>
+										</t_assignment_expression>
+									</assignment_expression>
+								</t_expression>
+								<leaf name = ";" content = ";" line = "9"/>
+							</expression_statement>
+						</statement>
+					</block_item>
+				</t_block_item_list>
+				<leaf name = "}" content = "}" line = "10"/>
+			</compound_statement_b>
+		</statement>
+	</if_statement>
+
+#HERE IS END AST TREE INFOMATION

@@ -1,0 +1,2614 @@
+<cprover>
+<program>CBMC 3.8</program>
+
+<message type="STATUS-MESSAGE">
+  <location>
+    <id></id>
+    <named_sub name="file">
+      <id>test.c_out.c_pre.c_output.c</id>
+    </named_sub>
+  </location>
+  <text>Parsing</text>
+</message>
+
+<message type="WARNING">
+  <text>test.c_out.c_pre.c_output.c</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Converting</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Type-checking test.c_out.c_pre.c_output</text>
+</message>
+
+<message type="WARNING">
+  <location>
+    <id></id>
+    <named_sub name="file">
+      <id>test.c_out.c_pre.c_output.c</id>
+    </named_sub>
+    <named_sub name="line">
+      <id>5</id>
+    </named_sub>
+    <named_sub name="function">
+      <id>main</id>
+    </named_sub>
+  </location>
+  <text>function `c::malloc' is not declared</text>
+</message>
+
+<message type="WARNING">
+  <text>tmp.stdin6472.c</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generating GOTO Program</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Function Pointer Removal</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Partial Inlining</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generic Property Instrumentation</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Starting Bounded Model Checking</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 1 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 2 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 3 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 4 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 5 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 6 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 7 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 8 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.0 iteration 9 file test.c_out.c_pre.c_output.c line 41 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 1 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 2 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 3 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 4 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 5 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 6 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 7 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop c::main.1 iteration 8 file test.c_out.c_pre.c_output.c line 52 function main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>size of program expression: 648 assignments</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>simple slicing removed 11 assignments</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generated 2 VCC(s), 2 remaining after simplification</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Passing problem to propositional reduction</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_1_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 5&#10;    * function: main</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_2_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 5&#10;    * function: main</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_3_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 5&#10;    * function: main</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_4_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 8&#10;    * function: main</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_5_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 8&#10;    * function: main</text>
+</message>
+
+<message type="WARNING">
+  <text>warning: ignoring pointer_offset&#10;  * type: signedbv&#10;      * width: 32&#10;  * operands: &#10;    0: typecast&#10;        * type: signedbv&#10;            * width: 32&#10;        * operands: &#10;          0: address_of&#10;              * type: pointer&#10;                  * subtype: signedbv&#10;                      * width: 32&#10;                      * #dynamic: 1&#10;              * operands: &#10;                0: symbol&#10;                    * type: signedbv&#10;                        * width: 32&#10;                        * #dynamic: 1&#10;                    * identifier: symex_dynamic::dynamic_6_value&#10;  * #location: &#10;    * file: test.c_out.c_pre.c_output.c&#10;    * line: 8&#10;    * function: main</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT2 without simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>21169 variables, 66579 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: negated claim is SATISFIABLE, i.e., does not hold</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.696s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<goto_trace>
+  <mode></mode>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>166</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__mb_cur_max</identifier>
+    <base_name>__mb_cur_max</base_name>
+    <display_name>__mb_cur_max</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>2</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>301</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__argc</identifier>
+    <base_name>__argc</base_name>
+    <display_name>__argc</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>3</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>302</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__argv</identifier>
+    <base_name>__argv</base_name>
+    <display_name>__argv</display_name>
+    <value>NULL</value>
+    <type>signed char * *</type>
+    <step_nr>4</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>303</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__wargv</identifier>
+    <base_name>__wargv</base_name>
+    <display_name>__wargv</display_name>
+    <value>NULL</value>
+    <type>unsigned short int * *</type>
+    <step_nr>5</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>317</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::_environ</identifier>
+    <base_name>_environ</base_name>
+    <display_name>_environ</display_name>
+    <value>NULL</value>
+    <type>signed char * *</type>
+    <step_nr>6</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>318</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::_wenviron</identifier>
+    <base_name>_wenviron</base_name>
+    <display_name>_wenviron</display_name>
+    <value>NULL</value>
+    <type>unsigned short int * *</type>
+    <step_nr>7</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>321</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::_pgmptr</identifier>
+    <base_name>_pgmptr</base_name>
+    <display_name>_pgmptr</display_name>
+    <value>NULL</value>
+    <type>signed char *</type>
+    <step_nr>8</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>322</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::_wpgmptr</identifier>
+    <base_name>_wpgmptr</base_name>
+    <display_name>_wpgmptr</display_name>
+    <value>NULL</value>
+    <type>unsigned short int *</type>
+    <step_nr>9</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>C:\Program Files\Microsoft Visual Studio 9.0\VC\include\stdlib.h</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>344</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::_fmode</identifier>
+    <base_name>_fmode</base_name>
+    <display_name>_fmode</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>10</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>&lt;built-in&gt;</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>19</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=FALSE, [64]=FALSE, [80]=FALSE, [128]=FALSE, [130]=FALSE, [192]=FALSE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>11</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>&lt;built-in&gt;</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>20</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=0, [64]=0, [80]=0, [128]=0, [130]=0, [192]=0 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>12</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>&lt;built-in&gt;</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>29</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_rounding_mode</identifier>
+    <base_name>__CPROVER_rounding_mode</base_name>
+    <display_name>__CPROVER_rounding_mode</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>13</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$1</identifier>
+    <base_name>return_value_malloc$1</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$1</display_name>
+    <value>33554432</value>
+    <type>int</type>
+    <step_nr>15</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=0, [64]=0, [80]=0, [128]=1, [130]=0, [192]=0 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>17</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=FALSE, [64]=FALSE, [80]=FALSE, [128]=TRUE, [130]=FALSE, [192]=FALSE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>18</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::max_size_1_a</identifier>
+    <base_name>max_size_1_a</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::max_size_1_a</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>19</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_1_value</identifier>
+    <base_name>dynamic_1_value</base_name>
+    <display_name>symex_dynamic::dynamic_1_value</display_name>
+    <value>10</value>
+    <type>int</type>
+    <step_nr>20</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::basis_location_1_a</identifier>
+    <base_name>basis_location_1_a</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::basis_location_1_a</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>21</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$2</identifier>
+    <base_name>return_value_malloc$2</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$2</display_name>
+    <value>50331648</value>
+    <type>int</type>
+    <step_nr>22</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=0, [64]=0, [80]=1, [128]=1, [130]=0, [192]=0 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>24</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=FALSE, [64]=FALSE, [80]=TRUE, [128]=TRUE, [130]=FALSE, [192]=FALSE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>25</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::defined_1_a</identifier>
+    <base_name>defined_1_a</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::defined_1_a</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>26</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_2_value</identifier>
+    <base_name>dynamic_2_value</base_name>
+    <display_name>symex_dynamic::dynamic_2_value</display_name>
+    <value>1</value>
+    <type>int</type>
+    <step_nr>27</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$3</identifier>
+    <base_name>return_value_malloc$3</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$3</display_name>
+    <value>67108864</value>
+    <type>int</type>
+    <step_nr>28</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=0, [64]=0, [80]=1, [128]=1, [130]=1, [192]=0 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>30</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=FALSE, [64]=FALSE, [80]=TRUE, [128]=TRUE, [130]=TRUE, [192]=FALSE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>31</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::malloc_flag_1_a</identifier>
+    <base_name>malloc_flag_1_a</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::malloc_flag_1_a</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>32</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_3_value</identifier>
+    <base_name>dynamic_3_value</base_name>
+    <display_name>symex_dynamic::dynamic_3_value</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>33</step_nr>
+  </assignment>
+  <output>
+    <step_nr>34</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"4\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>5</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>35</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"int a [ 10 ] ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>6</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>36</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>7</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$4</identifier>
+    <base_name>return_value_malloc$4</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$4</display_name>
+    <value>83886080</value>
+    <type>int</type>
+    <step_nr>37</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=1, [64]=0, [80]=1, [128]=1, [130]=1, [192]=0 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>39</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=TRUE, [64]=FALSE, [80]=TRUE, [128]=TRUE, [130]=TRUE, [192]=FALSE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>40</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::max_size_1_b</identifier>
+    <base_name>max_size_1_b</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::max_size_1_b</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>41</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_4_value</identifier>
+    <base_name>dynamic_4_value</base_name>
+    <display_name>symex_dynamic::dynamic_4_value</display_name>
+    <value>10</value>
+    <type>int</type>
+    <step_nr>42</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::basis_location_1_b</identifier>
+    <base_name>basis_location_1_b</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::basis_location_1_b</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>43</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$5</identifier>
+    <base_name>return_value_malloc$5</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$5</display_name>
+    <value>100663296</value>
+    <type>int</type>
+    <step_nr>44</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=1, [64]=0, [80]=1, [128]=1, [130]=1, [192]=1 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>46</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=TRUE, [64]=FALSE, [80]=TRUE, [128]=TRUE, [130]=TRUE, [192]=TRUE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>47</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::defined_1_b</identifier>
+    <base_name>defined_1_b</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::defined_1_b</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>48</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_5_value</identifier>
+    <base_name>dynamic_5_value</base_name>
+    <display_name>symex_dynamic::dynamic_5_value</display_name>
+    <value>1</value>
+    <type>int</type>
+    <step_nr>49</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::main::$tmp::return_value_malloc$6</identifier>
+    <base_name>return_value_malloc$6</base_name>
+    <display_name>c::main::$tmp::return_value_malloc$6</display_name>
+    <value>117440512</value>
+    <type>int</type>
+    <step_nr>50</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc_size</identifier>
+    <base_name>__CPROVER_alloc_size</base_name>
+    <display_name>__CPROVER_alloc_size</display_name>
+    <value>{ [16]=1, [64]=1, [80]=1, [128]=1, [130]=1, [192]=1 }</value>
+    <type>unsigned int [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"20\")))")]</type>
+    <step_nr>52</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::__CPROVER_alloc</identifier>
+    <base_name>__CPROVER_alloc</base_name>
+    <display_name>__CPROVER_alloc</display_name>
+    <value>{ [16]=TRUE, [64]=TRUE, [80]=TRUE, [128]=TRUE, [130]=TRUE, [192]=TRUE }</value>
+    <type>_Bool [irep("(\"0\" \"type\" (\"signedbv\" \"width\" (\"32\")) \"#location\" (\"\" \"file\" (\"&lt;built-in&gt;\") \"line\" (\"19\")))")]</type>
+    <step_nr>53</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::malloc_flag_1_b</identifier>
+    <base_name>malloc_flag_1_b</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::malloc_flag_1_b</display_name>
+    <value>NULL</value>
+    <type>int *</type>
+    <step_nr>54</step_nr>
+  </assignment>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>symex_dynamic::dynamic_6_value</identifier>
+    <base_name>dynamic_6_value</base_name>
+    <display_name>symex_dynamic::dynamic_6_value</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>55</step_nr>
+  </assignment>
+  <output>
+    <step_nr>56</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"5\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>8</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>57</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"int b [ 10 ] ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>9</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>58</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>10</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>11</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>59</step_nr>
+  </assignment>
+  <output>
+    <step_nr>60</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"6\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>11</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>61</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"int i = 0 ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>12</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>62</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>13</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>13</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::j</identifier>
+    <base_name>j</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::j</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>63</step_nr>
+  </assignment>
+  <output>
+    <step_nr>64</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"6\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>13</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>65</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"int j = 0 ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>14</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>66</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>15</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>17</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>9</value>
+    <type>int</type>
+    <step_nr>67</step_nr>
+  </assignment>
+  <output>
+    <step_nr>68</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"8\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>17</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>69</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i = 9 ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>18</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>70</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>19</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>8</value>
+    <type>int</type>
+    <step_nr>71</step_nr>
+  </assignment>
+  <output>
+    <step_nr>72</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>73</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>74</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>75</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>77</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>7</value>
+    <type>int</type>
+    <step_nr>78</step_nr>
+  </assignment>
+  <output>
+    <step_nr>79</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>80</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>81</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>82</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>84</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>6</value>
+    <type>int</type>
+    <step_nr>85</step_nr>
+  </assignment>
+  <output>
+    <step_nr>86</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>87</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>88</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>89</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>91</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>5</value>
+    <type>int</type>
+    <step_nr>92</step_nr>
+  </assignment>
+  <output>
+    <step_nr>93</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>94</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>95</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>96</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>98</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>4</value>
+    <type>int</type>
+    <step_nr>99</step_nr>
+  </assignment>
+  <output>
+    <step_nr>100</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>101</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>102</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>103</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>105</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>3</value>
+    <type>int</type>
+    <step_nr>106</step_nr>
+  </assignment>
+  <output>
+    <step_nr>107</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>108</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>109</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>110</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>112</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>2</value>
+    <type>int</type>
+    <step_nr>113</step_nr>
+  </assignment>
+  <output>
+    <step_nr>114</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>115</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>116</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>117</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>119</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>1</value>
+    <type>int</type>
+    <step_nr>120</step_nr>
+  </assignment>
+  <output>
+    <step_nr>121</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>122</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>123</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>124</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>126</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>0</value>
+    <type>int</type>
+    <step_nr>127</step_nr>
+  </assignment>
+  <output>
+    <step_nr>128</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>129</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>130</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>131</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>133</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>26</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>135</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>31</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>137</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>37</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>138</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>41</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <assignment>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+    <mode>C</mode>
+    <thread>0</thread>
+    <identifier>c::test.c_out.c_pre.c_output::main::1::i</identifier>
+    <base_name>i</base_name>
+    <display_name>test.c_out.c_pre.c_output::main::1::i</display_name>
+    <value>-1</value>
+    <type>int</type>
+    <step_nr>139</step_nr>
+  </assignment>
+  <output>
+    <step_nr>140</step_nr>
+    <thread>0</thread>
+    <text>&lt;source file=\"test.c\" loc=\"10\"&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>21</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>141</step_nr>
+    <thread>0</thread>
+    <text>&lt;proc text=\"i -- ;\"&gt;&lt;/proc&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>22</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <output>
+    <step_nr>142</step_nr>
+    <thread>0</thread>
+    <text>&lt;/source&gt;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>23</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <location-only>
+    <step_nr>143</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>24</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>145</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>26</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <location-only>
+    <step_nr>147</step_nr>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>31</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </location-only>
+  <output>
+    <step_nr>148</step_nr>
+    <thread>0</thread>
+    <text>#test.c#:11:detected unbound access in variable b  basis_location = 0 (i = -1)&#10;</text>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>32</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+    </location>
+  </output>
+  <failure>
+    <reason>assertion</reason>
+    <thread>0</thread>
+    <location>
+      <id></id>
+      <named_sub name="file">
+        <id>test.c_out.c_pre.c_output.c</id>
+      </named_sub>
+      <named_sub name="line">
+        <id>33</id>
+      </named_sub>
+      <named_sub name="property">
+        <id>assertion</id>
+      </named_sub>
+      <named_sub name="function">
+        <id>main</id>
+      </named_sub>
+      <named_sub name="user-provided">
+        <id>1</id>
+      </named_sub>
+    </location>
+  </failure>
+</goto_trace>
+
+<message type="STATUS-MESSAGE">
+  <text>VERIFICATION FAILED</text>
+</message>
+
+<cprover-status>FAILURE</cprover-status>
+
+</cprover>
