@@ -844,3 +844,13 @@ void deletePointerAndArraySynbol(CSTLString *target){
 void deletePointer(CSTLString *target){
 	CSTLString_replace_string(target, "* ", "");
 }
+
+CSTLString *getTypeOfVariable(CSTLString *variable_name , VARIABLE_TABLE *variable_table){
+	CSTLString *output = CSTLString_new();
+	CSTLString_assign(output, CSTLString_c_str(variable_table->variable_name));
+	size_t idx = CSTLString_find(output, CSTLString_c_str(variable_name), 0);
+	CSTLString_replace_len(output, idx, CSTLString_size(variable_name),
+			CSTLString_c_str(variable_table->type), CSTLString_size(variable_table->type));
+
+	return output;
+}

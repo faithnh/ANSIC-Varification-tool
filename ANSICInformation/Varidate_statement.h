@@ -46,11 +46,13 @@ typedef struct validate_statement {
 	int used;				///この検証式は使用しているかどうかのフラグ 1:使用 0:未使用
 	CSTLString *statement;	///この検証式の内容
 	AST *target_statement;	///この検証式のターゲットとなるASTノードへのアドレス
+	ARRAY_OFFSET_LIST *left_array_offset_list; ///この検証式の左辺の配列オフセットリスト
+	ARRAY_OFFSET_LIST *right_array_offset_list; ///この検証式の右辺の配列オフセットリスト
 } ValidateStatement;
 
+
+
 CSTL_LIST_INTERFACE(ValidateStatementList, ValidateStatement);
-
-
 /**
 実際に検証式として挿入するための情報を生成する。
 @param target_id この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID)
@@ -62,7 +64,6 @@ CSTL_LIST_INTERFACE(ValidateStatementList, ValidateStatement);
 @return 実際に検証式として挿入するための情報へのアドレスを返す。
 */
 ValidateStatement *new_VALIDATE_STATEMENT_char(int target_id, int check_or_modify, int used, char *statement, AST *target_statement);
-
 /**
 実際に検証式として挿入するための情報を生成する。
 @param target_id この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID)
@@ -153,6 +154,27 @@ void printValidateVariableList(ValidateVariableList *validate_variable_list);
 void createValidateStatement(AST * root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ValidateVariableList *validate_variable_list,
 											ValidateStatementList *validate_statement_list, ForInformationList *for_information_list, int undefined_control_check,
 											int zero_divition_check, int array_unbound_check, int free_violation_check);
+
+/**
+log_or_exprとlog_and_exprを調べ、そこの中身の条件式にもとづいて、if分岐を作成する。
+@param root 指定したノード
+@param function_information_list 関数に関する情報のリスト
+@param vtlist 対象の変数リスト
+@param validate_variable_list 検証用変数リスト
+@param validate_statement_list 取得した検証式が格納するところ
+@param ignore_ast_list ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト
+@param target_expression assign_expressionが属しているexpression_statement
+@param undefined_control_check 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない
+@param zero_divition_check 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+@param array_unbound_check 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+@param free_violation_check メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+
+ */
+void getValidateStatementFromLogical(AST *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+	ValidateVariableList *validate_variable_list,
+	ValidateStatementList *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list,
+	AST *target_expression, int undefined_control_check, int array_unbound_check,
+	int zero_divition_flag, int free_violation_check);
 
 /**
 指定したASTノードrootから、init_declaratorを探しだし、そこからVARIDATE_STATEMENTに関する情報を取得する。
@@ -337,6 +359,9 @@ void createVaridateStatementFromPointerDefine( ValidateStatementList *validate_s
 			FUNCTION_INFORMATION_LIST *function_information_list);
 
 /**
+配列のオフセットリストに基づいて、式で使われている変数一覧を取得し、登録する
+ */
+/**
 配列のオフセットリストを基に、検証式を作成する。
 @param output 出力する検証式
 @param ValidateVariableList 検証用変数リスト
@@ -345,6 +370,7 @@ void createVaridateStatementFromPointerDefine( ValidateStatementList *validate_s
 
 @return なし
 */
+
 void ArrayOffsetToValidateStatement(CSTLString* output, ValidateVariableList *validate_variable_list, VARIABLE_TABLE *variable_table, OFFSET_LIST *offset_list);
 
 /**
@@ -428,7 +454,8 @@ void getRightAssignmentInfo(AST *root, FUNCTION_INFORMATION_LIST *function_infor
 
 @return なし
 */
-void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list);
+void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list,
+		 FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist);
 
 /**
 検証式リストや検証用変数をもとにプログラムデータを生成し、指定したファイルoutputに出力する。
@@ -441,7 +468,8 @@ void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *vali
 
 @return なし
 */
-void fprintProgramDataWithValidateStatement(FILE *output, AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list);
+void fprintProgramDataWithValidateStatement(FILE *output, AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list,
+		 FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist);
 
 /**
 式に対応する検証式を出力させる。
@@ -513,7 +541,7 @@ void createValidateStatementAdderFileEachCheck(EXPR_SLICING_LIST *expr_slicing_l
 
 @return なし
 */
-void ValidateStatementList_sort_ast(ValidateStatementList *validate_statement_list);
+void validateStatementListSort(ValidateStatementList *validate_statement_list);
 
 /**
 検証式リストのチェック式から、ASTノードを取り出し、ASTリストとしてまとめる。

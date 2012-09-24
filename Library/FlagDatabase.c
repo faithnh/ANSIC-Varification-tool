@@ -36,6 +36,10 @@
 #define PROGRAM_SLICING_MODE 64
 #define PROGRAM_SLICING_MODE_STRING "--program-slicing-mode"
 #define GET_PROGRAM_SLICING_MODE (flag_database >> 6) % 2
+//簡易版モードのフラグの数値と文字列と取得式
+#define SIMPLE_MODE 64
+#define SIMPLE_MODE_STRING "--simple-mode"
+#define GET_SIMPLE_MODE (flag_database >> 7) % 2
 
 /**
 プログラムの引数からフラグデータベースを取得する。
@@ -125,6 +129,16 @@ int getFlagDatabase(int argc, char * argv[]){
 					exit(1);
 				}
 			}
+			//シンプルモード
+			else if(strcmp(argv[i], SIMPLE_MODE_STRING) == 0){
+				//シンプルモードが二重に定義されていないかどうか調べる。二重に定義されていたらエラーを返し、強制終了される。
+				if(!isSimpleMode(flag_database)){
+					flag_database += SIMPLE_MODE;
+				}else{
+					fprintf(stderr,"フラグが二重です！\n");
+					exit(1);
+				}
+			}
 			//いずれも該当しなかった場合は、未定義のフラグとしてエラーを返し、強制終了される。
 			else{
 				fprintf(stderr, "未定義のフラグ %s\n", argv[i]);
@@ -204,4 +218,14 @@ int isFreeViolationCheckMode(int flag_database){
 */
 int isProgramSlicingMode(int flag_database){
 	return GET_PROGRAM_SLICING_MODE;
+}
+
+/**
+フラグデータベースから、SIMPLE_MODEが含まれているかどうか確認する。
+@param flag_database フラグデータベース
+
+@return SIMPLE_MODEが含まれていたら１を返し、そうでなければ０を返す。
+*/
+int isSimpleMode(int flag_database){
+	return GET_SIMPLE_MODE;
 }

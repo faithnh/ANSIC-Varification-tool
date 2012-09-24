@@ -280,5 +280,13 @@ void deletePointerAndArraySynbol(CSTLString *target);
 @return ‚È‚µ
 */
 void deletePointer(CSTLString *target);
+
+/**
+•Ï”î•ñ‚©‚çŒ^–¼‚ğŠÜ‚ñ‚¾‚à‚Ì‚ğ•¶š—ñ‚Åo—Í‚³‚¹‚é
+@param variable_name •Ï”–¼
+@param variable_table ‘ÎÛ‚Ì•Ï”î•ñ
+@return æ“¾‚µ‚½•¶š—ñ‚ğ•Ô‚·
+ */
+CSTLString *getTypeOfVariable(CSTLString *variable_name , VARIABLE_TABLE *variable_table);
 #endif
 

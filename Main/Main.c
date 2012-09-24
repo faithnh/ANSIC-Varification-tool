@@ -20,6 +20,7 @@
 #include "../Library/FlagDatabase.h"
 #include"../ANSICInformation/y.tab.h"
 #include"../ANSICInformation/DivitionDeclarator.h"
+#include"../ANSICInformation/VariableOfStatement.h"
 
 #include"../ProgramSlicing/ProgramSlicing.h"
 
@@ -124,7 +125,7 @@ int main(int argc, char *argv[]){
 								//traverseAST(programAST, 0);
 
 								//AST木からプログラムを出力する
-								int tmp = 1;
+								//int tmp = 1;
 								//printDataFromAST(programAST, &tmp);
 
 								//AST木から生成したTYPEDEFテーブルを表示
@@ -160,6 +161,9 @@ int main(int argc, char *argv[]){
 								//printTargetASTNode(programAST, "assignment_expression", 0, 0);
 								//printTargetASTNode(programAST, "expression_statement", 0, 0);
 
+								//変数一覧表の初期化
+								initializeVariableOfStatementList();
+
 								//検証式の生成
 								validate_statement_list = ValidateStatementList_new();
 								for_information_list = ForInformationList_new();
@@ -194,7 +198,8 @@ int main(int argc, char *argv[]){
 									snprintf(output_file_name, FILE_PATH, "%s_output.c", preprocess_file_name);
 									output = fopen(output_file_name, "w");
 									//printProgramDataWithValidateStatement(programAST, varidate_variable_list, validate_statement_list, for_information_list);
-									fprintProgramDataWithValidateStatement(output, programAST, varidate_variable_list, validate_statement_list, for_information_list);
+									fprintProgramDataWithValidateStatement(output, programAST, varidate_variable_list, validate_statement_list, for_information_list,
+											 function_information_list, variable_table_list);
 
 									//入力ファイルおよび出力ファイルを閉じる
 									fclose(target_source_file);
@@ -213,4 +218,5 @@ int main(int argc, char *argv[]){
 					}
 		}
 	}
+	return 0;
 }

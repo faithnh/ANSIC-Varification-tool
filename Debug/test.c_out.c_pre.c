@@ -1,25 +1,32 @@
 
 
-
-
-
 int main ( void ) { 
-int array [ 6 ] = { 1 , 5 , 8 , 1 , 2 , - 1 } ; 
-int * ptr ; 
-int tmp ; int num ; int count = 1 ; int flag = 0 ; 
-printf ( "’Tõ‚µ‚½‚¢”š: " ) ; scanf ( "%d" , num ) ; 
-for ( ptr = array ; * ptr != 0 ; ptr ++ ) { 
+int a [ 10 ] ; 
+int b [ 10 ] ; 
+int i = 0 ; int j = 0 ; 
 
-tmp = * ptr ; 
-
-if ( tmp == num ) { 
-flag = 1 ; break ; 
+i = 9 ; 
+do { 
+i -- ; 
+} while ( i > 0 || b [ i ] == 0 ) ; 
+i = 9 ; 
+while ( 1 / i == 0 || i / i == 1 ) { 
+if ( b [ i ] == 0 ) { 
+b [ i ] = i ; 
 } else { 
-count ++ ; 
+b [ i ] = 0 ; 
 } 
+i -- ; 
 } 
-if ( flag ) printf ( "%d‚Íarray‚Ì%d”Ô–Ú‚É‚ ‚è‚Ü‚·B\n" , num , count ) ; 
-else printf ( "%d‚Í‘¶İ‚µ‚Ü‚¹‚ñB\n" , num ) ; 
+
+
+
+
+
+
+
+
+
 
 return 0 ; 
 } 

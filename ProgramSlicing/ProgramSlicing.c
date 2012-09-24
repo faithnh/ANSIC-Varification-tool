@@ -423,7 +423,7 @@ void createDD_list_Internal(EXPR_SLICING *parent_expr_slicing, EXPR_SLICING *exp
 				}
 				//’²‚×‚Ä‚¢‚é–½—ß‚ªéŒ¾‚©ˆø”éŒ¾‚Å‚ ‚ê‚ÎA
 				//‘ÎÛ‚Ì–½—ß‚ÌˆË‘¶ŠÖŒW‚â‘ÎÛ‚Ì•Ï”‚Éƒf[ƒ^ˆË‘¶ŠÖŒW‚ª‚ ‚é‚©‚Ç‚¤‚©’²‚×‚é
-				else if(*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0 ||
+				else if((*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0) ||
 						CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declarator") == 0){
 					for(a_i = ARRAY_OFFSET_LIST_begin(expr_slicing->target_variable);
 						a_i != ARRAY_OFFSET_LIST_end(expr_slicing->target_variable);
@@ -495,7 +495,7 @@ void createDD_list_Internal(EXPR_SLICING *parent_expr_slicing, EXPR_SLICING *exp
 			}
 			//’²‚×‚Ä‚¢‚é–½—ß‚ªéŒ¾‚©ˆø”éŒ¾‚Å‚ ‚ê‚ÎA
 			//‘ÎÛ‚Ì–½—ß‚ÌˆË‘¶ŠÖŒW‚â‘ÎÛ‚Ì•Ï”‚Éƒf[ƒ^ˆË‘¶ŠÖŒW‚ª‚ ‚é‚©‚Ç‚¤‚©’²‚×‚é
-			else if(*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0 ||
+			else if((*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0) ||
 					CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declarator") == 0){
 				for(a_i = ARRAY_OFFSET_LIST_begin(expr_slicing->target_variable);
 					a_i != ARRAY_OFFSET_LIST_end(expr_slicing->target_variable);
@@ -576,7 +576,7 @@ void createDD_list_Internal(EXPR_SLICING *parent_expr_slicing, EXPR_SLICING *exp
 			}
 			//’²‚×‚Ä‚¢‚é–½—ß‚ªéŒ¾‚©ˆø”éŒ¾‚Å‚ ‚ê‚ÎA
 			//‘ÎÛ‚Ì–½—ß‚ÌˆË‘¶ŠÖŒW‚â‘ÎÛ‚Ì•Ï”‚Éƒf[ƒ^ˆË‘¶ŠÖŒW‚ª‚ ‚é‚©‚Ç‚¤‚©’²‚×‚é
-			else if(*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0 ||
+			else if((*find_expr_flag != NOT_FIND && CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declaration_with_init") == 0) ||
 					CSTLString_compare_with_char(EXPR_SLICING_LIST_data(e_i)->expression->name, "declarator") == 0){
 				for(a_i = ARRAY_OFFSET_LIST_begin(expr_slicing->target_variable);
 					a_i != ARRAY_OFFSET_LIST_end(expr_slicing->target_variable);

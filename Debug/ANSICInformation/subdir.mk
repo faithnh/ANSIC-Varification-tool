@@ -11,6 +11,7 @@ C_SRCS += \
 ../ANSICInformation/ForInformation.c \
 ../ANSICInformation/FreeMemInfo.c \
 ../ANSICInformation/FunctionInformation.c \
+../ANSICInformation/LogicalExpression.c \
 ../ANSICInformation/MallocNumber.c \
 ../ANSICInformation/MemallocInfo.c \
 ../ANSICInformation/PointerArrayControl.c \
@@ -18,7 +19,9 @@ C_SRCS += \
 ../ANSICInformation/Return_Info.c \
 ../ANSICInformation/SubEffectCheck.c \
 ../ANSICInformation/Synbol.c \
+../ANSICInformation/VariableOfStatement.c \
 ../ANSICInformation/Varidate_statement.c \
+../ANSICInformation/WriteVelificationStatement.c \
 ../ANSICInformation/lex.yy.c \
 ../ANSICInformation/y.tab.c 
 
@@ -30,6 +33,7 @@ OBJS += \
 ./ANSICInformation/ForInformation.o \
 ./ANSICInformation/FreeMemInfo.o \
 ./ANSICInformation/FunctionInformation.o \
+./ANSICInformation/LogicalExpression.o \
 ./ANSICInformation/MallocNumber.o \
 ./ANSICInformation/MemallocInfo.o \
 ./ANSICInformation/PointerArrayControl.o \
@@ -37,7 +41,9 @@ OBJS += \
 ./ANSICInformation/Return_Info.o \
 ./ANSICInformation/SubEffectCheck.o \
 ./ANSICInformation/Synbol.o \
+./ANSICInformation/VariableOfStatement.o \
 ./ANSICInformation/Varidate_statement.o \
+./ANSICInformation/WriteVelificationStatement.o \
 ./ANSICInformation/lex.yy.o \
 ./ANSICInformation/y.tab.o 
 
@@ -49,6 +55,7 @@ C_DEPS += \
 ./ANSICInformation/ForInformation.d \
 ./ANSICInformation/FreeMemInfo.d \
 ./ANSICInformation/FunctionInformation.d \
+./ANSICInformation/LogicalExpression.d \
 ./ANSICInformation/MallocNumber.d \
 ./ANSICInformation/MemallocInfo.d \
 ./ANSICInformation/PointerArrayControl.d \
@@ -56,7 +63,9 @@ C_DEPS += \
 ./ANSICInformation/Return_Info.d \
 ./ANSICInformation/SubEffectCheck.d \
 ./ANSICInformation/Synbol.d \
+./ANSICInformation/VariableOfStatement.d \
 ./ANSICInformation/Varidate_statement.d \
+./ANSICInformation/WriteVelificationStatement.d \
 ./ANSICInformation/lex.yy.d \
 ./ANSICInformation/y.tab.d 
 
@@ -64,8 +73,8 @@ C_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 ANSICInformation/%.o: ../ANSICInformation/%.c
 	@echo 'Building file: $<'
-	@echo 'Invoking: Cygwin C Compiler'
-	gcc -O0 -g -c -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Invoking: Cross GCC Compiler'
+	gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -1,4 +1,5 @@
 #include"StoreInformation.h"
+#include"../Library/CSTLString.h"
 #include<stdio.h>
 #include<string.h>
 
@@ -15,8 +16,14 @@ char fileName[STORE_INFOMATION_SIZE]="";
 @return なし
 */
 void setFileName(char *str){
-	//4096バイト分までの文字をstrから確保する
-	strncpy(fileName, str, STORE_INFOMATION_SIZE);
+	//エラー対策のため、エスケープマーク\が存在する場合は、\\に置き換える。
+	CSTLString *tmp = CSTLString_new_assign(str);
+	CSTLString_replace_string(tmp, "\\", "\\\\");
+
+	//4096バイト分までの文字を確保する
+	strncpy(fileName, CSTLString_c_str(tmp), STORE_INFOMATION_SIZE);
+
+	CSTLString_delete(tmp);
 }
 
 /**

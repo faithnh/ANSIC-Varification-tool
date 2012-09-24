@@ -1,13 +1,17 @@
 #include "Varidate_statement.h"
 #include "../Library/Stack_int.h"
 #include "../Library/StoreInformation.h"
+#include "../Library/CharStringExtend.h"
+#include "LogicalExpression.h"
 #include "ANSIC_CODE.h"
+#include "SubEffectCheck.h"
+#include "WriteVelificationStatement.h"
+#include "VariableOfStatement.h"
 #include <stdio.h>
 #include<limits.h>
 
 //デバッグモード
 #define DEBUG_MODE
-
 
 //文字列の長さ
 #define STRLEN 256
@@ -68,7 +72,6 @@
 CSTL_LIST_IMPLEMENT(ValidateVariableList, ValidateVariable);
 
 CSTL_LIST_IMPLEMENT(ValidateStatementList, ValidateStatement);
-
 /**
 実際に検証式として挿入するための情報を生成する。
 @param target_id この検証式の識別ID(どの順序でこの検証式を入れていくかを確認するためのID)
@@ -210,7 +213,7 @@ void getValidate_Variable(VARIABLE_TABLE_LIST *variable_table_list, ValidateVari
 	VARIABLE_TABLE_LISTIterator valist;
 	//ポインタの次元、配列の次元を決める
 	int pointer_level, array_level;
-	int i,j;
+	int i;
 
 	//検証式の変数名を設定させるのに使用する
 	char variable_name[STRLEN];
@@ -219,9 +222,6 @@ void getValidate_Variable(VARIABLE_TABLE_LIST *variable_table_list, ValidateVari
 
 	CSTLString *astalisk = CSTLString_new();
 	CSTLString *variable_table_lists_name = CSTLString_new();
-
-	//ポインタで始める次元のオフセット
-	int pointer_start_offset=0;
 
 	//検証用変数としてmallocの識別番号を付加するための変数を定義する
 	/*ValidateVariableList_push_back_ref( validate_variable,
@@ -406,6 +406,20 @@ void createValidateStatement(AST * root, FUNCTION_INFORMATION_LIST *function_inf
 												root, undefined_control_check, zero_divition_check, array_unbound_check, free_violation_check);
 
 	}
+	//if文, if_else文、while文である場合
+	else if(CSTLString_compare_with_char(root->name, "if_statement") == 0 ||
+			CSTLString_compare_with_char(root->name, "ifelse_statement") == 0 ||
+			CSTLString_compare_with_char(root->name, "while_statement") == 0){
+		//条件式をもとに、検証式を追加する
+		getValidateStatementFromLogical(ASTLIST_ITERATOR_3(root), function_information_list, vtlist, validate_variable_list, validate_statement_list, ignore_ast_list,
+				root, undefined_control_check, array_unbound_check, zero_divition_check, free_violation_check);
+	}
+	//do-while文の場合
+	else if(CSTLString_compare_with_char(root->name, "dowhile_statement") == 0){
+		//条件式をもとに、検証式を追加する
+		getValidateStatementFromLogical(ASTLIST_ITERATOR_5(root), function_information_list, vtlist, validate_variable_list, validate_statement_list, ignore_ast_list,
+				root, undefined_control_check, array_unbound_check, zero_divition_check, free_violation_check);
+	}
 	//変数の定義である場合
 	else if(CSTLString_compare_with_char(root->name, "declaration_with_init") == 0){
 		//変数の初期定義を見つけ出し、それに基づいて検証内容をvalidate_statement_listへ入れる。
@@ -547,12 +561,13 @@ void getValidateStatementFromAssignStatement(AST *root, FUNCTION_INFORMATION_LIS
 		else if(ARRAY_OFFSET_LIST_size(left_array_offset_list) > 0 && ARRAY_OFFSET_LIST_size(left_array_offset_list) > 0){
 			getValidateStatementFromPointerOperator(validate_statement_list, left_array_offset_list, right_array_offset_list, right_expression, a_op_flag);
 		}
-
+		//変数リストに格納
+		addVariableOfStatementList(VariableOfStatement_new(target_expression, left_array_offset_list, right_array_offset_list));
 		//各次元のポインタや配列のオフセットに関する情報のリストを削除する
-		ARRAY_OFFSET_LIST_clear(left_array_offset_list);
-		ARRAY_OFFSET_LIST_delete(left_array_offset_list);
-		ARRAY_OFFSET_LIST_clear(right_array_offset_list);
-		ARRAY_OFFSET_LIST_delete(right_array_offset_list);
+		//ARRAY_OFFSET_LIST_clear(left_array_offset_list);
+		//ARRAY_OFFSET_LIST_delete(left_array_offset_list);
+		//ARRAY_OFFSET_LIST_clear(right_array_offset_list);
+		//ARRAY_OFFSET_LIST_delete(right_array_offset_list);
 
 		//除算および剰余算に関する情報のリストを削除する
 		DIVITION_INFORMATION_LIST_clear(divition_information_list);
@@ -588,8 +603,12 @@ void getValidateStatementFromAssignStatement(AST *root, FUNCTION_INFORMATION_LIS
 		if(ARRAY_OFFSET_LIST_size(array_offset_list) > 0){
 			createValidateStatemenFromIncDecExpr(validate_statement_list, array_offset_list);
 		}
-		ARRAY_OFFSET_LIST_clear(array_offset_list);
-		ARRAY_OFFSET_LIST_delete(array_offset_list);
+
+		//変数リストに格納
+		addVariableOfStatementList(VariableOfStatement_new(target_expression, array_offset_list, 0x0));
+
+		//ARRAY_OFFSET_LIST_clear(array_offset_list);
+		//ARRAY_OFFSET_LIST_delete(array_offset_list);
 
 		//除算および剰余算に関する情報のリストを削除する
 		DIVITION_INFORMATION_LIST_clear(divition_information_list);
@@ -632,6 +651,51 @@ void getValidateStatementFromAssignStatement(AST *root, FUNCTION_INFORMATION_LIS
 }
 
 /**
+log_or_exprとlog_and_exprを調べ、そこの中身の条件式にもとづいて、if分岐を作成する。
+@param root 指定したノード
+@param function_information_list 関数に関する情報のリスト
+@param vtlist 対象の変数リスト
+@param validate_variable_list 検証用変数リスト
+@param validate_statement_list 取得した検証式が格納するところ
+@param ignore_ast_list ポインタでの位置が検証済みである、IDENTIFIERを無視するためのASTのアドレスリスト
+@param target_expression assign_expressionが属しているexpression_statement
+@param undefined_control_check 未定義な処理（未定義ポインタの参照など）を行っていないかどうかを検証するための式を生成するかどうか １：生成する ０：生成しない
+@param zero_divition_check 0で割っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+@param array_unbound_check 配列が範囲外を参照していないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+@param free_violation_check メモリ解放関係で不正な処理を行っていないかどうかを検証するための式を生成するかどうか　１：生成する　０：生成しない
+
+ */
+void getValidateStatementFromLogical(AST *root, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+	ValidateVariableList *validate_variable_list,
+	ValidateStatementList *validate_statement_list, ASTPOINTER_LIST *ignore_ast_list,
+	AST *target_expression, int undefined_control_check, int array_unbound_check,
+	int zero_divition_flag, int free_violation_check){
+
+	CSTLString *output = CSTLString_new();
+	LogicalExpressionList *logical_expression_list = LogicalExpressionList_new();
+
+	//論理式に関するデータを生成・結果出力
+	generateLogicalExpression(root, logical_expression_list,
+			function_information_list, vtlist, ignore_ast_list,
+			undefined_control_check, array_unbound_check, zero_divition_flag);
+
+	LogicalExpressionList_print(logical_expression_list);
+
+	//論理式の検証式の生成
+	getStringFromLogical(output, LogicalExpressionList_front(logical_expression_list));
+	//検証式の追加
+	ValidateStatementList_push_back_ref(validate_statement_list,
+		new_VALIDATE_STATEMENT(
+			getNewValidateStatementID(validate_statement_list, root),
+			CHECK_VS,
+			VALIDATE_NOTUSED,
+			output,
+			root
+		)
+	);
+	printf("%s", CSTLString_c_str(output));
+}
+/**
 指定したASTノードrootから、init_declaratorを探しだし、そこからVARIDATE_STATEMENTに関する情報を取得する。
 @param root 指定したノード
 @param function_information_list 関数に関する情報のリスト
@@ -651,7 +715,6 @@ void getValidateStatementFromInitializer(AST *root, FUNCTION_INFORMATION_LIST *f
 											AST *target_expression, int undefined_control_check, int zero_divition_check, int array_unbound_check){
 	//ASTの子ノードを参照させるためのイテレータ
 	ASTListIterator ast_iterator;
-	int mode = 0;
 
 	//代入式を見つけた場合
 	if(CSTLString_compare_with_char(root->name, "init_declarator") == 0){
@@ -739,12 +802,13 @@ void getValidateStatementFromInitializer(AST *root, FUNCTION_INFORMATION_LIST *f
 		else if(ARRAY_OFFSET_LIST_size(declarator_array_offset_list) > 0 && ARRAY_OFFSET_LIST_size(initializer_array_offset_list) > 0){
 			getValidateStatementFromPointerOperator(validate_statement_list, declarator_array_offset_list, initializer_array_offset_list, initializer_expression, a_op_flag);
 		}
-
+		//変数リストに格納
+		addVariableOfStatementList(VariableOfStatement_new(target_expression, declarator_array_offset_list, initializer_array_offset_list));
 		//各次元のポインタや配列のオフセットに関する情報のリストを削除する
-		ARRAY_OFFSET_LIST_clear(declarator_array_offset_list);
-		ARRAY_OFFSET_LIST_delete(declarator_array_offset_list);
-		ARRAY_OFFSET_LIST_clear(initializer_array_offset_list);
-		ARRAY_OFFSET_LIST_delete(initializer_array_offset_list);
+		//ARRAY_OFFSET_LIST_clear(declarator_array_offset_list);
+		//ARRAY_OFFSET_LIST_delete(declarator_array_offset_list);
+		//ARRAY_OFFSET_LIST_clear(initializer_array_offset_list);
+		//ARRAY_OFFSET_LIST_delete(initializer_array_offset_list);
 
 
 	}
@@ -777,7 +841,6 @@ void getValidateStatementFromMallocNumber(ValidateStatementList *validate_statem
 	int offset_level_counter;
 
 	ARRAY_OFFSET *array_offset = ARRAY_OFFSET_LIST_data(ARRAY_OFFSET_LIST_begin(right_array_offset_list));
-	OFFSET_LISTIterator off_list_i;
 
 	//変数名を取得する
 	CSTLString_assign(variable, CSTLString_c_str(array_offset->variable_name));
@@ -794,7 +857,6 @@ void getValidateStatementFromMallocNumber(ValidateStatementList *validate_statem
 		CSTLString_printf(statement, 0, "malloc(sizeof(%s)*(%s)) ; malloc_flag_%d_%s = malloc_number ; malloc_number++ ", CSTLString_c_str(memalloc_info->sizeof_type), CSTLString_c_str(memalloc_info->size),
 		offset_level_counter, CSTLString_c_str(variable));
 	}
-
 	//検証式の追加
 	ValidateStatementList_push_back_ref(validate_statement_list,
 		new_VALIDATE_STATEMENT(
@@ -834,6 +896,11 @@ void getValidateStatementFromForIteration(ValidateStatementList *validate_statem
 	//for文の初期式の情報から、検証式を生成させる
 	getValidateStatementFromAssignStatement(target_for_information->init_expression, function_information_list, vtlist, validate_variable_list, validate_statement_list, ignore_ast_list,
 											target_for_information->init_expression, undefined_control_check, zero_divition_check, array_unbound_check, free_violation_check);
+
+	//for文の継続式の情報から、検証式を生成させる
+	getValidateStatementFromLogical(target_for_information->continue_condition, function_information_list, vtlist, validate_variable_list, validate_statement_list, ignore_ast_list,
+			target_for_information->continue_condition, undefined_control_check, array_unbound_check, zero_divition_check, free_violation_check);
+
 	//for文の増分式の情報から、検証式を生成させる
 	getValidateStatementFromAssignStatement(target_for_information->inc_dec_expression, function_information_list, vtlist, validate_variable_list, validate_statement_list, ignore_ast_list,
 											target_for_information->inc_dec_expression, undefined_control_check, zero_divition_check, array_unbound_check, free_violation_check);
@@ -856,15 +923,11 @@ void getValidateStatementFromPointerOperator(ValidateStatementList *validate_sta
 	CSTLString *left_variable_name = CSTLString_new();
 	CSTLString *right_variable_name = CSTLString_new();
 
-	//配列オフセットの内容に対するイテレータ
-	OFFSET_LISTIterator off_list_i;
 	//追加する検証式の内容
 	CSTLString *statement;
 
 	int left_offset_level;
 	int right_offset_level;
-
-	int right_array_counter;
 
 	int validate_statement_id;
 
@@ -960,7 +1023,6 @@ void getValidateStatementFromPointerOperator(ValidateStatementList *validate_sta
 
 		//IDを付加する
 		validate_statement_id = getNewValidateStatementID(validate_statement_list, left_array_offset->target_statement);
-
 		//検証式リストに追加
 		ValidateStatementList_push_back_ref(validate_statement_list, new_VALIDATE_STATEMENT( validate_statement_id, 1, VALIDATE_NOTUSED, statement, left_array_offset->target_statement));
 
@@ -1148,7 +1210,6 @@ void getBasisLocationFromAssignmentExpression(CSTLString *output, ARRAY_OFFSET_L
 
 	int right_pointer_level;
 
-	OFFSET_LISTIterator off_list_i;
 
 	ARRAY_OFFSET *left_array_offset = ARRAY_OFFSET_LIST_data(ARRAY_OFFSET_LIST_begin(left_array_offset_list));
 
@@ -1385,15 +1446,10 @@ void createValidateStatementForMallocAction(ValidateStatementList *validate_stat
 
 	//array_offset_listのデータ
 	ARRAY_OFFSET *array_offset = ARRAY_OFFSET_LIST_data(ARRAY_OFFSET_LIST_begin(array_offset_list));
-	//array_offsetのオフセットリストで参照するのに使用するイテレータ
-	OFFSET_LISTIterator off_list_i;
 	//validate_variableに対するイテレータ
 	ValidateVariableListIterator validate_variable_iterator;
 	//array_offset_listからオフセットの深さを取得する。
 	int array_offset_depth = OFFSET_LIST_size(array_offset->offset_list);
-
-	//ポインタレベル
-	int pointer_level;
 
 	int i;
 
@@ -1413,8 +1469,6 @@ void createValidateStatementForMallocAction(ValidateStatementList *validate_stat
 
 						//validate_statement_listの識別番号
 						int validate_statement_list_id;
-
-						int offset_level_counter;
 
 						CSTLString *statement = CSTLString_new();
 
@@ -1584,11 +1638,6 @@ void createValidateStatementForFreeAction(ValidateStatementList *validate_statem
 	//array_offset_listからオフセットの深さを取得する。
 	int array_offset_depth = OFFSET_LIST_size(array_offset->offset_list);
 
-	//ポインタレベル
-	int pointer_level;
-
-	int i;
-
 	for(validate_variable_iterator = ValidateVariableList_begin(validate_variable_list);
 		validate_variable_iterator != ValidateVariableList_end(validate_variable_list);
 		validate_variable_iterator = ValidateVariableList_next(validate_variable_iterator)){
@@ -1744,7 +1793,6 @@ void createValidateStatementFromArrayDefine(ValidateVariableList *validate_varia
 							exit(1);
 						}
 
-
 						ValidateStatementList_push_back_ref(validate_statement_list, new_VALIDATE_STATEMENT( getNewValidateStatementID(validate_statement_list, target_ast), MODIFY_VS, VALIDATE_NOTUSED, call_initialize , target_ast));
 					}
 
@@ -1754,7 +1802,6 @@ void createValidateStatementFromArrayDefine(ValidateVariableList *validate_varia
 
 				//IDを付加する
 				validate_statement_id = getNewValidateStatementID(validate_statement_list, VARIABLE_TABLE_LIST_data(vtlist_i)->declaration_location_address);
-
 				//検証式リストに追加
 				ValidateStatementList_push_back_ref(validate_statement_list, new_VALIDATE_STATEMENT( validate_statement_id, 1, VALIDATE_NOTUSED, output, VARIABLE_TABLE_LIST_data(vtlist_i)->declaration_location_address));
 
@@ -1869,7 +1916,6 @@ void createVaridateStatementFromPointerDefine( ValidateStatementList *validate_s
 							exit(1);
 						}
 
-
 						ValidateStatementList_push_back_ref(validate_statement_list, new_VALIDATE_STATEMENT( getNewValidateStatementID(validate_statement_list, target_ast), MODIFY_VS, VALIDATE_NOTUSED, call_initialize , target_ast));
 					}
 
@@ -1878,7 +1924,6 @@ void createVaridateStatementFromPointerDefine( ValidateStatementList *validate_s
 
 			//IDを付加する
 			validate_statement_id = getNewValidateStatementID(validate_statement_list, VARIABLE_TABLE_LIST_data(vtlist_i)->declaration_location_address);
-
 			//検証式リストに追加
 			ValidateStatementList_push_back_ref(validate_statement_list, new_VALIDATE_STATEMENT( validate_statement_id, 1, VALIDATE_NOTUSED, statement, VARIABLE_TABLE_LIST_data(vtlist_i)->declaration_location_address));
 
@@ -1915,128 +1960,20 @@ void createCheckUnboundAndUndefineOperationCheck(ValidateStatementList *validate
 		for(aoff_list_i = ARRAY_OFFSET_LIST_rbegin(array_offset_list);
 			aoff_list_i != ARRAY_OFFSET_LIST_rend(array_offset_list);
 			aoff_list_i = ARRAY_OFFSET_LIST_prev(aoff_list_i)){
-
-				//オフセットレベルの取得
-				array_offset_level = OFFSET_LIST_size(ARRAY_OFFSET_LIST_data(aoff_list_i)->offset_list);
-
-				//オフセットレベルが0を超える場合（すなわち、オフセット情報が存在する場合）
-				if(array_offset_level > 0){
-
-					//配列の形を保持する情報（処理中で使用される）
-					CSTLString *array_string = CSTLString_new();
-					CSTLString *basis_location_content = CSTLString_new();
-					CSTLString_assign(array_string, "");
-					CSTLString_assign(basis_location_content, "");
-
-					//オフセット情報を参照する
-					for(offset_level_counter = 1, off_list_i = OFFSET_LIST_begin(ARRAY_OFFSET_LIST_data(aoff_list_i)->offset_list);
-						off_list_i != OFFSET_LIST_end(ARRAY_OFFSET_LIST_data(aoff_list_i)->offset_list);
-						offset_level_counter++, off_list_i = OFFSET_LIST_next(off_list_i)){
-							int is_expression_flag = isExpression(*OFFSET_LIST_data(off_list_i));
-							//検証式を入れる文字列情報
-							CSTLString *statement = CSTLString_new();
-
-							//未定義処理チェックフラグが成り立っている場合、
-							//レベルごとの未定義処理の検証式を生成する。未定義処理の検証式の形式は以下の通りである。
-							//if(defined_階層_変数名 == 0 && max_size_階層_変数名 == 0){
-							//	printf("#ファイル名#:行数: detected undefine pointer access in variable 変数名);
-							//	assert(0);
-							//	リターン式;
-							//}
-							if(undefined_control_check){
-
-								CSTLString_printf(statement,0,"if(*defined_%d_%s%s == 0 && *malloc_flag_%d_%s%s == 0){",
-											 offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string),
-											 offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string)
-										);
-
-								CSTLString_printf(statement,1,"printf(\"#%s#:%d: detected undefine pointer access in variable %s\"); ",getFileName(), ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement->line, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name));
-
-								CSTLString_printf(statement, 1, "assert(0);");
-
-								//リターン命令の返却型に応じる変更(もし、void型であれば、「return;」にする)
-								if(CSTLString_compare_with_char(ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement->return_type, "void") == 0){
-									CSTLString_printf(statement, 1, "return; ");
-								}else{
-									CSTLString_printf(statement, 1, "return 1; ");
-								}
-
-								CSTLString_printf(statement, 1, "} ");
-
-							}
-
-							//配列範囲外チェックフラグが成り立っていた場合、
-							//レベルごとの配列範囲外参照の検証式を生成する。配列範囲外参照の式の形式は以下の通りである
-							//if(0 > 式 + 基本位置 || 式 + 基本位置 < 対象変数の配列長){
-							//	printf("#ファイル名#:行数: detected unbound access in variable 変数名 basis_location = %d 式 = %d\n", basis_location, 式);
-							//	assert(0);
-							//	リターン式;
-							//}
-							if(array_unbound_check){
-									CSTLString_printf(statement,1,"if(0 > %s + basis_location_%d_%s%s || %s + basis_location_%d_%s%s >= *max_size_%d_%s%s){",
-												 *OFFSET_LIST_data(off_list_i), offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string),
-												 *OFFSET_LIST_data(off_list_i), offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string),
-												 offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string));
-
-								CSTLString_printf(statement,1,"printf(\"#%s#:%d:detected unbound access in variable %s ",getFileName(), ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement->line, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name));
-
-								//basis_locationの内容も出力する
-								CSTLString_printf(statement,1," basis_location = %%d ");
-
-								//もし、オフセットの内容が式であれば、式＝値という形で出力する
-								if(is_expression_flag == 1){
-									CSTLString_printf(statement,1,"(%s = %%d)\\n\"", *OFFSET_LIST_data(off_list_i));
-									//basis_locationの内容を含めた引数の内容を入れる
-									CSTLString_printf(statement,1,", basis_location_%d_%s%s, %s",offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string) , *OFFSET_LIST_data(off_list_i));
-								}
-
-								//そうでなければ、値という形で出力する
-								else{
-									CSTLString_printf(statement,1,"(%s)\\n\"", *OFFSET_LIST_data(off_list_i));
-									//basis_locationの内容の引数の内容を入れる
-									CSTLString_printf(statement,1,", basis_location_%d_%s%s", offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string));
-								}
-								CSTLString_printf(statement, 1, "); ");
-
-								CSTLString_printf(statement, 1, "assert(0);");
-
-								//リターン命令の返却型に応じる変更(もし、void型であれば、「return;」にする)
-								if(CSTLString_compare_with_char(ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement->return_type, "void") == 0){
-									CSTLString_printf(statement, 1, "return; ");
-								}else{
-									CSTLString_printf(statement, 1, "return 1; ");
-								}
-
-								CSTLString_printf(statement, 1, "}");
-							}
-							//検証式の追加
-							ValidateStatementList_push_back_ref(validate_statement_list,
-								new_VALIDATE_STATEMENT(
-									getNewValidateStatementID(validate_statement_list, ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement),
-									0,
-									VALIDATE_NOTUSED,
-									statement,
-									ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement
-								)
-							);
-
-							//次のレベルのための配列を生成する。
-							CSTLString_printf(basis_location_content, 0, "basis_location_%d_%s%s", offset_level_counter, (char*)CSTLString_c_str(ARRAY_OFFSET_LIST_data(aoff_list_i)->variable_name), (char*)CSTLString_c_str(array_string));
-							CSTLString_printf(array_string, 1," [ %s + %s ]", *OFFSET_LIST_data(off_list_i), (char*)CSTLString_c_str(basis_location_content));
-
-
-					}
-
-					CSTLString_delete(array_string);
-					CSTLString_delete(basis_location_content);
-
-				}
-
-
+				CSTLString *statement = CSTLString_new();
+				writeArrayCheck(statement, aoff_list_i, undefined_control_check, array_unbound_check);
+				//検証式の追加
+				ValidateStatementList_push_back_ref(validate_statement_list,
+					new_VALIDATE_STATEMENT(
+						getNewValidateStatementID(validate_statement_list, ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement),
+						0,
+						VALIDATE_NOTUSED,
+						statement,
+						ARRAY_OFFSET_LIST_data(aoff_list_i)->target_statement
+					)
+				);
 			}
 		}
-
-
 }
 
 /**
@@ -2246,7 +2183,6 @@ void createViolentFreeOperation(ValidateStatementList *validate_statement_list, 
 	}
 
 	CSTLString_printf(statement, 1, "}");
-
 	//検証式の追加
 	ValidateStatementList_push_back_ref(validate_statement_list,
 		new_VALIDATE_STATEMENT(
@@ -2275,49 +2211,10 @@ void createZeroDivitionCheck(ValidateStatementList *validate_statement_list, DIV
 	for(di_i = DIVITION_INFORMATION_LIST_rbegin(divition_information_list);
 		di_i != DIVITION_INFORMATION_LIST_rend(divition_information_list);
 		di_i = DIVITION_INFORMATION_LIST_prev(di_i)){
-			//式に関するCSTL文字列を生成
+
 			CSTLString *statement = CSTLString_new();
-			CSTLString *identifires_list = CSTLString_new();
-			CSTLString *parameter_list = CSTLString_new();
-			CSTLString *output = CSTLString_new();
-			//次のような式を生成する
-			//if( (式) == 0 ){ printf("#ファイル名#:行数:detected zero (divition/mod) operation in expression 式"); assert(0); リターン式; }
-			CSTLString_printf(statement, 0, "if( (%s) == 0 ){ printf(\"#%s#:%d:detected zero ", CSTLString_c_str(DIVITION_INFORMATION_LIST_data(di_i)->statement),
-				getFileName(), DIVITION_INFORMATION_LIST_data(di_i)->target_expression->line);
-
-			//式のタイプが除算か剰余算によってメッセージを変える
-			if(DIVITION_INFORMATION_LIST_data(di_i)->type == TYPE_DIV){
-				CSTLString_printf(statement, 1, "division ");
-			}else{
-				CSTLString_printf(statement, 1, "mod ");
-			}
-			CSTLString_printf(statement, 1, "oparation in expression %s ", CSTLString_c_str(DIVITION_INFORMATION_LIST_data(di_i)->statement));
-
-			//配列オフセットリストから各識別子の情報を出力させ、式に追加していく
-			for(aoff_list_i = ARRAY_OFFSET_LIST_begin(DIVITION_INFORMATION_LIST_data(di_i)->identifiers);
-				aoff_list_i != ARRAY_OFFSET_LIST_end(DIVITION_INFORMATION_LIST_data(di_i)->identifiers);
-				aoff_list_i = ARRAY_OFFSET_LIST_next(aoff_list_i)){
-					createArrayExpression(output, ARRAY_OFFSET_LIST_data(aoff_list_i), INT_MAX);
-					CSTLString_printf(identifires_list, 1, "%s = %%d", CSTLString_c_str(output));
-					//識別子情報の最後でなければ、カンマ区切りする
-					if(ARRAY_OFFSET_LIST_next(aoff_list_i) != ARRAY_OFFSET_LIST_end(DIVITION_INFORMATION_LIST_data(di_i)->identifiers)){
-						CSTLString_printf(identifires_list, 1,", ");
-					}
-
-					CSTLString_printf(parameter_list, 1, ", %s", CSTLString_c_str(output));
-
-				}
-			CSTLString_printf(statement, 1, "( %s )\"%s); assert(0);", CSTLString_c_str(identifires_list), CSTLString_c_str(parameter_list));
-
-			//リターン命令の返却型に応じる変更(もし、void型であれば、「return;」にする)
-			if(CSTLString_compare_with_char(DIVITION_INFORMATION_LIST_data(di_i)->target_expression->return_type, "void") == 0){
-				CSTLString_printf(statement, 1, "return; ");
-			}else{
-				CSTLString_printf(statement, 1, "return 1; ");
-			}
-
-			CSTLString_printf(statement, 1, "}");
-
+			//ゼロ除算の検証式の生成
+			writeZeroCheck(statement, di_i);
 			//生成された検証式の追加
 			ValidateStatementList_push_back_ref(validate_statement_list,
 				new_VALIDATE_STATEMENT(
@@ -2329,9 +2226,6 @@ void createZeroDivitionCheck(ValidateStatementList *validate_statement_list, DIV
 				)
 			);
 
-			CSTLString_delete(identifires_list);
-			CSTLString_delete(parameter_list);
-			CSTLString_delete(output);
 		}
 }
 /**
@@ -2620,6 +2514,35 @@ void printValidateStatementList(ValidateStatementList *validate_statement_list){
 
 }
 
+
+/**
+ * TODO:○式に対する配列オフセット情報の取得する関数の作成（左辺および右辺の配列オフセット情報の取得）
+ */
+void getArrayOffsetListFromStatement(AST *root, ARRAY_OFFSET_LIST *left_array_offset_list, ARRAY_OFFSET_LIST *right_array_offset_list, FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist,
+		  ASTPOINTER_LIST *ignore_ast_list, AST *target_statement){
+	if(CSTLString_compare_with_char(root->name,"assignment_expression") == 0){
+		//代入式の左辺値について探索させる（子ノードの１番目の参照）
+		getARRAY_OFFSET_LIST(ASTLIST_ITERATOR_1(root), left_array_offset_list, function_information_list, vtlist,
+								  ignore_ast_list, target_statement);
+		//代入式の右辺式について探索させる（子ノードの３番目の参照）
+		getARRAY_OFFSET_LIST(ASTLIST_ITERATOR_3(root), right_array_offset_list, function_information_list, vtlist,
+								  ignore_ast_list, target_statement);
+	}else if(CSTLString_compare_with_char(root->name,"t_assignment_expression") == 0){
+		getARRAY_OFFSET_LIST(root, left_array_offset_list, function_information_list, vtlist,
+								  ignore_ast_list, target_statement);
+	}else{
+		ASTListIterator i;
+		for(i = ASTList_begin(root->children);
+				i != ASTList_end(root->children);
+				i = ASTList_next(i)){
+			getArrayOffsetListFromStatement(ASTList_data(i), left_array_offset_list, right_array_offset_list,
+					function_information_list, vtlist, ignore_ast_list, target_statement);
+		}
+	}
+
+}
+
+//TODO:○必要な引数の追加
 /**
 fprintProgramDataWithVaridateStatementの内部処理。
 
@@ -2633,7 +2556,8 @@ fprintProgramDataWithVaridateStatementの内部処理。
 @return なし
 */
 void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, ValidateVariableList *validate_variable_list,
- ValidateStatementList *validate_statement_list, ForInformationList *for_information_list, int *line){
+ ValidateStatementList *validate_statement_list, ForInformationList *for_information_list,
+ FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist, ASTPOINTER_LIST *ignore_ast_list, int *line){
 	ASTListIterator p;
 	ValidateVariableListIterator vvlist_i;
 
@@ -2658,7 +2582,7 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 			}
 		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
 		for(p = ASTList_begin(root->children); p != ASTList_end(root->children); p = ASTList_next(p)){
-			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 		}
 	}
 	//リーフノード（子ASTノードの数が0のASTノード）の場合
@@ -2707,26 +2631,29 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 			fprintf(output, "\n");
 			*line = *line + 1;
 		}
+		//TODO:○変数の事前事後式を作るために配列オフセット情報を取得する
+		ARRAY_OFFSET_LIST *left_array_offset_list = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *right_array_offset_list = ARRAY_OFFSET_LIST_new();
+		getArrayOffsetListFromStatement(root, left_array_offset_list, right_array_offset_list, function_information_list, vtlist, ignore_ast_list, root);
 
+		//発生経路を出力するためにxmlを出力させる。
+		printXmlData(output, root, "expression");
+		writeFormerVariableXML(output, left_array_offset_list, right_array_offset_list, vtlist);
 		//該当するexpression_statementに対するチェック用検証式を全て出力させる
 		fprintValidateStatement(output, validate_statement_list, root, CHECK_VS, FALSE);
 
 		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
 		for(p = ASTList_begin(root->children); p != ASTList_end(root->children); p = ASTList_next(p)){
-			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 		}
 
 		//該当するexpression_statementに対する検証式変更用の検証式を全て出力させる
 		fprintValidateStatement(output, validate_statement_list, root, MODIFY_VS, FALSE);
+		writeAfterVariableXML(output, left_array_offset_list, vtlist);
+		fprintf(output, "printf(\"</source>\");");
 
-		//発生経路を出力するために式を出力させる。
-		CSTLString *c = CSTLString_new();
-		getStringFromAST(c,root);
-		CSTLString_replace_string(c,"\\","\\\\");
-		CSTLString_replace_string(c,"\"","\\\"");
-		CSTLString_replace_string(c,"%","%%");
-		fprintf(output, "printf(\"#%s:%d#%s\\n\");\n",getFileName(), root->line, CSTLString_c_str(c));
-
+		ARRAY_OFFSET_LIST_delete(left_array_offset_list);
+		ARRAY_OFFSET_LIST_delete(right_array_offset_list);
 	}
 	//for文系統が来た場合、whileの形に直しながら、検証式を入れていく
 	else if(CSTLString_compare_with_char(root->name, "for_statement_type_a") == 0 ||
@@ -2739,66 +2666,132 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 		//当てはまるfor文の情報を取得する
 		ForInformation *for_information = searchFOR_INFORMATION_FromAST(for_information_list, root);
 
+		//TODO:○初期式の変数の事前事後式を作るために配列オフセット情報を取得する
+		ARRAY_OFFSET_LIST *init_laoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *init_raoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *branch_laoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *branch_raoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *inc_laoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *inc_raoff = ARRAY_OFFSET_LIST_new();
+		getArrayOffsetListFromStatement(for_information->init_expression, init_laoff, init_raoff, function_information_list, vtlist, ignore_ast_list, root);
+		//TODO:○分岐の変数の事前式を作るために配列オフセット情報を取得する
+		getArrayOffsetListFromStatement(for_information->continue_condition, branch_laoff, branch_laoff, function_information_list, vtlist, ignore_ast_list, root);
+		//TODO:○増分式の変数の事前事後式を作るために配列オフセット情報を取得する
+		getArrayOffsetListFromStatement(for_information->inc_dec_expression, inc_laoff, inc_raoff, function_information_list, vtlist, ignore_ast_list, root);
+
 		//ASTノードの行数と引数の行数がかみ合わないとき、改行を出力させ、出力する行数を調整する
 		while(*line < for_information->init_expression->line){
 			fprintf(output, "\n");
 			*line = *line + 1;
 		}
+		//FOR文の初期式をXMLで出力させる
+		printXmlData(output, for_information->init_expression, "init");
+
+		//TODO:○初期式の事前式の変数情報を出力
+		writeFormerVariableXML(output, init_laoff, init_raoff, vtlist);
+
 		//まず初期式をチェック式および検証用変数の編集式を含ませて出力させる
 		getStringFromAST(statement, for_information->init_expression);
 		fprintValidateStatement(output, validate_statement_list, for_information->init_expression, CHECK_VS, FALSE);
 		fprintf(output, "%s ", CSTLString_c_str(statement));
 		fprintValidateStatement(output, validate_statement_list, for_information->init_expression, MODIFY_VS, FALSE);
 
+		//TODO:○初期式の事後情報の変数情報を出力
+		writeAfterVariableXML(output, init_laoff, vtlist);
 
+		fprintf(output, "printf(\"</source>\");");
 		//次に条件式を" while(条件式){for文内の式 " の形式にする
 		CSTLString_assign(statement, "");
 		getStringFromAST(statement, for_information->continue_condition);
 		//セミコロンは余分なので削除する
 		CSTLString_replace_string(statement, ";", "");
+
+		//FOR文の継続式をXMLで出力させる
+		printXmlData(output, for_information->continue_condition, "repeat_branch");
+
+		//TODO:○継続式の事前式の変数情報を出力
+		writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+
+		fprintValidateStatement(output, validate_statement_list, for_information->continue_condition, CHECK_VS, FALSE);
+
+		fprintf(output, "printf(\"</source>\");");
+
 		fprintf(output, "while( %s ) {", CSTLString_c_str(statement));
 
 		//for文内の式は再帰的に呼び出す
-		fprintProgramDataWithVaridateStatement_Internal(output, for_information->statement, validate_variable_list, validate_statement_list, for_information_list, line);
+		fprintProgramDataWithVaridateStatement_Internal(output, for_information->statement, validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 
 		//最後に増分式があれば、それをチェック式および検証用変数の編集式を含ませて出力させる
 		if(for_information->inc_dec_expression != NULL){
 			CSTLString_assign(statement, "");
 			getStringFromAST(statement, for_information->inc_dec_expression);
+			//FOR文の増分式をXMLで出力させる
+			printXmlData(output, for_information->inc_dec_expression, "expression");
+
+			//TODO:○増分式の事前式の変数情報を出力
+			writeFormerVariableXML(output, inc_laoff, inc_raoff, vtlist);
+
 			fprintValidateStatement(output, validate_statement_list, for_information->inc_dec_expression, CHECK_VS, FALSE);
 			fprintf(output, "\n%s ; ", CSTLString_c_str(statement));
 			fprintValidateStatement(output, validate_statement_list, for_information->inc_dec_expression, MODIFY_VS, FALSE);
+
+			//TODO:○増分式の事前式の変数情報を出力
+			writeAfterVariableXML(output, inc_laoff, vtlist);
+
+			fprintf(output, "printf(\"</source>\");");
+
+
 		}
 
+		//FOR文の継続式をXMLで出力させる
+		printXmlData(output, for_information->continue_condition, "repeat_branch");
+		//TODO:○継続式の事前式の変数情報を出力
+		writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+
+		fprintValidateStatement(output, validate_statement_list, for_information->continue_condition, CHECK_VS, TRUE);
+
+		fprintf(output, "printf(\"</source>\");");
 		//大かっこで区切って終了
 		fprintf(output, "} ");
 		CSTLString_delete(statement);
 	}
 	//if文、switch文、while文、do-while文が来た場合
 	else if(CSTLString_compare_with_char(root->name, "if_statement") == 0 ||
-		CSTLString_compare_with_char(root->name, "switch_statement") == 0 ||
-		CSTLString_compare_with_char(root->name, "while_statement") == 0 ||
-		CSTLString_compare_with_char(root->name, "dowhile_statement") == 0){
+		CSTLString_compare_with_char(root->name, "switch_statement") == 0){
+		//TODO:○分岐の変数の事前式を作るために配列オフセット情報を取得する
+		ARRAY_OFFSET_LIST *branch_laoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *branch_raoff = ARRAY_OFFSET_LIST_new();
+		getArrayOffsetListFromStatement(ASTLIST_ITERATOR_3(root), branch_laoff, branch_laoff, function_information_list, vtlist, ignore_ast_list, ASTLIST_ITERATOR_3(root));
+		/*発生経路のプログラムの出力*/
+		printXmlData(output, ASTLIST_ITERATOR_3(root), "branch");
+
+		//TODO:○分岐の事前式の変数情報を出力
+		writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+
+		fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, FALSE);
+		fprintf(output, "printf(\"</source>\");");
+
 		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
 		for(p = ASTList_begin(root->children);
 			CSTLString_compare_with_char(ASTList_data(p)->name, "statement") != 0 &&
 			p != ASTList_end(root->children);
 			p = ASTList_next(p)){
-			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 		}
 		//statementが来た場合
 		if(CSTLString_compare_with_char(ASTList_data(p)->name, "statement") == 0){
+
 			//ブロック付きの命令でない場合
 			if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0 &&
-			CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0){
+			CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") != 0){
 				//かっこを追加したうえ、追加させる
 				fprintf(output, "{ ");
-				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 				fprintf(output, "} ");
 			}
 			//ブロック付きの場合
 			else{
-				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 			}
 		}
 		//statement以降に文章があれば、それも再帰的に出力させる
@@ -2806,13 +2799,154 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 			for(p = ASTList_next(p);
 				p != ASTList_end(root->children);
 				p = ASTList_next(p)){
-				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 			}
 		}
 
 	}
+	else if(CSTLString_compare_with_char(root->name, "dowhile_statement") == 0){
+
+		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
+		for(p = ASTList_begin(root->children);
+			CSTLString_compare_with_char(ASTList_data(p)->name, "statement") != 0 &&
+			p != ASTList_end(root->children);
+			p = ASTList_next(p)){
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+		}
+		//statementが来た場合
+		if(CSTLString_compare_with_char(ASTList_data(p)->name, "statement") == 0){
+
+			//ブロック付きの命令でない場合
+			if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0 &&
+			CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") != 0){
+				//TODO:○分岐の変数の事前式を作るために配列オフセット情報を取得する
+				ARRAY_OFFSET_LIST *branch_laoff = ARRAY_OFFSET_LIST_new();
+				ARRAY_OFFSET_LIST *branch_raoff = ARRAY_OFFSET_LIST_new();
+				getArrayOffsetListFromStatement(ASTLIST_ITERATOR_5(root), branch_laoff, branch_laoff, function_information_list, vtlist, ignore_ast_list, root);
+				//かっこを追加したうえ、追加させる
+				fprintf(output, "{ ");
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+				/*T発生経路のプログラムの出力*/
+				printXmlData(output, ASTLIST_ITERATOR_5(root), "repeat_branch");
+				//TODO:○分岐の事前式の変数情報を出力
+				writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+				fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_5(root), CHECK_VS, FALSE);
+				fprintf(output, "printf(\"</source>\");");
+				fprintf(output, "} ");
+			}
+			//ブロック付きの場合
+			else{
+				//TODO:○分岐の変数の事前式を作るために配列オフセット情報を取得する
+				ARRAY_OFFSET_LIST *branch_laoff = ARRAY_OFFSET_LIST_new();
+				ARRAY_OFFSET_LIST *branch_raoff = ARRAY_OFFSET_LIST_new();
+				getArrayOffsetListFromStatement(ASTLIST_ITERATOR_5(root), branch_laoff, branch_laoff, function_information_list, vtlist, ignore_ast_list, root);
+				if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") == 0){
+
+					fprintf(output, "{ ");
+					fprintProgramDataWithVaridateStatement_Internal(output, ASTLIST_ITERATOR_2(ASTLIST_ITERATOR_1(ASTList_data(p))), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+
+					printXmlData(output, ASTLIST_ITERATOR_5(root), "repeat_branch");
+					//TODO:○分岐の事前式の変数情報を出力
+					writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+					fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_5(root), CHECK_VS, FALSE);
+					fprintf(output, "printf(\"</source>\");");
+					fprintf(output, "} ");
+				}
+				else{
+					fprintf(output, "{ ");
+
+					printXmlData(output, ASTLIST_ITERATOR_5(root), "repeat_branch");
+					//TODO:○分岐の事前式の変数情報を出力
+					writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+					fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_5(root), CHECK_VS, FALSE);
+					fprintf(output, "printf(\"</source>\");");
+					fprintf(output, "} ");
+				}
+			}
+		}
+		//statement以降に文章があれば、それも再帰的に出力させる
+		if(p != ASTList_end(root->children)){
+			for(p = ASTList_next(p);
+				p != ASTList_end(root->children);
+				p = ASTList_next(p)){
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+			}
+		}
+	}
+	else if(CSTLString_compare_with_char(root->name, "while_statement") == 0){
+		//TODO:○分岐の変数の事前式を作るために配列オフセット情報を取得する
+		ARRAY_OFFSET_LIST *branch_laoff = ARRAY_OFFSET_LIST_new();
+		ARRAY_OFFSET_LIST *branch_raoff = ARRAY_OFFSET_LIST_new();
+		getArrayOffsetListFromStatement(ASTLIST_ITERATOR_3(root), branch_laoff, branch_laoff, function_information_list, vtlist, ignore_ast_list, root);
+		printXmlData(output, ASTLIST_ITERATOR_3(root), "repeat_branch");
+		//TODO:○分岐の事前式の変数情報を出力
+		writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+		fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, FALSE);
+		fprintf(output, "printf(\"</source>\");");
+
+		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
+		for(p = ASTList_begin(root->children);
+			CSTLString_compare_with_char(ASTList_data(p)->name, "statement") != 0 &&
+			p != ASTList_end(root->children);
+			p = ASTList_next(p)){
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+		}
+		//statementが来た場合
+		if(CSTLString_compare_with_char(ASTList_data(p)->name, "statement") == 0){
+
+			//ブロック付きの命令でない場合
+			if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0 &&
+			CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") != 0){
+				//かっこを追加したうえ、追加させる
+				fprintf(output, "{ ");
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+
+				printXmlData(output, ASTLIST_ITERATOR_3(root), "repeat_branch");
+				//TODO:○分岐の事前式の変数情報を出力
+				writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+				fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, TRUE);
+				fprintf(output, "printf(\"</source>\");");
+				fprintf(output, "} ");
+			}
+			//ブロック付きの場合
+			else{
+				if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") == 0){
+					fprintf(output, "{ ");
+					fprintProgramDataWithVaridateStatement_Internal(output, ASTLIST_ITERATOR_2(ASTLIST_ITERATOR_1(ASTList_data(p))), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+					printXmlData(output, ASTLIST_ITERATOR_3(root), "repeat_branch");
+					//TODO:○分岐の事前式の変数情報を出力
+					writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+					fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, TRUE);
+					fprintf(output, "printf(\"</source>\");");
+					fprintf(output, "} ");
+				}
+				else{
+					fprintf(output, "{ ");
+					printXmlData(output, ASTLIST_ITERATOR_3(root), "repeat_branch");
+					//TODO:○分岐の事前式の変数情報を出力
+					writeFormerVariableXML(output, branch_laoff, branch_raoff, vtlist);
+					fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, TRUE);
+					fprintf(output, "printf(\"</source>\");");
+					fprintf(output, "} ");
+				}
+			}
+		}
+		//statement以降に文章があれば、それも再帰的に出力させる
+		if(p != ASTList_end(root->children)){
+			for(p = ASTList_next(p);
+				p != ASTList_end(root->children);
+				p = ASTList_next(p)){
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
+			}
+		}
+	}
 	//if-else文が来た場合
 	else if(CSTLString_compare_with_char(root->name, "ifelse_statement") == 0){
+		/*発生経路のプログラムの出力*/
+		printXmlData(output, ASTLIST_ITERATOR_3(root), "branch");
+		fprintValidateStatement(output, validate_statement_list, ASTLIST_ITERATOR_3(root), CHECK_VS, FALSE);
+		fprintf(output, "printf(\"</source>\");");
+
 		p = ASTList_begin(root->children);
 		while(p != ASTList_end(root->children)){
 			//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
@@ -2820,21 +2954,22 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 				CSTLString_compare_with_char(ASTList_data(p)->name, "statement") != 0 &&
 				p != ASTList_end(root->children);
 				p = ASTList_next(p)){
-				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+				fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 			}
 			//statementが来た場合
 			if(CSTLString_compare_with_char(ASTList_data(p)->name, "statement") == 0){
+
 				//ブロック付きの命令でない場合
 				if(CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_a") != 0 &&
 				CSTLString_compare_with_char(ASTLIST_ITERATOR_1(ASTList_data(p))->name, "compound_statement_b") != 0){
 					//かっこを追加したうえ、追加させる
 					fprintf(output, "{ ");
-					fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+					fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 					fprintf(output, "} ");
 				}
 				//ブロック付きの場合
 				else{
-					fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+					fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 				}
 				//このときも１つずらす
 				p = ASTList_next(p);
@@ -2877,10 +3012,12 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 	else{
 		//ASTノードが子ASTノードの情報を持っていたら、子ASTノードについて再帰的に参照させる
 		for(p = ASTList_begin(root->children); p != ASTList_end(root->children); p = ASTList_next(p)){
-			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, line);
+			fprintProgramDataWithVaridateStatement_Internal(output, ASTList_data(p), validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, line);
 		}
 	}
 }
+
+
 
 /**
 検証式リストとともにプログラムデータを出力する。
@@ -2892,12 +3029,14 @@ void fprintProgramDataWithVaridateStatement_Internal(FILE *output, AST *root, Va
 
 @return なし
 */
-void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list){
+void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list,
+		 FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist){
 
 	int line = 1;
-
-	fprintProgramDataWithVaridateStatement_Internal(stdout, root, validate_variable_list, validate_statement_list, for_information_list, &line);
-
+	ASTPOINTER_LIST *ignore_ast_list = ASTPOINTER_LIST_new();
+	//TODO:○必要な引数の追加
+	fprintProgramDataWithVaridateStatement_Internal(stdout, root, validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, &line);
+	ASTPOINTER_LIST_delete(ignore_ast_list);
 }
 
 /**
@@ -2911,10 +3050,14 @@ void printProgramDataWithValidateStatement(AST *root, ValidateVariableList *vali
 
 @return なし
 */
-void fprintProgramDataWithValidateStatement(FILE *output, AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list){
+void fprintProgramDataWithValidateStatement(FILE *output, AST *root, ValidateVariableList *validate_variable_list, ValidateStatementList *validate_statement_list, ForInformationList *for_information_list,
+		 FUNCTION_INFORMATION_LIST *function_information_list, VARIABLE_TABLE_LIST *vtlist){
 	if(output != NULL){
 		int line = 1;
-		fprintProgramDataWithVaridateStatement_Internal(output, root, validate_variable_list, validate_statement_list, for_information_list, &line);
+		//TODO:○必要な引数の追加
+		ASTPOINTER_LIST *ignore_ast_list = ASTPOINTER_LIST_new();
+		fprintProgramDataWithVaridateStatement_Internal(output, root, validate_variable_list, validate_statement_list, for_information_list, function_information_list, vtlist, ignore_ast_list, &line);
+		ASTPOINTER_LIST_delete(ignore_ast_list);
 	}
 	//もし、ファイル構造体がNULLである場合はエラーを出力したうえ、強制終了させる
 	else{
@@ -2937,7 +3080,6 @@ void fprintProgramDataWithValidateStatement(FILE *output, AST *root, ValidateVar
 void fprintValidateStatement(FILE *output, ValidateStatementList *validate_statement_list, AST *target_ast, int check_or_modify, int allow_output_used_statement){
 
 	int output_id;
-	ValidateStatement *output_validate_statement;
 	ValidateStatementListIterator vslist_i;
 
 	//もし、使用済みの検証式も出力する場合は、使用済みの検証式をすべて未使用に変更する。
@@ -2995,7 +3137,6 @@ void fprintValidateStatement(FILE *output, ValidateStatementList *validate_state
 void fprintValidateStatement_not_assert(FILE *output, ValidateStatementList *validate_statement_list, AST *target_ast, int check_or_modify, int allow_output_used_statement){
 
 	int output_id;
-	ValidateStatement *output_validate_statement;
 	ValidateStatementListIterator vslist_i;
 
 	CSTLString *output_validate_statement_string = CSTLString_new();
@@ -3411,8 +3552,8 @@ void getASTList_FromValidateStatementList(ValidateStatementList *validate_statem
 		vs_list = ValidateStatementList_next(vs_list)){
 
 		//もし、tmpが未定義か異なる値が出た場合
-		if(tmp == NULL || ValidateStatementList_data(vs_list)->check_or_modify == CHECK_VS &&
-				tmp != ValidateStatementList_data(vs_list)->target_statement){
+		if(tmp == NULL || (ValidateStatementList_data(vs_list)->check_or_modify == CHECK_VS &&
+				tmp != ValidateStatementList_data(vs_list)->target_statement)){
 			tmp = ValidateStatementList_data(vs_list)->target_statement;
 			ASTPOINTER_LIST_push_back(ast_node_list, tmp);
 		}
